@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Frank+Ruhl+Libre:wght=500;700;900&display=swap" rel="stylesheet">
 
     <style>
         /* ------------------------------------------- */
@@ -43,7 +43,7 @@
 
         /* 💡 עדכון הגופן לכותרות */
         h1, h2, h3, h4 {
-            font-family: 'Frank Ruhl Libre', serif;
+            font-family: 'Frank Ruhl+Libre', serif;
             font-weight: 700;
             color: var(--secondary);
         }
@@ -64,7 +64,7 @@
         }
 
         /* ------------------------------------------- */
-        /* 🏔️ Hero Section (דף נחיתה) - (ללא שינוי מהותי) */
+        /* 🏔️ Hero Section */
         /* ------------------------------------------- */
         .hero {
             height: 100vh;
@@ -191,13 +191,13 @@
         /* עיצוב חדש לכרטיס כדי שיכיל תמונה */
         .family-card {
             background: var(--card-bg);
-            padding: 0; /* מוריד ריפוד כדי שהתמונה תגיע לקצה */
+            padding: 0; 
             border-radius: var(--radius);
             border: 2px solid transparent;
             transition: 0.3s;
-            box-shadow: var(--shadow-soft); /* מוסיף צל חם ונעים */
-            text-align: right; /* יישור הטקסט לימין */
-            overflow: hidden; /* חיתוך תמונה בפינות */
+            box-shadow: var(--shadow-soft); 
+            text-align: right; 
+            overflow: hidden; 
         }
 
         .family-card:hover {
@@ -219,12 +219,10 @@
             background-size: cover;
             background-position: center;
             transition: transform 0.3s;
-            display: flex; /* לטובת המרכוז בפלייסיהולדר */
+            display: flex; 
             align-items: center;
             justify-content: center;
         }
-        
-        /* סגנון לפלייסיהולדרים (הוסר, כעת יש תמונות לכולם) */
         
         .family-card h4 {
             font-size: 1.3rem;
@@ -311,7 +309,7 @@
             font-weight: 700;
             cursor: pointer;
             transition: 0.3s;
-            font-family: 'Assistant', sans-serif; /* משאיר את ה-Assistant לפילטרים */
+            font-family: 'Assistant', sans-serif; 
         }
 
         .filter-btn:hover, .filter-btn.active {
@@ -457,7 +455,7 @@
             color: var(--text-main);
             padding: 10px 15px;
             border-radius: 5px;
-            font-size: 0.95rem; /* קטן יותר מהטקסט הרגיל */
+            font-size: 0.95rem; 
             font-weight: 600;
         }
         
@@ -485,126 +483,104 @@
         }
         
         /* ------------------------------------------- */
-        /* 🏡 סקשן מעברי הלינה */
+        /* 🏡 סקשן הלינה */
         /* ------------------------------------------- */
         .lodging-flow-section {
-            padding: 5rem 0;
-            background-color: white;
+            padding: 4rem 0;
+            background-color: #f0f0f0; 
             text-align: center;
         }
-
+        
         .lodging-grid {
-            max-width: 1000px;
-            margin: 30px auto;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 20px;
             display: grid;
-            gap: 25px;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        }
-
-        .lodging-card {
-            background: var(--bg-body);
-            border-radius: var(--radius);
-            padding: 20px;
-            box-shadow: var(--shadow-soft);
-            text-align: right;
-            border-top: 5px solid var(--primary);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .lodging-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .lodging-card h4 {
-            font-size: 1.6rem;
-            color: var(--accent);
-            margin-bottom: 5px;
-        }
-
-        .lodging-card .days-span {
-            display: block;
-            color: var(--text-main);
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .lodging-card ul {
-            text-align: right;
-            margin-top: 10px;
-            padding-right: 0;
-        }
-
-        .lodging-card ul li {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            padding-right: 20px;
-            position: relative;
-        }
-
-        .lodging-card ul li::before {
-            content: '🏠';
-            color: var(--highlight);
-            right: 0;
-            position: absolute;
-            font-size: 1rem;
+            gap: 25px;
+            margin-top: 30px;
         }
         
+        .lodging-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-soft);
+            text-align: right;
+            border-right: 5px solid var(--primary);
+        }
+        
+        .lodging-card h4 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .lodging-card .days-span {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .lodging-card ul {
+            padding-right: 10px;
+            list-style: disc;
+            color: var(--text-main);
+        }
+        
+        .lodging-card ul li {
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
         /* ------------------------------------------- */
-        /* 💡 סקשן הטיפים הכלליים (חדש) */
+        /* 🌟 סקשן הטיפים הכלליים */
         /* ------------------------------------------- */
         .general-tips-section {
-            padding: 4rem 0 5rem 0;
-            background: #E8F5E9; /* רקע בהיר מיוחד לטיפים */
+            padding: 4rem 0 6rem;
+            background-color: white;
         }
 
         .general-tips-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         .general-tips-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             margin-top: 30px;
         }
 
         .tip-card {
-            background: var(--card-bg);
+            background: #F0F7F4;
             padding: 25px;
             border-radius: var(--radius);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            border-right: 4px solid var(--primary);
-            transition: transform 0.3s;
-        }
-
-        .tip-card:hover {
-            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--highlight);
         }
 
         .tip-card h4 {
             font-size: 1.3rem;
-            color: var(--accent);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #D4E4DD;
+            padding-bottom: 10px;
         }
 
         .tip-card ul {
-            padding-right: 15px;
-            text-align: right;
+            list-style: disc;
+            padding-right: 20px;
+            color: var(--text-main);
+            font-size: 0.95rem;
         }
 
         .tip-card ul li {
-            font-size: 1.05rem;
-            color: var(--text-main);
-            margin-bottom: 8px;
-            list-style: disc; /* החזרת נקודה לרשימה זו */
+            margin-bottom: 10px;
         }
         
         /* ------------------------------------------- */
@@ -616,17 +592,21 @@
             .intro-text { font-size: 1.1rem; }
             .lodging-grid { grid-template-columns: 1fr; }
             .general-tips-grid { grid-template-columns: 1fr; }
+            .family-card { max-width: 350px; margin: 0 auto; }
+            .families-grid { gap: 40px; }
         }
 
-        /* מיפוי תמונות רקע (ללא שינוי) */
+        /* מיפוי תמונות רקע */
         #img-day1 { background-image: url('day1.png'); }
         #img-day2 { background-image: url('day2.png'); }
         #img-day3 { background-image: url('day3.png'); }
-        #img-day4 { background-image: url('day4.png'); }
-        #img-day5 { background-image: url('day5.png'); }
-        #img-day6 { background-image: url('day6.png'); }
-        #img-day7 { background-image: url('day7.png'); }
-        #img-day8 { background-image: url('day8.png'); }
+        /* Therme Amadé */
+        #img-day4 { background-image: url('day4.png'); } 
+        #img-day5 { background-image: url('day5.png'); } 
+        #img-day6 { background-image: url('day6.png'); } 
+        #img-day7 { background-image: url('day7.png'); } 
+        /* Achensee (תוקן) */
+        #img-day8 { background-image: url('day8.png'); } 
         #img-day9 { background-image: url('day9.png'); }
         #img-day10 { background-image: url('day10.png'); }
         #img-day11 { background-image: url('day11.png'); }
@@ -702,6 +682,15 @@
         </div>
     </section>
 
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="#intro">המשלחת</a></li>
+            <li><a href="#timeline">המסלול המלא</a></li>
+            <li><a href="#lodging-flow-section">🏡 מעברי לינה</a></li>
+            <li><a href="#general-tips">⭐ טיפים כלליים</a></li>
+        </ul>
+    </nav>
+
     <section id="timeline" class="timeline-section">
         <div class="timeline-container">
             <div style="text-align: center; margin-bottom: 40px;" class="fade-in-section">
@@ -714,6 +703,7 @@
                 <button class="filter-btn" data-filter="city">🏙️ עיר</button>
                 <button class="filter-btn" data-filter="nature">⛰️ טבע</button>
                 <button class="filter-btn" data-filter="water">💧 מים</button>
+                <button class="filter-btn" data-filter="kids">👪 ילדים/אקשן</button> 
             </div>
 
             <div id="days-container">
@@ -771,26 +761,27 @@
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day3" data-type="nature water">
+                <div class="day-card fade-in-section" id="day3" data-type="nature water kids">
                     <div class="day-image" id="img-day3">
-                        <span class="day-tag">גלויות</span>
+                        <span class="day-tag">גלויות & ילדים</span>
                     </div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 3: חלום בהאלשטאט וסביבתה</h3>
+                            <h3>יום 3: האלשטאט ו מכרה המלח (Salzwelten)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                             <blockquote>
                                 **טיפ יומי:** האלשטאט יעד מתוייר. נסו להגיע **מוקדם** (לפני 9:30) כדי להימנע מצפיפות. 
-                                **אופציית יום גשם:** מכרות המלח! פעילות פנימית וכיפית לילדים (רק לא לשכוח שכבה, בפנים ~8°).
+                                **מכרות המלח:** פעילות פנימית וכיפית לילדים (רק לא לשכוח שכבה, בפנים ~8°). מקבלים דוגמת מלח בסוף הסיור!
                             </blockquote>
                             <p class="day-description">
-                                יום קסום המוקדש לאזור האגמים (Salzkammergut). נתחיל בעיירה האלשטאט (Hallstatt) המפורסמת, נמשיך לתצפית 5 האצבעות (Five Fingers) או לאגם גוסאו (Gosausee) המדהים.
+                                יום קסום המוקדש לאזור האגמים (Salzkammergut). נתחיל בעיירה האלשטאט (Hallstatt) המפורסמת, נמשיך למכרות המלח (Salzwelten) המצוינים לבילוי משפחתי, ונגיע לאגם גוסאו (Gosausee) המדהים.
                             </p>
                             <div class="day-intro">24.09.2026 | האגמים הטורקיזים ונופי הגלויה.</div>
                             <ul>
                                 <li>ביקור בהאלשטאט – צילומים ואווירה.</li>
+                                <li>בילוי של כמה שעות במכרות המלח.</li>
                                 <li>**שימו לב:** יש לבדוק וובקאם לקרחון דאכשטיין ותצפית 5 האצבעות. **אם עננות נמוכה, אין טעם לעלות.**</li>
                                 <li>אם עולים לאגם גוסאו: המסעדות למעלה פחות טובות - הביאו נשנושים.</li>
                                 <li>**אופציית ספא לערב רגוע:** תרמות באזור בד אישל (גדולה ועמוסה) או בד אאוסי (שקטה יותר).</li>
@@ -800,136 +791,138 @@
                     </div>
                 </div>
                 
-                <div class="day-card fade-in-section" id="day4" data-type="nature travel">
+                <div class="day-card fade-in-section" id="day4" data-type="water spa kids travel">
                     <div class="day-image" id="img-day4">
-                        <span class="day-tag">מעבר & גבהים</span>
+                        <span class="day-tag">מעבר & מים</span>
                     </div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 4: ממזרח למערב דרך כביש גרוסגלוקנר</h3>
+                            <h3>יום 4: Therme Amadé ונסיעה לקפרון (החזרה)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                             <blockquote>
-                                **טיפ יומי:** כביש גרוסגלוקנר הוא **יום שלם** בפני עצמו. תכננו את היום עם הרבה עצירות ותהנו מהדרך. חפשו את ה**מרמיטות** (חוויה לילדים!). קחו בחשבון שחלק מהשבילונים/רכבלים עשויים להיות סגורים בסוף ספטמבר.
+                                **טיפ יומי:** זהו יום המעבר מאזור זלצבורג לבסיס הלינה שלכם בקפרון. מרחצאות **Therme Amadé** ממוקמות ב-Flachau, מה שמהווה עצירה מצוינת בדרך (כשעתיים נסיעה מהאלשטאט). הקפידו לארוז את בגדי הים בתיק נגיש.
+                                **Therme Amadé:** פארק המים הפנימי/חיצוני של Flachau כולל לולאת גלישה (Looping slide) ייחודית שמתאימה במיוחד לילדים הגדולים ולנוער. 
                             </blockquote>
                             <p class="day-description">
-                                יום מעבר מרכזי. נסיעה דרך אחד מכבישי הנוף היפים ביותר באלפים, כביש גרוסגלוקנר (Grossglockner High Alpine Road) אל אזור קפרון/זל אם-זה. נהנה מהנוף, נעצור לתצפיות מרשימות ולמסלולי הליכה קצרים.
+                                יום המעבר המרכזי. נסיעה מאזור האגמים דרך מרכז אוסטריה. נעצור לבילוי מרענן של כמה שעות ב**מרחצאות Therme Amadé**, ולאחר מכן נמשיך לבסיס הלינה החדש שלנו באזור קפרון/צל-אם-זה.
                             </p>
-                            <div class="day-intro">25.09.2026 | חציית האלפים ונופי הענק.</div>
+                            <div class="day-intro">25.09.2026 | ספא, אקשן במים ומעבר לבסיס הלינה השני.</div>
                             <ul>
-                                <li>נסיעה על כביש גרוסגלוקנר (כרוך בתשלום אגרה).</li>
-                                <li>תצפיות על הקרחונים, הפסגות הגבוהות ובעלי חיים.</li>
-                                <li>הגעה ללינה באזור קפרון והתארגנות.</li>
+                                <li>נסיעה לכיוון Flachau ועצירה ב-Therme Amadé.</li>
+                                <li>בילוי של 3-4 שעות במתחם המים.</li>
+                                <li>נסיעה קצרה יחסית להמשך הדרך (כשעה וחצי נסיעה נוספת לקפרון).</li>
+                                <li>הגעה ללינה והתארגנות.</li>
                             </ul>
                         </div>
                         <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day5" data-type="nature snow">
+                <div class="day-card fade-in-section" id="day5" data-type="nature snow kids action">
                     <div class="day-image" id="img-day5">
-                        <span class="day-tag">שלג & גובה</span>
+                        <span class="day-tag">שלג & אקשן & ילדים</span>
                     </div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 5: פסגת קיצשטיינהורן והרפתקאות קפרון</h3>
+                            <h3>יום 5: פסגת קיצשטיינהורן ומגלשת Maisi Flitzer</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                             <blockquote>
-                                **טיפ יומי:** **קיצשטיינהורן (Top of Salzburg):** חוויה יציבה עם 3 רכבלים. קחו את סיור המנהרה – הוא מעניין ונותן תצפית גבוהה יותר, אבל העלייה בחזרה בתוך המנהרה תלולה ומאתגרת.
+                                **טיפ יומי:** **קיצשטיינהורן (Top of Salzburg):** חוויה יציבה עם 3 רכבלים. קחו את סיור המנהרה – הוא מעניין ונותן תצפית גבוהה יותר, אבל העלייה בחזרה בתוך המנהרה תלולה ומאתגרת. הקפידו על **ביגוד חם** – זה קרחון!
                             </blockquote>
                             <p class="day-description">
-                                בבוקר נעלה לקרחון קיצשטיינהורן (Kitzsteinhorn) לתצפית "ראש זלצבורג" ולחוות שלג ונוף עוצר נשימה בגובה 3,000 מטר. אחר הצהריים מגלשת ההרים Maisi Flitzer או ערוץ המים Sigmund-Thun-Klamm.
+                                יום המוקדש לבילוי בשיא הגובה של אזור זל אם-זה. נעלה לקרחון קיצשטיינהורן (Kitzsteinhorn) לתצפית "ראש זלצבורג" ולחוות שלג בגובה 3,000 מטר. נסיים בהרפתקה מהירה במגלשת ההרים **Maisi Flitzer** המקומית (קפרון).
                             </p>
-                            <div class="day-intro">26.09.2026 | נוף פנורמי ופעילויות מים/אקסטרים.</div>
+                            <div class="day-intro">26.09.2026 | שיא האלפים המזרחיים ואקשן בקפרון.</div>
                             <ul>
                                 <li>עלייה לקרחון קיצשטיינהורן (חובה לבוא עם שכבות חמות).</li>
-                                <li>מגלשת Maisi Flitzer: מומלץ להזמין כרטיס ל-3 נסיעות מראש.</li>
-                                <li>**שימו לב:** ערוץ Sigmund-Thun-Klamm סגור בימי ראשון, יש לבדוק את ימי הפתיחה בסוף העונה.</li>
-                                <li>סכר קפרון – אופציה יפה, אך דורשת יום כמעט שלם (הכולל אוטובוסים). לשקול אם מצדיק את הזמן.</li>
+                                <li>מגלשת Maisi Flitzer – אטרקציה מרכזית לילדים בקפרון.</li>
+                                <li>ארוחת ערב סביב אגם צל אם-זה.</li>
                             </ul>
                         </div>
                         <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day6" data-type="nature water">
+                <div class="day-card fade-in-section" id="day6" data-type="nature travel water">
                     <div class="day-image" id="img-day6">
-                        <span class="day-tag">יום רגוע</span>
+                        <span class="day-tag">מעבר & טבע</span>
                     </div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 6: אגם יגרזי ורימסאו (בדרך לאינסברוק)</h3>
+                            <h3>יום 6: מפלי קרימל ונסיעה לאינסברוק</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                             <blockquote>
-                                **טיפ יומי:** פארק ריטיסברג (Rittisberg) ברמסאו הוא נקודת עצירה מצוינת בדרך לאינסברוק. זהו פארק חבלים חמוד עם מגלשת הרים ואגם קטן – מתאים במיוחד למשפחות. אם עושים Mountain GoKart – תזכירו לילדים לבלום, הירידה תלולה.
+                                **טיפ יומי:** מפלי קרימל (Krimml Falls) נמצאים בדרך לאינסברוק ומצוינים לעצירת ביניים של כמה שעות. המסלול המלא לוקח כ-3 שעות הליכה, אך ניתן לעלות רק לקומה הראשונה, שמתאימה לכולם. הנסיעה לאינסברוק משם היא כ-2-3 שעות, דרך כביש נופי.
                             </blockquote>
                             <p class="day-description">
-                                יום רגוע יותר, כולל נסיעה לכיוון אינסברוק. נתחיל באגם יגרזי (Jägersee) או במסלול דומה באזור, המציע מסלול מעגלי קצר ויפה. נמשיך מערבה, עם עצירה בפארק הרפתקאות **רימסאו** (Ramsau) לטובת הילדים, ונגיע לאינסברוק בערב.
+                                יום מעבר נוסף, הפעם מערבה לאינסברוק. נעצור במפלי קרימל (Krimml Falls), המפל הגבוה באירופה, לחוויית טבע מרעננת ומסלול קצר. משם נמשיך בנסיעה לאינסברוק.
                             </p>
-                            <div class="day-intro">27.09.2026 | מעבר רגוע, טיפוס חבלים וג'יחה קצרה בטבע.</div>
+                            <div class="day-intro">27.09.2026 | מים שוצפים ומעבר לבירת טירול.</div>
                             <ul>
-                                <li>מסלול מעגלי באגם יגרזי – קליל ופוטוגני.</li>
-                                <li>עצירה בפארק Rittisberg ברמסאו (Ramsau).</li>
-                                <li>הגעה לאינסברוק והתארגנות במלון.</li>
+                                <li>ביקור במפלי קרימל (Krimml Falls).</li>
+                                <li>נסיעה ארוכה יחסית לאינסברוק.</li>
+                                <li>הגעה ללינה והתארגנות במלון.</li>
                             </ul>
                         </div>
                         <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
                     </div>
                 </div>
                 
-                <div class="day-card fade-in-section" id="day7" data-type="city shopping">
+                <div class="day-card fade-in-section" id="day7" data-type="city shopping nature">
                     <div class="day-image" id="img-day7">
-                        <span class="day-tag">עיר & שופינג</span>
+                        <span class="day-tag">עיר & שופינג & טבע</span>
                     </div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 7: אינסברוק וספא (Grauer Bär)</h3>
+                            <h3>יום 7: נורדקטה (בוקר) ואינסברוק וספא (Grauer Bär)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                             <blockquote>
-                                **טיפ יומי:** לשופינג: הקניון המרכזי הוא **DEZ** (מגוון גדול). **Sillpark** קטן יותר וטוב בעיקר לפרימרק. בדקו מראש אילו חנויות אתם מחפשים. **מלון Grauer Bär:** מומלץ לנצל את הבריכה והג'קוזי על הגג לערב רגוע.
+                                **טיפ יומי:** **נורדקטה (Nordkette):** זהו הרכבל המרכזי שיוצא מלב אינסברוק (תחנה תת קרקעית). הוא מושלם לשילוב בוקר קצר ומהיר. הוא מקפיץ אתכם לפסגה לנוף מטורף של העיר ושל האלפים ב-20 דקות בלבד.
                             </blockquote>
                             <p class="day-description">
-                                יום המוקדש לעיר אינסברוק, בירת טירול. נטייל בעיר העתיקה, נבקר בגג המוזהב המפורסם, ובערב נרפה את השרירים בבריכה ובספא של המלון. אופציה לשופינג קצר.
+                                נתחיל את הבוקר בעלייה ברכבל נורדקטה (Nordkette) מלב אינסברוק, כפי שביקשתם, לשילוב מהיר ויעיל. נבלה את הצהריים בשיטוט בעיר העתיקה (הגג המוזהב) ובשופינג. בערב נרפה את השרירים בבריכה ובספא של המלון.
                             </p>
-                            <div class="day-intro">28.09.2026 | בירת טירול וזמן איכות משפחתי.</div>
+                            <div class="day-intro">28.09.2026 | בירת טירול, פסגות גבוהות וזמן איכות משפחתי.</div>
                             <ul>
+                                <li>עלייה בנורדקטה (Nordkette) בבוקר.</li>
                                 <li>העיר העתיקה של אינסברוק: הגג המוזהב והליכה לאורך נהר האין.</li>
                                 <li>אופציה לשופינג בקניוני העיר.</li>
                                 <li>שימוש בבריכה ובג'קוזי של מלון Grauer Bär (משפחת בראל אחראית למימוש!).</li>
-                                <li>**אופציית אקסטרים:** צניחת טנדם ב-Werfenweng למתבגרים (לא זול, אבל נחשב שווה).</li>
                             </ul>
                         </div>
                         <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day8" data-type="nature water spa">
+                <div class="day-card fade-in-section" id="day8" data-type="nature kids">
                     <div class="day-image" id="img-day8">
-                        <span class="day-tag">יום סגריר</span>
+                        <span class="day-tag">טבע & אגמים</span>
                     </div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 8: אקווה דום או טבע מקומי</h3>
+                            <h3>יום 8: אגם אחנזה ורכבל רופאן (Achensee/Rofan)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                             <blockquote>
-                                **טיפ יומי:** **Aquadome** (מרחק נסיעה) הוא אופציית יום גשם מעולה ברמה גבוהה (גדול, מלא בריכות וסאונות). מומלץ להגיע בשעות רגועות יותר כדי ליהנות מהחוויה.
+                                **טיפ יומי:** אגם אחנזה (Achensee) הוא האגם הגדול ביותר בטירול, מציע נוף יפהפה ואפשרות לשייט או שחייה. רכבל **Rofan** מציע פעילות נחמדה לילדים: מתקני שעשועים, מסלול קצר ותצפית מרהיבה. ניתן גם לשקול נסיעה ל**כפר סברובסקי** אם אתם חובבי קריסטלים (כחצי שעה מאינסברוק).
                             </blockquote>
                             <p class="day-description">
-                                יום גמיש המוקדש למנוחה, בילוי במתחם המים **Aquadome** או טיול טבע קצר וקל בסביבה המקומית של אינסברוק.
+                                יום טבע מלא באזור אינסברוק. נצא צפונה לאגם אחנזה. נטייל לאורך חופיו, נעלה ברכבל רופאן לפסגה, וננצל את היום לבילוי רגוע בטבע לפני יום המעבר הארוך.
                             </p>
-                            <div class="day-intro">29.09.2026 | מים, סאונות ורגיעה אלפינית.</div>
+                            <div class="day-intro">29.09.2026 | נופי טירול ורוגע בטבע.</div>
                             <ul>
-                                <li>ביקור ב-Aquadome (בריכות מחוממות וחיצוניות).</li>
-                                <li>לחלופין: מסלול קליל בסביבה (כמו Wasserfallweg Stubai).</li>
+                                <li>נסיעה לאגם אחנזה (כשעה מאינסברוק).</li>
+                                <li>עלייה ברכבל Rofan - פעילות נהדרת לילדים ותצפית.</li>
+                                <li>שיטוט קצר באזור Seefeld או ביקור במפעל סברובסקי (Swarovski Kristallwelten) כאלטרנטיבה.</li>
                             </ul>
                         </div>
                         <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
@@ -990,7 +983,7 @@
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day11" data-type="city travel">
+                <div class="day-card fade-in-section" id="day11" data-type="city travel kids">
                     <div class="day-image" id="img-day11">
                         <span class="day-tag">ווינה & סוף</span>
                     </div>
@@ -1017,6 +1010,50 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+    
+    <section id="lodging-flow-section" class="lodging-flow-section fade-in-section">
+        <div class="intro-container">
+            <h2>🏡 מעברי לינה מתוכננים</h2>
+            <p class="intro-text">
+                הטיול כולל שלושה בסיסי לינה מרכזיים, המאפשרים לכם לכסות אזורים נרחבים בצורה יעילה:
+            </p>
+        </div>
+
+        <div class="lodging-grid">
+            <div class="lodging-card">
+                <h4>וינה</h4>
+                <span class="days-span">ימים 1-2 (2 לילות)</span>
+                <ul>
+                    <li>נחיתה והתאקלמות.</li>
+                    <li>בסיס יציאה לרכבת זלצבורג.</li>
+                </ul>
+            </div>
+            <div class="lodging-card">
+                <h4>זלצבורג/קפרון</h4>
+                <span class="days-span">ימים 3-6 (4 לילות)</span>
+                <ul>
+                    <li>לב הטיול.</li>
+                    <li>גישה קרובה לאגמים, קיצשטיינהורן.</li>
+                </ul>
+            </div>
+            <div class="lodging-card">
+                <h4>אינסברוק/טירול</h4>
+                <span class="days-span">ימים 7-9 (3 לילות)</span>
+                <ul>
+                    <li>הרי האלפים המערביים.</li>
+                    <li>בילוי אורבני וספא.</li>
+                </ul>
+            </div>
+            <div class="lodging-card">
+                <h4>גזויזה/אדמונט</h4>
+                <span class="days-span">ימים 10-11 (2 לילות)</span>
+                <ul>
+                    <li>אזור פראי ופחות מתויר.</li>
+                    <li>לינת סיום לפני הטיסה.</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -1131,7 +1168,7 @@
                 }
             });
         }, {
-            threshold: 0.1 // מתחיל את האנימציה כשאחוז מהאלמנט נכנס לראייה
+            threshold: 0.1 
         });
 
         document.querySelectorAll('.fade-in-section').forEach(section => {

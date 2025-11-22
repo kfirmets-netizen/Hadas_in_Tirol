@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משלחת הדס 24 לאוסטריה 🇦🇹</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ------------------------------------------- */
+        /* 🎨 משתנים ועיצוב גלובלי */
+        /* ------------------------------------------- */
+        :root {
+            --primary: #2D6A4F; /* ירוק יער עמוק */
+            --secondary: #1B4332; /* ירוק כהה מאוד */
+            --accent: #E76F51; /* כתום שקיעה - חם ומזמין */
+            --highlight: #2A9D8F; /* טורקיז אגמים */
+            --bg-body: #F7F9F9; /* לבן שבור נקי */
+            --card-bg: #ffffff;
+            --text-main: #264653;
+            --text-light: #6c757d;
+            --shadow-soft: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 40px -5px rgba(0, 0, 0, 0.2);
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden; /* מניעת גלילה אופקית */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Heebo', sans-serif;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* אנימציית Fade In לאלמנטים בגלילה */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ------------------------------------------- */
+        /* 🏔️ Hero Section (דף נחיתה) */
+        /* ------------------------------------------- */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1516975336498-3357f22e6e46?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* אפקט פרלקס */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            padding: 20px;
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px); /* אפקט זכוכית */
+            -webkit-backdrop-filter: blur(12px);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            max-width: 800px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            animation: floatUp 1s ease-out;
+        }
+
+        @keyframes floatUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            line-height: 1.1;
+        }
+
+        .hero p.subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(231, 111, 81, 0.4);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .hero-btn:hover {
+            background-color: #d65a3b;
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        /* ------------------------------------------- */
+        /* 🏘️ סקשן המשפחות (הדס 24) */
+        /* ------------------------------------------- */
+        .intro-section {
+            padding: 5rem 0;
+            background: white;
+            text-align: center;
+        }
+
+        .intro-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .family-badge {
+            display: inline-block;
+            background: #E8F5E9;
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .intro-text {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--text-light);
+        }
+
+        .families-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .family-card {
+            background: var(--bg-body);
+            padding: 20px;
+            border-radius: var(--radius);
+            border: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .family-card:hover {
+            border-color: var(--highlight);
+            background: #fff;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .family-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .family-card span {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* ------------------------------------------- */
+        /* 🧭 Navbar - Sticky */
+        /* ------------------------------------------- */
+        .navbar {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+        
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-weight: 600;
+        }
+
+        .nav-list a {
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-list a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: width .3s;
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+        }
+
+        .nav-list a:hover::after {
+            width: 100%;
+        }
+
+        /* ------------------------------------------- */
+        /* 📅 ציר הזמן (Timeline) */
+        /* ------------------------------------------- */
+        .timeline-section {
+            padding: 4rem 0;
+            background-color: var(--bg-body);
+            position: relative;
+        }
+
+        .timeline-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* פילטרים */
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid #e0e0e0;
+            color: var(--text-light);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Heebo', sans-serif;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 5px 15px rgba(45, 106, 79, 0.3);
+        }
+
+        /* כרטיס יום */
+        .day-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        
+        @media (min-width: 768px) {
+            .day-card {
+                flex-direction: row;
+                min-height: 280px;
+            }
+        }
+
+        .day-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .day-image {
+            background-size: cover;
+            background-position: center;
+            min-height: 250px;
+            width: 100%;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .day-image {
+                width: 40%;
+                min-height: auto;
+            }
+        }
+        
+        /* תגית סוג יום על התמונה */
+        .day-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.9);
+            color: var(--text-main);
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(4px);
+        }
+
+        .day-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed #eee;
+            margin-bottom: 15px;
+        }
+
+        .day-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .toggle-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 700;
+            transition: transform 0.3s;
+        }
+        
+        .day-header.active .toggle-icon {
+            transform: rotate(45deg);
+        }
+
+        .day-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease;
+            color: var(--text-light);
+        }
+
+        .day-intro {
+            background: #F0F7F4;
+            padding: 12px;
+            border-radius: 8px;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            border-right: 4px solid var(--highlight);
+        }
+
+        .day-details ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-right: 25px;
+        }
+
+        .day-details ul li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        /* כפתור פתיחה לפרטים */
+        .read-more-btn {
+            margin-top: auto;
+            align-self: flex-end;
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.95rem;
+        }
+        
+        .read-more-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* ------------------------------------------- */
+        /* 🗺️ מפת המסלול */
+        /* ------------------------------------------- */
+        .route-section {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .route-section h2 { color: white; }
+        
+        .route-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .route-stop {
+            background: rgba(255,255,255,0.1);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .route-arrow { font-size: 1.5rem; opacity: 0.7; }
+
+        /* ------------------------------------------- */
+        /* 🖼️ גלריה */
+        /* ------------------------------------------- */
+        .gallery-section {
+            padding: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 200px;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        /* ------------------------------------------- */
+        /* 📱 רספונסיביות */
+        /* ------------------------------------------- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-list { display: none; } /* תפריט מובייל ידרוש JS נוסף, כרגע מוסתר */
+            .intro-text { font-size: 1.1rem; }
+            
+            .route-grid { flex-direction: column; }
+            .route-arrow { transform: rotate(90deg); }
+        }
+
+        /* מיפוי תמונות רקע */
+        #img-day1 { background-image: url('day1.png'); }
+        #img-day2 { background-image: url('day2.png'); }
+        #img-day3 { background-image: url('day3.png'); }
+        #img-day4 { background-image: url('day4.png'); }
+        #img-day5 { background-image: url('day5.png'); }
+        #img-day6 { background-image: url('day6.png'); }
+        #img-day7 { background-image: url('day7.png'); }
+        #img-day8 { background-image: url('day8.png'); }
+        #img-day9 { background-image: url('day9.png'); }
+        #img-day10 { background-image: url('day10.png'); }
+        #img-day11 { background-image: url('day11.png'); }
+
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="family-badge">משלחת הדס 24</div>
+            <h1>מחולון לפסגות אוסטריה</h1>
+            <p class="subtitle">11 ימים של הרים, אגמים, שניצלים וצחוקים. הטיול המשפחתי הגדול של סוכות 2026.</p>
+            <a href="#intro" class="hero-btn">יוצאים לדרך! ✈️</a>
+        </div>
+        <div class="scroll-down">⌄</div>
+    </section>
+
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="#intro">המשלחת</a></li>
+            <li><a href="#timeline">המסלול המלא</a></li>
+            <li><a href="#route">המפה</a></li>
+            <li><a href="#tips">טיפים</a></li>
+        </ul>
+    </nav>
+
+    <section id="intro" class="intro-section fade-in-section">
+        <div class="intro-container">
+            <h2>הנבחרת של הדס 24 🏢</h2>
+            <p class="intro-text">
+                תשכחו מכל מה שידעתם על טיולים מאורגנים. כאן מדובר בכוח משימה מיוחד שיצא מרחוב הדס 24 בחולון לכבוש את האלפים.
+                **20 מטיילים, 4 משפחות, יעד אחד.**
+            </p>
+            
+            <div class="families-grid">
+                <div class="family-card">
+                    <span>🦁</span>
+                    <h4>משפחת מצוינים</h4>
+                    <p>סיירת ההליכה: חוד החנית של המסלולים הקשים</p>
+                </div>
+                <div class="family-card">
+                    <span>🦄</span>
+                    <h4>משפחת גלפנד</h4>
+                    <p>צלמים וקומיקאים: על הצחוקים והתמונות</p>
+                </div>
+                <div class="family-card">
+                    <span>🦅</span>
+                    <h4>משפחת אבניאלי</h4>
+                    <p>האחראים על המורל והניווט (בתקווה)</p>
+                </div>
+                <div class="family-card">
+                    <span>🦊</span>
+                    <h4>משפחת בראל</h4>
+                    <p>בקרת איכות: על אטרקציות וריכוך בספא</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="timeline-section">
+        <div class="timeline-container">
+            <div style="text-align: center; margin-bottom: 40px;" class="fade-in-section">
+                <h2>יומן המסע 📅</h2>
+                <p>הקליקו על הימים כדי לראות את התוכנית המלאה</p>
+            </div>
+
+            <div class="filters fade-in-section">
+                <button class="filter-btn active" data-filter="all">הכל</button>
+                <button class="filter-btn" data-filter="city">🏙️ עיר</button>
+                <button class="filter-btn" data-filter="nature">⛰️ טבע</button>
+                <button class="filter-btn" data-filter="water">💧 מים</button>
+            </div>
+
+            <div id="days-container">
+                <div class="day-card fade-in-section" data-type="city">
+                    <div class="day-image" id="img-day1">
+                        <span class="day-tag">נחיתה</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 1: נוחתים בווינה</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                            <div class="day-intro">22.09.2026 | מתחילים רגוע, נושמים אוויר אירופאי.</div>
+                            <ul>
+                                <li>נחיתה בערב בווינה והתארגנות זריזה.</li>
+                                <li>לינה ראשונה וצבירת כוחות לקראת המחר.</li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in-section" data-type="city travel">
+                    <div class="day-image" id="img-day2">
+                        <span class="day-tag">רכבת & עיר</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 2: הרכבת לזלצבורג</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                            <div class="day-intro">23.09.2026 | חוויה ברכבת Railjet וקסם הבארוק.</div>
+                            <ul>
+                                <li>נסיעה ברכבת מהירה (שעתיים וחצי) בנופים ירוקים.</li>
+                                <li>שיטוט בעיר העתיקה של זלצבורג (העיר של מוצרט!).</li>
+                                <li>מצודת הוהנזלצבורג וגני מיראבל.</li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in-section" data-type="nature water">
+                    <div class="day-image" id="img-day3">
+                        <span class="day-tag">גלויות</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 3: חלום בהאלשטאט</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                            <div class="day-intro">24.09.2026 | המקום הכי מצולם באוסטריה.</div>
+                            <ul>
+                                <li>יום טיול כוכב לכפר הציורי שעל האגם.</li>
+                                <li>שיטוט בין הבתים העתיקים.</li>
+                                <li>אופציה: תצפית "חמש האצבעות" לנועזים.</li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in-section" data-type="nature">
+                    <div class="day-image" id="img-day4">
+                        <span class="day-tag">פסגות</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 4: נוגעים בשמיים (Kaprun)</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                            <div class="day-intro">25.09.2026 | קרחונים ופסגות אדירות.</div>
+                            <ul>
+                                <li>עליה ברכבלים לאזור הסכרים או הקרחון (Kitzsteinhorn).</li>
+                                <li>נוף עוצר נשימה של האלפים הגבוהים.</li>
+                                <li>*תוכנית ב' לגשם:* יום כיף במרחצאות Therme Amadé.</li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in-section" data-type="city travel">
+                    <div class="day-image" id="img-day5">
+                        <span class="day-tag">טירול</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 5: ברוכים הבאים לאינסברוק</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                            <div class="day-intro">26.09.2026 | עוברים דירה מערבה ללב טירול.</div>
+                            <ul>
+                                <li>נסיעה יפה מזלצבורג לאינסברוק.</li>
+                                <li>הגג המוזהב והעיר העתיקה הצבעונית.</li>
+                                <li>ערב רגוע למרגלות ההרים.</li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in-section" data-type="water nature">
+                    <div class="day-image" id="img-day6">
+                        <span class="day-tag">אגם</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 6: רוגע באגם Achensee</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                            <div class="day-intro">27.09.2026 | הפיורד של הטירול.</div>
+                            <ul>
+                                <li>יום באיזי: טיול הליכה מישורי על שפת האגם.</li>
+                                <li>אפשרות לשייט פנורמי רגוע.</li>
+                                <li>צבע המים כאן הוא משהו שחייבים לראות.</li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in-section" data-type="nature">
+                    <div class="day-image" id="img-day7">
+                        <span class="day-tag">אקסטרים (לייט)</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 7: הגשר התלוי / צוגשפיצה</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                            <div class="day-intro">28.09.2026 | תלויים בין שמיים וארץ (בזהירות).</div>
+                            <ul>
+                                <li>אופציה א': הגשר התלוי Olpererhütte (למיטיבי לכת ואינסטגרם).</li>
+                                <li>אופציה ב': עליה לפסגת ה-Zugspitze (הכי גבוהה בגרמניה, מהצד האוסטרי).</li>
+                                <li>יום שכולו נוף דרמטי.</li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
+                    </div>
+                </div>
+
+                 <div class="day-card fade-in-section" data-type="travel nature">
+                    <div class="day-image" id="img-day8">
+                        <span class="day-tag">רואד טריפ</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 8: המסע מזרחה ל-Gesäuse</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                            <div class="day-intro">29.09.2026 | חוצים את אוסטריה לנוף פראי.</div>
+                            <ul>
+                                <li>נסיעה ארוכה אך יפה לכיוון הפארק הלאומי Gesäuse.</li>
+                                <li>הגעה לאזור פחות מתוייר, ירוק ופראי יותר.</li>
+                                <li>התמקמות בבקתות כפריות.</li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
+                    </div>
+                </div>
+
+                 <div class="day-card fade-in-section" data-type="nature">
+                    <div class="day-image" id="img-day9">
+                        <span class="day-tag">תרבות וטבע</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 9: הספרייה ומנזר אדמונט</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                            <div class="day-intro">30.09.2026 | יופי שאי אפשר לתאר במילים.</div>
+                            <ul>
+                                <li>ביקור בספרייה העתיקה והמרהיבה של מנזר אדמונט (כמו בסרטים).</li>
+                                <li>טיול טבע קליל באזור הפארק הלאומי.</li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in-section" data-type="city">
+                    <div class="day-image" id="img-day10">
+                        <span class="day-tag">סיום</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 10: חוזרים לווינה בגדול</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                            <div class="day-intro">01.10.2026 | סוגרים מעגל.</div>
+                            <ul>
+                                <li>נסיעה חזרה לווינה.</li>
+                                <li>ערב סיום חגיגי של כל 4 המשפחות – שניצל וינאי ובירה (או שוקו).</li>
+                                <li>סיכום החוויות והצחוקים.</li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in-section" data-type="travel">
+                    <div class="day-image" id="img-day11">
+                        <span class="day-tag">הביתה</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 11: שלום ולא להתראות</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                            <div class="day-intro">02.10.2026 | חולון, הנה אנחנו באים.</div>
+                            <ul>
+                                <li>נסיעה לשדה התעופה.</li>
+                                <li>טיסה הביתה עייפים אך מרוצים.</li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="route" class="route-section">
+        <div class="timeline-container">
+            <h2>🗺️ המסלול המעגלי שלנו</h2>
+            <div class="route-grid">
+                <div class="route-stop">וינה 🛫</div>
+                <div class="route-arrow">⬅️</div>
+                <div class="route-stop">זלצבורג 🎻</div>
+                <div class="route-arrow">⬅️</div>
+                <div class="route-stop">אינסברוק 🏔️</div>
+                <div class="route-arrow">⤵️</div>
+                <div class="route-stop">וינה 🏁</div>
+                <div class="route-arrow">➡️</div>
+                <div class="route-stop">Gesäuse 🌲</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 1. Accordion Logic
+        function toggleDay(headerElement) {
+            const content = headerElement.nextElementSibling; // ה-div של ה-details
+            const allDetails = document.querySelectorAll('.day-details');
+            const allHeaders = document.querySelectorAll('.day-header');
+            
+            // בדיקה אם זה כבר פתוח
+            const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+            
+            // סגור את כולם
+            allDetails.forEach(el => el.style.maxHeight = '0');
+            allHeaders.forEach(el => el.classList.remove('active'));
+
+            // אם זה לא היה פתוח, פתח אותו
+            if (!isOpen) {
+                content.style.maxHeight = content.scrollHeight + "px";
+                headerElement.classList.add('active');
+            }
+        }
+
+        // 2. Filters Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.day-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Active styling
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    if (filterValue === 'all' || card.dataset.type.includes(filterValue)) {
+                        card.style.display = 'flex';
+                        setTimeout(() => card.style.opacity = '1', 50);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => card.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+
+        // 3. Scroll Animation (Intersection Observer)
+        const observerOptions = { threshold: 0.1 };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // אנימציה קורית רק פעם אחת
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+    </script>
+</body>
+</html>

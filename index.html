@@ -532,6 +532,12 @@
             background: rgba(255,255,255,0.5);
         }
         
+        .flights-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         .flights-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -600,6 +606,12 @@
         .lodging-flow-section {
             padding: 6rem 0;
         }
+
+        .intro-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
         
         .lodging-grid {
             display: grid;
@@ -654,6 +666,12 @@
             padding: 6rem 0;
             background: var(--primary-dark);
             color: white;
+        }
+
+        .general-tips-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .general-tips-section h2 {
@@ -1005,19 +1023,19 @@
                     <div class="day-image" id="img-day9"><span class="day-tag">מעבר מזרחה</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 9: נסיעה לפארק גזויזה (Gesäuse)</h3>
+                            <h3>יום 9: נסיעה לווינדישגרסטן (Windischgarsten)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
-                            <blockquote><strong>טיפ יומי:</strong> יום נסיעה ארוך (4 שעות). הצטיידו באוכל לדרך. שימו לב: <strong>מסעדות נסגרות מוקדם (19:00)</strong> באזור גזויזה.</blockquote>
+                            <blockquote><strong>טיפ יומי:</strong> יום נסיעה ארוך (כ-3.5 שעות). הצטיידו באוכל לדרך. וינדישגרסטן היא עיירה יפה יותר להתמקמות מאשר אדמונט.</blockquote>
                             <p class="day-description">
-                                יום נסיעה ארוך מאינסברוק מזרחה אל הפארק הלאומי גזויזה הפראי. נתמקם בקרבת Admont.
+                                יום נסיעה ארוך מאינסברוק מזרחה. נתמקם בעיירה **וינדישגרסטן (Windischgarsten)** הממוקמת כ-40 דקות נסיעה מהכניסה לפארק הלאומי גזויזה, וזאת כדי לנצל את היום הבא.
                             </p>
-                            <div class="day-intro">30.09.2026 | מעבר לשקט מוחלט. (לינה ראשונה בגזויזה)</div>
+                            <div class="day-intro">29.09.2026 | מעבר לשקט מוחלט. (לינה ראשונה בווינדישגרסטן)</div>
                             <ul>
-                                <li>נסיעה ארוכה לאזור גזויזה/אדמונט.</li>
+                                <li>נסיעה מאינסברוק לוינדישגרסטן (כ-3 שעות, 23 דקות).</li>
                                 <li>עצירות ריענון בדרך.</li>
-                                <li>התמקמות במקום הלינה.</li>
+                                <li>התארגנות ולינה.</li>
                             </ul>
                         </div>
                         <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
@@ -1025,22 +1043,22 @@
                 </div>
                 
                 <div class="day-card fade-in-section" id="day10" data-type="nature city">
-                    <div class="day-image" id="img-day10"><span class="day-tag">טבע & וינה</span></div>
+                    <div class="day-image" id="img-day10"><span class="day-tag">טבע אוסטרי</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 10: גזויזה וחזרה לווינה</h3>
+                            <h3>יום 10: יום טיול מלא בפארק הלאומי גזויזה (Gesäuse)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
-                            <blockquote><strong>טיפ יומי:</strong> תכננו את ההגעה לווינה בשעות הצהריים כדי לנצל את הערב האחרון. <strong>אזהרה:</strong> קניון SCS לא נחשב וינה מבחינת תחב"צ!</blockquote>
+                            <blockquote><strong>טיפ יומי:</strong> אם מזג האוויר מאפשר, מומלץ על טיול בנקיק <strong>Wasserlochklamm</strong> או ביקור במנזר אדמונט והספרייה המפורסמת.</blockquote>
                             <p class="day-description">
-                                בוקר קצר בטבע של גזויזה או ביקור במנזר אדמונט (הספרייה), ונסיעה חזרה לווינה לערב סיום חגיגי.
+                                יום מלא המוקדש לטיול בפארק הלאומי המרשים גזויזה, המאופיין בקירות הרים תלולים ונהר ירוק-כחול שוצף.
                             </p>
-                            <div class="day-intro">01.10.2026 | חוזרים לעיר הגדולה. (לינה אחרונה בוינה)</div>
+                            <div class="day-intro">30.09.2026 | טבע אוסטרי בשיאו. (לינה שנייה ואחרונה בווינדישגרסטן)</div>
                             <ul>
+                                <li>טיול בפארק גזויזה.</li>
                                 <li>אופציה: ביקור במנזר אדמונט.</li>
-                                <li>נסיעה לוינה (כ-3 שעות).</li>
-                                <li>ארוחת סיום חגיגית (שניצל ב-Figlmüller?).</li>
+                                <li>ארוחת ערב בעיירה וינדישגרסטן.</li>
                             </ul>
                         </div>
                         <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
@@ -1048,21 +1066,22 @@
                 </div>
 
                 <div class="day-card fade-in-section" id="day11" data-type="city travel">
-                    <div class="day-image" id="img-day11"><span class="day-tag">טיסה</span></div>
+                    <div class="day-image" id="img-day11"><span class="day-tag">טיסה & עיר</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 11: המראה מווינה (Vienna)</h3>
+                            <h3>יום 11: נסיעה לווינה (Vienna) והמראה חזרה</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
-                            <blockquote><strong>טיפ יומי:</strong> הגיעו לשדה 3 שעות לפני. יש עמדת Tax-Free גם לפני וגם אחרי הבידוק.</blockquote>
+                            <blockquote><strong>טיפ יומי:</strong> תכננו את ההגעה לווינה בשעות הצהריים כדי לנצל את ארוחת הצהריים או את הלילה האחרון. הגיעו לשדה 3 שעות לפני הטיסה.</blockquote>
                             <p class="day-description">
-                                יום אחרון. השלמות קניות אחרונות אם יש זמן, ונסיעה לשדה התעופה לטיסה חזרה.
+                                היום האחרון לטיול. בבוקר נסיעה חזרה לווינה, התארגנות במלון בבירה, ובילוי ערב חגיגי לסיכום המסע. הטיסה חזרה לישראל תצא בערב המחרת (02.10).
                             </p>
-                            <div class="day-intro">02.10.2026 | Tschüss Austria!</div>
+                            <div class="day-intro">01.10.2026 - 02.10.2026 | חוזרים הביתה. (לילה אחרון בוינה + יום הטיסה)</div>
                             <ul>
-                                <li>צ'ק-אאוט.</li>
-                                <li>טיסה חזרה לתל אביב ב-20:20.</li>
+                                <li>נסיעה לוינה (כ-2 שעות ו-40 דקות מוינדישגרסטן).</li>
+                                <li>התמקמות במלון בווינה (לילה 01.10).</li>
+                                <li>צ'ק-אאוט ונסיעה לשדה התעופה (02.10) לטיסה ב-20:20.</li>
                             </ul>
                         </div>
                         <button class="read-more-btn" onclick="toggleDay(this.parentElement.querySelector('.day-header'))">פתח פירוט</button>
@@ -1108,7 +1127,7 @@
             <div class="lodging-grid">
                 <div class="lodging-card">
                     <h4>וינה (Vienna)</h4>
-                    <span class="days-span">22-23.09 + 01-02.10</span>
+                    <span class="days-span">22.09 (לילה ראשון) + 01.10-02.10 (לילה אחרון)</span>
                     <ul>
                         <li>לילה ראשון (נחיתה).</li>
                         <li>לילה אחרון (לפני המראה).</li>
@@ -1116,7 +1135,7 @@
                 </div>
                 <div class="lodging-card">
                     <h4>זלצבורג (Salzburg)</h4>
-                    <span class="days-span">23-26.09 (3 לילות)</span>
+                    <span class="days-span">23.09-26.09 (3 לילות)</span>
                     <ul>
                         <li>בסיס לטיולי כוכב.</li>
                         <li>האלשטאט, קפרון, תרמה אמדה.</li>
@@ -1124,18 +1143,18 @@
                 </div>
                 <div class="lodging-card">
                     <h4>אינסברוק (Innsbruck)</h4>
-                    <span class="days-span">26-29.09 (3 לילות)</span>
+                    <span class="days-span">26.09-29.09 (3 לילות)</span>
                     <ul>
                         <li>בירת טירול.</li>
                         <li>נורדקטה, אגם אחנזה.</li>
                     </ul>
                 </div>
                 <div class="lodging-card">
-                    <h4>גזויזה (Gesäuse)</h4>
+                    <h4>וינדישגרסטן (Windischgarsten)</h4>
                     <span class="days-span">29.09-01.10 (2 לילות)</span>
                     <ul>
-                        <li>טבע פראי ומנזר אדמונט.</li>
-                        <li>תחנת ביניים בדרך חזרה לוינה.</li>
+                        <li>בסיס קרוב לפארק הלאומי גזויזה (Gesäuse).</li>
+                        <li>שני לילות המאפשרים יום טיול מלא בפארק.</li>
                     </ul>
                 </div>
             </div>

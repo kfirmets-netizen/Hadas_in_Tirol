@@ -11,17 +11,23 @@
 
     <style>
 /* ------------------------------------------- */
-        /* 🏘️ סקשן המשפחות - עדכון עיצוב */
+        /* 🏘️ סקשן המשפחות - עיצוב מתוקן ומאוזן */
         /* ------------------------------------------- */
-
-        .families-grid {
-            /* שינוי מ-grid ל-flex לריכוז ואיזון טוב יותר של 5 פריטים */
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center; /* ממקד את הפריטים במרכז */
-            gap: 40px 30px; /* יותר רווח אנכי */
+        .intro-section {
+            padding: 6rem 0;
+            position: relative;
         }
 
+        /* שאר הכללים הקשורים ל-intro-section ו-section-bg-title נשארים כפי שהיו */
+
+        .families-grid {
+            /* התיקון העיקרי לאיזון 5 כרטיסים! מחליף את display: grid */
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: center; /* ממקד את הפריטים במרכז */
+            gap: 40px 30px; 
+        }
+        
         .family-card {
             background: var(--white-glass);
             backdrop-filter: blur(10px);
@@ -29,11 +35,11 @@
             border: var(--border-glass);
             box-shadow: var(--shadow-glass);
             overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* אנימציה חלקה יותר */
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
             text-align: center;
-            width: 280px; /* הגדרת רוחב קבוע לכרטיס */
+            width: 280px; /* רוחב קבוע לכרטיס */
             flex-grow: 0;
-            padding-top: 0; /* מורידים את הפאדינג העליון כדי לאפשר לתמונה העגולה לבלוט */
+            padding-top: 0; 
             position: relative;
         }
 
@@ -44,28 +50,28 @@
         }
         
         .family-image-container {
-            /* הופכים את התמונה לעיגול קטן ומוסיפים מסגרת */
+            /* הפיכת התמונה לעיגול */
             width: 150px; 
             height: 150px; 
             border-radius: 50%; 
-            margin: 20px auto 0; /* ממקמים במרכז עם רווח עליון */
-            border: 5px solid var(--accent); /* מסגרת דגש */
+            margin: 20px auto 0;
+            border: 5px solid var(--accent);
             box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5); 
             background-size: cover;
             background-position: center;
             position: relative;
             z-index: 1; 
-            transform: translateY(10px); /* מרימים מעט מעל הכרטיס */
+            transform: translateY(10px); 
         }
         
-        /* מבטלים את אפקט ההצללה של החלק התחתון של התמונה המקורית */
+        /* מבטלים את הצללת המקור של התמונה המרובעת */
         .family-image-container::after {
             content: none;
         }
 
         .family-content-wrapper {
             padding: 25px;
-            /* מרימים את התוכן למעלה כדי שתהיה חפיפה עם התמונה העגולה */
+            /* מרימים את התוכן למעלה לחפיפה עם התמונה */
             transform: translateY(-40px);
             position: relative;
             z-index: 0;
@@ -73,16 +79,22 @@
         
         .family-card h4 {
             font-size: 1.5rem;
-            margin-bottom: 30px; /* יוצר רווח למעבר העכבר */
+            margin-bottom: 30px; /* רווח להצגת השמות בריחוף */
             color: var(--primary-dark);
             position: relative;
             display: inline-block;
-            cursor: pointer; /* משנים את סמן העכבר */
+            cursor: pointer; /* משנים סמן */
         }
         
-        /* אפקט הצגת שמות המשפחה בריחוף (כלי-עזר ויזואלי) */
+        .family-card p {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* אפקט הצגת שמות המשפחה (Tooltip משופר) */
         .family-card h4::after {
-            content: attr(title); /* משתמשים ב-title כתוכן המוצג */
+            content: attr(title); 
             position: absolute;
             top: 100%;
             right: 50%;
@@ -129,9 +141,6 @@
             opacity: 1;
             visibility: visible;
         }
-        
-        
-        
         /* ------------------------------------------- */
         /* 🎨 עיצוב פרימיום - Alpine Glass */
         /* ------------------------------------------- */
@@ -937,7 +946,7 @@
         </ul>
     </nav>
 
- <section id="intro" class="intro-section fade-in-section">
+<section id="intro" class="intro-section fade-in-section">
         <div class="section-bg-title">FAMILY TRIP</div>
         <div class="container">
             <div class="intro-text">
@@ -947,18 +956,10 @@
             
             <div class="families-grid">
                 <div class="family-card">
-                    <div class="family-image-container" style="background-image: url('metsuyanim.png');"></div>
+                    <div class="family-image-container" style="background-image: url('barel.png');"></div>
                     <div class="family-content-wrapper">
-                        <h4 title="כפיר, רין, תמר, איתן ומתן">משפחת מצוינים</h4>
-                        <p>סיירת ההליכה: חוד החנית של המסלולים.</p>
-                    </div>
-                </div>
-                
-                <div class="family-card">
-                    <div class="family-image-container" style="background-image: url('gelfand.png');"></div>
-                    <div class="family-content-wrapper">
-                        <h4 title="לירן, שני, שי-לי, ינאי ונועם">משפחת גלפנד</h4>
-                        <p>צלמים וקומיקאים: על הצחוקים והתיעוד.</p>
+                        <h4 title="אופיר, עינב, יואב, אביב ושחר">משפחת בראל</h4>
+                        <p>סושיאל והמלצות קולינריות</p>
                     </div>
                 </div>
                 
@@ -971,10 +972,18 @@
                 </div>
                 
                 <div class="family-card">
-                    <div class="family-image-container" style="background-image: url('barel.png');"></div>
+                    <div class="family-image-container" style="background-image: url('gelfand.png');"></div>
                     <div class="family-content-wrapper">
-                        <h4 title="אופיר, עינב, יואב, אביב ושחר">משפחת בראל</h4>
-                        <p>סושיאל והמלצות קולינריות</p>
+                        <h4 title="לירן, שני, שי-לי, ינאי ונועם">משפחת גלפנד</h4>
+                        <p>צלמים וקומיקאים: על הצחוקים והתיעוד.</p>
+                    </div>
+                </div>
+                
+                <div class="family-card">
+                    <div class="family-image-container" style="background-image: url('metsuyanim.png');"></div>
+                    <div class="family-content-wrapper">
+                        <h4 title="כפיר, רין, תמר, איתן ומתן">משפחת מצוינים</h4>
+                        <p>סיירת ההליכה: חוד החנית של המסלולים.</p>
                     </div>
                 </div>
                 
@@ -1568,6 +1577,7 @@
     </script>
 </body>
 </html>
+
 
 
 

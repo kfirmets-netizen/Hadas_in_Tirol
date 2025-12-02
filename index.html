@@ -10,141 +10,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;800&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap" rel="stylesheet">
 
     <style>
-/* ------------------------------------------- */
-        /* 🏘️ סקשן המשפחות - עיצוב מתוקן ומאוזן */
         /* ------------------------------------------- */
-        .intro-section {
-            padding: 6rem 0;
-            position: relative;
-        }
-        
-        /* ... שאר הכללים הכלליים של הסקשן ... */
-        
-        .families-grid {
-            /* התיקון העיקרי! עובר ל-Flexbox כדי לאזן 5 כרטיסים בצורה מרכזית */
-            display: flex; 
-            flex-wrap: wrap;
-            justify-content: center; /* ממקד את הפריטים במרכז */
-            gap: 40px 30px; 
-        }
-        
-        .family-card {
-            background: var(--white-glass);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius);
-            border: var(--border-glass);
-            box-shadow: var(--shadow-glass);
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-            text-align: center;
-            width: 280px; /* רוחב קבוע לכרטיס */
-            flex-grow: 0;
-            padding-top: 0; 
-            position: relative;
+        /* 🎨 הגדרות גלובליות */
+        /* ------------------------------------------- */
+        :root {
+            --primary-dark: #1a3c34;
+            --primary-light: #2d6a4f;
+            --accent: #d4a373;
+            --accent-hover: #bc8a5f;
+            --text-dark: #1d3557;
+            --text-light: #457b9d;
+            --white-glass: rgba(255, 255, 255, 0.92);
+            --white-glass-hover: rgba(255, 255, 255, 1);
+            --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            --border-glass: 1px solid rgba(255, 255, 255, 0.6);
+            --radius: 24px;
         }
 
-        .family-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            background: var(--white-glass-hover);
-        }
-        
-        .family-image-container {
-            /* הפיכת התמונה לעיגול (150x150) */
-            width: 150px; 
-            height: 150px; 
-            border-radius: 50%; 
-            margin: 20px auto 0;
-            border: 5px solid var(--accent);
-            box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5); 
-            background-size: cover;
-            background-position: center; /* ממקם את התמונה במרכז */
-            position: relative;
-            z-index: 1; 
-            transform: translateY(10px); 
-        }
-        
-        /* מבטלים את הצללת המקור של התמונה המרובעת, שגורמת לחיתוך להיות רע */
-        .family-image-container::after {
-            content: none;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: linear-gradient(135deg, #fdfbf7 0%, #e8f5e9 100%);
+            background-attachment: fixed;
+            overflow-x: hidden;
         }
 
-        .family-content-wrapper {
-            padding: 25px;
-            /* מרימים את התוכן למעלה לחפיפה עם התמונה העגולה */
-            transform: translateY(-40px);
-            position: relative;
-            z-index: 0;
-        }
-        
-        .family-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 30px; /* רווח להצגת השמות בריחוף */
+        h1, h2, h3, h4 {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-weight: 800;
             color: var(--primary-dark);
-            position: relative;
-            display: inline-block;
-            cursor: pointer; /* סמן להצגת השמות */
-        }
-        
-        .family-card p {
-            font-size: 1rem;
-            color: var(--text-light);
-            font-weight: 600;
+            margin-bottom: 0.5em;
         }
 
-        /* אפקט הצגת שמות המשפחה בריחוף (ה-CSS הזה יגרום לשמות להופיע מעל ה-h4) */
-        .family-card h4::after {
-            content: attr(title); 
-            position: absolute;
-            top: 100%;
-            right: 50%;
-            transform: translateX(50%) translateY(10px);
-            background: var(--primary-dark);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            font-weight: 400;
-            white-space: nowrap;
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* אנימציות */
+        .fade-in-section {
             opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, transform 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            z-index: 10;
-            text-align: center;
-            width: max-content;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
         }
-        
-        .family-card h4:hover::after {
+        .fade-in-section.is-visible {
             opacity: 1;
-            visibility: visible;
-            transform: translateX(50%) translateY(0);
+            transform: none;
         }
-        
-        .family-card h4::before {
-            content: '';
-            position: absolute;
-            top: 100%;
-            right: 50%;
-            transform: translateX(50%) translateY(5px);
-            border-width: 5px;
-            border-style: solid;
-            border-color: transparent transparent var(--primary-dark) transparent;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s;
-            z-index: 11;
-        }
-        
-        .family-card h4:hover::before {
-            opacity: 1;
-            visibility: visible;
-        }
+
         /* ------------------------------------------- */
         /* 🏔️ Hero Section */
         /* ------------------------------------------- */
         .hero {
-            height: 100vh;
+            height: 85vh; /* קצת הנמכתי כדי שיראו שיש המשך */
             width: 100%;
             position: relative;
             display: flex;
@@ -156,705 +75,381 @@
             overflow: hidden;
         }
 
-        /* רקע עם אפקט פרלקס */
         .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background: url('https://images.unsplash.com/photo-1516975336498-3357f22e6e46?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-            filter: brightness(0.75);
+            filter: brightness(0.65);
             z-index: -1;
-            transform: scale(1.1); /* זום קל להתחלה */
-            animation: zoomIn 20s infinite alternate;
         }
 
-        @keyframes zoomIn { from {transform: scale(1);} to {transform: scale(1.1);} }
-
         .hero-content {
-            background: rgba(26, 60, 52, 0.65); /* ירוק כהה שקוף */
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 4rem 3rem;
+            background: rgba(26, 60, 52, 0.6);
+            backdrop-filter: blur(8px);
+            padding: 3rem;
             border-radius: var(--radius);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255,255,255,0.3);
             max-width: 900px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            margin: 20px;
             animation: floatUp 1.2s ease-out;
         }
 
-        .family-badge {
-            background: var(--accent);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(212, 163, 115, 0.4);
-        }
+        @keyframes floatUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        .hero h1 {
-            font-size: 4.5rem;
-            color: white;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .hero p.subtitle {
-            font-size: 1.6rem;
-            font-weight: 300;
-            opacity: 0.95;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-btn {
-            background: white;
-            color: var(--primary-dark);
-            padding: 18px 45px;
-            font-size: 1.3rem;
-            font-weight: 800;
-            border-radius: 50px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-
-        .hero-btn:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(212, 163, 115, 0.4);
-        }
+        .hero h1 { font-size: 4rem; color: white; text-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-bottom: 10px; }
+        .family-badge { background: var(--accent); color: white; padding: 5px 15px; border-radius: 50px; font-weight: bold; display: inline-block; margin-bottom: 20px; }
+        .hero p.subtitle { font-size: 1.4rem; margin-bottom: 30px; opacity: 0.9; }
+        .hero-btn { background: white; color: var(--primary-dark); padding: 15px 40px; border-radius: 50px; font-weight: 800; font-size: 1.2rem; transition: 0.3s; }
+        .hero-btn:hover { background: var(--accent); color: white; transform: translateY(-3px); }
+        
+        .scroll-down { position: absolute; bottom: 30px; color: white; font-size: 2rem; animation: bounce 2s infinite; cursor: pointer; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
 
         /* ------------------------------------------- */
         /* 🧭 Navbar */
         /* ------------------------------------------- */
         .navbar {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
             position: sticky;
-            top: 20px;
-            margin: 0 auto;
-            max-width: 90%;
-            border-radius: 50px;
+            top: 0;
             z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            padding: 15px 0;
-            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 10px 0;
         }
-        
-        .nav-list {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .nav-list a {
-            color: var(--primary-dark);
-            position: relative;
-            padding: 5px 10px;
-        }
-
-        .nav-list a:hover {
-            color: var(--accent);
-        }
+        .nav-list { display: flex; justify-content: center; gap: 30px; font-weight: 700; font-size: 1.1rem; }
+        .nav-list a:hover { color: var(--accent); }
 
         /* ------------------------------------------- */
-        /* 🏘️ סקשן המשפחות */
+        /* ✈️ סקשן טכני (טיסות + מטבע) - הועבר למעלה */
+        /* ------------------------------------------- */
+        .tech-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .tech-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* חלוקה: טיסות רחב יותר, מטבע צר יותר */
+            gap: 30px;
+        }
+        
+        .tech-card {
+            background: white;
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+        
+        .tech-card h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--primary-light); display: flex; align-items: center; gap: 10px; }
+        
+        .flight-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        .flight-row:last-child { border-bottom: none; }
+        .flight-route { font-weight: 800; font-size: 1.1rem; }
+        .flight-time { color: var(--text-light); font-family: monospace; font-size: 1.1rem; }
+
+        .currency-display {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 80%;
+        }
+        .currency-rate { font-size: 2.5rem; font-weight: 900; color: var(--primary-dark); }
+        .currency-sub { font-size: 0.9rem; color: #666; }
+
+
+        /* ------------------------------------------- */
+        /* 🏘️ סקשן המשפחות (העיצוב המתוקן - מעגלי ומאוזן) */
         /* ------------------------------------------- */
         .intro-section {
             padding: 6rem 0;
             position: relative;
+            text-align: center;
         }
 
         .section-bg-title {
-            font-size: 12rem;
+            font-size: 10vw;
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             opacity: 0.03;
             font-weight: 900;
-            pointer-events: none;
             white-space: nowrap;
             z-index: -1;
+            pointer-events: none;
         }
 
-        .container {
+        .intro-text { max-width: 800px; margin: 0 auto 60px; }
+        .intro-text h2 { font-size: 2.5rem; }
+        .intro-text p { font-size: 1.2rem; }
+
+        /* Flexbox למרכוז 5 כרטיסים */
+        .families-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 60px 40px;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
-        .intro-text {
-            font-size: 1.4rem;
-            max-width: 800px;
-            margin: 0 auto 50px;
-            color: var(--text-main);
-            text-align: center;
-        }
-
-        .families-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-        }
-        
+        /* כרטיס המשפחה */
         .family-card {
             background: var(--white-glass);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius);
-            border: var(--border-glass);
-            box-shadow: var(--shadow-glass);
-            overflow: hidden;
-            transition: all 0.4s ease;
-            text-align: center;
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            width: 260px;
+            position: relative;
+            margin-top: 50px;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px 30px 20px;
         }
 
         .family-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            background: var(--white-glass-hover);
+            transform: translateY(-10px);
+            background: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
-        
+
+        /* התמונה העגולה */
         .family-image-container {
-            width: 100%;
-            height: 220px; 
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
             background-size: cover;
             background-position: center;
-            position: relative;
-        }
-        
-        .family-image-container::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 50%;
-            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            margin-top: -70px;
+            border: 6px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 15px;
+            z-index: 2;
+            background-color: #ddd;
         }
 
-        .family-content-wrapper {
-            padding: 25px;
-        }
-        
+        /* הבועה השחורה (Tooltip) */
         .family-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            font-size: 1.4rem;
+            margin: 10px 0 5px 0;
             color: var(--primary-dark);
+            cursor: help;
             position: relative;
             display: inline-block;
-            cursor: help;
         }
         
-        .family-card p {
-            font-size: 1rem;
-            color: var(--text-light);
-            font-weight: 600;
-        }
-
-        /* ------------------------------------------- */
-        /* 📅 ציר הזמן (Timeline) */
-        /* ------------------------------------------- */
-        .timeline-section {
-            padding: 6rem 0;
-            position: relative;
-        }
-
-        .days-container-wrapper {
-            position: relative;
-            padding-right: 20px;
-        }
-
-        .days-container-wrapper::before {
-            content: '';
+        .family-card h4::after {
+            content: attr(title);
             position: absolute;
-            top: 0; bottom: 0; right: 0;
-            width: 4px;
-            background: repeating-linear-gradient(to bottom, var(--accent) 0, var(--accent) 10px, transparent 10px, transparent 20px);
-            opacity: 0.5;
-            z-index: 0;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: #333;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-family: 'Assistant', sans-serif;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 100;
         }
 
-        .filters {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 60px;
+        .family-card h4:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-15px);
         }
 
-        .filter-btn {
-            background: white;
-            border: none;
-            color: var(--text-light);
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            font-size: 1rem;
-        }
+        /* ------------------------------------------- */
+        /* 📅 ציר הזמן (תיקון חיתוך) */
+        /* ------------------------------------------- */
+        .timeline-section { padding: 5rem 0; }
+        .timeline-container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--primary-dark);
-            color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(26, 60, 52, 0.2);
-        }
-
-        /* כרטיס יום */
         .day-card {
             background: var(--white-glass);
             border-radius: var(--radius);
-            border: var(--border-glass);
             box-shadow: var(--shadow-glass);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
+            overflow: hidden; /* שומרים על זה לעיצוב הפינות */
             display: flex;
             flex-direction: column;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-            position: relative;
-            margin-right: 30px;
+            border-right: 5px solid var(--accent);
         }
         
-        .day-card::before {
-            content: '📍';
-            position: absolute;
-            top: 30px;
-            right: -46px;
-            width: 32px;
-            height: 32px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 0 4px var(--accent);
-            z-index: 1;
-            font-size: 1.2rem;
-        }
-
         @media (min-width: 768px) {
-            .day-card {
-                flex-direction: row;
-                min-height: 300px;
-            }
-        }
-
-        .day-card:hover {
-            transform: translateX(-10px);
-            background: white;
+            .day-card { flex-direction: row; min-height: 320px; } /* הגדלתי גובה מינימלי */
+            .day-image { width: 40%; min-height: auto; }
         }
 
         .day-image {
+            min-height: 250px; /* גובה בטוח למובייל */
             background-size: cover;
             background-position: center;
-            min-height: 250px;
-            width: 100%;
             position: relative;
-        }
-
-        @media (min-width: 768px) {
-            .day-image {
-                width: 45%;
-                min-height: auto;
-                clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-            }
         }
         
         .day-tag {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--primary-dark);
-            color: var(--accent);
-            padding: 6px 15px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 800;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            text-transform: uppercase;
-        }
-
-        .day-content {
-            padding: 35px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .day-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            cursor: pointer;
-            border-bottom: 2px dashed rgba(0,0,0,0.05);
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-        }
-
-        .day-header h3 {
-            font-size: 1.8rem;
-            margin: 0;
+            top: 15px; right: 15px;
+            background: rgba(255,255,255,0.95);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8rem;
             color: var(--primary-dark);
-            line-height: 1.1;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .toggle-icon {
-            font-size: 2rem;
-            color: var(--accent);
-            font-weight: 300;
-            transition: transform 0.3s;
+        .day-content { 
+            padding: 25px; 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            /* ביטלתי justify-content: center כדי שהטקסט יזרום טבעי מלמעלה */
         }
         
-        .day-header.active .toggle-icon {
-            transform: rotate(45deg);
+        .day-header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            cursor: pointer; padding-bottom: 10px; border-bottom: 1px dashed #ccc; margin-bottom: 15px;
         }
+        .day-header h3 { font-size: 1.6rem; margin: 0; color: var(--primary-dark); line-height: 1.2; }
+        .toggle-icon { font-size: 1.5rem; color: var(--accent); transition: 0.3s; }
+        .day-header.active .toggle-icon { transform: rotate(45deg); }
 
-        .day-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.6s ease;
-            color: var(--text-dark);
+        /* תיקון החיתוך - ברירת מחדל פתוח חלקית או סגור, אבל לא נעלם */
+        .day-details { 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.5s ease-in-out; 
+            opacity: 0; /* נוסף לאפקט חלק */
         }
         
-        .day-description {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            line-height: 1.7;
+        /* כשהיום פעיל */
+        .day-header.active + .day-details {
+            opacity: 1;
         }
-
-        .day-intro {
-            background: rgba(212, 163, 115, 0.15);
-            padding: 15px 20px;
-            border-radius: 12px;
-            color: var(--primary-dark);
-            font-weight: 700;
-            margin-bottom: 20px;
-            border-right: 4px solid var(--accent);
-        }
-
-        .day-details ul li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-right: 30px;
-            font-weight: 500;
-        }
-
-        .day-details ul li::before {
-            content: '✔';
-            position: absolute;
-            right: 0;
-            color: var(--primary-light);
-            font-weight: 900;
-            background: #E8F5E9;
-            width: 20px; height: 20px;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.7rem;
-        }
+        
+        /* עיצוב הטקסטים שלא ייעלמו */
+        .day-description { margin-bottom: 15px; font-size: 1.05rem; line-height: 1.6; }
+        .day-intro { font-weight: 700; color: var(--primary-light); margin-bottom: 10px; }
         
         .day-details blockquote {
-            border-right: 4px solid var(--primary-light); 
-            background: white; 
-            font-style: italic; 
-            color: var(--text-main);
-            padding: 20px;
-            border-radius: 12px;
-            font-size: 1rem; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            margin: 20px 0;
+            background: #f9f9f9;
+            border-right: 4px solid var(--primary-light);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        .filters { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+        .filter-btn { background: white; border: none; padding: 10px 20px; border-radius: 30px; cursor: pointer; font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+        .filter-btn.active, .filter-btn:hover { background: var(--primary-dark); color: white; }
+
+        /* ------------------------------------------- */
+        /* 🏡 סקשן סיכום לינות וטיפים (עיצוב משופר) */
+        /* ------------------------------------------- */
+        .summary-section {
+            padding: 5rem 0;
+            background-color: #f4f6f5;
         }
         
-        .day-details blockquote strong {
-            color: var(--primary-dark);
-            display: block;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-        
-        /* ------------------------------------------- */
-        /* ☀️ ווידג'ט מזג אוויר */
-        /* ------------------------------------------- */
-        .weather-widget {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: white; /* רקע לבן בתוך הזכוכית */
-            border-radius: 16px;
-            padding: 15px 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--accent);
-            transition: all 0.3s ease;
-        }
-
-        .weather-widget:hover {
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
-        }
-
-        .weather-icon {
-            font-size: 2.5rem;
-            line-height: 1;
-            margin-left: 15px;
-        }
-
-        .weather-info {
-            flex-grow: 1;
-            text-align: right;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .location-name {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
-
-        .temperature {
-            font-size: 1.6rem;
-            font-weight: 900;
-            color: var(--accent);
-            line-height: 1;
-        }
-
-        .weather-details {
-            display: flex;
-            flex-direction: column;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            text-align: left;
-        }
-        .weather-details span:not(:last-child) {
-            margin-bottom: 3px;
-        }
-        /* ------------------------------------------- */
-
-        /* ------------------------------------------- */
-        /* ✈️ סקשן הטיסות */
-        /* ------------------------------------------- */
-        .flights-section {
-            padding: 6rem 0;
-            background: rgba(255,255,255,0.5);
-        }
-        
-        .flights-container {
+        .two-columns-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        .flights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .flight-card {
+        .section-card {
             background: white;
-            padding: 30px;
-            border-radius: var(--radius);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            text-align: right;
-            border-top: 6px solid var(--accent);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .flight-card::before {
-            content: '✈️';
-            position: absolute;
-            left: -10px; bottom: -20px;
-            font-size: 10rem;
-            opacity: 0.05;
-            transform: rotate(-20deg);
-        }
-        
-        .flight-card h4 {
-            font-size: 1.5rem;
-            color: var(--primary-dark);
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-        }
-        
-        .flight-card ul {
-            list-style: none;
-            padding: 0;
-            font-size: 1.05rem;
-        }
-        
-        .flight-card ul li {
-            margin-bottom: 10px;
-            padding-right: 15px;
-            position: relative;
-            font-weight: 500;
-            color: var(--text-main);
-        }
-        
-        .flight-card ul li strong {
-            color: var(--secondary);
-            font-weight: 700;
-        }
-        
-        .flight-card ul li::before {
-            content: '•';
-            position: absolute;
-            right: 0;
-            color: var(--highlight);
-            font-weight: bold;
-        }
-        
-        /* ------------------------------------------- */
-        /* 🏡 סקשן הלינה */
-        /* ------------------------------------------- */
-        .lodging-flow-section {
-            padding: 6rem 0;
-        }
-
-        .intro-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .lodging-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .lodging-card {
-            background: var(--white-glass);
-            backdrop-filter: blur(10px);
             padding: 30px;
             border-radius: var(--radius);
             box-shadow: var(--shadow-glass);
-            text-align: center;
-            border: var(--border-glass);
-            transition: 0.3s;
         }
         
-        .lodging-card:hover {
-            transform: translateY(-10px);
-            background: white;
-            border-color: var(--primary-light);
-        }
-        
-        .lodging-card h4 {
-            font-size: 1.6rem;
+        .section-title {
+            font-size: 2rem;
             color: var(--primary-dark);
-            margin-bottom: 5px;
-        }
-        
-        .lodging-card .days-span {
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
             display: inline-block;
+        }
+
+        /* רשימת לינה מעוצבת */
+        .lodging-list { list-style: none; }
+        .lodging-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .lodging-item:last-child { border-bottom: none; }
+        
+        .lodging-info h4 { margin: 0; font-size: 1.2rem; color: var(--primary-dark); }
+        .lodging-info span { font-size: 0.9rem; color: #777; }
+        .lodging-dates {
             background: var(--primary-light);
             color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
+            padding: 5px 10px;
+            border-radius: 8px;
             font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-        
-        .lodging-card ul {
-            text-align: right;
-            font-size: 1.05rem;
-            padding-right: 15px;
+            font-weight: bold;
         }
 
-        /* ------------------------------------------- */
-        /* 🌟 סקשן הטיפים הכלליים */
-        /* ------------------------------------------- */
-        .general-tips-section {
-            padding: 6rem 0;
-            background: var(--primary-dark);
-            color: white;
+        /* רשימת טיפים מעוצבת */
+        .tips-grid { display: grid; gap: 20px; }
+        .tip-box {
+            background: #fffbf5;
+            border: 1px solid #eaddcf;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
         }
+        .tip-icon { font-size: 1.5rem; background: white; padding: 10px; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .tip-content h5 { margin: 0 0 5px 0; font-size: 1.1rem; color: var(--accent-hover); }
+        .tip-content p { margin: 0; font-size: 0.95rem; color: var(--text-dark); }
 
-        .general-tips-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .general-tips-section h2 {
-            color: var(--accent);
-        }
-        
-        .general-tips-section p {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .general-tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .tip-card {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: var(--radius);
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: 0.3s;
-        }
-
-        .tip-card:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-5px);
-        }
-
-        .tip-card h4 {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-        }
-
-        .tip-card ul li {
-            margin-bottom: 12px;
-            color: white;
-            font-size: 1.1rem;
-        }
-        
-        /* ------------------------------------------- */
-        /* 📱 רספונסיביות */
-        /* ------------------------------------------- */
+        /* רספונסיביות */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
+            .hero h1 { font-size: 2.8rem; }
             .nav-list { display: none; }
-            
-            .days-container-wrapper::before {
-                right: 20px;
-            }
-            .day-card {
-                margin-right: 40px;
-            }
-            .day-card::before {
-                right: -56px;
-            }
-            
-            .flight-card, .lodging-card { text-align: center; }
-            .lodging-card ul { text-align: center; }
+            .families-grid { flex-direction: column; align-items: center; }
+            .family-card { width: 100%; max-width: 320px; }
+            .tech-container { grid-template-columns: 1fr; }
+            .two-columns-grid { grid-template-columns: 1fr; }
+            .day-card { flex-direction: column; }
+            .day-image { height: 200px; min-height: auto; }
         }
 
-        /* מיפוי תמונות רקע */
+        /* מיפוי תמונות (חשוב לוודא שמות קבצים) */
         #img-day1 { background-image: url('day1.png'); }
         #img-day2 { background-image: url('day2.png'); }
         #img-day3 { background-image: url('day3.png'); }
@@ -866,7 +461,6 @@
         #img-day9 { background-image: url('day9.png'); }
         #img-day10 { background-image: url('day10.png'); }
         #img-day11 { background-image: url('day11.png'); }
-
     </style>
 </head>
 <body>
@@ -875,7 +469,7 @@
         <div class="hero-content">
             <div class="family-badge">משלחת הדס 24</div>
             <h1>מחולון לפסגות אוסטריה</h1>
-            <p class="subtitle">11 ימים של הרים, אגמים, שניצלים וצחוקים. הטיול המשפחתי הגדול של סוכות 2026.</p>
+            <p class="subtitle">11 ימים של הרים, אגמים, שניצלים וצחוקים.</p>
             <a href="#intro" class="hero-btn">יוצאים לדרך! ✈️</a>
         </div>
         <div class="scroll-down">⌄</div>
@@ -883,20 +477,40 @@
 
     <nav class="navbar">
         <ul class="nav-list">
+            <li><a href="#flights-tech">מידע טכני</a></li>
             <li><a href="#intro">המשלחת</a></li>
             <li><a href="#timeline">המסלול</a></li>
-            <li><a href="#flights-section">טיסות</a></li>
-            <li><a href="#lodging-flow-section">לינה</a></li>
-            <li><a href="#general-tips">טיפים</a></li>
+            <li><a href="#summary">לינה וטיפים</a></li>
         </ul>
     </nav>
 
-<section id="intro" class="intro-section fade-in-section">
+    <section id="flights-tech" class="tech-section">
+        <div class="tech-container">
+            <div class="tech-card">
+                <h3>✈️ פרטי הטיסות (Austrian Airlines)</h3>
+                <div class="flight-row">
+                    <div class="flight-route">TLV ➔ VIE</div>
+                    <div class="flight-time">22.09.26 | 18:40 | OS82</div>
+                </div>
+                <div class="flight-row">
+                    <div class="flight-route">VIE ➔ TLV</div>
+                    <div class="flight-time">02.10.26 | 20:20 | OS83</div>
+                </div>
+            </div>
+            
+            <div class="tech-card currency-display">
+                <div class="currency-sub">שער יורו יציג</div>
+                <div class="currency-rate">₪4.12</div> <div class="currency-sub">1 EUR</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="intro" class="intro-section fade-in-section">
         <div class="section-bg-title">FAMILY TRIP</div>
         <div class="container">
             <div class="intro-text">
                 <h2>הנבחרת של הדס 24 🏢</h2>
-                <p>תשכחו מכל מה שידעתם על טיולים מאורגנים. כאן מדובר בכוח משימה מיוחד שיצא מרחוב הדס 24 בחולון לכבוש את האלפים. <strong>20 מטיילים, 4 משפחות, יעד אחד.</strong></p>
+                <p>20 מטיילים, 4 משפחות, יעד אחד. כובשים את האלפים.</p>
             </div>
             
             <div class="families-grid">
@@ -904,39 +518,35 @@
                     <div class="family-image-container" style="background-image: url('metsuyanim.png');"></div>
                     <div class="family-content-wrapper">
                         <h4 title="כפיר, רין, תמר, איתן ומתן">משפחת מצוינים</h4>
-                        <p>סיירת ההליכה: חוד החנית של המסלולים.</p>
+                        <p>סיירת ההליכה</p>
                     </div>
                 </div>
-                
                 <div class="family-card">
                     <div class="family-image-container" style="background-image: url('gelfand.png');"></div>
                     <div class="family-content-wrapper">
                         <h4 title="לירן, שני, שי-לי, ינאי ונועם">משפחת גלפנד</h4>
-                        <p>צלמים וקומיקאים: על הצחוקים והתיעוד.</p>
+                        <p>צלמים וקומיקאים</p>
                     </div>
                 </div>
-                
                 <div class="family-card">
                     <div class="family-image-container" style="background-image: url('avniely.png');"></div>
                     <div class="family-content-wrapper">
                         <h4 title="עידו, רותי, אסף, סיון ושי">משפחת אבניאלי</h4>
-                        <p>האחראים על הלוגיסטיקה והניווט.</p>
+                        <p>לוגיסטיקה וניווט</p>
                     </div>
                 </div>
-                
                 <div class="family-card">
                     <div class="family-image-container" style="background-image: url('barel.png');"></div>
                     <div class="family-content-wrapper">
                         <h4 title="אופיר, עינב, יואב, אביב ושחר">משפחת בראל</h4>
-                        <p>סושיאל והמלצות קולינריות</p>
+                        <p>סושיאל וקולינריה</p>
                     </div>
                 </div>
-                
                 <div class="family-card">
                     <div class="family-image-container" style="background-image: url('erez.png');"></div>
                     <div class="family-content-wrapper">
                         <h4 title="אשחר, אורטל, אריאל, אופיר, עלמה ואורי">משפחת ארז</h4>
-                        <p>הממונים על השכמה בזמן!</p>
+                        <p>השכמה בזמן!</p>
                     </div>
                 </div>
             </div>
@@ -944,390 +554,179 @@
     </section>
 
     <section id="timeline" class="timeline-section">
-        <div class="container days-container-wrapper">
-            <div style="text-align: center; margin-bottom: 50px;" class="fade-in-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;" class="fade-in-section">
                 <h2>יומן המסע 📅</h2>
-                <p>הקליקו על הימים כדי לראות את התוכנית המלאה והטיפים</p>
-            </div>
-
-            <div class="filters fade-in-section">
-                <button class="filter-btn active" data-filter="all">הכל</button>
-                <button class="filter-btn" data-filter="city">🏙️ עיר</button>
-                <button class="filter-btn" data-filter="nature">⛰️ טבע</button>
-                <button class="filter-btn" data-filter="water">💧 מים</button>
-                <button class="filter-btn" data-filter="kids">👪 ילדים/אקשן</button> 
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">הכל</button>
+                    <button class="filter-btn" data-filter="city">עיר</button>
+                    <button class="filter-btn" data-filter="nature">טבע</button>
+                    <button class="filter-btn" data-filter="kids">ילדים</button> 
+                </div>
             </div>
 
             <div id="days-container">
-                <div class="day-card fade-in-section" id="day1" data-type="city" data-location="VIE">
+                <div class="day-card fade-in-section" id="day1" data-type="city">
                     <div class="day-image" id="img-day1"><span class="day-tag">נחיתה</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 1: נוחתים בווינה (Vienna)</h3>
+                            <h3>יום 1: נחיתה בוינה (Vienna)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
-                             <blockquote><strong>טיפ יומי:</strong> היום מתרכז בהתאקלמות. דאגו לארוז בתיק צד <strong>בגדים להחלפה</strong> ואת כל המסמכים החשובים.</blockquote>
-                            
-                            <div class="weather-widget">
-                                <div class="weather-icon"></div>
-                                <div class="weather-info">
-                                    <span class="location-name">וינה</span>
-                                    <span class="temperature"></span>
-                                </div>
-                                <div class="weather-details">
-                                    <span class="description"></span>
-                                    <span class="precipitation"></span>
-                                </div>
-                            </div>
-                            <p class="day-description">
-                                זהו יום ההגעה. לאחר טיסה, ננחת בבירת אוסטריה, ווינה. נסיעה קצרה לבית המלון והתארגנות מהירה.
-                            </p>
-                            <div class="day-intro">22.09.2026 | מתחילים רגוע. (לינה ראשונה בוינה)</div>
-                            <ul>
-                                <li>נחיתה בערב בווינה והתארגנות זריזה.</li>
-                                <li>לינה ראשונה וצבירת כוחות לקראת המחר.</li>
-                            </ul>
+                             <blockquote><strong>טיפ:</strong> להכין תיק צד עם בגדים להחלפה.</blockquote>
+                            <p class="day-description">הגעה לוינה בערב, התארגנות מהירה במלון וצבירת כוחות.</p>
+                            <div class="day-intro">22.09 | לינה: וינה</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day2" data-type="city travel" data-location="SLZ">
+                <div class="day-card fade-in-section" id="day2" data-type="city travel">
                     <div class="day-image" id="img-day2"><span class="day-tag">רכבת</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 2: הרכבת לזלצבורג (Salzburg)</h3>
+                            <h3>יום 2: רכבת לזלצבורג (Salzburg)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
-                            <blockquote><strong>טיפ יומי:</strong> לטעימות המוצרט הטובות ביותר, חפשו את ה-"<strong>Original Mozartkugel</strong>" העטוף בכסף וכחול של קונדיטוריית <strong>Fürst</strong>.</blockquote>
-                            
-                            <div class="weather-widget">
-                                <div class="weather-icon"></div>
-                                <div class="weather-info">
-                                    <span class="location-name">זלצבורג</span>
-                                    <span class="temperature"></span>
-                                </div>
-                                <div class="weather-details">
-                                    <span class="description"></span>
-                                    <span class="precipitation"></span>
-                                </div>
-                            </div>
-                            <p class="day-description">
-                                בבוקר נצא ברכבת המהירה לכיוון זלצבורג. נבלה את אחר הצהריים בשיטוט בין סמטאות העיר העתיקה.
-                            </p>
-                            <div class="day-intro">23.09.2026 | קסם הבארוק. (לינה ראשונה בזלצבורג)</div>
-                            <ul>
-                                <li>נסיעה ברכבת מהירה (שעתיים וחצי) בנופים ירוקים.</li>
-                                <li>שיטוט בעיר העתיקה של זלצבורג.</li>
-                                <li><strong>אופציית יום גשום:</strong> מפלי גולינג – מסלול קצר ומהמם.</li>
-                            </ul>
+                             <blockquote><strong>טיפ:</strong> כדורי מוצרט מקוריים רק אצל Fürst.</blockquote>
+                            <p class="day-description">נסיעת בוקר ברכבת, שיטוט בעיר העתיקה של זלצבורג. אופציית גשם: מפלי גולינג.</p>
+                            <div class="day-intro">23.09 | לינה: זלצבורג</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day3" data-type="nature water kids" data-location="HSL">
-                    <div class="day-image" id="img-day3"><span class="day-tag">ילדים & נוף</span></div>
+                <div class="day-card fade-in-section" id="day3" data-type="nature kids">
+                    <div class="day-image" id="img-day3"><span class="day-tag">אגמים</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 3: האלשטאט (Hallstatt) ומכרה המלח</h3>
+                            <h3>יום 3: האלשטאט ומכרות המלח</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
-                            <blockquote><strong>טיפ יומי:</strong> האלשטאט יעד מתוייר - נסו להגיע <strong>לפני 9:30</strong>. <strong>מכרות המלח:</strong> פעילות פנימית מעולה לילדים (קר בפנים ~8°).</blockquote>
-                            
-                            <div class="weather-widget">
-                                <div class="weather-icon"></div>
-                                <div class="weather-info">
-                                    <span class="location-name">האלשטאט</span>
-                                    <span class="temperature"></span>
-                                </div>
-                                <div class="weather-details">
-                                    <span class="description"></span>
-                                    <span class="precipitation"></span>
-                                </div>
-                            </div>
-                            <p class="day-description">
-                                יום קסום המוקדש לאזור האגמים. נתחיל בעיירה האלשטאט המפורסמת ונמשיך למכרות המלח.
-                            </p>
-                            <div class="day-intro">24.09.2026 | נופי גלויה. (לינה שנייה בזלצבורג)</div>
-                            <ul>
-                                <li>ביקור בהאלשטאט – צילומים ואווירה.</li>
-                                <li>בילוי במכרות המלח (Salzwelten).</li>
-                                <li><strong>שימו לב:</strong> תצפית 5 האצבעות תלויה בראות בלבד.</li>
-                            </ul>
+                             <blockquote><strong>טיפ:</strong> להגיע להאלשטאט לפני 09:30. להתלבש חם למכרות.</blockquote>
+                            <p class="day-description">יום באזור האגמים היפה. ביקור בעיירה הציורית וכניסה למכרות המלח המרתקים לילדים.</p>
+                            <div class="day-intro">24.09 | לינה: זלצבורג</div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="day-card fade-in-section" id="day4" data-type="water spa kids travel" data-location="KAP">
+
+                <div class="day-card fade-in-section" id="day4" data-type="water spa kids">
                     <div class="day-image" id="img-day4"><span class="day-tag">מעבר & מים</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 4: Therme Amadé ונסיעה לקפרון</h3>
+                            <h3>יום 4: Therme Amadé ומעבר לקפרון</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
-                            <blockquote><strong>טיפ יומי:</strong> מרחצאות <strong>Therme Amadé</strong> ממוקמות ב-Flachau, עצירה מצוינת בדרך לקפרון. הקפידו לארוז בגדי ים בתיק נגיש.</blockquote>
-                            
-                            <div class="weather-widget">
-                                <div class="weather-icon"></div>
-                                <div class="weather-info">
-                                    <span class="location-name">קפרון/פלכאו</span>
-                                    <span class="temperature"></span>
-                                </div>
-                                <div class="weather-details">
-                                    <span class="description"></span>
-                                    <span class="precipitation"></span>
-                                </div>
-                            </div>
-                            <p class="day-description">
-                                יום המעבר המרכזי. נעצור לבילוי מרענן ב<strong>מרחצאות Therme Amadé</strong> (כולל מגלשות לופ) ונמשיך ללינה החדשה בקפרון.
-                            </p>
-                            <div class="day-intro">25.09.2026 | ספא ואקשן במים. (לינה שלישית בזלצבורג/קפרון)</div>
-                            <ul>
-                                <li>נסיעה ועצירה ב-Therme Amadé.</li>
-                                <li>בילוי של 3-4 שעות במתחם המים.</li>
-                                <li>הגעה ללינה בקפרון והתארגנות.</li>
-                            </ul>
+                             <blockquote><strong>טיפ:</strong> בגדי ים בהישג יד! עצירה מושלמת בדרך.</blockquote>
+                            <p class="day-description">עוזבים את זלצבורג. עוצרים לבילוי בפארק המים המעולה בפלאכאו (כולל מגלשת לופ) וממשיכים למלון בקפרון.</p>
+                            <div class="day-intro">25.09 | לינה: קפרון</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day5" data-type="nature snow kids action" data-location="KAP">
+                <div class="day-card fade-in-section" id="day5" data-type="nature snow kids">
                     <div class="day-image" id="img-day5"><span class="day-tag">שלג & אקשן</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 5: קיצשטיינהורן (Kitzsteinhorn) ומגלשות</h3>
+                            <h3>יום 5: קיצשטיינהורן ומגלשות הרים</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
-                            <blockquote><strong>טיפ יומי:</strong> <strong>קיצשטיינהורן:</strong> קחו את סיור המנהרה לתצפית גבוהה. הקפידו על <strong>ביגוד חם</strong>. הזמינו כרטיס ל-3 נסיעות במגלשת Maisi Flitzer.</blockquote>
-                            
-                            <div class="weather-widget">
-                                <div class="weather-icon"></div>
-                                <div class="weather-info">
-                                    <span class="location-name">קיצשטיינהורן</span>
-                                    <span class="temperature"></span>
-                                </div>
-                                <div class="weather-details">
-                                    <span class="description"></span>
-                                    <span class="precipitation"></span>
-                                </div>
-                            </div>
-                            <p class="day-description">
-                                בוקר בשיא הגובה: נעלה לקרחון קיצשטיינהורן לתצפית ושלג בגובה 3,000 מטר. נסיים בהרפתקה במגלשת ההרים <strong>Maisi Flitzer</strong>.
-                            </p>
-                            <div class="day-intro">26.09.2026 | שיא האלפים. (לינה אחרונה בקפרון)</div>
-                            <ul>
-                                <li>עלייה לקרחון קיצשטיינהורן.</li>
-                                <li>מגלשת Maisi Flitzer – אטרקציה מרכזית לילדים.</li>
-                                <li><strong>שימו לב:</strong> ערוץ Sigmund-Thun-Klamm סגור בימי ראשון.</li>
-                            </ul>
+                             <blockquote><strong>טיפ:</strong> ביגוד חם מאוד לקרחון. סיור מנהרה מומלץ.</blockquote>
+                            <p class="day-description">עולים לקרחון קיצשטיינהורן לתצפית ושלג. מקנחים במגלשת ההרים מייזי פליצר בקפרון.</p>
+                            <div class="day-intro">26.09 | לינה: קפרון</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day6" data-type="nature travel water" data-location="INN">
-                    <div class="day-image" id="img-day6"><span class="day-tag">מעבר & טבע</span></div>
+                <div class="day-card fade-in-section" id="day6" data-type="nature travel">
+                    <div class="day-image" id="img-day6"><span class="day-tag">מפלים</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
                             <h3>יום 6: מפלי קרימל ונסיעה לאינסברוק</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
-                            <blockquote><strong>טיפ יומי:</strong> מפלי קרימל (Krimml Falls) נמצאים בדרך לאינסברוק. המסלול המלא 3 שעות, אך ניתן לעלות רק לקומה הראשונה.</blockquote>
-                            
-                            <div class="weather-widget">
-                                <div class="weather-icon"></div>
-                                <div class="weather-info">
-                                    <span class="location-name">קרימל/אינסברוק</span>
-                                    <span class="temperature"></span>
-                                </div>
-                                <div class="weather-details">
-                                    <span class="description"></span>
-                                    <span class="precipitation"></span>
-                                </div>
-                            </div>
-                            <p class="day-description">
-                                יום מעבר מערבה לאינסברוק. נעצור במפלי קרימל, המפל הגבוה באירופה, לחוויית טבע מרעננת. משם נמשיך בנסיעה לאינסברוק.
-                            </p>
-                            <div class="day-intro">27.09.2026 | מים שוצפים ומעבר לטירול. (לינה ראשונה באינסברוק)</div>
-                            <ul>
-                                <li>ביקור במפלי קרימל.</li>
-                                <li>נסיעה ארוכה יחסית לאינסברוק (2-3 שעות).</li>
-                                <li>הגעה למלון Grauer Bär.</li>
-                            </ul>
+                             <blockquote><strong>טיפ:</strong> המפל הגבוה באירופה. מסלול קצר לקומה הראשונה מספיק.</blockquote>
+                            <p class="day-description">נסיעה מערבה דרך מפלי קרימל המרשימים והגעה לבירת טירול, אינסברוק.</p>
+                            <div class="day-intro">27.09 | לינה: אינסברוק</div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="day-card fade-in-section" id="day7" data-type="city shopping nature" data-location="INN">
-                    <div class="day-image" id="img-day7"><span class="day-tag">עיר & נוף</span></div>
+
+                <div class="day-card fade-in-section" id="day7" data-type="city nature">
+                    <div class="day-image" id="img-day7"><span class="day-tag">עיר & הר</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
                             <h3>יום 7: נורדקטה (Nordkette) ואינסברוק</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
-                            <blockquote><strong>טיפ יומי:</strong> <strong>נורדקטה:</strong> רכבל ממרכז העיר שלוקח אתכם לפסגה ב-20 דקות לנוף מטורף.</blockquote>
-                            
-                            <div class="weather-widget">
-                                <div class="weather-icon"></div>
-                                <div class="weather-info">
-                                    <span class="location-name">אינסברוק</span>
-                                    <span class="temperature"></span>
-                                </div>
-                                <div class="weather-details">
-                                    <span class="description"></span>
-                                    <span class="precipitation"></span>
-                                </div>
-                            </div>
-                            <p class="day-description">
-                                נתחיל בעלייה ברכבל נורדקטה לתצפית על העיר והאלפים. נבלה את הצהריים בעיר העתיקה ובשופינג, ובערב נרפה שרירים בספא המלון.
-                            </p>
-                            <div class="day-intro">28.09.2026 | בירת טירול. (לינה שנייה באינסברוק)</div>
-                            <ul>
-                                <li>עלייה בנורדקטה בבוקר.</li>
-                                <li>העיר העתיקה והגג המוזהב.</li>
-                                <li>שימוש בבריכה ובג'קוזי של מלון Grauer Bär.</li>
-                            </ul>
+                             <blockquote><strong>טיפ:</strong> רכבל מהעיר לפסגה ב-20 דקות.</blockquote>
+                            <p class="day-description">בוקר בפסגת ההר שמעל העיר, צהריים בעיר העתיקה וערב רגוע בספא המלון.</p>
+                            <div class="day-intro">28.09 | לינה: אינסברוק</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day8" data-type="nature kids water" data-location="ACH">
-                    <div class="day-image" id="img-day8"><span class="day-tag">אגם & טבע</span></div>
+                <div class="day-card fade-in-section" id="day8" data-type="nature kids">
+                    <div class="day-image" id="img-day8"><span class="day-tag">אגם</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 8: אגם אחנזה ורכבל רופאן (Achensee)</h3>
+                            <h3>יום 8: אגם אחנזה ורכבל רופאן</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
-                            <blockquote><strong>טיפ יומי:</strong> רכבל <strong>Rofan</strong> מציע תצפית מרהיבה ופעילויות לילדים. אגם אחנזה מתאים לשייט או הליכה רגועה.</blockquote>
-                            
-                            <div class="weather-widget">
-                                <div class="weather-icon"></div>
-                                <div class="weather-info">
-                                    <span class="location-name">אגם אחנזה</span>
-                                    <span class="temperature"></span>
-                                </div>
-                                <div class="weather-details">
-                                    <span class="description"></span>
-                                    <span class="precipitation"></span>
-                                </div>
-                            </div>
-                            <p class="day-description">
-                                יום טבע מלא באזור אינסברוק. נצא צפונה לאגם אחנזה הגדול. נטייל לאורך חופיו ונעלה ברכבל רופאן לפסגה.
-                            </p>
-                            <div class="day-intro">29.09.2026 | נופי טירול. (לינה שלישית באינסברוק)</div>
-                            <ul>
-                                <li>נסיעה לאגם אחנזה.</li>
-                                <li>עלייה ברכבל Rofan.</li>
-                                <li>אופציה: ביקור בכפר סברובסקי.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="day-card fade-in-section" id="day9" data-type="nature travel" data-location="WND">
-                    <div class="day-image" id="img-day9"><span class="day-tag">מעבר מזרחה</span></div>
-                    <div class="day-content">
-                        <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 9: נסיעה לווינדישגרסטן (Windischgarsten)</h3>
-                            <span class="toggle-icon">+</span>
-                        </div>
-                        <div class="day-details">
-                            <blockquote><strong>טיפ יומי:</strong> יום נסיעה ארוך (כ-3.5 שעות). הצטיידו באוכל לדרך. וינדישגרסטן היא עיירה יפה יותר להתמקמות מאשר אדמונט.</blockquote>
-                            
-                            <div class="weather-widget">
-                                <div class="weather-icon"></div>
-                                <div class="weather-info">
-                                    <span class="location-name">וינדישגרסטן</span>
-                                    <span class="temperature"></span>
-                                </div>
-                                <div class="weather-details">
-                                    <span class="description"></span>
-                                    <span class="precipitation"></span>
-                                </div>
-                            </div>
-                            <p class="day-description">
-                                יום נסיעה ארוך מאינסברוק מזרחה. נתמקם בעיירה **וינדישגרסטן (Windischgarsten)** הממוקמת כ-40 דקות נסיעה מהכניסה לפארק הלאומי גזויזה, וזאת כדי לנצל את היום הבא.
-                            </p>
-                            <div class="day-intro">29.09.2026 | מעבר לשקט מוחלט. (לינה ראשונה בווינדישגרסטן)</div>
-                            <ul>
-                                <li>נסיעה מאינסברוק לוינדישגרסטן (כ-3 שעות, 23 דקות).</li>
-                                <li>עצירות ריענון בדרך.</li>
-                                <li>התארגנות ולינה.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="day-card fade-in-section" id="day10" data-type="nature city" data-location="GES">
-                    <div class="day-image" id="img-day10"><span class="day-tag">טבע אוסטרי</span></div>
-                    <div class="day-content">
-                        <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 10: יום טיול מלא בפארק הלאומי גזויזה (Gesäuse)</h3>
-                            <span class="toggle-icon">+</span>
-                        </div>
-                        <div class="day-details">
-                            <blockquote><strong>טיפ יומי:</strong> אם מזג האוויר מאפשר, מומלץ על טיול בנקיק <strong>Wasserlochklamm</strong> או ביקור במנזר אדמונט והספרייה המפורסמת.</blockquote>
-                            
-                            <div class="weather-widget">
-                                <div class="weather-icon"></div>
-                                <div class="weather-info">
-                                    <span class="location-name">פארק גזויזה</span>
-                                    <span class="temperature"></span>
-                                </div>
-                                <div class="weather-details">
-                                    <span class="description"></span>
-                                    <span class="precipitation"></span>
-                                </div>
-                            </div>
-                            <p class="day-description">
-                                יום מלא המוקדש לטיול בפארק הלאומי המרשים גזויזה, המאופיין בקירות הרים תלולים ונהר ירוק-כחול שוצף.
-                            </p>
-                            <div class="day-intro">30.09.2026 | טבע אוסטרי בשיאו. (לינה שנייה ואחרונה בווינדישגרסטן)</div>
-                            <ul>
-                                <li>טיול בפארק גזויזה.</li>
-                                <li>אופציה: ביקור במנזר אדמונט.</li>
-                                <li>ארוחת ערב בעיירה וינדישגרסטן.</li>
-                            </ul>
+                             <blockquote><strong>טיפ:</strong> נוף האגם מלמעלה מדהים. מתאים לשייט.</blockquote>
+                            <p class="day-description">יום טבע רגוע באגם הגדול של טירול. עליה ברכבל רופאן לתצפית וטיול.</p>
+                            <div class="day-intro">29.09 | לינה: אינסברוק</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day11" data-type="city travel" data-location="VIE">
-                    <div class="day-image" id="img-day11"><span class="day-tag">טיסה & עיר</span></div>
+                <div class="day-card fade-in-section" id="day9" data-type="nature travel">
+                    <div class="day-image" id="img-day9"><span class="day-tag">נסיעה מזרחה</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 11: נסיעה לווינה (Vienna) והמראה חזרה</h3>
+                            <h3>יום 9: נסיעה לוינדישגרסטן (Windischgarsten)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
-                            <blockquote><strong>טיפ יומי:</strong> תכננו את ההגעה לווינה בשעות הצהריים כדי לנצל את ארוחת הצהריים או את הלילה האחרון. הגיעו לשדה 3 שעות לפני הטיסה.</blockquote>
-                            
-                            <div class="weather-widget">
-                                <div class="weather-icon"></div>
-                                <div class="weather-info">
-                                    <span class="location-name">וינה</span>
-                                    <span class="temperature"></span>
-                                </div>
-                                <div class="weather-details">
-                                    <span class="description"></span>
-                                    <span class="precipitation"></span>
-                                </div>
-                            </div>
-                            <p class="day-description">
-                                היום האחרון לטיול. בבוקר נסיעה חזרה לווינה, התארגנות במלון בבירה, ובילוי ערב חגיגי לסיכום המסע. הטיסה חזרה לישראל תצא בערב המחרת (02.10).
-                            </p>
-                            <div class="day-intro">01.10.2026 - 02.10.2026 | חוזרים הביתה. (לילה אחרון בוינה + יום הטיסה)</div>
-                            <ul>
-                                <li>נסיעה לוינה (כ-2 שעות ו-40 דקות מוינדישגרסטן).</li>
-                                <li>התמקמות במלון בווינה (לילה 01.10).</li>
-                                <li>צ'ק-אאוט ונסיעה לשדה התעופה (02.10) לטיסה ב-20:20.</li>
-                            </ul>
+                             <blockquote><strong>טיפ:</strong> נסיעה ארוכה (3.5 שעות). להכין נשנושים.</blockquote>
+                            <p class="day-description">יום מעבר חזרה לכיוון המרכז. התמקמות בעיירה וינדישגרסטן כבסיס לפארק גזויזה.</p>
+                            <div class="day-intro">30.09 | לינה: וינדישגרסטן</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in-section" id="day10" data-type="nature">
+                    <div class="day-image" id="img-day10"><span class="day-tag">טבע פראי</span></div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 10: יום מלא בגזויזה (Gesäuse)</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                             <blockquote><strong>טיפ:</strong> טבע פראי ופחות מתוייר. אופציה למנזר אדמונט.</blockquote>
+                            <p class="day-description">טיול בפארק הלאומי המרשים, קניונים ונהרות. יום טבע אחרון.</p>
+                            <div class="day-intro">01.10 | לינה: וינדישגרסטן</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in-section" id="day11" data-type="city travel">
+                    <div class="day-image" id="img-day11"><span class="day-tag">סיום</span></div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 11: נסיעה לוינה והמראה</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                             <blockquote><strong>טיפ:</strong> להגיע לשדה 3 שעות לפני. Tax Free זמין.</blockquote>
+                            <p class="day-description">נסיעה לוינה בבוקר, השלמות אחרונות, ונסיעה לשדה התעופה לטיסת ערב.</p>
+                            <div class="day-intro">02.10 | טיסה הביתה</div>
                         </div>
                     </div>
                 </div>
@@ -1335,163 +734,95 @@
             </div>
         </div>
     </section>
-    
-    <section id="flights-section" class="flights-section fade-in-section">
-        <div class="flights-container">
-            <h2>✈️ פרטי הטיסות המלאים</h2>
-            <p style="margin-top: 10px; font-size: 1.1rem;">
-                אנא הגיעו לשדה התעופה **שלוש שעות** לפני זמן ההמראה המתוכנן.
-            </p>
-            <div class="flights-grid">
-                <div class="flight-card">
-                    <h4>טיסת יציאה: תל אביב (TLV) ← וינה (VIE)</h4>
-                    <ul>
-                        <li><strong>תאריך:</strong> 22 בספטמבר 2026</li>
-                        <li><strong>חברת תעופה:</strong> אוסטריאן איירליינז</li>
-                        <li><strong>מספר טיסה:</strong> OS82</li>
-                        <li><strong>שעת המראה:</strong> 18:40</li>
-                    </ul>
-                </div>
-                <div class="flight-card">
-                    <h4>טיסת חזור: וינה (VIE) ← תל אביב (TLV)</h4>
-                    <ul>
-                        <li><strong>תאריך:</strong> 2 באוקטובר 2026</li>
-                        <li><strong>חברת תעופה:</strong> אוסטריאן איירליינז</li>
-                        <li><strong>מספר טיסה:</strong> OS83</li>
-                        <li><strong>שעת המראה:</strong> 20:20</li>
-                    </ul>
+
+    <section id="summary" class="summary-section fade-in-section">
+        <div class="two-columns-grid">
+            
+            <div class="section-card">
+                <h3 class="section-title">🏡 סיכום לינות</h3>
+                <ul class="lodging-list">
+                    <li class="lodging-item">
+                        <div class="lodging-info">
+                            <h4>וינה (Vienna)</h4>
+                            <span>מלון התחלה וסוף</span>
+                        </div>
+                        <div class="lodging-dates">22.09 (1) + 01.10 (1)</div> </li>
+                    <li class="lodging-item">
+                        <div class="lodging-info">
+                            <h4>זלצבורג/קפרון</h4>
+                            <span>בסיס טיולי כוכב</span>
+                        </div>
+                        <div class="lodging-dates">23-26.09 (3 לילות)</div>
+                    </li>
+                    <li class="lodging-item">
+                        <div class="lodging-info">
+                            <h4>אינסברוק</h4>
+                            <span>בירת טירול</span>
+                        </div>
+                        <div class="lodging-dates">26-29.09 (3 לילות)</div>
+                    </li>
+                    <li class="lodging-item">
+                        <div class="lodging-info">
+                            <h4>וינדישגרסטן</h4>
+                            <span>בסיס גזויזה</span>
+                        </div>
+                        <div class="lodging-dates">29.09-01.10 (2 לילות)</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section-card">
+                <h3 class="section-title">⭐ טיפים חשובים</h3>
+                <div class="tips-grid">
+                    <div class="tip-box">
+                        <div class="tip-icon">🍽️</div>
+                        <div class="tip-content">
+                            <h5>אוכל וסגירה מוקדמת</h5>
+                            <p>מסעדות בכפרים נסגרות סביב 19:00. הזמינו מקום מראש לקבוצה גדולה.</p>
+                        </div>
+                    </div>
+                    <div class="tip-box">
+                        <div class="tip-icon">🧣</div>
+                        <div class="tip-content">
+                            <h5>לבוש ומזג אוויר</h5>
+                            <p>שיטת הבצל חובה. מטריות תמיד בתיק, גם ביום שמשי.</p>
+                        </div>
+                    </div>
+                    <div class="tip-box">
+                        <div class="tip-icon">🧭</div>
+                        <div class="tip-content">
+                            <h5>גמישות</h5>
+                            <p>מזג האוויר באלפים הפכפך. היו מוכנים לשינויים בתוכנית.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <section id="lodging-flow-section" class="lodging-flow-section fade-in-section">
-        <div class="intro-container">
-            <h2>🏡 מעברי לינה מתוכננים</h2>
-            <div class="lodging-grid">
-                <div class="lodging-card">
-                    <h4>וינה (Vienna)</h4>
-                    <span class="days-span">22.09 (לילה ראשון) + 01.10-02.10 (לילה אחרון)</span>
-                    <ul>
-                        <li>לילה ראשון (נחיתה).</li>
-                        <li>לילה אחרון (לפני המראה).</li>
-                    </ul>
-                </div>
-                <div class="lodging-card">
-                    <h4>זלצבורג (Salzburg)</h4>
-                    <span class="days-span">23.09-26.09 (3 לילות)</span>
-                    <ul>
-                        <li>בסיס לטיולי כוכב.</li>
-                        <li>האלשטאט, קפרון, תרמה אמדה.</li>
-                    </ul>
-                </div>
-                <div class="lodging-card">
-                    <h4>אינסברוק (Innsbruck)</h4>
-                    <span class="days-span">26.09-29.09 (3 לילות)</span>
-                    <ul>
-                        <li>בירת טירול.</li>
-                        <li>נורדקטה, אגם אחנזה.</li>
-                    </ul>
-                </div>
-                <div class="lodging-card">
-                    <h4>וינדישגרסטן (Windischgarsten)</h4>
-                    <span class="days-span">29.09-01.10 (2 לילות)</span>
-                    <ul>
-                        <li>בסיס קרוב לפארק הלאומי גזויזה (Gesäuse).</li>
-                        <li>שני לילות המאפשרים יום טיול מלא בפארק.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="general-tips" class="general-tips-section fade-in-section">
-        <div class="general-tips-container">
-            <h2 style="text-align: center; margin-bottom: 40px;">⭐ טיפים חשובים לכל המשלחת</h2>
-            <div class="general-tips-grid">
-                <div class="tip-card">
-                    <h4>🍴 אוכל וסגירת עסקים</h4>
-                    <ul>
-                        <li>**מסעדות נסגרות מוקדם** (בסביבות 19:00 בכפרים). תכננו ארוחות.</li>
-                        <li>סופרים נסגרים מוקדם יחסית – קניות בבוקר/צהריים.</li>
-                    </ul>
-                </div>
-                <div class="tip-card">
-                    <h4>🧣 מזג אוויר ושכבות</h4>
-                    <ul>
-                        <li>**שיטת הבצל:** מזג אוויר משתנה, חובה שכבות.</li>
-                        <li>מטריות תמיד בתיק – גם ביום שמשי.</li>
-                    </ul>
-                </div>
-                <div class="tip-card">
-                    <h4>🧭 גמישות</h4>
-                    <ul>
-                        <li>גמישות היא שם המשחק – מזג אוויר משנה תוכניות.</li>
-                        <li>**Tax-Free בוינה:** יש עמדה לפני ואחרי הבידוק.</li>
-                    </ul>
-                </div>
-            </div>
+
         </div>
     </section>
 
     <script>
-        // פונקציית מוק (Mock) המדמה קריאה ל-API ומחזירה נתוני מזג אוויר סבירים לאוסטריה בסוף ספטמבר
-        function getMockWeather(location) {
-            switch (location) {
-                case 'VIE': return { icon: '🌤️', temp_min: 12, temp_max: 20, description: 'בהיר', precipitation: 5, name: 'וינה' };
-                case 'SLZ': return { icon: '🌧️', temp_min: 8, temp_max: 15, description: 'גשם קל לסירוגין', precipitation: 70, name: 'זלצבורג' };
-                case 'HSL': return { icon: '🌥️', temp_min: 9, temp_max: 17, description: 'שמשי בבוקר', precipitation: 15, name: 'האלשטאט' };
-                case 'KAP': return { icon: '❄️', temp_min: 2, temp_max: 10, description: 'שלג בהרים / קור', precipitation: 25, name: 'קפרון/פלכאו' };
-                case 'INN': return { icon: '🌤️', temp_min: 10, temp_max: 19, description: 'מעונן חלקית', precipitation: 10, name: 'אינסברוק' };
-                case 'ACH': return { icon: '💨', temp_min: 7, temp_max: 14, description: 'רוחות חזקות', precipitation: 5, name: 'אגם אחנזה' };
-                case 'WND': return { icon: '🌲', temp_min: 8, temp_max: 16, description: 'נעים וקריר', precipitation: 5, name: 'וינדישגרסטן' };
-                case 'GES': return { icon: '🌫️', temp_min: 6, temp_max: 13, description: 'ערפל מוקדם / קריר', precipitation: 20, name: 'פארק גזויזה' };
-                default: return { icon: '☀️', temp_min: 10, temp_max: 18, description: 'מעונן חלקית', precipitation: 10, name: 'אוסטריה' };
-            }
-        }
-        
-        // פונקציה המעדכנת את נתוני מזג האוויר בכל הכרטיסים
-        function fetchWeatherAndDisplay() {
-            document.querySelectorAll('.day-card').forEach(card => {
-                const locationCode = card.dataset.location;
-                const weatherData = getMockWeather(locationCode); 
-                
-                const widget = card.querySelector('.weather-widget');
-                if (!widget) return;
-                
-                widget.querySelector('.weather-icon').textContent = weatherData.icon;
-                widget.querySelector('.temperature').textContent = `${weatherData.temp_min}°C - ${weatherData.temp_max}°C`;
-                widget.querySelector('.description').textContent = weatherData.description;
-                widget.querySelector('.precipitation').textContent = `גשם: ${weatherData.precipitation}%`;
-                widget.querySelector('.location-name').textContent = weatherData.name;
-            });
-        }
-
-
         function toggleDay(header) {
             const details = header.nextElementSibling;
-            const card = header.closest('.day-card');
-            const isOpen = details.style.maxHeight && details.style.maxHeight !== '0px';
+            const isOpen = details.style.maxHeight;
             
-            closeAllDays(); 
+            // סגירת כל האחרים
+            document.querySelectorAll('.day-details').forEach(d => { d.style.maxHeight = null; d.style.opacity = 0; });
+            document.querySelectorAll('.day-header').forEach(h => h.classList.remove('active'));
 
             if (!isOpen) {
                 details.style.maxHeight = details.scrollHeight + "px";
+                details.style.opacity = 1;
                 header.classList.add('active');
-                setTimeout(() => { card.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 300);
             }
         }
-        
-        function closeAllDays() {
-            document.querySelectorAll('.day-details').forEach(details => details.style.maxHeight = null);
-            document.querySelectorAll('.day-header').forEach(header => header.classList.remove('active'));
-        }
-        
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                const filter = button.dataset.filter;
+
+        // פילטרים פשוטים
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
                 document.querySelectorAll('.day-card').forEach(card => {
                     if (filter === 'all' || card.dataset.type.includes(filter)) {
                         card.style.display = 'flex';
@@ -1499,31 +830,16 @@
                         card.style.display = 'none';
                     }
                 });
-                closeAllDays();
             });
         });
         
+        // אנימציות
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('is-visible');
+                if(entry.isIntersecting) entry.target.classList.add('is-visible');
             });
         }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
-        
-        document.querySelector('.scroll-down').addEventListener('click', () => {
-            document.querySelector('#intro').scrollIntoView({ behavior: 'smooth' });
-        });
-        
-        // סקריפט ה-read-more-btn הוסר כפי שביקשת, כעת רק ה-day-header מפעיל את הפתיחה/סגירה.
-        
-        // טעינת נתוני מזג האוויר לאחר טעינת כל התוכן
-        window.addEventListener('load', fetchWeatherAndDisplay);
+        document.querySelectorAll('.fade-in-section').forEach(sec => observer.observe(sec));
     </script>
 </body>
 </html>
-
-
-
-
-

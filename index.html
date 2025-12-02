@@ -17,11 +17,11 @@
             padding: 6rem 0;
             position: relative;
         }
-
-        /* שאר הכללים הקשורים ל-intro-section ו-section-bg-title נשארים כפי שהיו */
-
+        
+        /* ... שאר הכללים הכלליים של הסקשן ... */
+        
         .families-grid {
-            /* התיקון העיקרי לאיזון 5 כרטיסים! מחליף את display: grid */
+            /* התיקון העיקרי! עובר ל-Flexbox כדי לאזן 5 כרטיסים בצורה מרכזית */
             display: flex; 
             flex-wrap: wrap;
             justify-content: center; /* ממקד את הפריטים במרכז */
@@ -50,7 +50,7 @@
         }
         
         .family-image-container {
-            /* הפיכת התמונה לעיגול */
+            /* הפיכת התמונה לעיגול (150x150) */
             width: 150px; 
             height: 150px; 
             border-radius: 50%; 
@@ -58,20 +58,20 @@
             border: 5px solid var(--accent);
             box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5); 
             background-size: cover;
-            background-position: center;
+            background-position: center; /* ממקם את התמונה במרכז */
             position: relative;
             z-index: 1; 
             transform: translateY(10px); 
         }
         
-        /* מבטלים את הצללת המקור של התמונה המרובעת */
+        /* מבטלים את הצללת המקור של התמונה המרובעת, שגורמת לחיתוך להיות רע */
         .family-image-container::after {
             content: none;
         }
 
         .family-content-wrapper {
             padding: 25px;
-            /* מרימים את התוכן למעלה לחפיפה עם התמונה */
+            /* מרימים את התוכן למעלה לחפיפה עם התמונה העגולה */
             transform: translateY(-40px);
             position: relative;
             z-index: 0;
@@ -83,7 +83,7 @@
             color: var(--primary-dark);
             position: relative;
             display: inline-block;
-            cursor: pointer; /* משנים סמן */
+            cursor: pointer; /* סמן להצגת השמות */
         }
         
         .family-card p {
@@ -92,7 +92,7 @@
             font-weight: 600;
         }
 
-        /* אפקט הצגת שמות המשפחה (Tooltip משופר) */
+        /* אפקט הצגת שמות המשפחה בריחוף (ה-CSS הזה יגרום לשמות להופיע מעל ה-h4) */
         .family-card h4::after {
             content: attr(title); 
             position: absolute;
@@ -121,7 +121,6 @@
             transform: translateX(50%) translateY(0);
         }
         
-        /* חץ קטן מעל השם בריחוף */
         .family-card h4::before {
             content: '';
             position: absolute;
@@ -141,60 +140,6 @@
             opacity: 1;
             visibility: visible;
         }
-        /* ------------------------------------------- */
-        /* 🎨 עיצוב פרימיום - Alpine Glass */
-        /* ------------------------------------------- */
-        :root {
-            --primary-dark: #1a3c34; /* ירוק יער עמוק */
-            --primary-light: #2d6a4f; /* ירוק חי */
-            --accent: #d4a373; /* זהב עץ/שקיעה */
-            --accent-hover: #bc8a5f;
-            --text-dark: #1d3557;
-            --text-light: #457b9d;
-            --white-glass: rgba(255, 255, 255, 0.85); /* זכוכית */
-            --white-glass-hover: rgba(255, 255, 255, 0.95);
-            --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-            --border-glass: 1px solid rgba(255, 255, 255, 0.4);
-            --radius: 24px;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Assistant', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            /* רקע מדורג ומעניין במקום לבן חלק */
-            background: linear-gradient(135deg, #fdfbf7 0%, #e8f5e9 100%);
-            background-attachment: fixed;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Frank Ruhl Libre', serif;
-            font-weight: 900;
-            color: var(--primary-dark);
-            letter-spacing: -0.5px;
-        }
-
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
-
-        /* אנימציות */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: none;
-        }
-
         /* ------------------------------------------- */
         /* 🏔️ Hero Section */
         /* ------------------------------------------- */
@@ -956,18 +901,10 @@
             
             <div class="families-grid">
                 <div class="family-card">
-                    <div class="family-image-container" style="background-image: url('barel.png');"></div>
+                    <div class="family-image-container" style="background-image: url('metsuyanim.png');"></div>
                     <div class="family-content-wrapper">
-                        <h4 title="אופיר, עינב, יואב, אביב ושחר">משפחת בראל</h4>
-                        <p>סושיאל והמלצות קולינריות</p>
-                    </div>
-                </div>
-                
-                <div class="family-card">
-                    <div class="family-image-container" style="background-image: url('avniely.png');"></div>
-                    <div class="family-content-wrapper">
-                        <h4 title="עידו, רותי, אסף, סיון ושי">משפחת אבניאלי</h4>
-                        <p>האחראים על הלוגיסטיקה והניווט.</p>
+                        <h4 title="כפיר, רין, תמר, איתן ומתן">משפחת מצוינים</h4>
+                        <p>סיירת ההליכה: חוד החנית של המסלולים.</p>
                     </div>
                 </div>
                 
@@ -980,10 +917,18 @@
                 </div>
                 
                 <div class="family-card">
-                    <div class="family-image-container" style="background-image: url('metsuyanim.png');"></div>
+                    <div class="family-image-container" style="background-image: url('avniely.png');"></div>
                     <div class="family-content-wrapper">
-                        <h4 title="כפיר, רין, תמר, איתן ומתן">משפחת מצוינים</h4>
-                        <p>סיירת ההליכה: חוד החנית של המסלולים.</p>
+                        <h4 title="עידו, רותי, אסף, סיון ושי">משפחת אבניאלי</h4>
+                        <p>האחראים על הלוגיסטיקה והניווט.</p>
+                    </div>
+                </div>
+                
+                <div class="family-card">
+                    <div class="family-image-container" style="background-image: url('barel.png');"></div>
+                    <div class="family-content-wrapper">
+                        <h4 title="אופיר, עינב, יואב, אביב ושחר">משפחת בראל</h4>
+                        <p>סושיאל והמלצות קולינריות</p>
                     </div>
                 </div>
                 
@@ -1577,6 +1522,7 @@
     </script>
 </body>
 </html>
+
 
 
 

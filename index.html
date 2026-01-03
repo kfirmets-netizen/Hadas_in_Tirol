@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>משלחת הדס 24 לאוסטריה 🇦🇹</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght[300,400,600,800]&family=Frank+Ruhl+Libre:wght[500,700,900]&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;800&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap" rel="stylesheet">
 
     <style>
         /* ------------------------------------------- */
         /* 🎨 הגדרות גלובליות */
         /* ------------------------------------------- */
         :root {
-            --primary-dark: #1a3c34; 
-            --primary-light: #2d6a4f; 
-            --accent: #d4a373; 
+            --primary-dark: #1a3c34;
+            --primary-light: #2d6a4f;
+            --accent: #d4a373;
             --accent-hover: #bc8a5f;
             --text-dark: #1d3557;
             --text-light: #457b9d;
@@ -61,7 +61,7 @@
         /* 🏔️ Hero Section */
         /* ------------------------------------------- */
         .hero {
-            height: 85vh; 
+            height: 85vh;
             width: 100%;
             position: relative;
             display: flex;
@@ -77,7 +77,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: url('austria_hero.png') no-repeat center center/cover; 
+            background: url('austria_hero.png') no-repeat center center/cover;
             filter: brightness(0.65);
             z-index: -1;
         }
@@ -100,7 +100,7 @@
         .hero p.subtitle { font-size: 1.4rem; margin-bottom: 30px; opacity: 0.9; }
         .hero-btn { background: white; color: var(--primary-dark); padding: 15px 40px; border-radius: 50px; font-weight: 800; font-size: 1.2rem; transition: 0.3s; }
         .hero-btn:hover { background: var(--accent); color: white; transform: translateY(-3px); }
-        
+
         .scroll-down { position: absolute; bottom: 30px; color: white; font-size: 2rem; animation: bounce 2s infinite; cursor: pointer; }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
 
@@ -120,11 +120,11 @@
         .nav-list a:hover { color: var(--accent); }
 
         /* ------------------------------------------- */
-        /* ✈️ סקשן נתונים טכניים (טיסות ולינה) - עיצוב חדש */
+        /* ✈️ סקשן נתונים טכניים (טיסות ולינה) */
         /* ------------------------------------------- */
         .tech-data-section {
             padding: 4rem 0;
-            background-color: #f0f4f2; 
+            background-color: #f0f4f2;
             border-top: 1px solid #e0e0e0;
         }
 
@@ -152,7 +152,7 @@
             margin-bottom: 25px;
             border-bottom: 2px solid var(--accent);
             padding-bottom: 10px;
-            display: inline-flex; 
+            display: inline-flex;
             align-items: center;
             gap: 10px;
         }
@@ -177,10 +177,9 @@
             padding: 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        
+
         .flight-segment.outbound { border-right: 5px solid var(--primary-light); }
         .flight-segment.return { border-left: 5px solid var(--primary-dark); }
-
 
         .flight-segment h4 {
             font-size: 1.3rem;
@@ -203,26 +202,25 @@
         .flight-info-item:last-of-type { border-bottom: none; }
         .flight-info-item .label { font-weight: 600; color: #555; }
         .flight-info-item .value { font-weight: 700; color: var(--text-dark); }
-        .flight-info-item .live-status { text-align: left; } 
-
+        .flight-info-item .live-status { text-align: left; }
 
         .flight-status {
             font-weight: 800;
             white-space: nowrap;
             padding: 5px 10px;
             border-radius: 8px;
-            display: inline-flex; 
+            display: inline-flex;
             flex-direction: column;
-            align-items: flex-end; 
+            align-items: flex-end;
             line-height: 1.4;
-            margin-right: auto; 
+            margin-right: auto;
         }
-        
-        /* סגנונות חדשים לסטטוס הטיסה */
-        .flight-status-info { background: #e0f7fa; color: #00796b; } /* מתוכננת */
-        .flight-status-active { background: #fffde7; color: #f9a825; } /* בטיסה */
-        .flight-status-success { background: #e8f5e9; color: #388e3c; } /* נחתה */
-        .flight-status-error { background: #ffebee; color: #d32f2f; } /* בוטלה/שגיאה */
+
+        .flight-status-info { background: #e0f7fa; color: #00796b; }
+        .flight-status-active { background: #fffde7; color: #f9a825; }
+        .flight-status-success { background: #e8f5e9; color: #388e3c; }
+        .flight-status-error { background: #ffebee; color: #d32f2f; }
+
         .flight-time-live { font-size: 0.8rem; font-weight: 600; opacity: 0.8; margin-top: 2px;}
         .flight-status-error { color: #d32f2f; font-weight: 600; font-size: 0.9rem; }
 
@@ -236,85 +234,37 @@
              border-radius: 10px;
         }
 
-        /* ------------------------------------------- */
-        /* 🏨 עיצוב לינות - ציר זמן + פיצול מצוינים */
-        /* ------------------------------------------- */
-        .lodging-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
+        /* ----------- סיכום לינות כציר זמן ----------- */
+        .lodging-timeline { display: flex; flex-direction: column; gap: 18px; }
 
-        .lodging-row {
-            background: #fdfdfd;
-            border: 1px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 18px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
+        .lodging-timeline-item { display: flex; gap: 14px; align-items: flex-start; }
 
-        .lodging-row-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 10px;
-        }
+        .lodging-marker { width: 18px; display: flex; flex-direction: column; align-items: center; margin-top: 6px; }
+        .lodging-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
+        .lodging-line { width: 2px; flex: 1; background: rgba(45, 106, 79, 0.18); margin-top: 6px; }
 
-        .lodging-row-header h4 {
-            margin: 0;
-            font-size: 1.25rem;
-            color: var(--primary-dark);
-        }
+        .lodging-body { flex: 1; background: #fff; border: 1px solid #eee; border-radius: 14px; padding: 14px 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
 
-        .lodging-row-header .lodging-row-note {
-            font-size: 0.9rem;
-            color: #777;
-            font-weight: 600;
-        }
+        .lodging-body h4 { margin: 0 0 4px 0; font-size: 1.15rem; color: var(--primary-dark); }
+        .lodging-body span { display: block; font-size: 0.92rem; color: #777; }
 
-        .lodging-segments {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .lodging-segment {
-            display: inline-flex;
-            flex-direction: column;
-            gap: 2px;
-            padding: 10px 12px;
-            border-radius: 12px;
-            font-size: 0.92rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            border: 1px solid #eee;
-            background: #ffffff;
-        }
-
-        .lodging-segment .dates {
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: var(--primary-light);
-        }
-
-        .lodging-segment.all { border-right: 4px solid var(--primary-light); background: #f6fbf7; }
-        .lodging-segment.metsuyanim { border-right: 4px solid var(--accent); background: #fff8ef; }
-        .lodging-segment.split { border-right: 4px solid #8e44ad; background: #f7f0ff; }
-
-        .lodging-split-badge {
-            margin-top: 10px;
+        .lodging-dates {
             display: inline-block;
-            background: #f7f0ff;
-            color: #5e2b97;
-            border: 1px solid #e6d9ff;
-            padding: 8px 12px;
-            border-radius: 12px;
-            font-weight: 800;
+            margin-top: 10px;
+            background: var(--primary-light);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 10px;
             font-size: 0.9rem;
+            font-weight: 800;
         }
 
+        .lodging-note {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            opacity: 0.9;
+        }
 
         /* ------------------------------------------- */
         /* 🏘️ סקשן המשפחות */
@@ -394,7 +344,7 @@
             position: relative;
             display: inline-block;
         }
-        
+
         .family-card h4::after {
             content: attr(title);
             position: absolute;
@@ -436,19 +386,19 @@
             flex-direction: column;
             border-right: 5px solid var(--accent);
         }
-        
+
         @media (min-width: 768px) {
-            .day-card { flex-direction: row; min-height: 320px; } 
+            .day-card { flex-direction: row; min-height: 320px; }
             .day-image { width: 40%; min-height: auto; }
         }
 
         .day-image {
-            min-height: 250px; 
+            min-height: 250px;
             background-size: cover;
             background-position: center;
             position: relative;
         }
-        
+
         .day-tag {
             position: absolute;
             top: 15px; right: 15px;
@@ -461,32 +411,32 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .day-content { 
-            padding: 25px; 
-            flex: 1; 
-            display: flex; 
-            flex-direction: column; 
+        .day-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
-        
-        .day-header { 
-            display: flex; justify-content: space-between; align-items: center; 
+
+        .day-header {
+            display: flex; justify-content: space-between; align-items: center;
             cursor: pointer; padding-bottom: 10px; border-bottom: 1px dashed #ccc; margin-bottom: 15px;
         }
         .day-header h3 { font-size: 1.6rem; margin: 0; color: var(--primary-dark); line-height: 1.2; }
         .toggle-icon { font-size: 1.5rem; color: var(--accent); transition: 0.3s; }
         .day-header.active .toggle-icon { transform: rotate(45deg); }
 
-        .day-details { 
-            max-height: 0; 
-            overflow: hidden; 
-            transition: max-height 0.5s ease-in-out, opacity 0.5s; 
+        .day-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s;
             opacity: 0;
         }
-        
+
         .day-header.active + .day-details {
             opacity: 1;
         }
-        
+
         .day-metadata {
             display: flex;
             flex-wrap: wrap;
@@ -508,7 +458,6 @@
         .day-drive-time::before { content: '🚗'; margin-left: 5px; }
         .day-drive-time { white-space: nowrap; }
 
-        /* סגנון מזג האוויר */
         .day-weather {
             font-weight: 700;
             font-size: 1.05rem;
@@ -518,7 +467,7 @@
             gap: 10px;
             margin-bottom: 15px;
             padding: 8px 10px;
-            background: #e6f3e6; 
+            background: #e6f3e6;
             border-radius: 12px;
             border-right: 3px solid var(--primary-light);
         }
@@ -530,10 +479,9 @@
             margin-top: 5px;
         }
 
-
         .day-description { margin-bottom: 15px; font-size: 1.05rem; line-height: 1.6; }
         .day-intro { font-weight: 700; color: var(--primary-light); margin-bottom: 10px; }
-        
+
         .day-details blockquote {
             background: #f9f9f9;
             border-right: 4px solid var(--primary-light);
@@ -543,7 +491,6 @@
             font-style: italic;
             font-size: 0.95rem;
         }
-
 
         .filters { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
         .filter-btn { background: white; border: none; padding: 10px 20px; border-radius: 30px; cursor: pointer; font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: 0.3s; }
@@ -556,14 +503,13 @@
             padding: 5rem 0;
             background-color: #f4f6f5;
         }
-        
+
         .summary-content-wrapper {
             max-width: 600px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* רשימת טיפים מעוצבת */
+
         .tips-grid { display: grid; gap: 20px; }
         .tip-box {
             background: #fffbf5;
@@ -580,7 +526,7 @@
 
         /* רספונסיביות */
         @media (min-width: 768px) {
-            .tech-data-container { grid-template-columns: 1fr 1fr; } 
+            .tech-data-container { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
@@ -590,18 +536,18 @@
             .day-card { flex-direction: column; }
             .day-image { height: 200px; min-height: auto; }
             .summary-content-wrapper { max-width: 100%; }
-            .flight-details-grid { grid-template-columns: 1fr; } 
+            .flight-details-grid { grid-template-columns: 1fr; }
         }
 
-        /* מיפוי תמונות (נשאר כמות שהיה) */
+        /* מיפוי תמונות */
         #img-day1 { background-image: url('day1.png'); }
         #img-day2 { background-image: url('day2.png'); }
         #img-day3 { background-image: url('day3.png'); }
-        #img-day4 { background-image: url('day4.png'); } 
-        #img-day5 { background-image: url('day5.png'); } 
-        #img-day6 { background-image: url('day6.png'); } 
-        #img-day7 { background-image: url('day7.png'); } 
-        #img-day8 { background-image: url('day8.png'); } 
+        #img-day4 { background-image: url('day4.png'); }
+        #img-day5 { background-image: url('day5.png'); }
+        #img-day6 { background-image: url('day6.png'); }
+        #img-day7 { background-image: url('day7.png'); }
+        #img-day8 { background-image: url('day8.png'); }
         #img-day9 { background-image: url('day9.png'); }
         #img-day10 { background-image: url('day10.png'); }
         #img-day11 { background-image: url('day11.png'); }
@@ -627,14 +573,14 @@
             <li><a href="#summary">טיפים</a></li>
         </ul>
     </nav>
-    
+
     <section id="tech-data" class="tech-data-section fade-in-section">
         <div class="tech-data-container">
-            
+
             <div class="data-card flight-data-card">
                 <h3 class="section-title"><span class="icon">✈️</span> פרטי טיסות (OS82 / OS83)</h3>
                 <div class="flight-details-grid">
-                    
+
                     <div class="flight-segment outbound">
                         <h4>הלוך (22.09.2026)</h4>
                         <div class="flight-info-item"><span class="label">חברה וטיסה:</span><span class="value">Austrian OS82</span></div>
@@ -643,7 +589,7 @@
                         <div class="flight-info-item"><span class="label">נחיתה (מתוכננת):</span><span class="value">21:25</span></div>
                         <div class="flight-info-item live-status"><span class="label">סטטוס נוכחי:</span><span id="flight-status-outbound" class="value">טוען נתונים...</span></div>
                     </div>
-                    
+
                     <div class="flight-segment return">
                         <h4>חזור (02.10.2026)</h4>
                         <div class="flight-info-item"><span class="label">חברה וטיסה:</span><span class="value">Austrian OS83</span></div>
@@ -654,63 +600,63 @@
                     </div>
 
                 </div>
-                <p class="flight-data-note">⚠️ **עדכון חי:** נתונים אלו נבדקים עכשיו עם **תאריך הטיסה המדויק**, אך ייתכן שיחזרו נתונים רק כשהתאריך קרוב (במיוחד ב-API חינמי). מוצג סטטוס רשמי מתוכנן ב-60 הימים שלפני הטיסה.</p>
+                <p class="flight-data-note">⚠️ עדכון חי: ייתכן שמידע יחזור רק כשהתאריך קרוב (במיוחד ב-API חינמי).</p>
             </div>
 
             <div class="data-card lodging-data-card">
-                <h3 class="section-title"><span class="icon">🏡</span> סיכום לינות (כולל פיצול מצוינים)</h3>
+                <h3 class="section-title"><span class="icon">🏡</span> סיכום לינות</h3>
 
                 <div class="lodging-timeline">
-                    <div class="lodging-row">
-                        <div class="lodging-row-header">
-                            <h4>כל הקבוצה</h4>
-                            <span class="lodging-row-note">מסלול קבוצתי “רשמי”</span>
+
+                    <div class="lodging-timeline-item">
+                        <div class="lodging-marker">
+                            <span class="lodging-dot"></span>
+                            <span class="lodging-line"></span>
                         </div>
-                        <div class="lodging-segments">
-                            <div class="lodging-segment all">
-                                <span>וינה – מלון ליד/בשדה התעופה (VIE)</span>
-                                <span class="dates">22–23.09</span>
-                            </div>
-                            <div class="lodging-segment all">
-                                <span>פלאכאו – Hofgut Family Resort</span>
-                                <span class="dates">23–28.09</span>
-                            </div>
-                            <div class="lodging-segment all">
-                                <span>Fügen – Alps Residence (Zillertal Suites)</span>
-                                <span class="dates">28.09–01.10</span>
-                            </div>
-                            <div class="lodging-segment all">
-                                <span>וינה – מלון במרכז העיר</span>
-                                <span class="dates">01–02.10</span>
-                            </div>
+                        <div class="lodging-body">
+                            <h4>ליד שדה התעופה וינה (VIE)</h4>
+                            <span>לילה ראשון — מלון בשדה/בסביבתו</span>
+                            <div class="lodging-dates">22.09</div>
                         </div>
                     </div>
 
-                    <div class="lodging-row">
-                        <div class="lodging-row-header">
-                            <h4>משפחת מצוינים</h4>
-                            <span class="lodging-row-note">יוצאים מפלאכאו יום מוקדם</span>
+                    <div class="lodging-timeline-item">
+                        <div class="lodging-marker">
+                            <span class="lodging-dot"></span>
+                            <span class="lodging-line"></span>
                         </div>
-                        <div class="lodging-segments">
-                            <div class="lodging-segment metsuyanim">
-                                <span>וינה – מלון ליד/בשדה התעופה (VIE)</span>
-                                <span class="dates">22–23.09</span>
-                            </div>
-                            <div class="lodging-segment metsuyanim">
-                                <span>פלאכאו – Hofgut Family Resort</span>
-                                <span class="dates">23–27.09</span>
-                            </div>
-                            <div class="lodging-segment metsuyanim">
-                                <span>Fügen – Alps Residence (Zillertal Suites)</span>
-                                <span class="dates">27.09–01.10</span>
-                            </div>
-                            <div class="lodging-segment metsuyanim">
-                                <span>וינה – מלון במרכז העיר</span>
-                                <span class="dates">01–02.10</span>
-                            </div>
+                        <div class="lodging-body">
+                            <h4>פלאכאו (Flachau) — Hofgut Family Resort</h4>
+                            <span>בסיס כוכב 1</span>
+                            <div class="lodging-dates">23–28.09</div>
+                            <div class="lodging-note">(מצוינים: מתפצלים ויוצאים ב־27.09 — 4 לילות)</div>
                         </div>
-                        <span class="lodging-split-badge">🟣 פיצול 24 שעות: 27.09–28.09 מצוינים כבר ב-Fügen בזמן שהקבוצה עדיין בפלאכאו</span>
                     </div>
+
+                    <div class="lodging-timeline-item">
+                        <div class="lodging-marker">
+                            <span class="lodging-dot"></span>
+                            <span class="lodging-line"></span>
+                        </div>
+                        <div class="lodging-body">
+                            <h4>Fügen — Alps Residence · Zillertal Suites</h4>
+                            <span>בסיס כוכב 2 (טירול / זילרטל)</span>
+                            <div class="lodging-dates">28.09–01.10</div>
+                            <div class="lodging-note">(מצוינים: מתחילים כבר ב־27.09 — 4 לילות; שאר הקבוצה: מ־28.09)</div>
+                        </div>
+                    </div>
+
+                    <div class="lodging-timeline-item">
+                        <div class="lodging-marker">
+                            <span class="lodging-dot"></span>
+                        </div>
+                        <div class="lodging-body">
+                            <h4>וינה (Vienna) — מלון במרכז העיר</h4>
+                            <span>לילה אחרון + יום עיר</span>
+                            <div class="lodging-dates">01–02.10</div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -722,9 +668,9 @@
         <div class="container">
             <div class="intro-text">
                 <h2>הנבחרת של הדס 24 🏢</h2>
-                <p>**26 מטיילים, 5 משפחות, יעד אחד.** כובשים את האלפים.</p>
+                <p><strong>26 מטיילים, 5 משפחות, יעד אחד.</strong> כובשים את האלפים.</p>
             </div>
-            
+
             <div class="families-grid">
                 <div class="family-card">
                     <div class="family-image-container" style="background-image: url('metsuyanim.png');"></div>
@@ -773,31 +719,32 @@
                     <button class="filter-btn active" data-filter="all">הכל</button>
                     <button class="filter-btn" data-filter="city">עיר</button>
                     <button class="filter-btn" data-filter="nature">טבע</button>
-                    <button class="filter-btn" data-filter="walk">הליכה משמעותית</button> 
+                    <button class="filter-btn" data-filter="walk">הליכה משמעותית</button>
                 </div>
             </div>
 
             <div id="days-container">
+
                 <div class="day-card fade-in-section" id="day1" data-type="city">
                     <div class="day-image" id="img-day1"><span class="day-tag">נחיתה</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 1 (22.09.2026): נחיתה והתמקמות ליד שדה התעופה</h3>
+                            <h3>יום 1 (22.09): נחיתה והתמקמות ליד שדה התעופה (וינה)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                              <div class="day-weather" data-city-name="Vienna">
                                 <span class="weather-icon">--</span>
                                 <span class="weather-temp">טוען מזג אוויר...</span>
-                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
+                                <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** הלילה הראשון “טכני” — מלון בשדה התעופה/קרוב אליו כדי לפתוח את הבוקר חלק.</blockquote>
-                            <p class="day-description">נחיתה בשעות הערב המאוחרות בנמל התעופה של וינה. במקום להסתבך עם העיר, לוקחים **מלון בשדה התעופה או בקרבתו** ללילה קצר, כדי להרים ראש בבוקר ולהתחיל את הטיול כמו בני אדם.</p>
+                             <blockquote>טיפ: להכין תיק צד עם בגדים להחלפה ללילה הראשון.</blockquote>
+                            <p class="day-description">נחיתה בשעות הערב המאוחרות בנמל התעופה הבינלאומי של וינה. לאחר איסוף המזוודות, לוקחים מלון בשדה התעופה או בקרבתו כדי לסגור את היום מהר.</p>
                             <div class="day-metadata">
-                                <span class="day-character">אופי: התמקמות, לוגיסטיקה</span>
-                                <span class="day-drive-time">נסיעה: קצרה (שדה תעופה → מלון)</span>
+                                <span class="day-character">אופי: התמקמות, התאפסות</span>
+                                <span class="day-drive-time">נסיעה: מינימלית</span>
                             </div>
-                            <div class="day-intro">22.09 | לינה: וינה (שדה התעופה)</div>
+                            <div class="day-intro">22.09 | לינה: ליד שדה התעופה (וינה)</div>
                         </div>
                     </div>
                 </div>
@@ -806,46 +753,46 @@
                     <div class="day-image" id="img-day2"><span class="day-tag">רכב & עיר</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 2 (23.09.2026): איסוף רכב בשדה התעופה → זלצבורג → פלאכאו</h3>
+                            <h3>יום 2 (23.09): שוכרים רכב בשדה → זלצבורג → פלאכאו</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                              <div class="day-weather" data-city-name="Salzburg">
                                 <span class="weather-icon">--</span>
                                 <span class="weather-temp">טוען מזג אוויר...</span>
-                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
+                                <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** יוצאים מוקדם מהשדה — זלצבורג שווה אור יום.</blockquote>
-                            <p class="day-description">בוקר: **אוספים את הרכב השכור בשדה התעופה** ונוסעים ל**זלצבורג**. נטייל בעיר העתיקה, נבקר בגני מיראבל ונציץ בבית הולדתו של מוצרט. לקראת ערב נמשיך ל**פלאכאו** ונכנסים לבסיס הכוכב הראשון: **Hofgut Family Resort**.</p>
+                             <blockquote>טיפ: להתחיל מוקדם כדי לנצל אור יום בזלצבורג.</blockquote>
+                            <p class="day-description">איסוף רכב בשדה התעופה ונסיעה לזלצבורג. נטייל בעיר העתיקה, גני מיראבל, וכו'. אחר הצהריים/ערב ממשיכים לפלאכאו להתמקמות ב-Hofgut Family Resort.</p>
                             <div class="day-metadata">
-                                <span class="day-character">אופי: עיר + מעבר לבסיס</span>
-                                <span class="day-drive-time">נסיעה: ארוכה (שדה → זלצבורג → פלאכאו)</span>
+                                <span class="day-character">אופי: עיר + מעבר בסיס</span>
+                                <span class="day-drive-time">נסיעה: כ-3–4 שעות סה"כ (תלוי עצירות)</span>
                             </div>
-                            <div class="day-intro">23.09 | לינה: פלאכאו (Hofgut Family Resort)</div>
+                            <div class="day-intro">23.09 | לינה: פלאכאו (Hofgut)</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="day-card fade-in-section" id="day3" data-type="nature kids">
                     <div class="day-image" id="img-day3"><span class="day-tag">אטרקציות טבע</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 3 (24.09.2026): האלשטאט, מכרות המלח ו-Dachstein Skywalk</h3>
+                            <h3>יום 3 (24.09): האלשטאט, מכרות המלח ו-Dachstein Skywalk</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                              <div class="day-weather" data-city-name="Hallstatt">
                                 <span class="weather-icon">--</span>
                                 <span class="weather-temp">טוען מזג אוויר...</span>
-                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
+                                <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** להגיע להאלשטאט לפני 09:30 כדי להימנע מהצפיפות. להתלבש חם במכרות.</blockquote>
-                            <p class="day-description">יום המוקדש לאזור האגמים הציורי. נבקר בעיירה **האלשטאט (Hallstatt)** המפורסמת, ונעלה ברכבל לתצפית Skywalk. אופציה נוספת היא בילוי במכרות המלח המרתקים של האלשטאט, הכוללים מגלשות עץ חווייתיות לילדים ולמבוגרים כאחד.</p>
+                             <blockquote>טיפ: להגיע לפני 09:30 כדי להימנע מהצפיפות. להתלבש חם במכרות.</blockquote>
+                            <p class="day-description">יום המוקדש לאזור האגמים הציורי: האלשטאט, תצפית Skywalk, ואופציה למכרות המלח.</p>
                             <div class="day-metadata">
                                 <span class="day-character">אופי: טבע, אטרקציות, ילדים</span>
                                 <span class="day-drive-time">נסיעה: כ-1.5 שעות הלוך</span>
                             </div>
-                            <div class="day-intro">24.09 | לינה: פלאכאו</div>
+                            <div class="day-intro">24.09 | לינה: פלאכאו (Hofgut)</div>
                         </div>
                     </div>
                 </div>
@@ -854,22 +801,22 @@
                     <div class="day-image" id="img-day4"><span class="day-tag">מים & כיף</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 4 (25.09.2026): בילוי ב-Therme Amadé ובסביבת פלאכאו</h3>
+                            <h3>יום 4 (25.09): בילוי ב-Therme Amadé ובסביבת פלאכאו</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                             <div class="day-weather" data-city-name="Flachau">
                                 <span class="weather-icon">--</span>
                                 <span class="weather-temp">טוען מזג אוויר...</span>
-                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
+                                <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** בגדי ים בהישג יד! פארק המים קרוב למלון ומושלם ליום רגוע.</blockquote>
-                            <p class="day-description">יום בילוי רגוע וכיפי בפארק המים התרמי **Therme Amadé**, המפורסם במגלשת הלופ שלו. זוהי הזדמנות למנוחה והתאווררות. אחה"צ אפשר לשלב טיול קצר באזור פלאכאו או בילוי במתקני המלון Hofgut.</p>
+                             <blockquote>טיפ: בגדי ים בהישג יד. מושלם ליום רגוע.</blockquote>
+                            <p class="day-description">יום בילוי רגוע וכיפי בפארק המים התרמי Therme Amadé. אחר הצהריים – חופשי/מלון.</p>
                             <div class="day-metadata">
                                 <span class="day-character">אופי: מים, רגוע, ילדים</span>
                                 <span class="day-drive-time">נסיעה: כ-10 דקות סה"כ</span>
                             </div>
-                            <div class="day-intro">25.09 | לינה: פלאכאו</div>
+                            <div class="day-intro">25.09 | לינה: פלאכאו (Hofgut)</div>
                         </div>
                     </div>
                 </div>
@@ -878,72 +825,70 @@
                     <div class="day-image" id="img-day5"><span class="day-tag">קרחון ואקשן</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 5 (26.09.2026): קרחון קיצשטיינהורן ומגלשות הרים</h3>
+                            <h3>יום 5 (26.09): קרחון קיצשטיינהורן ומגלשות הרים</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                             <div class="day-weather" data-city-name="Kaprun">
                                 <span class="weather-icon">--</span>
                                 <span class="weather-temp">טוען מזג אוויר...</span>
-                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
+                                <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** ביגוד חם מאוד לקרחון - כפפות, כובעים ומעיל חורפי חובה!</blockquote>
-                            <p class="day-description">נסיעה לקפרון (Kaprun) ועליה ברכבלים לפסגת קרחון **קיצשטיינהורן (Kitzsteinhorn)** לגובה 3,000 מטר, שם נוכל ליהנות משלג קיץ, תצפיות מרהיבות וסיור במנהרת קרח. בדרך חזרה, נעצור במגלשת ההרים מייזי פליצר (Maisi Flitzer) לקצת אדרנלין.</p>
+                             <blockquote>טיפ: ביגוד חם מאוד לקרחון - כפפות, כובעים ומעיל חובה.</blockquote>
+                            <p class="day-description">נסיעה לקפרון ועלייה לקרחון Kitzsteinhorn. בדרך חזרה – Maisi Flitzer לאדרנלין.</p>
                             <div class="day-metadata">
                                 <span class="day-character">אופי: טבע, שלג, אטרקציות</span>
                                 <span class="day-drive-time">נסיעה: כ-1.5 שעות הלוך</span>
                             </div>
-                            <div class="day-intro">26.09 | לינה: פלאכאו</div>
+                            <div class="day-intro">26.09 | לינה: פלאכאו (Hofgut)</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="day-card fade-in-section" id="day6" data-type="nature travel walk">
-                    <div class="day-image" id="img-day6"><span class="day-tag">מפלים & פיצול</span></div>
+                    <div class="day-image" id="img-day6"><span class="day-tag">מפלים</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 6 (27.09.2026): מפלי קרימל + פיצול ל-24 שעות (מצוינים כבר בטירול)</h3>
+                            <h3>יום 6 (27.09): מפלי קרימל + התפצלות מצוינים ל-Fügen</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                             <div class="day-weather" data-city-name="Krimml">
                                 <span class="weather-icon">--</span>
                                 <span class="weather-temp">טוען מזג אוויר...</span>
-                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
+                                <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** המסלול המלא למפלים ארוך. מומלץ להסתפק בקטע התחתון והמזרים ביותר.</blockquote>
-                            <p class="day-description">יום מפלים קלאסי: נוסעים ל**מפלי קרימל (Krimml Waterfalls)** ועושים הליכה קצרה בין המפל התחתון והאמצעי.  
-                            בסוף היום קורה הטריק: **משפחת מצוינים יוצאת מפלאכאו יום מוקדם** ונכנסת כבר היום ל-**Fügen (Alps Residence – Zillertal Suites)**. יתר הקבוצה חוזרת לעוד לילה אחרון בפלאכאו.</p>
+                             <blockquote>טיפ: המסלול המלא ארוך. מומלץ להסתפק בקטע התחתון והמזרים ביותר.</blockquote>
+                            <p class="day-description">יום במפלי קרימל. בסוף היום חוזרים לפלאכאו; (מצוינים מתפצלים) וממשיכים ל-Fügen להתמקמות ב-Alps Residence · Zillertal Suites.</p>
                             <div class="day-metadata">
-                                <span class="day-character">אופי: טבע, הליכה, פיצול לוגיסטי</span>
-                                <span class="day-drive-time">נסיעה: יום טיול ארוך</span>
+                                <span class="day-character">אופי: טבע, הליכה, יום כוכב</span>
+                                <span class="day-drive-time">נסיעה: יום ארוך</span>
                             </div>
-                            <div class="day-intro">27.09 | לינה: פלאכאו (הקבוצה) / Fügen (מצוינים)</div>
+                            <div class="day-intro">27.09 | לינה: פלאכאו (Hofgut) (מצוינים: Fügen)</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="day-card fade-in-section" id="day7" data-type="nature travel walk">
-                    <div class="day-image" id="img-day7"><span class="day-tag">מעבר & טיפוס</span></div>
+                    <div class="day-image" id="img-day7"><span class="day-tag">מעבר & פסגות</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 7 (28.09.2026): מעבר ל-Fügen + Olpererhütte (אבניאלי, גלפנד, בראל וארז - לא מאוחר להתחרט!)</h3>
+                            <h3>יום 7 (28.09): כולם עוברים ל-Fügen + Olpererhütte (מצוינים) — עוד לא מאוחר להתחרט</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                             <div class="day-weather" data-city-name="Fugen">
                                 <span class="weather-icon">--</span>
                                 <span class="weather-temp">טוען מזג אוויר...</span>
-                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
+                                <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** היום הזה “שתי מהירויות”: הקבוצה עוברת בסיס, והמצוינים כבר על המסלול. וכן — עוד לא מאוחר להתחרט.</blockquote>
-                            <p class="day-description">**כל המשפחות** עוזבות את פלאכאו ונוסעות ל-**Fügen** (Alps Residence – Zillertal Suites) לבסיס טירול.  
-                            במקביל, **משפחת מצוינים** (שכבר ישנה ב-Fügen) יוצאת ליום **Olpererhütte** (גשר/תצפית באזור Schlegeis) — הליכה משמעותית, הרבה נוף, והרבה “למה עשינו את זה”.</p>
+                             <blockquote>טיפ: הטיול לגשר Olpererhütte דורש כושר הליכה טוב (כ-3 שעות). ואם בא לכם — עוד לא מאוחר להתחרט ולהצטרף למצוינים.</blockquote>
+                            <p class="day-description">בוקר של צ'ק-אאוט מפלאכאו ונסיעה ל-Fügen. במקביל, מצוינים מטפסים לכיוון Olpererhütte והגשר התלוי; יתר המשפחות יכולות לבחור יום רגוע של התמקמות — או להתחרט ולהצטרף.</p>
                             <div class="day-metadata">
-                                <span class="day-character">אופי: מעבר בסיס + הליכה משמעותית (למצוינים)</span>
-                                <span class="day-drive-time">נסיעה: מעבר לטירול</span>
+                                <span class="day-character">אופי: מעבר בסיס, הליכה משמעותית (אופציונלי)</span>
+                                <span class="day-drive-time">נסיעה: יום מעבר</span>
                             </div>
-                            <div class="day-intro">28.09 | לינה: Fügen (כל הקבוצה)</div>
+                            <div class="day-intro">28.09 | לינה: Fügen</div>
                         </div>
                     </div>
                 </div>
@@ -952,71 +897,72 @@
                     <div class="day-image" id="img-day8"><span class="day-tag">עיר & פסגה</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 8 (29.09.2026): אינסברוק ונורדקטה (טיול יום מהטירול)</h3>
+                            <h3>יום 8 (29.09): אינסברוק ונורדקטה (Nordkette)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                             <div class="day-weather" data-city-name="Innsbruck">
                                 <span class="weather-icon">--</span>
                                 <span class="weather-temp">טוען מזג אוויר...</span>
-                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
+                                <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** נורדקטה נותנת “וואו” מהר וביעילות — מתאים ליום עיר בלי להרגיש עיר.</blockquote>
-                            <p class="day-description">יוצאים ליום בעיר **אינסברוק (Innsbruck)**: עלייה ברכבל **נורדקטה (Nordkette)** לתצפית על העמק, ואז סיבוב בגג הזהב ובסמטאות העיר העתיקה. חוזרים בערב ל-Fügen.</p>
+                             <blockquote>טיפ: “אלפים” בלי יום נסיעות.</blockquote>
+                            <p class="day-description">יום עיר/הרים באינסברוק: עלייה ברכבל לנורדקטה, אחר כך העיר העתיקה.</p>
                             <div class="day-metadata">
                                 <span class="day-character">אופי: עיר, הרים, תצפיות</span>
-                                <span class="day-drive-time">נסיעה: כ-40 דקות לכל כיוון</span>
+                                <span class="day-drive-time">נסיעה: מקומית</span>
                             </div>
                             <div class="day-intro">29.09 | לינה: Fügen</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day9" data-type="nature">
-                    <div class="day-image" id="img-day9"><span class="day-tag">אופציות</span></div>
+                <div class="day-card fade-in-section" id="day9" data-type="nature travel">
+                    <div class="day-image" id="img-day9"><span class="day-tag">אופציה רחוקה</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 9 (30.09.2026): יום טירול גמיש + אופציית צוגשפיצה (נסיעה ארוכה)</h3>
+                            <h3>יום 9 (30.09): יום חופשי בטירול — אופציה לצוגשפיצה (נסיעה ארוכה)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
-                            <div class="day-weather" data-city-name="Fugen">
+                            <div class="day-weather" data-city-name="Mayrhofen">
                                 <span class="weather-icon">--</span>
                                 <span class="weather-temp">טוען מזג אוויר...</span>
-                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
+                                <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** צוגשפיצה זה יום שלם. אם מזג האוויר “כמעט”, לא שווה את זה.</blockquote>
-                            <p class="day-description">יום טירול גמיש סביב Zillertal (נופים, כפרים, מסלולים קצרים לפי מצב הרוח ומזג האוויר).  
-                            **אופציה חלופית (רחוקה יותר): צוגשפיצה (Zugspitze)** — זה כבר נסיעה לא קצרה מהאזור (בערך שעתיים לכל כיוון), אבל נותן פסגה רצינית ותצפית 360.</p>
+                             <blockquote>טיפ: צוגשפיצה מעולה — אבל זה יום של הרבה כביש. נשארת אופציה.</blockquote>
+                            <p class="day-description">יום גמיש באזור זילרטל/טירול. אופציה: Zugspitze (נסיעה ארוכה). אפשר גם יום רגוע יותר באזור.</p>
                             <div class="day-metadata">
-                                <span class="day-character">אופי: טבע, גמישות, אופציות</span>
-                                <span class="day-drive-time">נסיעה: קצרה/בינונית (או ארוכה אם צוגשפיצה)</span>
+                                <span class="day-character">אופי: גמישות, טבע/תצפיות</span>
+                                <span class="day-drive-time">נסיעה: תלוי בחירה</span>
                             </div>
                             <div class="day-intro">30.09 | לינה: Fügen</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day10" data-type="city travel">
-                    <div class="day-image" id="img-day10"><span class="day-tag">חזרה לעיר</span></div>
+                <div class="day-card fade-in-section" id="day10" data-type="travel city">
+                    <div class="day-image" id="img-day10"><span class="day-tag">חזרה לוינה</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 10 (01.10.2026): נסיעה ארוכה חזרה לוינה (או טיסה מאינסברוק)</h3>
+                            <h3>יום 10 (01.10): נסיעה ארוכה מטירול לוינה + עצירת ביניים</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                             <div class="day-weather" data-city-name="Vienna">
                                 <span class="weather-icon">--</span>
                                 <span class="weather-temp">טוען מזג אוויר...</span>
-                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
+                                <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** זו נסיעה ארוכה. תתייחסו לזה כאל “יום מעבר” ותכננו עצירה אחת אמיתית בדרך.</blockquote>
-                            <p class="day-description">נפרדים מהטירול ונוסעים חזרה ל**וינה** למלון במרכז העיר. זו **נסיעה ארוכה** (כ-4:30–5:00 שעות נטו, וברגע שעושים עצירה — זה בקלות קופץ).  
-                            **עצירה מומלצת בדרך:** עיירת הדנובה **Melk** (קפה/טיילת/תצפית על הנהר) — שובר את היום כמו שצריך.  
-                            **חלופה למי שלא אוהב כביש:** קיימת אפשרות לקחת **טיסה מאינסברוק לוינה** בשעה **18:50**, משך **כשעה**, טיסה **OS108**. מחיר עבודה: סביב **$110 לאדם** (תלוי תאריך/מלאי).</p>
+                             <blockquote>טיפ: זו נסיעה ארוכה — בערך 4:30–5:00 שעות נטו (ובקלות יותר עם עצירות).</blockquote>
+                            <p class="day-description">
+                                נוסעים חזרה לוינה ממלון ה-Fügen. מומלץ לעצור בדרך ב-Melk (Stift Melk) על הדנובה.
+                                <br><br>
+                                קיימת גם אפשרות חלופית: טיסה אינסברוק → וינה בשעה 18:50, משך טיסה כשעה, מס' טיסה OS108, מחיר סביב $110 לאדם (תלוי זמינות/תאריך).
+                            </p>
                             <div class="day-metadata">
-                                <span class="day-character">אופי: מעבר ארוך, סגירת טירול</span>
-                                <span class="day-drive-time">נסיעה: ארוכה (טירול → וינה)</span>
+                                <span class="day-character">אופי: מעבר בסיס, יום כביש</span>
+                                <span class="day-drive-time">נסיעה: כ-4:30–5:00 שעות (נטו)</span>
                             </div>
                             <div class="day-intro">01.10 | לינה: וינה (מרכז העיר)</div>
                         </div>
@@ -1024,25 +970,25 @@
                 </div>
 
                 <div class="day-card fade-in-section" id="day11" data-type="city travel">
-                    <div class="day-image" id="img-day11"><span class="day-tag">סיום</span></div>
+                    <div class="day-image" id="img-day11"><span class="day-tag">וינה & טיסה</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 11 (02.10.2026): טיול בעיר וינה וטיסה בערב</h3>
+                            <h3>יום 11 (02.10): יום בעיר וינה וטיסה בערב</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
                             <div class="day-weather" data-city-name="Vienna">
                                 <span class="weather-icon">--</span>
                                 <span class="weather-temp">טוען מזג אוויר...</span>
-                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
+                                <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** להגיע לשדה התעופה לפחות 3 שעות לפני הטיסה. יש לבדוק אפשרות לקבל החזר מע"מ (Tax Free).</blockquote>
-                            <p class="day-description">יום אחרון בוינה: טיול עיר קליל (מה שמתאים לכם) — ובערב יוצאים לשדה התעופה לטיסת החזור לישראל.</p>
+                             <blockquote>טיפ: מומלץ להגיע לשדה לפחות 3 שעות לפני הטיסה. Tax Free לפי הצורך.</blockquote>
+                            <p class="day-description">יום אחרון בוינה: טיול עירוני נינוח. בערב — נסיעה לשדה, החזרת רכבים והמראה חזרה לישראל.</p>
                             <div class="day-metadata">
-                                <span class="day-character">אופי: עיר, סגירה</span>
-                                <span class="day-drive-time">נסיעה: קצרה (מרכז העיר → שדה)</span>
+                                <span class="day-character">אופי: עיר, סגירה, טיסה</span>
+                                <span class="day-drive-time">נסיעה: מרכז→שדה (תלוי עומסים)</span>
                             </div>
-                            <div class="day-intro">02.10 | טיסה הביתה</div>
+                            <div class="day-intro">02.10 | טיסה הביתה (בערב)</div>
                         </div>
                     </div>
                 </div>
@@ -1084,66 +1030,48 @@
 
     <script>
         // ===================================
-        // 🔑 מפתח API לטיסות (מוטמע המפתח שלך)
+        // 🔑 מפתח API לטיסות
         // ===================================
-        const AVIATION_API_KEY = "81a63b2731c7d0dfd08f9c40d0d8c429"; 
+        const AVIATION_API_KEY = "81a63b2731c7d0dfd08f9c40d0d8c429";
 
-
-        // ===================================
-        // ✈️ נתונים חיים - טיסות (AviationStack) - לוגיקה מעודכנת
-        // ===================================
-        
-        // תאריכי הטיסות (שנה משוערת 2026, יש לעדכן אם שונה)
+        // תאריכי הטיסות
         const FLIGHT_DATES = {
-            'OS82': new Date(2026, 8, 22), // 22 בספטמבר (חודש 8)
-            'OS83': new Date(2026, 9, 2),  // 2 באוקטובר (חודש 9)
+            'OS82': new Date(2026, 8, 22), // 22 בספטמבר
+            'OS83': new Date(2026, 9, 2),  // 2 באוקטובר
         };
-        
-        // פונקציה לבדיקה אם הטיסה מספיק קרובה כדי לדרוש סטטוס חי
+
         function isFlightDateNear(flightDate) {
             const today = new Date();
-            // נתחיל לבדוק סטטוס חי 60 יום לפני הטיסה
-            const nearThresholdDays = 60; 
-            
-            // חישוב ההפרש בימים
+            const nearThresholdDays = 60;
             const timeDiff = flightDate.getTime() - today.getTime();
             const daysDiff = timeDiff / (1000 * 3600 * 24);
-
-            // מחזיר True אם ההפרש קטן מהסף (כלומר, פחות מ-60 יום)
-            return daysDiff < nearThresholdDays && daysDiff >= -1; 
+            return daysDiff < nearThresholdDays && daysDiff >= -1;
         }
 
-        // פונקציה לטעינת סטטוס טיסה
         async function fetchLiveFlightStatus(flightIATA, flightDate, targetId) {
             const targetElement = document.getElementById(targetId);
-            
+
             if (AVIATION_API_KEY.length < 10) {
                 targetElement.innerHTML = `<span class="flight-status-error">הזן מפתח API כדי לצפות בסטטוס</span>`;
                 return;
             }
 
-            // פורמט תאריך כ-YYYY-MM-DD
             const year = flightDate.getFullYear();
-            // חודשים ב-JS הם אינדקס 0, לכן מוסיפים 1 ומשלימים אפסים
             const month = String(flightDate.getMonth() + 1).padStart(2, '0');
             const day = String(flightDate.getDate()).padStart(2, '0');
             const formattedDate = `${year}-${month}-${day}`;
-            
-            // הוספנו את הפרמטר flight_date
+
             const url = `http://api.aviationstack.com/v1/flights?access_key=${AVIATION_API_KEY}&flight_iata=${flightIATA}&flight_date=${formattedDate}`;
-            
+
             try {
                 const response = await fetch(url);
                 const data = await response.json();
-                
+
                 if (data && data.data && data.data.length > 0) {
-                    // מוצאים את הטיסה הרלוונטית - הסטטוס העדכני ביותר
-                    const flight = data.data.find(f => f.flight_status !== 'landed' && f.flight_status !== 'cancelled') || data.data[0]; 
-                    
-                    const status = flight.flight_status; 
+                    const flight = data.data.find(f => f.flight_status !== 'landed' && f.flight_status !== 'cancelled') || data.data[0];
+                    const status = flight.flight_status;
                     const estimatedDeparture = flight.departure.estimated;
-                    
-                    // המרת סטטוס לעברית וקביעת סגנון
+
                     let statusText;
                     let statusClass = 'flight-status-info';
                     switch (status) {
@@ -1167,8 +1095,7 @@
                             statusText = status || 'לא ידוע';
                             statusClass = 'flight-status-info';
                     }
-                    
-                    // המרת זמן יציאה מעודכן
+
                     let timeText = '';
                     if (estimatedDeparture) {
                         const date = new Date(estimatedDeparture);
@@ -1181,80 +1108,68 @@
                             ${timeText && status === 'active' ? `<span class="flight-time-live">(${timeText} המריאה)</span>` : (timeText && status === 'scheduled' ? `<span class="flight-time-live">(${timeText} מעודכן)</span>` : '')}
                         </div>
                     `;
-
                 } else {
-                     targetElement.innerHTML = `<span class="flight-status-error">לא נמצא מידע עדכני לתאריך זה</span>`;
+                    targetElement.innerHTML = `<span class="flight-status-error">לא נמצא מידע עדכני לתאריך זה</span>`;
                 }
-                
+
             } catch (error) {
                 console.error("Error fetching flight data:", error);
                 targetElement.innerHTML = `<span class="flight-status-error">שגיאת רשת/שרת</span>`;
             }
         }
 
-        // טוען את נתוני הטיסות הלוך וחזור
         function loadFlightData() {
-            // טיסת הלוך: TLV -> VIE (OS82)
             const outboundTarget = 'flight-status-outbound';
             const outboundDate = FLIGHT_DATES['OS82'];
             if (isFlightDateNear(outboundDate)) {
-                // בדיקה עם תאריך ספציפי
-                fetchLiveFlightStatus('OS82', outboundDate, outboundTarget); 
+                fetchLiveFlightStatus('OS82', outboundDate, outboundTarget);
             } else {
-                // כשהטיסה רחוקה - מציגים תאריך מתוכנן בלבד
-                document.getElementById(outboundTarget).innerHTML = `<div class="flight-status flight-status-info"><span>מתוכננת</span><span class="flight-time-live">${outboundDate.toLocaleDateString('he-IL')} (לא נבדק עדיין)</span></div>`;
+                document.getElementById(outboundTarget).innerHTML =
+                    `<div class="flight-status flight-status-info"><span>מתוכננת</span><span class="flight-time-live">${outboundDate.toLocaleDateString('he-IL')} (לא נבדק עדיין)</span></div>`;
             }
 
-            // טיסת חזור: VIE -> TLV (OS83)
             const returnTarget = 'flight-status-return';
             const returnDate = FLIGHT_DATES['OS83'];
             if (isFlightDateNear(returnDate)) {
-                // בדיקה עם תאריך ספציפי
-                fetchLiveFlightStatus('OS83', returnDate, returnTarget); 
+                fetchLiveFlightStatus('OS83', returnDate, returnTarget);
             } else {
-                // כשהטיסה רחוקה - מציגים תאריך מתוכנן בלבד
-                document.getElementById(returnTarget).innerHTML = `<div class="flight-status flight-status-info"><span>מתוכננת</span><span class="flight-time-live">${returnDate.toLocaleDateString('he-IL')} (לא נבדק עדיין)</span></div>`;
+                document.getElementById(returnTarget).innerHTML =
+                    `<div class="flight-status flight-status-info"><span>מתוכננת</span><span class="flight-time-live">${returnDate.toLocaleDateString('he-IL')} (לא נבדק עדיין)</span></div>`;
             }
         }
 
-
         // ===================================
-        // 🌧️ מזג אוויר LIVE (Open-Meteo) - לא שונה (מלבד הוספת Fugen)
+        // 🌧️ מזג אוויר LIVE (Open-Meteo)
         // ===================================
-        
-        // מפה בין שם עיר (מפתח) לקואורדינטות שלה (ערך)
         const cityCoordinates = {
             "Vienna": { lat: 48.21, lon: 16.37, name: "וינה" },
             "Salzburg": { lat: 47.80, lon: 13.04, name: "זלצבורג" },
             "Hallstatt": { lat: 47.56, lon: 13.65, name: "האלשטאט" },
             "Flachau": { lat: 47.34, lon: 13.39, name: "פלאכאו" },
-            "Kaprun": { lat: 47.27, lon: 12.76, name: "קפרון" }, 
+            "Kaprun": { lat: 47.27, lon: 12.76, name: "קפרון" },
             "Krimml": { lat: 47.22, lon: 12.18, name: "קרימל" },
             "Innsbruck": { lat: 47.27, lon: 11.39, name: "אינסברוק" },
-            "Mayrhofen": { lat: 47.17, lon: 11.87, name: "מיירהופן" }, 
-            "Windischgarsten": { lat: 47.72, lon: 14.33, name: "וינדישגרסטן" },
-            "Admont": { lat: 47.57, lon: 14.46, name: "אדמונט" },
-            "Fugen": { lat: 47.34698, lon: 11.84941, name: "Fügen" }
+            "Mayrhofen": { lat: 47.17, lon: 11.87, name: "מיירהופן" },
+            "Fugen": { lat: 47.35, lon: 11.85, name: "פיגן (Fügen)" },
         };
 
         function getWeatherIcon(weatherCode) {
-            // ממפה את קודי מזג האוויר של Open-Meteo לאמוג'י
             switch (true) {
-                case weatherCode === 0: return '☀️'; // Clear sky
-                case weatherCode > 0 && weatherCode <= 3: return '🌤️'; // Mostly clear to cloudy
-                case weatherCode >= 45 && weatherCode <= 48: return '🌫️'; // Fog
-                case weatherCode >= 51 && weatherCode <= 67: return '🌧️'; // Drizzle or Rain
-                case weatherCode >= 71 && weatherCode <= 75: return '❄️'; // Snow fall
-                case weatherCode >= 80 && weatherCode <= 82: return '🌦️'; // Rain showers
-                case weatherCode >= 85 && weatherCode <= 86: return '🌨️'; // Snow showers
-                case weatherCode >= 95: return '⛈️'; // Thunderstorm
+                case weatherCode === 0: return '☀️';
+                case weatherCode > 0 && weatherCode <= 3: return '🌤️';
+                case weatherCode >= 45 && weatherCode <= 48: return '🌫️';
+                case weatherCode >= 51 && weatherCode <= 67: return '🌧️';
+                case weatherCode >= 71 && weatherCode <= 75: return '❄️';
+                case weatherCode >= 80 && weatherCode <= 82: return '🌦️';
+                case weatherCode >= 85 && weatherCode <= 86: return '🌨️';
+                case weatherCode >= 95: return '⛈️';
                 default: return '❓';
             }
         }
 
         async function fetchLiveWeather() {
             const weatherElements = document.querySelectorAll('.day-weather');
-            
+
             for (const el of weatherElements) {
                 const cityName = el.dataset.cityName;
                 const cityData = cityCoordinates[cityName];
@@ -1265,7 +1180,7 @@
                 }
 
                 const url = `https://api.open-meteo.com/v1/forecast?latitude=${cityData.lat}&longitude=${cityData.lon}&current_weather=true&temperature_unit=celsius&timezone=auto&forecast_days=1`;
-                
+
                 try {
                     const response = await fetch(url);
                     const data = await response.json();
@@ -1273,20 +1188,19 @@
                     if (response.ok && data.current_weather) {
                         const temp = Math.round(data.current_weather.temperature);
                         const weatherCode = data.current_weather.weathercode;
-                        
+
                         el.querySelector('.weather-icon').textContent = getWeatherIcon(weatherCode);
                         el.querySelector('.weather-temp').textContent = `${temp}°C | ${cityData.name} (מעודכן)`;
-                        el.querySelector('.weather-status').textContent = '**סטטוס:** נתונים חיים ✅';
+                        el.querySelector('.weather-status').textContent = 'סטטוס: נתונים חיים ✅';
                     } else {
                         throw new Error(data.reason || 'שגיאה בקריאת API');
                     }
                 } catch (error) {
-                    loadWeatherPlaceholderForElement(el); 
+                    loadWeatherPlaceholderForElement(el);
                 }
             }
         }
-        
-        // פונקציה שמדמה טעינת מזג אוויר (Placeholder)
+
         function loadWeatherPlaceholderForElement(el) {
             const location = el.dataset.cityName;
             const weatherData = {
@@ -1294,53 +1208,39 @@
                 "Salzburg": { icon: '🌤️', temp: '15°C', desc: 'מעונן חלקית' },
                 "Hallstatt": { icon: '🌧️', temp: '12°C', desc: 'גשום' },
                 "Flachau": { icon: '⛅', temp: '16°C', desc: 'שמש וגשם' },
-                "Kaprun": { icon: '❄️', temp: '5°C', desc: 'שלג קל / קרחון' },
+                "Kaprun": { icon: '❄️', temp: '5°C', desc: 'קרחון' },
                 "Krimml": { icon: '☁️', temp: '13°C', desc: 'מעונן' },
                 "Innsbruck": { icon: '☀️', temp: '17°C', desc: 'בהיר' },
-                "Mayrhofen": { icon: '🏔️', temp: '10°C', desc: 'קר מאוד / הרים' },
-                "Windischgarsten": { icon: '🌤️', temp: '14°C', desc: 'מעונן חלקית' },
-                "Admont": { icon: '🌧️', temp: '11°C', desc: 'גשום קל' },
-                "Fugen": { icon: '🌤️', temp: '14°C', desc: 'טירול קלאסי' }
+                "Mayrhofen": { icon: '🏔️', temp: '10°C', desc: 'הרים' },
+                "Fugen": { icon: '🌤️', temp: '14°C', desc: 'מעונן חלקית' }
             };
 
             if (weatherData[location]) {
                 el.querySelector('.weather-icon').textContent = weatherData[location].icon;
                 el.querySelector('.weather-temp').textContent = `${weatherData[location].temp} | ${weatherData[location].desc}`;
-                el.querySelector('.weather-status').textContent = '**סטטוס:** דמה (Placeholder)';
+                el.querySelector('.weather-status').textContent = 'סטטוס: דמה (Placeholder)';
             } else {
-                 el.querySelector('.weather-temp').textContent = `---`;
-                 el.querySelector('.weather-status').textContent = '**סטטוס:** דמה (Placeholder)';
+                el.querySelector('.weather-temp').textContent = `---`;
+                el.querySelector('.weather-status').textContent = 'סטטוס: דמה (Placeholder)';
             }
         }
-        
-        // ===================================
-        // 🚀 פונקציית הטעינה הראשית של העמוד
-        // ===================================
 
         window.addEventListener('load', () => {
-             // 1. טעינת סטטוס טיסות (מעודכן עם בדיקת תאריך)
              loadFlightData();
-             // 2. טעינת מזג האוויר
              fetchLiveWeather();
         });
 
-
-        // ===================================
-        // שאר פונקציות ה-JS (לא שונו)
-        // ===================================
-
-        // פונקציה לפתיחה/סגירה של פרטי היום
         function toggleDay(header) {
             const details = header.nextElementSibling;
             const toggleIcon = header.querySelector('.toggle-icon');
             const isOpen = details.style.maxHeight && details.style.maxHeight !== '0px';
-            
+
             const allDetails = document.querySelectorAll('.day-details');
             const allHeaders = document.querySelectorAll('.day-header');
-            
-            allDetails.forEach(d => { 
+
+            allDetails.forEach(d => {
                 if (d !== details) {
-                    d.style.maxHeight = null; 
+                    d.style.maxHeight = null;
                     d.style.opacity = 0;
                 }
             });
@@ -1352,11 +1252,10 @@
             });
 
             if (!isOpen) {
-                // מגדיל את הגובה כדי שיתאים לתוכן
                 details.style.maxHeight = details.scrollHeight + "px";
                 details.style.opacity = 1;
                 header.classList.add('active');
-                toggleIcon.textContent = 'x'; 
+                toggleIcon.textContent = 'x';
             } else {
                 details.style.maxHeight = null;
                 details.style.opacity = 0;
@@ -1364,7 +1263,7 @@
                 toggleIcon.textContent = '+';
             }
         }
-        
+
         function closeAllDays() {
             document.querySelectorAll('.day-details').forEach(d => { d.style.maxHeight = null; d.style.opacity = 0; });
             document.querySelectorAll('.day-header').forEach(h => h.classList.remove('active'));
@@ -1383,23 +1282,20 @@
                         card.style.display = 'none';
                     }
                 });
-                closeAllDays(); 
+                closeAllDays();
             });
         });
-        
-        // אנימציות
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) entry.target.classList.add('is-visible');
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-in-section').forEach(sec => observer.observe(sec));
-        
-        // גלילה חזרה לסקשן המשפחות
+
         document.querySelector('.scroll-down').addEventListener('click', () => {
              document.querySelector('#intro').scrollIntoView({ behavior: 'smooth' });
         });
-
     </script>
 </body>
 </html>

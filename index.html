@@ -73,12 +73,10 @@
             overflow: hidden;
         }
 
-     .hero::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* תמונה חדשה: נוף פנורמי של טירול/זלצבורג (נוף אלפיני) */
-            /* **וודא ששם הקובץ הוא austria_hero.png ושמיקומו נכון** */
             background: url('austria_hero.png') no-repeat center center/cover; 
             filter: brightness(0.65);
             z-index: -1;
@@ -238,26 +236,83 @@
              border-radius: 10px;
         }
 
-        /* עיצוב לינות */
-        .lodging-list { list-style: none; padding: 0; }
-        .lodging-item {
+        /* ------------------------------------------- */
+        /* 🏨 עיצוב לינות - ציר זמן + פיצול מצוינים */
+        /* ------------------------------------------- */
+        .lodging-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .lodging-row {
+            background: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .lodging-row-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
+            align-items: baseline;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
         }
-        .lodging-item:last-child { border-bottom: none; }
-        
-        .lodging-info h4 { margin: 0; font-size: 1.2rem; color: var(--primary-dark); }
-        .lodging-info span { font-size: 0.9rem; color: #777; }
-        .lodging-dates {
-            background: var(--primary-light);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 8px;
+
+        .lodging-row-header h4 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: var(--primary-dark);
+        }
+
+        .lodging-row-header .lodging-row-note {
             font-size: 0.9rem;
-            font-weight: bold;
+            color: #777;
+            font-weight: 600;
+        }
+
+        .lodging-segments {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .lodging-segment {
+            display: inline-flex;
+            flex-direction: column;
+            gap: 2px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            border: 1px solid #eee;
+            background: #ffffff;
+        }
+
+        .lodging-segment .dates {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary-light);
+        }
+
+        .lodging-segment.all { border-right: 4px solid var(--primary-light); background: #f6fbf7; }
+        .lodging-segment.metsuyanim { border-right: 4px solid var(--accent); background: #fff8ef; }
+        .lodging-segment.split { border-right: 4px solid #8e44ad; background: #f7f0ff; }
+
+        .lodging-split-badge {
+            margin-top: 10px;
+            display: inline-block;
+            background: #f7f0ff;
+            color: #5e2b97;
+            border: 1px solid #e6d9ff;
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 0.9rem;
         }
 
 
@@ -603,26 +658,62 @@
             </div>
 
             <div class="data-card lodging-data-card">
-                <h3 class="section-title"><span class="icon">🏡</span> סיכום לינות</h3>
-                <ul class="lodging-list">
-                    <li class="lodging-item">
-                        <div class="lodging-info"><h4>וינה (Vienna)</h4><span>מלון התחלה וסוף</span></div>
-                        <div class="lodging-dates">22.09 | 01.10</div>
-                    </li>
-                    <li class="lodging-item">
-                        <div class="lodging-info"><h4>פלאכאו (Flachau)</h4><span>Hofgut Resort | 4 לילות</span></div>
-                        <div class="lodging-dates">23-27.09</div>
-                    </li>
-                    <li class="lodging-item">
-                        <div class="lodging-info"><h4>אינסברוק (Innsbruck)</h4><span>בירת טירול | 3 לילות</span></div>
-                        <div class="lodging-dates">27-30.09</div>
-                    </li>
-                    <li class="lodging-item">
-                        <div class="lodging-info"><h4>וינדישגרסטן</h4><span>בסיס גזויזה | 1 לילה</span></div>
-                        <div class="lodging-dates">30.09-01.10</div>
-                    </li>
-                </ul>
+                <h3 class="section-title"><span class="icon">🏡</span> סיכום לינות (כולל פיצול מצוינים)</h3>
+
+                <div class="lodging-timeline">
+                    <div class="lodging-row">
+                        <div class="lodging-row-header">
+                            <h4>כל הקבוצה</h4>
+                            <span class="lodging-row-note">מסלול קבוצתי “רשמי”</span>
+                        </div>
+                        <div class="lodging-segments">
+                            <div class="lodging-segment all">
+                                <span>וינה – מלון ליד/בשדה התעופה (VIE)</span>
+                                <span class="dates">22–23.09</span>
+                            </div>
+                            <div class="lodging-segment all">
+                                <span>פלאכאו – Hofgut Family Resort</span>
+                                <span class="dates">23–28.09</span>
+                            </div>
+                            <div class="lodging-segment all">
+                                <span>Fügen – Alps Residence (Zillertal Suites)</span>
+                                <span class="dates">28.09–01.10</span>
+                            </div>
+                            <div class="lodging-segment all">
+                                <span>וינה – מלון במרכז העיר</span>
+                                <span class="dates">01–02.10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lodging-row">
+                        <div class="lodging-row-header">
+                            <h4>משפחת מצוינים</h4>
+                            <span class="lodging-row-note">יוצאים מפלאכאו יום מוקדם</span>
+                        </div>
+                        <div class="lodging-segments">
+                            <div class="lodging-segment metsuyanim">
+                                <span>וינה – מלון ליד/בשדה התעופה (VIE)</span>
+                                <span class="dates">22–23.09</span>
+                            </div>
+                            <div class="lodging-segment metsuyanim">
+                                <span>פלאכאו – Hofgut Family Resort</span>
+                                <span class="dates">23–27.09</span>
+                            </div>
+                            <div class="lodging-segment metsuyanim">
+                                <span>Fügen – Alps Residence (Zillertal Suites)</span>
+                                <span class="dates">27.09–01.10</span>
+                            </div>
+                            <div class="lodging-segment metsuyanim">
+                                <span>וינה – מלון במרכז העיר</span>
+                                <span class="dates">01–02.10</span>
+                            </div>
+                        </div>
+                        <span class="lodging-split-badge">🟣 פיצול 24 שעות: 27.09–28.09 מצוינים כבר ב-Fügen בזמן שהקבוצה עדיין בפלאכאו</span>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -691,7 +782,7 @@
                     <div class="day-image" id="img-day1"><span class="day-tag">נחיתה</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 1: נחיתה והתמקמות בוינה</h3>
+                            <h3>יום 1 (22.09.2026): נחיתה והתמקמות ליד שדה התעופה</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
@@ -700,22 +791,22 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** להכין תיק צד עם בגדים להחלפה ללילה הראשון.</blockquote>
-                            <p class="day-description">נחיתה בשעות הערב המאוחרות בנמל התעופה הבינלאומי של וינה. לאחר איסוף המזוודות והרכבים, ניסע להתמקם במלון שלנו בוינה ללילה קצר. מטרת היום היא מנוחה והתארגנות לפני היציאה למסע האלפיני.</p>
+                             <blockquote>**טיפ:** הלילה הראשון “טכני” — מלון בשדה התעופה/קרוב אליו כדי לפתוח את הבוקר חלק.</blockquote>
+                            <p class="day-description">נחיתה בשעות הערב המאוחרות בנמל התעופה של וינה. במקום להסתבך עם העיר, לוקחים **מלון בשדה התעופה או בקרבתו** ללילה קצר, כדי להרים ראש בבוקר ולהתחיל את הטיול כמו בני אדם.</p>
                             <div class="day-metadata">
-                                <span class="day-character">אופי: עיר, התמקמות</span>
-                                <span class="day-drive-time">נסיעה: כ-45 דקות</span>
+                                <span class="day-character">אופי: התמקמות, לוגיסטיקה</span>
+                                <span class="day-drive-time">נסיעה: קצרה (שדה תעופה → מלון)</span>
                             </div>
-                            <div class="day-intro">22.09 | לינה: וינה</div>
+                            <div class="day-intro">22.09 | לינה: וינה (שדה התעופה)</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="day-card fade-in-section" id="day2" data-type="city travel">
-                    <div class="day-image" id="img-day2"><span class="day-tag">מעבר & עיר</span></div>
+                    <div class="day-image" id="img-day2"><span class="day-tag">רכב & עיר</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 2: רכבת לזלצבורג ומעבר לפלאכאו</h3>
+                            <h3>יום 2 (23.09.2026): איסוף רכב בשדה התעופה → זלצבורג → פלאכאו</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
@@ -724,13 +815,13 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** להתחיל מוקדם את היום כדי לנצל את אור היום בזלצבורג.</blockquote>
-                            <p class="day-description">נסיעת בוקר מוינה לעיר המוזיקה **זלצבורג** (כ-3 שעות). נטייל בעיר העתיקה, נבקר בגני מיראבל ונצפה בבית הולדתו של מוצרט. לקראת ערב נמשיך דרומה (כ-40 דקות) לדירות Hofgut בפלאכאו, שם נתמקם לבסיס הכוכב הראשון שלנו.</p>
+                             <blockquote>**טיפ:** יוצאים מוקדם מהשדה — זלצבורג שווה אור יום.</blockquote>
+                            <p class="day-description">בוקר: **אוספים את הרכב השכור בשדה התעופה** ונוסעים ל**זלצבורג**. נטייל בעיר העתיקה, נבקר בגני מיראבל ונציץ בבית הולדתו של מוצרט. לקראת ערב נמשיך ל**פלאכאו** ונכנסים לבסיס הכוכב הראשון: **Hofgut Family Resort**.</p>
                             <div class="day-metadata">
-                                <span class="day-character">אופי: עיר היסטורית, נסיעה ארוכה</span>
-                                <span class="day-drive-time">נסיעה: כ-3.5 שעות סה"כ</span>
+                                <span class="day-character">אופי: עיר + מעבר לבסיס</span>
+                                <span class="day-drive-time">נסיעה: ארוכה (שדה → זלצבורג → פלאכאו)</span>
                             </div>
-                            <div class="day-intro">23.09 | לינה: פלאכאו</div>
+                            <div class="day-intro">23.09 | לינה: פלאכאו (Hofgut Family Resort)</div>
                         </div>
                     </div>
                 </div>
@@ -739,7 +830,7 @@
                     <div class="day-image" id="img-day3"><span class="day-tag">אטרקציות טבע</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 3: האלשטאט, מכרות המלח ו-Dachstein Skywalk</h3>
+                            <h3>יום 3 (24.09.2026): האלשטאט, מכרות המלח ו-Dachstein Skywalk</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
@@ -763,7 +854,7 @@
                     <div class="day-image" id="img-day4"><span class="day-tag">מים & כיף</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 4: בילוי ב-Therme Amadé ובסביבת פלאכאו</h3>
+                            <h3>יום 4 (25.09.2026): בילוי ב-Therme Amadé ובסביבת פלאכאו</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
@@ -787,7 +878,7 @@
                     <div class="day-image" id="img-day5"><span class="day-tag">קרחון ואקשן</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 5: קרחון קיצשטיינהורן ומגלשות הרים</h3>
+                            <h3>יום 5 (26.09.2026): קרחון קיצשטיינהורן ומגלשות הרים</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
@@ -808,10 +899,10 @@
                 </div>
 
                 <div class="day-card fade-in-section" id="day6" data-type="nature travel walk">
-                    <div class="day-image" id="img-day6"><span class="day-tag">מפלים & מעבר</span></div>
+                    <div class="day-image" id="img-day6"><span class="day-tag">מפלים & פיצול</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 6: מפלי קרימל ונסיעה לאינסברוק</h3>
+                            <h3>יום 6 (27.09.2026): מפלי קרימל + פיצול ל-24 שעות (מצוינים כבר בטירול)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
@@ -820,22 +911,48 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** המסלול המלא למפלים ארוך ומאתגר. מומלץ להסתפק בקטע התחתון והמזרים ביותר.</blockquote>
-                            <p class="day-description">עוזבים את פלאכאו ונוסעים מערבה לכיוון טירול. נעצור במפלי **קרימל (Krimml Waterfalls)**, המפל הגבוה ביותר באירופה. נבצע הליכה קצרה בין המפל התחתון והאמצעי. משם נמשיך בנסיעה נופית עד לעיר **אינסברוק (Innsbruck)** להתמקמות בבסיס הכוכב הבא שלנו.</p>
+                             <blockquote>**טיפ:** המסלול המלא למפלים ארוך. מומלץ להסתפק בקטע התחתון והמזרים ביותר.</blockquote>
+                            <p class="day-description">יום מפלים קלאסי: נוסעים ל**מפלי קרימל (Krimml Waterfalls)** ועושים הליכה קצרה בין המפל התחתון והאמצעי.  
+                            בסוף היום קורה הטריק: **משפחת מצוינים יוצאת מפלאכאו יום מוקדם** ונכנסת כבר היום ל-**Fügen (Alps Residence – Zillertal Suites)**. יתר הקבוצה חוזרת לעוד לילה אחרון בפלאכאו.</p>
                             <div class="day-metadata">
-                                <span class="day-character">אופי: טבע, הליכה, מעבר בסיס</span>
-                                <span class="day-drive-time">נסיעה: כ-3.5 שעות סה"כ</span>
+                                <span class="day-character">אופי: טבע, הליכה, פיצול לוגיסטי</span>
+                                <span class="day-drive-time">נסיעה: יום טיול ארוך</span>
                             </div>
-                            <div class="day-intro">27.09 | לינה: אינסברוק</div>
+                            <div class="day-intro">27.09 | לינה: פלאכאו (הקבוצה) / Fügen (מצוינים)</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day7" data-type="city nature">
-                    <div class="day-image" id="img-day7"><span class="day-tag">עיר & פסגה</span></div>
+                <div class="day-card fade-in-section" id="day7" data-type="nature travel walk">
+                    <div class="day-image" id="img-day7"><span class="day-tag">מעבר & טיפוס</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 7: נורדקטה (Nordkette) ואינסברוק</h3>
+                            <h3>יום 7 (28.09.2026): מעבר ל-Fügen + Olpererhütte (אבניאלי, גלפנד, בראל וארז - לא מאוחר להתחרט!)</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                            <div class="day-weather" data-city-name="Fugen">
+                                <span class="weather-icon">--</span>
+                                <span class="weather-temp">טוען מזג אוויר...</span>
+                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
+                            </div>
+                             <blockquote>**טיפ:** היום הזה “שתי מהירויות”: הקבוצה עוברת בסיס, והמצוינים כבר על המסלול. וכן — עוד לא מאוחר להתחרט.</blockquote>
+                            <p class="day-description">**כל המשפחות** עוזבות את פלאכאו ונוסעות ל-**Fügen** (Alps Residence – Zillertal Suites) לבסיס טירול.  
+                            במקביל, **משפחת מצוינים** (שכבר ישנה ב-Fügen) יוצאת ליום **Olpererhütte** (גשר/תצפית באזור Schlegeis) — הליכה משמעותית, הרבה נוף, והרבה “למה עשינו את זה”.</p>
+                            <div class="day-metadata">
+                                <span class="day-character">אופי: מעבר בסיס + הליכה משמעותית (למצוינים)</span>
+                                <span class="day-drive-time">נסיעה: מעבר לטירול</span>
+                            </div>
+                            <div class="day-intro">28.09 | לינה: Fügen (כל הקבוצה)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in-section" id="day8" data-type="city nature">
+                    <div class="day-image" id="img-day8"><span class="day-tag">עיר & פסגה</span></div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 8 (29.09.2026): אינסברוק ונורדקטה (טיול יום מהטירול)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
@@ -844,94 +961,47 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** הרכבל לנורדקטה יוצא ממרכז העיר לפסגה ב-20 דקות בלבד.</blockquote>
-                            <p class="day-description">בוקר שמוקדש לעלייה מהירה ברכבל **נורדקטה (Nordkette)** היישר ממרכז העיר אל פסגת הר קרבה. נהנה מהתצפית המרהיבה על עמק האין. בצהריים נחזור לעיר, נטייל ב"גג הזהב" ובסמטאות העיר העתיקה של בירת טירול.</p>
+                             <blockquote>**טיפ:** נורדקטה נותנת “וואו” מהר וביעילות — מתאים ליום עיר בלי להרגיש עיר.</blockquote>
+                            <p class="day-description">יוצאים ליום בעיר **אינסברוק (Innsbruck)**: עלייה ברכבל **נורדקטה (Nordkette)** לתצפית על העמק, ואז סיבוב בגג הזהב ובסמטאות העיר העתיקה. חוזרים בערב ל-Fügen.</p>
                             <div class="day-metadata">
                                 <span class="day-character">אופי: עיר, הרים, תצפיות</span>
-                                <span class="day-drive-time">נסיעה: 10 דקות (נסיעה מקומית)</span>
+                                <span class="day-drive-time">נסיעה: כ-40 דקות לכל כיוון</span>
                             </div>
-                            <div class="day-intro">28.09 | לינה: אינסברוק</div>
+                            <div class="day-intro">29.09 | לינה: Fügen</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day8" data-type="walk nature">
-                    <div class="day-image" id="img-day8"><span class="day-tag">הליכה מאתגרת</span></div>
+                <div class="day-card fade-in-section" id="day9" data-type="nature">
+                    <div class="day-image" id="img-day9"><span class="day-tag">אופציות</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 8: גשר Olpererhütte וצוגשפיצה</h3>
-                            <span class="toggle-icon">+
-                        </div>
-                        <div class="day-details">
-                            <div class="day-weather" data-city-name="Mayrhofen">
-                                <span class="weather-icon">--</span>
-                                <span class="weather-temp">טוען מזג אוויר...</span>
-                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
-                            </div>
-                             <blockquote>**טיפ:** הטיול לגשר Olpererhütte דורש **כושר הליכה טוב** (כ-3 שעות הלוך חזור). הביגוד צריך להיות מתאים לגבהים.</blockquote>
-                            <p class="day-description">יום המוקדש לפסגות הגבוהות בטירול. נבצע את **העלייה לגשר Olpererhütte** המפורסם (מצריך נסיעה וטיול רגלי משמעותי). לחלופין, אפשר לבקר בפסגת **צוגשפיצה (Zugspitze)**, הפסגה הגבוהה ביותר בגרמניה, הנגישה מטירול ברכבל ומציעה תצפית 360 מעלות מדהימה.</p>
-                            <div class="day-metadata">
-                                <span class="day-character">אופי: הליכה משמעותית, פסגות, טבע פראי</span>
-                                <span class="day-drive-time">נסיעה: כ-4.5 שעות סה"כ (ליום טיול ארוך)</span>
-                            </div>
-                            <div class="day-intro">29.09 | לינה: אינסברוק</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-card fade-in-section" id="day9" data-type="nature travel">
-                    <div class="day-image" id="img-day9"><span class="day-tag">נסיעה מזרחה</span></div>
-                    <div class="day-content">
-                        <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 9: נסיעה לוינדישגרסטן</h3>
+                            <h3>יום 9 (30.09.2026): יום טירול גמיש + אופציית צוגשפיצה (נסיעה ארוכה)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
-                            <div class="day-weather" data-city-name="Windischgarsten">
+                            <div class="day-weather" data-city-name="Fugen">
                                 <span class="weather-icon">--</span>
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** זו נסיעה ארוכה יחסית. להכין מראש חניית ביניים קצרה לקפה ומתיחת רגליים.</blockquote>
-                            <p class="day-description">יום מעבר חזרה לכיוון המרכז והמזרח של אוסטריה. נסיעה נופית מאינסברוק עד לעיירה **וינדישגרסטן (Windischgarsten)** כבסיס כוכב אחרון, לקראת הביקור בפארק הלאומי גזויזה למחרת. נתמקם במלון וננוח.</p>
+                             <blockquote>**טיפ:** צוגשפיצה זה יום שלם. אם מזג האוויר “כמעט”, לא שווה את זה.</blockquote>
+                            <p class="day-description">יום טירול גמיש סביב Zillertal (נופים, כפרים, מסלולים קצרים לפי מצב הרוח ומזג האוויר).  
+                            **אופציה חלופית (רחוקה יותר): צוגשפיצה (Zugspitze)** — זה כבר נסיעה לא קצרה מהאזור (בערך שעתיים לכל כיוון), אבל נותן פסגה רצינית ותצפית 360.</p>
                             <div class="day-metadata">
-                                <span class="day-character">אופי: מעבר בסיס, נופים</span>
-                                <span class="day-drive-time">נסיעה: כ-3 שעות סה"כ</span>
+                                <span class="day-character">אופי: טבע, גמישות, אופציות</span>
+                                <span class="day-drive-time">נסיעה: קצרה/בינונית (או ארוכה אם צוגשפיצה)</span>
                             </div>
-                            <div class="day-intro">30.09 | לינה: וינדישגרסטן</div>
+                            <div class="day-intro">30.09 | לינה: Fügen</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card fade-in-section" id="day10" data-type="nature">
-                    <div class="day-image" id="img-day10"><span class="day-tag">טבע פראי</span></div>
+                <div class="day-card fade-in-section" id="day10" data-type="city travel">
+                    <div class="day-image" id="img-day10"><span class="day-tag">חזרה לעיר</span></div>
                     <div class="day-content">
                         <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 10: יום מלא בגזויזה (Gesäuse)</h3>
-                            <span class="toggle-icon">+</span>
-                        </div>
-                        <div class="day-details">
-                            <div class="day-weather" data-city-name="Admont">
-                                <span class="weather-icon">--</span>
-                                <span class="weather-temp">טוען מזג אוויר...</span>
-                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
-                            </div>
-                             <blockquote>**טיפ:** גזויזה הוא פארק פראי ופחות מתויר. זהו יום מצוין ליהנות מנהרות, קניונים ואווירה אותנטית.</blockquote>
-                            <p class="day-description">יום טבע אחרון המוקדש לפארק הלאומי **גזויזה**. נבצע מסלול הליכה קצר לצד נהר האנס (Enns) או נבקר בספריית מנזר אדמונט (Admont Abbey) המפורסמת ביופייה, הממוקמת בקרבת מקום.</p>
-                            <div class="day-metadata">
-                                <span class="day-character">אופי: טבע פראי, הליכה קלה, נופים</span>
-                                <span class="day-drive-time">נסיעה: כ-1 שעה סה"כ</span>
-                            </div>
-                            <div class="day-intro">01.10 | לינה: וינה</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-card fade-in-section" id="day11" data-type="city travel">
-                    <div class="day-image" id="img-day11"><span class="day-tag">סיום</span></div>
-                    <div class="day-content">
-                        <div class="day-header" onclick="toggleDay(this)">
-                            <h3>יום 11: נסיעה לוינה והמראה</h3>
+                            <h3>יום 10 (01.10.2026): נסיעה ארוכה חזרה לוינה (או טיסה מאינסברוק)</h3>
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="day-details">
@@ -940,11 +1010,37 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
                             </div>
-                             <blockquote>**טיפ:** מומלץ להגיע לשדה התעופה לפחות 3 שעות לפני הטיסה. יש לבדוק אפשרות לקבל החזר מע"מ (Tax Free).</blockquote>
-                            <p class="day-description">נסיעה מוקדמת מוינדישגרסטן חזרה ל**וינה** (כ-2.5 שעות). את הבוקר ניתן להקדיש לקניות אחרונות או לביקור קצר באתר בוינה שלא הספקנו. לקראת ערב, נחזיר את הרכבים בנמל התעופה הבינלאומי של וינה ונמריא חזרה לישראל.</p>
+                             <blockquote>**טיפ:** זו נסיעה ארוכה. תתייחסו לזה כאל “יום מעבר” ותכננו עצירה אחת אמיתית בדרך.</blockquote>
+                            <p class="day-description">נפרדים מהטירול ונוסעים חזרה ל**וינה** למלון במרכז העיר. זו **נסיעה ארוכה** (כ-4:30–5:00 שעות נטו, וברגע שעושים עצירה — זה בקלות קופץ).  
+                            **עצירה מומלצת בדרך:** עיירת הדנובה **Melk** (קפה/טיילת/תצפית על הנהר) — שובר את היום כמו שצריך.  
+                            **חלופה למי שלא אוהב כביש:** קיימת אפשרות לקחת **טיסה מאינסברוק לוינה** בשעה **18:50**, משך **כשעה**, טיסה **OS108**. מחיר עבודה: סביב **$110 לאדם** (תלוי תאריך/מלאי).</p>
                             <div class="day-metadata">
-                                <span class="day-character">אופי: נסיעה, סיום</span>
-                                <span class="day-drive-time">נסיעה: כ-2.5 שעות</span>
+                                <span class="day-character">אופי: מעבר ארוך, סגירת טירול</span>
+                                <span class="day-drive-time">נסיעה: ארוכה (טירול → וינה)</span>
+                            </div>
+                            <div class="day-intro">01.10 | לינה: וינה (מרכז העיר)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in-section" id="day11" data-type="city travel">
+                    <div class="day-image" id="img-day11"><span class="day-tag">סיום</span></div>
+                    <div class="day-content">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <h3>יום 11 (02.10.2026): טיול בעיר וינה וטיסה בערב</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="day-details">
+                            <div class="day-weather" data-city-name="Vienna">
+                                <span class="weather-icon">--</span>
+                                <span class="weather-temp">טוען מזג אוויר...</span>
+                                <span class="weather-status">**סטטוס:** דמה (Placeholder)</span>
+                            </div>
+                             <blockquote>**טיפ:** להגיע לשדה התעופה לפחות 3 שעות לפני הטיסה. יש לבדוק אפשרות לקבל החזר מע"מ (Tax Free).</blockquote>
+                            <p class="day-description">יום אחרון בוינה: טיול עיר קליל (מה שמתאים לכם) — ובערב יוצאים לשדה התעופה לטיסת החזור לישראל.</p>
+                            <div class="day-metadata">
+                                <span class="day-character">אופי: עיר, סגירה</span>
+                                <span class="day-drive-time">נסיעה: קצרה (מרכז העיר → שדה)</span>
                             </div>
                             <div class="day-intro">02.10 | טיסה הביתה</div>
                         </div>
@@ -1123,7 +1219,7 @@
 
 
         // ===================================
-        // 🌧️ מזג אוויר LIVE (Open-Meteo) - לא שונה
+        // 🌧️ מזג אוויר LIVE (Open-Meteo) - לא שונה (מלבד הוספת Fugen)
         // ===================================
         
         // מפה בין שם עיר (מפתח) לקואורדינטות שלה (ערך)
@@ -1137,7 +1233,8 @@
             "Innsbruck": { lat: 47.27, lon: 11.39, name: "אינסברוק" },
             "Mayrhofen": { lat: 47.17, lon: 11.87, name: "מיירהופן" }, 
             "Windischgarsten": { lat: 47.72, lon: 14.33, name: "וינדישגרסטן" },
-            "Admont": { lat: 47.57, lon: 14.46, name: "אדמונט" } 
+            "Admont": { lat: 47.57, lon: 14.46, name: "אדמונט" },
+            "Fugen": { lat: 47.34698, lon: 11.84941, name: "Fügen" }
         };
 
         function getWeatherIcon(weatherCode) {
@@ -1202,7 +1299,8 @@
                 "Innsbruck": { icon: '☀️', temp: '17°C', desc: 'בהיר' },
                 "Mayrhofen": { icon: '🏔️', temp: '10°C', desc: 'קר מאוד / הרים' },
                 "Windischgarsten": { icon: '🌤️', temp: '14°C', desc: 'מעונן חלקית' },
-                "Admont": { icon: '🌧️', temp: '11°C', desc: 'גשום קל' }
+                "Admont": { icon: '🌧️', temp: '11°C', desc: 'גשום קל' },
+                "Fugen": { icon: '🌤️', temp: '14°C', desc: 'טירול קלאסי' }
             };
 
             if (weatherData[location]) {

@@ -551,6 +551,101 @@
         #img-day9 { background-image: url('day9.png'); }
         #img-day10 { background-image: url('day10.png'); }
         #img-day11 { background-image: url('day11.png'); }
+
+/* ------------------------------------------- */
+/* 💡 כרטיס "עובדה יומית" */
+/* ------------------------------------------- */
+.daily-fact {
+    margin: 18px 0 16px;
+    padding: 16px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(212,163,115,0.20) 0%, rgba(45,106,79,0.10) 100%);
+    border: 1px solid rgba(212,163,115,0.35);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.daily-fact::before {
+    content: '💡';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+.daily-fact-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-left: 34px; /* מקום לאייקון */
+}
+
+.daily-fact-title {
+    font-weight: 800;
+    color: var(--primary-dark);
+    font-size: 1.05rem;
+}
+
+.daily-fact-link {
+    font-weight: 800;
+    color: var(--primary-light);
+    background: rgba(255,255,255,0.75);
+    border: 1px solid rgba(45,106,79,0.25);
+    padding: 6px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.daily-fact-link:hover {
+    background: white;
+    border-color: rgba(45,106,79,0.45);
+    transform: translateY(-1px);
+}
+
+.daily-fact-body {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 14px;
+    align-items: start;
+}
+
+.daily-fact-thumb {
+    width: 120px;
+    height: 88px;
+    border-radius: 14px;
+    object-fit: cover;
+    border: 2px solid rgba(212,163,115,0.55);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    background: #fff;
+}
+
+.daily-fact-text {
+    font-size: 0.98rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.daily-fact-text strong {
+    color: var(--primary-dark);
+}
+
+@media (max-width: 768px) {
+    .daily-fact-body {
+        grid-template-columns: 1fr;
+    }
+    .daily-fact-thumb {
+        width: 100%;
+        height: 160px;
+    }
+    .daily-fact-header {
+        padding-left: 34px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -738,6 +833,20 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
+
+<div class="daily-fact">
+  <div class="daily-fact-header">
+    <div class="daily-fact-title">עובדה יומית</div>
+    <a class="daily-fact-link" href="fact1.png" target="_blank" rel="noopener">לפתוח תמונה</a>
+  </div>
+  <div class="daily-fact-body">
+    <img class="daily-fact-thumb" src="fact1.png" alt="עובדה יומית - יום 1">
+    <div class="daily-fact-text">
+      בוינה נמצא ה־<strong>Riesenrad</strong> (גלגל ענק) משנת <strong>1897</strong>, מהוותיקים בעולם שעדיין פעילים.
+    </div>
+  </div>
+</div>
+
                              <blockquote>טיפ: להכין תיק צד עם בגדים להחלפה ללילה הראשון.</blockquote>
                             <p class="day-description">נחיתה בשעות הערב המאוחרות בנמל התעופה הבינלאומי של וינה. לאחר איסוף המזוודות, לוקחים מלון בשדה התעופה או בקרבתו כדי לסגור את היום מהר.</p>
                             <div class="day-metadata">
@@ -762,6 +871,19 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
+<div class="daily-fact">
+  <div class="daily-fact-header">
+    <div class="daily-fact-title">עובדה יומית</div>
+    <a class="daily-fact-link" href="fact2.png" target="_blank" rel="noopener">לפתוח תמונה</a>
+  </div>
+  <div class="daily-fact-body">
+    <img class="daily-fact-thumb" src="fact2.png" alt="עובדה יומית - יום 2">
+    <div class="daily-fact-text">
+      זלצבורג היא עיר הולדתו של <strong>מוצרט</strong>, והמרכז ההיסטורי שלה מוכר כאתר מורשת עולמית.
+    </div>
+  </div>
+</div>
+
                              <blockquote>טיפ: להתחיל מוקדם כדי לנצל אור יום בזלצבורג.</blockquote>
                             <p class="day-description">איסוף רכב בשדה התעופה ונסיעה לזלצבורג. נטייל בעיר העתיקה, גני מיראבל, וכו'. אחר הצהריים/ערב ממשיכים לפלאכאו להתמקמות ב-Hofgut Family Resort.</p>
                             <div class="day-metadata">
@@ -786,6 +908,19 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
+<div class="daily-fact">
+  <div class="daily-fact-header">
+    <div class="daily-fact-title">עובדה יומית</div>
+    <a class="daily-fact-link" href="fact3.png" target="_blank" rel="noopener">לפתוח תמונה</a>
+  </div>
+  <div class="daily-fact-body">
+    <img class="daily-fact-thumb" src="fact3.png" alt="עובדה יומית - יום 3">
+    <div class="daily-fact-text">
+      באזור האלשטאט פעלו <strong>מכרות מלח עתיקים</strong>, והשם “Hallstatt” קשור גם לתרבות מתקופת הברזל באירופה.
+    </div>
+  </div>
+</div>
+
                              <blockquote>טיפ: להגיע לפני 09:30 כדי להימנע מהצפיפות. להתלבש חם במכרות.</blockquote>
                             <p class="day-description">יום המוקדש לאזור האגמים הציורי: האלשטאט, תצפית Skywalk, ואופציה למכרות המלח.</p>
                             <div class="day-metadata">
@@ -810,6 +945,19 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
+<div class="daily-fact">
+  <div class="daily-fact-header">
+    <div class="daily-fact-title">עובדה יומית</div>
+    <a class="daily-fact-link" href="fact4.png" target="_blank" rel="noopener">לפתוח תמונה</a>
+  </div>
+  <div class="daily-fact-body">
+    <img class="daily-fact-thumb" src="fact4.png" alt="עובדה יומית - יום 4">
+    <div class="daily-fact-text">
+      לאוסטריה יש מסורת <strong>תרבות ספא ומעיינות</strong> חזקה — ובאזורים אלפיניים רבים זה חלק מהשגרה המקומית.
+    </div>
+  </div>
+</div>
+
                              <blockquote>טיפ: בגדי ים בהישג יד. מושלם ליום רגוע.</blockquote>
                             <p class="day-description">יום בילוי רגוע וכיפי בפארק המים התרמי Therme Amadé. אחר הצהריים – חופשי/מלון.</p>
                             <div class="day-metadata">
@@ -834,6 +982,19 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
+<div class="daily-fact">
+  <div class="daily-fact-header">
+    <div class="daily-fact-title">עובדה יומית</div>
+    <a class="daily-fact-link" href="fact5.png" target="_blank" rel="noopener">לפתוח תמונה</a>
+  </div>
+  <div class="daily-fact-body">
+    <img class="daily-fact-thumb" src="fact5.png" alt="עובדה יומית - יום 5">
+    <div class="daily-fact-text">
+      ב־<strong>Kitzsteinhorn</strong> אפשר לפגוש “שלג בקיץ” באזורים מסוימים — תלוי תנאים ועונה.
+    </div>
+  </div>
+</div>
+
                              <blockquote>טיפ: ביגוד חם מאוד לקרחון - כפפות, כובעים ומעיל חובה.</blockquote>
                             <p class="day-description">נסיעה לקפרון ועלייה לקרחון Kitzsteinhorn. בדרך חזרה – Maisi Flitzer לאדרנלין.</p>
                             <div class="day-metadata">
@@ -858,6 +1019,19 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
+<div class="daily-fact">
+  <div class="daily-fact-header">
+    <div class="daily-fact-title">עובדה יומית</div>
+    <a class="daily-fact-link" href="fact6.png" target="_blank" rel="noopener">לפתוח תמונה</a>
+  </div>
+  <div class="daily-fact-body">
+    <img class="daily-fact-thumb" src="fact6.png" alt="עובדה יומית - יום 6">
+    <div class="daily-fact-text">
+      מפלי קרימל הם מהגבוהים באירופה, עם <strong>ירידת מים מצטברת של מעל 300 מ׳</strong>.
+    </div>
+  </div>
+</div>
+
                              <blockquote>טיפ: המסלול המלא ארוך. מומלץ להסתפק בקטע התחתון והמזרים ביותר.</blockquote>
                             <p class="day-description">יום במפלי קרימל. בסוף היום חוזרים לפלאכאו; (מצוינים מתפצלים) וממשיכים ל-Fügen להתמקמות ב-Alps Residence · Zillertal Suites.</p>
                             <div class="day-metadata">
@@ -882,6 +1056,19 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
+<div class="daily-fact">
+  <div class="daily-fact-header">
+    <div class="daily-fact-title">עובדה יומית</div>
+    <a class="daily-fact-link" href="fact7.png" target="_blank" rel="noopener">לפתוח תמונה</a>
+  </div>
+  <div class="daily-fact-body">
+    <img class="daily-fact-thumb" src="fact7.png" alt="עובדה יומית - יום 7">
+    <div class="daily-fact-text">
+      עמק <strong>Zillertal</strong> נחשב לאחד העמקים המזוהים ביותר עם “הטירול הקלאסי” באדריכלות ובאווירה.
+    </div>
+  </div>
+</div>
+
                              <blockquote>טיפ: הטיול לגשר Olpererhütte דורש כושר הליכה טוב (כ-3 שעות). ואם בא לכם — עוד לא מאוחר להתחרט ולהצטרף למצוינים.</blockquote>
                             <p class="day-description">בוקר של צ'ק-אאוט מפלאכאו ונסיעה ל-Fügen. במקביל, מצוינים מטפסים לכיוון Olpererhütte והגשר התלוי; יתר המשפחות יכולות לבחור יום רגוע של התמקמות — או להתחרט ולהצטרף.</p>
                             <div class="day-metadata">
@@ -906,6 +1093,19 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
+<div class="daily-fact">
+  <div class="daily-fact-header">
+    <div class="daily-fact-title">עובדה יומית</div>
+    <a class="daily-fact-link" href="fact8.png" target="_blank" rel="noopener">לפתוח תמונה</a>
+  </div>
+  <div class="daily-fact-body">
+    <img class="daily-fact-thumb" src="fact8.png" alt="עובדה יומית - יום 8">
+    <div class="daily-fact-text">
+      רכס <strong>Nordkette</strong> יושב ממש מעל אינסברוק — “עיר עם פסגה” במרחק רכבל קצר.
+    </div>
+  </div>
+</div>
+
                              <blockquote>טיפ: “אלפים” בלי יום נסיעות.</blockquote>
                             <p class="day-description">יום עיר/הרים באינסברוק: עלייה ברכבל לנורדקטה, אחר כך העיר העתיקה.</p>
                             <div class="day-metadata">
@@ -930,6 +1130,19 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
+<div class="daily-fact">
+  <div class="daily-fact-header">
+    <div class="daily-fact-title">עובדה יומית</div>
+    <a class="daily-fact-link" href="fact9.png" target="_blank" rel="noopener">לפתוח תמונה</a>
+  </div>
+  <div class="daily-fact-body">
+    <img class="daily-fact-thumb" src="fact9.png" alt="עובדה יומית - יום 9">
+    <div class="daily-fact-text">
+      צוגשפיצה היא <strong>הפסגה הגבוהה בגרמניה (2,962 מ׳)</strong> — ולכן זו אופציה “גדולה” אבל גם עם נסיעה לא קצרה.
+    </div>
+  </div>
+</div>
+
                              <blockquote>טיפ: צוגשפיצה מעולה — אבל זה יום של הרבה כביש. נשארת אופציה.</blockquote>
                             <p class="day-description">יום גמיש באזור זילרטל/טירול. אופציה: Zugspitze (נסיעה ארוכה). אפשר גם יום רגוע יותר באזור.</p>
                             <div class="day-metadata">
@@ -954,6 +1167,19 @@
                                 <span class="weather-temp">טוען מזג אוויר...</span>
                                 <span class="weather-status">סטטוס: דמה (Placeholder)</span>
                             </div>
+<div class="daily-fact">
+  <div class="daily-fact-header">
+    <div class="daily-fact-title">עובדה יומית</div>
+    <a class="daily-fact-link" href="fact10.png" target="_blank" rel="noopener">לפתוח תמונה</a>
+  </div>
+  <div class="daily-fact-body">
+    <img class="daily-fact-thumb" src="fact10.png" alt="עובדה יומית - יום 10">
+    <div class="daily-fact-text">
+      מנזר <strong>Melk</strong> הוא אחד מאתרי הבארוק המפורסמים על הדנובה, ונחשב תחנת עצירה “שווה” בדרך.
+    </div>
+  </div>
+</div>
+
                              <blockquote>טיפ: זו נסיעה ארוכה — בערך 4:30–5:00 שעות נטו (ובקלות יותר עם עצירות).</blockquote>
                             <p class="day-description">
                                 נוסעים חזרה לוינה ממלון ה-Fügen. מומלץ לעצור בדרך ב-Melk (Stift Melk) על הדנובה.

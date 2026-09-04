@@ -68,8 +68,8 @@ html
     }
     .hero::before{
       content:"";position:absolute;inset:0;
-      background:url('austria_hero.png') center/cover no-repeat;
-      filter:brightness(.60) saturate(.95);z-index:-2;
+     background:url('austria_hero.png') center/cover no-repeat;
+filter:brightness(.72) saturate(1.02);z-index:-2;
     }
     .hero::after{
       content:"";position:absolute;inset:0;
@@ -77,13 +77,34 @@ html
       z-index:-1;
     }
     .hero-card{
-      width:min(920px,100%);
-      padding:clamp(28px,6vw,58px);
-      background:rgba(18,54,45,.62);
-      border:1px solid rgba(255,255,255,.26);
-      border-radius:30px;
-      backdrop-filter:blur(10px);
-      box-shadow:0 24px 60px rgba(0,0,0,.22);
+  width:min(920px,100%);
+  position:relative;
+  overflow:visible;
+  margin-top:85px;
+  padding:88px clamp(28px,6vw,58px) clamp(30px,5vw,50px);
+  background:rgba(18,54,45,.50);
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:30px;
+  backdrop-filter:blur(8px);
+  box-shadow:0 24px 60px rgba(0,0,0,.22);
+}
+    .hero-trip-logo{
+  position:absolute;
+  top:-88px;
+  left:50%;
+  transform:translateX(-50%);
+  width:176px;
+  height:176px;
+  object-fit:contain;
+  border-radius:50%;
+  background:#fffdf9;
+  padding:4px;
+  border:2px solid rgba(255,255,255,.75);
+  box-shadow:
+    0 16px 38px rgba(0,0,0,.25),
+    0 4px 12px rgba(23,59,50,.18);
+  z-index:3;
+}
     }
     .hero h1{color:white;font-size:clamp(2.8rem,7vw,5.2rem);margin:10px 0;text-shadow:0 5px 18px rgba(0,0,0,.25)}
     .hero .subtitle{font-size:clamp(1.12rem,2.4vw,1.45rem);opacity:.96;margin-bottom:26px}
@@ -344,6 +365,30 @@ html
 .trip-logo-main{
   width:195px;
   max-width:62vw;
+
+    .hero{
+  min-height:82vh;
+  padding:28px 16px;
+}
+
+.hero-card{
+  margin-top:72px;
+  padding:76px 22px 30px;
+}
+
+.hero-trip-logo{
+  width:150px;
+  height:150px;
+  top:-75px;
+}
+
+.hero h1{
+  font-size:clamp(2.5rem,11vw,3.6rem);
+}
+
+.hero-badges{
+  gap:8px;
+}
 }
     }
     @media(prefers-reduced-motion:reduce){
@@ -389,8 +434,8 @@ html
 <body>
 <section class="hero">
 <div class="hero-card">
+<img src="hadas24_logo.png" alt="Hadas 24 Austria 2026" class="hero-trip-logo">
 <div class="hero-badges">
-<span class="hero-badge">משלחת הדס 24</span>
 <span class="hero-badge">22.09–02.10.2026</span>
 <span class="hero-badge">זלצבורג + טירול + וינה</span>
 </div>
@@ -399,10 +444,6 @@ html
 <a class="hero-btn" href="#timeline">למסלול המלא ↓</a>
 </div>
 </section>
-
-<div class="trip-logo-strip">
-  <img src="hadas24_logo.png" alt="Hadas 24 Austria 2026" class="trip-logo-main">
-</div>
 
 <nav aria-label="ניווט ראשי" class="navbar">
 <div class="nav-list">

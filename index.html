@@ -60,23 +60,40 @@ html
     .section-head{text-align:center;max-width:760px;margin:0 auto 38px}
     .section-head h2{font-size:clamp(2rem,4vw,3.1rem);margin:10px 0}
     .section-head p{color:var(--muted);font-size:1.08rem}
+/* HERO */
+.hero{
+  min-height:88vh;
+  display:grid;
+  place-items:center;
+  position:relative;
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+  padding:40px 18px;
+}
 
-    /* HERO */
-    .hero{
-      min-height:88vh;display:grid;place-items:center;position:relative;
-      color:white;text-align:center;overflow:hidden;padding:40px 18px;
-    }
-    .hero::before{
-      content:"";position:absolute;inset:0;
-     background:url('austria_hero.png') center/cover no-repeat;
-filter:brightness(.72) saturate(1.02);z-index:-2;
-    }
-    .hero::after{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(180deg,rgba(10,29,24,.12),rgba(10,29,24,.60));
-      z-index:-1;
-    }
-    .hero-card{
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url('austria_hero.png') center/cover no-repeat;
+  filter:brightness(.72) saturate(1.02);
+  z-index:-2;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(10,29,24,.12),
+    rgba(10,29,24,.58)
+  );
+  z-index:-1;
+}
+
+.hero-card{
   width:min(920px,100%);
   position:relative;
   overflow:visible;
@@ -86,9 +103,11 @@ filter:brightness(.72) saturate(1.02);z-index:-2;
   border:1px solid rgba(255,255,255,.28);
   border-radius:30px;
   backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
   box-shadow:0 24px 60px rgba(0,0,0,.22);
 }
-    .hero-trip-logo{
+
+.hero-trip-logo{
   position:absolute;
   top:-88px;
   left:50%;
@@ -105,21 +124,20 @@ filter:brightness(.72) saturate(1.02);z-index:-2;
     0 4px 12px rgba(23,59,50,.18);
   z-index:3;
 }
-    }
- .hero h1{
-  color:#ffffff !important;
-  -webkit-text-fill-color:#ffffff !important;
-  opacity:1 !important;
-  filter:none !important;
+
+.hero h1{
+  color:#fff !important;
+  -webkit-text-fill-color:#fff !important;
+  opacity:1;
   font-size:clamp(2.8rem,7vw,5.2rem);
   margin:14px 0 12px;
-  text-shadow:0 4px 16px rgba(0,0,0,.55);
+  text-shadow:0 4px 18px rgba(0,0,0,.55);
 }
 
 .hero .subtitle{
   font-size:clamp(1.12rem,2.4vw,1.45rem);
-  color:#ffffff !important;
-  opacity:1 !important;
+  color:#fff;
+  opacity:1;
   margin-bottom:26px;
   text-shadow:0 2px 10px rgba(0,0,0,.35);
 }
@@ -137,43 +155,27 @@ filter:brightness(.72) saturate(1.02);z-index:-2;
   border-radius:999px;
   background:rgba(255,255,255,.16);
   border:1px solid rgba(255,255,255,.30);
-  color:#ffffff !important;
+  color:#fff;
   font-weight:800;
+  text-shadow:0 1px 6px rgba(0,0,0,.20);
 }
-    .hero-btn{
-      display:inline-flex;align-items:center;gap:8px;background:white;color:var(--forest);
-      padding:14px 24px;border-radius:999px;font-weight:900;box-shadow:0 10px 24px rgba(0,0,0,.13)
-    }
-    .hero-btn:hover{transform:translateY(-2px);background:#fff8ef}
- .trip-logo-strip{
-  display:flex;
-  justify-content:center;
+
+.hero-btn{
+  display:inline-flex;
   align-items:center;
-  padding:28px 20px 30px;
-  background:
-    linear-gradient(
-      180deg,
-      #102b25 0%,
-      #173b32 18%,
-      #dfeae2 18%,
-      #f5f8f3 100%
-    );
+  gap:8px;
+  background:#fff;
+  color:var(--forest);
+  padding:14px 24px;
+  border-radius:999px;
+  font-weight:900;
+  box-shadow:0 10px 24px rgba(0,0,0,.13);
 }
 
-.trip-logo-main{
-  width:245px;
-  max-width:58vw;
-  height:auto;
-  display:block;
-  border-radius:50%;
-  background:#fffdf9;
-  padding:5px;
-  border:1px solid rgba(23,59,50,.18);
-  box-shadow:
-    0 18px 45px rgba(23,59,50,.20),
-    0 3px 10px rgba(0,0,0,.08);
+.hero-btn:hover{
+  transform:translateY(-2px);
+  background:#fff8ef;
 }
-
     /* NAV */
     .navbar{
       position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);
@@ -368,56 +370,59 @@ filter:brightness(.72) saturate(1.02);z-index:-2;
       .day-image{min-height:240px}
       .tips-grid{grid-template-columns:1fr 1fr}
     }
-    @media(max-width:680px){
-      .section{padding:4rem 0}
-      .quick-strip{margin-top:22px}
-      .quick-grid{grid-template-columns:1fr}
-      .flight-details-grid{grid-template-columns:1fr}
-      .families-grid{grid-template-columns:1fr;gap:70px}
-      .timeline-toolbar{top:58px;align-items:flex-start;flex-direction:column}
-      .expand-tools{width:100%}
-      .small-btn{flex:1}
-      .plan-grid{grid-template-columns:1fr}
-      .tips-grid{grid-template-columns:1fr}
-      .daily-fact{grid-template-columns:78px 1fr}
-      .daily-fact img{width:78px;height:64px}
-      .stay{grid-template-columns:1fr}
-      .dates{display:flex;justify-content:space-between;align-items:center}
-      .section-title{align-items:flex-start;flex-direction:column}
-      .nav-list{justify-content:flex-start}
-        .trip-logo-strip{
-  padding:22px 16px 24px;
-}
+  @media(max-width:680px){
+  .section{padding:4rem 0}
+  .quick-strip{margin-top:22px}
+  .quick-grid{grid-template-columns:1fr}
+  .flight-details-grid{grid-template-columns:1fr}
+  .families-grid{grid-template-columns:1fr;gap:70px}
+  .timeline-toolbar{
+    top:58px;
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .expand-tools{width:100%}
+  .small-btn{flex:1}
+  .plan-grid{grid-template-columns:1fr}
+  .tips-grid{grid-template-columns:1fr}
+  .daily-fact{grid-template-columns:78px 1fr}
+  .daily-fact img{width:78px;height:64px}
+  .stay{grid-template-columns:1fr}
+  .dates{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .section-title{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .nav-list{justify-content:flex-start}
 
-.trip-logo-main{
-  width:195px;
-  max-width:62vw;
+  .hero{
+    min-height:82vh;
+    padding:28px 16px;
+  }
 
-    .hero{
-  min-height:82vh;
-  padding:28px 16px;
-}
+  .hero-card{
+    margin-top:72px;
+    padding:76px 22px 30px;
+  }
 
-.hero-card{
-  margin-top:72px;
-  padding:76px 22px 30px;
-}
+  .hero-trip-logo{
+    width:150px;
+    height:150px;
+    top:-75px;
+  }
 
-.hero-trip-logo{
-  width:150px;
-  height:150px;
-  top:-75px;
-}
+  .hero h1{
+    font-size:clamp(2.5rem,11vw,3.6rem);
+  }
 
-.hero h1{
-  font-size:clamp(2.5rem,11vw,3.6rem);
+  .hero-badges{
+    gap:8px;
+  }
 }
-
-.hero-badges{
-  gap:8px;
-}
-}
-    }
     @media(prefers-reduced-motion:reduce){
       *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
       .fade-in-section{opacity:1;transform:none}

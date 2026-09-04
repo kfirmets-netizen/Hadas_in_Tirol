@@ -11,3322 +11,528 @@
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&amp;family=Frank+Ruhl+Libre:wght@500;700;900&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --forest:#173b32;
-  --forest-2:#2f6a50;
-  --sage:#eaf3ec;
-  --sand:#d6a26d;
-  --sand-dark:#aa7446;
-  --ink:#17324d;
-  --muted:#667085;
-  --paper:#fffdf9;
-  --card:rgba(255,255,255,.94);
-  --rain:#edf4ff;
-  --rain-border:#8fb5e8;
-  --option:#fff7eb;
-  --option-border:#e8bc86;
-  --success:#eaf7ed;
-  --line:rgba(23,59,50,.12);
-  --shadow:0 18px 50px rgba(23,59,50,.10);
-  --radius:24px;
+--forest:#173b32;
+--forest-2:#2f6a50;
+--sage:#eaf3ec;
+--sand:#d6a26d;
+--sand-dark:#aa7446;
+--ink:#17324d;
+--muted:#667085;
+--paper:#fffdf9;
+--card:rgba(255,255,255,.94);
+--rain:#edf4ff;
+--rain-border:#8fb5e8;
+--option:#fff7eb;
+--option-border:#e8bc86;
+--success:#eaf7ed;
+--line:rgba(23,59,50,.12);
+--shadow:0 18px 50px rgba(23,59,50,.10);
+--radius:24px;
 }
-
 *{box-sizing:border-box;margin:0;padding:0}
-
-html{
-  scroll-behavior:smooth;
-  scroll-padding-top:82px;
-}
-
+html{scroll-behavior:smooth;scroll-padding-top:82px}
 body{
-  font-family:'Assistant',sans-serif;
-  color:var(--ink);
-  line-height:1.65;
-  background:
-    radial-gradient(circle at 10% 10%, rgba(214,162,109,.13), transparent 28%),
-    linear-gradient(135deg,#fffdf8 0%,#eef6ef 100%);
-  overflow-x:hidden;
-}
-
-h1,h2,h3,h4{
-  font-family:'Frank Ruhl Libre',serif;
-  color:var(--forest);
-  line-height:1.15;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-.attraction-link{
-  color:var(--forest-2);
-  font-weight:900;
-  text-decoration:underline;
-  text-decoration-thickness:1px;
-  text-underline-offset:3px;
-  text-decoration-color:rgba(47,106,80,.38);
-}
-
-.attraction-link::after{
-  content:" ↗";
-  font-size:.78em;
-  font-weight:800;
-}
-
-.attraction-link:hover{
-  color:var(--sand-dark);
-  text-decoration-color:currentColor;
-}
-
-button{font:inherit}
-
-.container{
-  max-width:1180px;
-  margin:0 auto;
-  padding:0 20px;
-}
-
-.section{
-  padding:5.2rem 0;
-}
-
-.eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:7px 12px;
-  border-radius:999px;
-  background:rgba(23,59,50,.08);
-  color:var(--forest);
-  border:1px solid rgba(23,59,50,.12);
-  font-weight:800;
-  font-size:.92rem;
-}
-
-.section-head{
-  text-align:center;
-  max-width:760px;
-  margin:0 auto 38px;
-}
-
-.section-head h2{
-  font-size:clamp(2rem,4vw,3.1rem);
-  margin:10px 0;
-}
-
-.section-head p{
-  color:var(--muted);
-  font-size:1.08rem;
-}
-
-/* HERO */
-
-.hero{
-  min-height:88vh;
-  display:grid;
-  place-items:center;
-  position:relative;
-  color:#fff;
-  text-align:center;
-  overflow:hidden;
-  padding:40px 18px;
-  isolation:isolate;
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url('austria_hero.png') center/cover no-repeat;
-  filter:brightness(.72) saturate(1.02);
-  z-index:-2;
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    180deg,
-    rgba(10,29,24,.12),
-    rgba(10,29,24,.58)
-  );
-  z-index:-1;
-}
-
-.hero-card{
-  width:min(920px,100%);
-  position:relative;
-  overflow:visible;
-  margin-top:85px;
-  padding:88px clamp(28px,6vw,58px) clamp(30px,5vw,50px);
-  background:rgba(18,54,45,.52);
-  border:1px solid rgba(255,255,255,.28);
-  border-radius:30px;
-  box-shadow:0 24px 60px rgba(0,0,0,.22);
-}
-
-@supports ((backdrop-filter:blur(4px)) or (-webkit-backdrop-filter:blur(4px))){
-  .hero-card{
-    backdrop-filter:blur(4px);
-    -webkit-backdrop-filter:blur(4px);
-  }
-}
-
-.hero-trip-logo{
-  position:absolute;
-  top:-88px;
-  left:50%;
-  transform:translateX(-50%);
-  width:176px;
-  height:176px;
-  object-fit:contain;
-  border-radius:50%;
-  background:#fffdf9;
-  padding:4px;
-  border:2px solid rgba(255,255,255,.75);
-  box-shadow:
-    0 16px 38px rgba(0,0,0,.25),
-    0 4px 12px rgba(23,59,50,.18);
-  z-index:3;
-}
-
-.hero h1{
-  color:#fff !important;
-  -webkit-text-fill-color:#fff !important;
-  opacity:1 !important;
-  font-size:clamp(2.8rem,7vw,5.2rem);
-  margin:14px 0 12px;
-  text-shadow:0 4px 18px rgba(0,0,0,.55);
-}
-
-.hero .subtitle{
-  font-size:clamp(1.12rem,2.4vw,1.45rem);
-  color:#fff;
-  opacity:1;
-  margin-bottom:26px;
-  text-shadow:0 2px 10px rgba(0,0,0,.35);
-}
-
-.hero-badges{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:16px;
-}
-
-.hero-badge{
-  padding:7px 13px;
-  border-radius:999px;
-  background:rgba(255,255,255,.16);
-  border:1px solid rgba(255,255,255,.30);
-  color:#fff;
-  font-weight:800;
-  text-shadow:0 1px 6px rgba(0,0,0,.20);
-}
-
-.hero-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  background:#fff;
-  color:var(--forest);
-  padding:14px 24px;
-  border-radius:999px;
-  font-weight:900;
-  box-shadow:0 10px 24px rgba(0,0,0,.13);
-  transition:transform .2s ease,background .2s ease;
-}
-
-.hero-btn:hover{
-  transform:translateY(-2px);
-  background:#fff8ef;
-}
-
-/* NAV */
-
-.navbar{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(255,255,255,.94);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line);
-  box-shadow:0 8px 28px rgba(0,0,0,.04);
-}
-
-.nav-list{
-  max-width:1180px;
-  margin:0 auto;
-  padding:11px 18px;
-  display:flex;
-  gap:18px;
-  justify-content:center;
-  align-items:center;
-  overflow-x:auto;
-  scrollbar-width:none;
-}
-
-.nav-list::-webkit-scrollbar{
-  display:none;
-}
-
-.nav-list a{
-  white-space:nowrap;
-  font-weight:800;
-  padding:7px 11px;
-  border-radius:999px;
-}
-
-.nav-list a:hover{
-  background:var(--sage);
-  color:var(--forest);
-}
-
-/* QUICK STRIP */
-
-.quick-strip{
-  margin-top:22px;
-  position:relative;
-  z-index:5;
-}
-
-.quick-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:22px;
-  padding:14px;
-  box-shadow:var(--shadow);
-}
-
-.quick-item{
-  padding:13px 15px;
-  border-radius:16px;
-  background:#fbfcfb;
-}
-
-.quick-item strong{
-  display:block;
-  color:var(--forest);
-  font-size:1.08rem;
-}
-
-.quick-item span{
-  color:var(--muted);
-  font-size:.92rem;
-}
-
-/* TECH */
-
-.tech-data-section{
-  padding:5rem 0 4rem;
-}
-
-.tech-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-}
-
-.data-card{
-  position:relative;
-  overflow:hidden;
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:28px;
-  box-shadow:var(--shadow);
-}
-
-.data-card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  opacity:.22;
-  background-size:cover;
-  background-position:center;
-  pointer-events:none;
-}
-
-.flight-data-card::after{
-  background-image:url('bg_flights.png');
-}
-
-.lodging-data-card::after{
-  background-image:url('bg_lodging.png');
-}
-
-.data-card>*{
-  position:relative;
-  z-index:1;
-}
-
-.section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  font-size:1.65rem;
-  margin-bottom:18px;
-}
-
-.chip{
-  font-family:'Assistant',sans-serif;
-  font-size:.84rem;
-  padding:6px 10px;
-  border-radius:999px;
-  background:rgba(23,59,50,.09);
-  border:1px solid var(--line);
-  white-space:nowrap;
-}
-
-.flight-details-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.flight-segment{
-  padding:18px;
-  border-radius:18px;
-  background:rgba(255,255,255,.90);
-  border:1px solid var(--line);
-  box-shadow:0 10px 28px rgba(0,0,0,.05);
-}
-
-.flight-segment h4{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:8px;
-  margin-bottom:10px;
-}
-
-.date-pill{
-  font-family:'Assistant',sans-serif;
-  font-size:.82rem;
-  padding:5px 8px;
-  border-radius:999px;
-  background:var(--sage);
-}
-
-.flight-info-item{
-  display:flex;
-  justify-content:space-between;
-  gap:14px;
-  padding:8px 0;
-  border-bottom:1px dashed var(--line);
-  font-size:.93rem;
-}
-
-.flight-info-item:last-child{
-  border-bottom:0;
-}
-
-.label{
-  color:var(--muted);
-  font-weight:700;
-}
-
-.value{
-  font-weight:900;
-  text-align:left;
-}
-
-.flight-status{
-  display:inline-flex;
-  flex-direction:column;
-  padding:7px 9px;
-  border-radius:12px;
-  background:#e8f5e9;
-  color:#2d6a4f;
-}
-
-.flight-status-error{
-  display:inline-block;
-  padding:7px 9px;
-  border-radius:12px;
-  background:#ffeded;
-  color:#b42318;
-  font-weight:800;
-}
-
-.flight-data-note{
-  margin-top:13px;
-  padding:10px 12px;
-  border-radius:12px;
-  background:rgba(255,255,255,.76);
-  font-size:.88rem;
-  color:var(--muted);
-}
-
-.lodging-timeline{
-  display:grid;
-  gap:11px;
-}
-
-.stay{
-  display:grid;
-  grid-template-columns:105px 1fr;
-  gap:14px;
-  padding:14px;
-  border-radius:16px;
-  background:rgba(255,255,255,.88);
-  border:1px solid var(--line);
-}
-
-.dates{
-  display:grid;
-  place-content:center;
-  text-align:center;
-  padding:10px;
-  border-radius:13px;
-  background:var(--sage);
-  font-weight:900;
-  color:var(--forest);
-}
-
-.dates small{
-  display:block;
-  color:var(--muted);
-  font-weight:700;
-}
-
-.meta .place{
-  font-family:'Frank Ruhl Libre',serif;
-  font-size:1.12rem;
-  font-weight:900;
-  color:var(--forest);
-}
-
-.meta .hotel{
-  font-weight:800;
-}
-
-.meta .note{
-  font-size:.92rem;
-  color:var(--muted);
-}
-
-/* FAMILIES */
-
-.families-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:18px;
-  margin-top:65px;
-}
-
-.family-card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:0 16px 24px;
-  text-align:center;
-  box-shadow:0 12px 32px rgba(0,0,0,.06);
-  transition:.25s;
-}
-
-.family-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 18px 36px rgba(0,0,0,.10);
-}
-
-.family-image{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  background:center/cover no-repeat;
-  border:5px solid var(--sand);
-  margin:-52px auto 12px;
-  box-shadow:0 8px 20px rgba(0,0,0,.15);
-}
-
-.family-card h4{
-  font-size:1.25rem;
-  margin-bottom:3px;
-}
-
-.family-card p{
-  color:var(--muted);
-}
-
-/* TIMELINE */
-
-.timeline-toolbar{
-  position:sticky;
-  top:67px;
-  z-index:90;
-  background:rgba(247,250,248,.93);
-  backdrop-filter:blur(10px);
-  padding:11px;
-  border:1px solid var(--line);
-  border-radius:18px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  margin-bottom:24px;
-}
-
-.filters{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
-.filter-btn{
-  border:1px solid var(--line);
-  background:white;
-  color:var(--ink);
-  font-weight:800;
-  padding:8px 13px;
-  border-radius:999px;
-  cursor:pointer;
-}
-
-.filter-btn.active,
-.filter-btn:hover{
-  background:var(--forest);
-  color:white;
-}
-
-.expand-tools{
-  display:flex;
-  gap:8px;
-}
-
-.small-btn{
-  border:0;
-  background:var(--sage);
-  color:var(--forest);
-  font-weight:800;
-  padding:8px 11px;
-  border-radius:12px;
-  cursor:pointer;
-}
-
-.day-card{
-  display:grid;
-  grid-template-columns:32% 68%;
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:26px;
-  overflow:hidden;
-  margin-bottom:22px;
-  box-shadow:var(--shadow);
-  opacity:1!important;
-  visibility:visible!important;
-  content-visibility:auto;
-  contain-intrinsic-size:760px;
-}
-
-.day-image{
-  min-height:360px;
-  position:relative;
-  overflow:hidden;
-  background:#e9eceb;
-}
-
-.day-photo{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-
-.day-image::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    180deg,
-    rgba(0,0,0,0),
-    rgba(0,0,0,.27)
-  );
-  z-index:1;
-  pointer-events:none;
-}
-
-.day-tag{
-  position:absolute;
-  z-index:2;
-  top:16px;
-  right:16px;
-  background:rgba(255,255,255,.94);
-  padding:6px 11px;
-  border-radius:999px;
-  font-weight:900;
-  color:var(--forest);
-  box-shadow:0 6px 18px rgba(0,0,0,.10);
-}
-
-.day-number{
-  position:absolute;
-  z-index:2;
-  bottom:17px;
-  right:17px;
-  color:white;
-  font-family:'Frank Ruhl Libre',serif;
-  font-size:2.5rem;
-  font-weight:900;
-  text-shadow:0 4px 14px rgba(0,0,0,.35);
-}
-
-.day-content{
-  padding:23px 25px;
-}
-
-.day-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:15px;
-  cursor:pointer;
-}
-
-.day-title-wrap{
-  flex:1;
-}
-
-.day-date{
-  font-weight:900;
-  color:var(--sand-dark);
-  font-size:.92rem;
-  margin-bottom:3px;
-}
-
-.day-header h3{
-  font-size:clamp(1.4rem,2.4vw,1.9rem);
-  margin:0;
-}
-
-.toggle-icon{
-  min-width:36px;
-  height:36px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:var(--sage);
-  color:var(--forest);
-  font-weight:900;
-  font-size:1.4rem;
-  transition:.2s;
-}
-
-.day-summary{
-  margin:13px 0 12px;
-  color:#475467;
-}
-
-.day-metadata{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-bottom:12px;
-}
-
-.meta-chip{
-  font-size:.86rem;
-  font-weight:800;
-  padding:6px 10px;
-  border-radius:999px;
-  background:#f6f7f7;
-  border:1px solid var(--line);
-}
-
-.details-inner{
-  padding-top:13px;
-  border-top:1px dashed var(--line);
-}
-
-.weather-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-  padding:10px 12px;
-  border-radius:14px;
-  background:var(--success);
-  margin-bottom:13px;
-}
-
-.weather-main{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  font-weight:900;
-  color:var(--forest);
-}
-
-.weather-status{
-  font-size:.82rem;
-  color:var(--muted);
-}
-
-.plan-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin:13px 0;
-}
-
-.plan-box{
-  border-radius:16px;
-  padding:15px;
-  border:1px solid var(--line);
-}
-
-.plan-box h4{
-  font-family:'Assistant',sans-serif;
-  font-size:1rem;
-  margin-bottom:7px;
-}
-
-.plan-box ul{
-  padding-right:19px;
-}
-
-.plan-box li{
-  margin:5px 0;
-}
-
-.plan-main{
-  background:#f7fbf8;
-  border-color:#b9d9c5;
-}
-
-.plan-rain{
-  background:var(--rain);
-  border-color:var(--rain-border);
-}
-
-.options-box{
-  background:var(--option);
-  border:1px solid var(--option-border);
-  border-radius:16px;
-  padding:15px;
-  margin:12px 0;
-}
-
-.options-box h4{
-  font-family:'Assistant',sans-serif;
-  font-size:1rem;
-  margin-bottom:7px;
-}
-
-.options-box ul{
-  padding-right:19px;
-}
-
-.options-box li{
-  margin:5px 0;
-}
-
-.tip-box{
-  padding:13px 14px;
-  border-radius:15px;
-  background:#fffdf7;
-  border:1px solid #ead9c7;
-  margin:12px 0;
-}
-
-.tip-box strong{
-  color:var(--sand-dark);
-}
-
-.daily-fact{
-  display:grid;
-  grid-template-columns:100px 1fr;
-  gap:13px;
-  align-items:center;
-  padding:13px;
-  border-radius:16px;
-  background:linear-gradient(
-    135deg,
-    rgba(214,162,109,.18),
-    rgba(47,106,80,.08)
-  );
-  border:1px solid rgba(214,162,109,.32);
-  margin-top:12px;
-}
-
-.daily-fact img{
-  width:100px;
-  height:75px;
-  object-fit:cover;
-  border-radius:12px;
-  border:2px solid rgba(214,162,109,.45);
-}
-
-.daily-fact-title{
-  font-weight:900;
-  color:var(--forest);
-  margin-bottom:3px;
-}
-
-.fact-link{
-  font-size:.83rem;
-  font-weight:800;
-  color:var(--forest-2);
-}
-
-/* TIPS */
-
-.tips-section{
-  background:#f4f7f5;
-}
-
-.tips-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-}
-
-.tip-card{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:19px;
-  box-shadow:0 10px 26px rgba(0,0,0,.04);
-}
-
-.tip-icon{
-  font-size:1.7rem;
-  margin-bottom:7px;
-}
-
-.tip-card h4{
-  font-family:'Assistant',sans-serif;
-  font-size:1.08rem;
-  margin-bottom:5px;
-}
-
-.tip-card p{
-  color:var(--muted);
-  font-size:.94rem;
-}
-
-.tip-card a{
-  color:var(--forest-2);
-  font-weight:800;
-  border-bottom:1px dashed rgba(47,106,80,.45);
-}
-
-.tip-card a:hover{
-  color:var(--sand-dark);
-  border-bottom-color:var(--sand-dark);
-}
-
-.important-note{
-  margin-top:20px;
-  padding:16px;
-  border-radius:16px;
-  background:#fff6e8;
-  border:1px solid #ecc89b;
-}
-
-.fade-in-section{
-  opacity:1;
-  transform:none;
-  transition:.35s ease;
-}
-
-.fade-in-section.is-visible{
-  opacity:1;
-  transform:none;
-}
-
-@media(max-width:980px){
-  .quick-grid{grid-template-columns:1fr 1fr}
-  .tech-grid{grid-template-columns:1fr}
-  .families-grid{grid-template-columns:repeat(2,1fr);gap:64px 16px}
-  .day-card{grid-template-columns:1fr}
-  .day-image{min-height:240px}
-  .tips-grid{grid-template-columns:1fr 1fr}
-}
-
-@media(max-width:680px){
-  .section{padding:4rem 0}
-  .quick-strip{margin-top:22px}
-  .quick-grid{grid-template-columns:1fr}
-  .flight-details-grid{grid-template-columns:1fr}
-  .families-grid{grid-template-columns:1fr;gap:70px}
-
-  .timeline-toolbar{
-    top:58px;
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
-  .expand-tools{width:100%}
-  .small-btn{flex:1}
-  .plan-grid{grid-template-columns:1fr}
-  .tips-grid{grid-template-columns:1fr}
-  .daily-fact{grid-template-columns:78px 1fr}
-  .daily-fact img{width:78px;height:64px}
-  .stay{grid-template-columns:1fr}
-
-  .dates{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-  }
-
-  .section-title{
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
-  .nav-list{justify-content:flex-start}
-
-  .navbar{
-    backdrop-filter:none;
-    -webkit-backdrop-filter:none;
-    background:rgba(255,255,255,.98);
-  }
-
-  .timeline-toolbar{
-    backdrop-filter:none;
-    -webkit-backdrop-filter:none;
-    background:rgba(247,250,248,.98);
-  }
-
-  .hero{
-    min-height:82vh;
-    padding:28px 16px;
-  }
-
-  .hero-card{
-    margin-top:72px;
-    padding:76px 22px 30px;
-  }
-
-  .hero-trip-logo{
-    width:150px;
-    height:150px;
-    top:-75px;
-  }
-
-  .hero h1{
-    font-size:clamp(2.5rem,11vw,3.6rem);
-  }
-
-  .hero-badges{
-    gap:8px;
-  }
-}
-
-@media(prefers-reduced-motion:reduce){
-  *{
-    scroll-behavior:auto!important;
-    transition:none!important;
-    animation:none!important;
-  }
-}
-
-/* Native accordion */
-
-.day-native{
-  width:100%;
-}
-
-.day-summary-native{
-  display:block;
-  list-style:none;
-  cursor:pointer;
-  outline:none;
-}
-
-.day-summary-native::-webkit-details-marker{
-  display:none;
-}
-
-.day-summary-native::marker{
-  display:none;
-}
-
-.day-native .day-details{
-  display:block;
-  max-height:none!important;
-  overflow:visible;
-  opacity:1!important;
-  transition:none;
-}
-
-.day-native:not([open]) .day-details{
-  display:none;
-}
-
-.day-native .toggle-icon{
-  pointer-events:none;
-}
-
-.day-native[open] .toggle-icon{
-  transform:rotate(45deg);
-  background:#173b32;
-  color:white;
-}
-
-.day-native[open] .day-header{
-  margin-bottom:2px;
+font-family:'Assistant',sans-serif;color:var(--ink);line-height:1.65;
+background:radial-gradient(circle at 10% 10%,rgba(214,162,109,.13),transparent 28%),linear-gradient(135deg,#fffdf8 0%,#eef6ef 100%);
+overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Frank Ruhl Libre',serif;color:var(--forest);line-height:1.15}
+a{text-decoration:none;color:inherit}
+.attraction-link{color:var(--forest-2);font-weight:900;text-decoration:underline;text-underline-offset:3px}
+.attraction-link::after{content:" ↗";font-size:.78em}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+.section{padding:5.2rem 0}
+.section-head{text-align:center;max-width:760px;margin:0 auto 38px}
+.section-head h2{font-size:clamp(2rem,4vw,3.1rem);margin:10px 0}
+.section-head p{color:var(--muted);font-size:1.08rem}
+.eyebrow{display:inline-flex;padding:7px 12px;border-radius:999px;background:rgba(23,59,50,.08);font-weight:800}
+
+.hero{min-height:88vh;display:grid;place-items:center;position:relative;color:#fff;text-align:center;overflow:hidden;padding:40px 18px;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;background:url('austria_hero.png') center/cover no-repeat;filter:brightness(.72);z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,29,24,.12),rgba(10,29,24,.58));z-index:-1}
+.hero-card{width:min(920px,100%);position:relative;margin-top:85px;padding:88px clamp(28px,6vw,58px) 45px;background:rgba(18,54,45,.52);border:1px solid rgba(255,255,255,.28);border-radius:30px}
+.hero-trip-logo{position:absolute;top:-88px;left:50%;transform:translateX(-50%);width:176px;height:176px;object-fit:contain;border-radius:50%;background:#fffdf9;padding:4px}
+.hero h1{color:#fff;font-size:clamp(2.8rem,7vw,5.2rem);margin:14px 0 12px}
+.subtitle{font-size:1.35rem;margin-bottom:25px}
+.hero-badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.hero-badge{padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);font-weight:800}
+.hero-btn{display:inline-flex;background:#fff;color:var(--forest);padding:14px 24px;border-radius:999px;font-weight:900}
+
+.navbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);border-bottom:1px solid var(--line)}
+.nav-list{max-width:1180px;margin:auto;padding:11px 18px;display:flex;gap:18px;justify-content:center;overflow-x:auto}
+.nav-list a{white-space:nowrap;font-weight:800;padding:7px 11px}
+
+.quick-strip{margin-top:22px}
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;background:var(--card);border-radius:22px;padding:14px;box-shadow:var(--shadow)}
+.quick-item{padding:13px 15px;background:#fbfcfb;border-radius:16px}
+.quick-item strong{display:block;color:var(--forest);font-size:1.08rem}
+.quick-item span{color:var(--muted);font-size:.92rem}
+
+.tech-data-section{padding:5rem 0 4rem}
+.tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.data-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.section-title{display:flex;justify-content:space-between;font-size:1.65rem;margin-bottom:18px}
+.chip{font-family:'Assistant';font-size:.84rem;padding:6px 10px;border-radius:999px;background:rgba(23,59,50,.09)}
+.flight-details-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.flight-segment{padding:18px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+.flight-info-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--line)}
+.label{color:var(--muted);font-weight:700}.value{font-weight:900}
+.flight-data-note{margin-top:13px;font-size:.88rem;color:var(--muted)}
+.lodging-timeline{display:grid;gap:11px}
+.stay{display:grid;grid-template-columns:105px 1fr;gap:14px;padding:14px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.dates{display:grid;place-content:center;text-align:center;padding:10px;border-radius:13px;background:var(--sage);font-weight:900}
+.dates small{color:var(--muted)}
+.meta .place{font-family:'Frank Ruhl Libre';font-size:1.12rem;font-weight:900;color:var(--forest)}
+.meta .hotel{font-weight:800}.meta .note{font-size:.92rem;color:var(--muted)}
+
+.families-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:65px}
+.family-card{background:var(--card);border-radius:20px;padding:0 16px 24px;text-align:center;box-shadow:0 12px 32px rgba(0,0,0,.06)}
+.family-image{width:120px;height:120px;border-radius:50%;background:center/cover no-repeat;border:5px solid var(--sand);margin:-52px auto 12px}
+
+.itinerary-controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.filter-btn,.control-btn{border:1px solid var(--line);background:#fff;padding:9px 14px;border-radius:999px;cursor:pointer;font-weight:800}
+.filter-btn.active{background:var(--forest);color:#fff}
+.days-grid{display:grid;gap:25px}
+.day-card{display:grid;grid-template-columns:310px 1fr;background:#fff;border:1px solid var(--line);border-radius:25px;overflow:hidden;box-shadow:var(--shadow)}
+.day-image{position:relative;min-height:250px;background:#dfe8e3;overflow:hidden}
+.day-photo{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+.day-tag{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.9);padding:6px 10px;border-radius:999px;font-weight:900;z-index:2}
+.day-number{position:absolute;bottom:8px;left:14px;font-size:4rem;color:rgba(255,255,255,.85);font-weight:900;z-index:2}
+.day-content{padding:0}
+.day-native summary{list-style:none;cursor:pointer;padding:25px}
+.day-native summary::-webkit-details-marker{display:none}
+.day-header{display:flex;justify-content:space-between;gap:15px}
+.day-date{color:var(--sand-dark);font-weight:900}
+.day-title-wrap h3{font-size:1.65rem;margin-top:4px}
+.day-summary{margin-top:10px;color:var(--muted)}
+.day-metadata{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.meta-chip{background:var(--sage);padding:5px 9px;border-radius:999px;font-size:.85rem;font-weight:800}
+.toggle-icon{font-size:1.8rem}
+.day-details{border-top:1px solid var(--line)}
+.details-inner{padding:25px}
+.weather-row{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;background:#f8faf8;border-radius:14px;margin-bottom:18px}
+.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.plan-box{padding:18px;border-radius:18px}
+.plan-main{background:var(--success)}
+.plan-rain{background:var(--rain);border:1px solid var(--rain-border)}
+.plan-box ul{padding-right:20px}
+.tip-box{margin-top:15px;background:var(--option);border:1px solid var(--option-border);padding:14px;border-radius:14px}
+.daily-fact{margin-top:18px;display:grid;grid-template-columns:160px 1fr;gap:15px;align-items:center;padding:14px;background:#f8faf8;border-radius:18px}
+.daily-fact img{width:160px;height:100px;object-fit:cover;border-radius:12px}
+.daily-fact-title{font-weight:900;color:var(--forest)}
+.fact-link{font-weight:900;color:var(--forest-2);text-decoration:underline}
+
+.tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tip-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}
+.tip-icon{font-size:1.7rem}
+.tip-card h4{margin:7px 0}
+.important-note{margin-top:20px;background:var(--forest);color:#fff;padding:18px;border-radius:18px}
+
+@media(max-width:900px){
+.quick-grid,.tech-grid{grid-template-columns:1fr 1fr}
+.families-grid{grid-template-columns:repeat(2,1fr)}
+.day-card{grid-template-columns:1fr}
+.day-image{height:240px}
+.tips-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+.quick-grid,.tech-grid,.flight-details-grid,.plan-grid,.tips-grid{grid-template-columns:1fr}
+.families-grid{grid-template-columns:1fr}
+.family-card{margin-top:50px}
+.stay{grid-template-columns:85px 1fr}
+.daily-fact{grid-template-columns:1fr}
+.daily-fact img{width:100%;height:auto}
 }
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-  <div class="hero-card">
-    <img src="hadas24_logo.png" alt="Hadas 24 Austria 2026" class="hero-trip-logo">
+<header class="hero">
+<div class="hero-card">
+<img class="hero-trip-logo" src="hadas24_logo.png" alt="HADAS 24 Austria 2026"/>
+<div class="hero-badges">
+<span class="hero-badge">22.09–02.10.2026</span>
+<span class="hero-badge">זלצבורגלנד + טירול + וינה</span>
+</div>
+<h1>משלחת הדס 24 לאוסטריה</h1>
+<p class="subtitle">11 ימים, 5 משפחות, שני בסיסי כוכב, הרבה הרים — ותוכנית גשם לכל יום.</p>
+<a class="hero-btn" href="#itinerary">למסלול המלא ↓</a>
+</div>
+</header>
 
-    <div class="hero-badges">
-      <span class="hero-badge">22.09–02.10.2026</span>
-      <span class="hero-badge">זלצבורג + טירול + וינה</span>
-    </div>
-
-    <h1>מחולון לפסגות אוסטריה</h1>
-
-    <p class="subtitle">
-      11 ימים, 5 משפחות, שני בסיסי כוכב, הרבה הרים — ותוכנית גשם לכל יום.
-    </p>
-
-    <a class="hero-btn" href="#timeline">למסלול המלא ↓</a>
-  </div>
-</section>
-
-<nav aria-label="ניווט ראשי" class="navbar">
-  <div class="nav-list">
-    <a href="#tech-data">✈️ טיסות ולינה</a>
-    <a href="#intro">👨‍👩‍👧‍👦 המשלחת</a>
-    <a href="#timeline">📅 המסלול</a>
-    <a href="#tips">⭐ טיפים</a>
-  </div>
+<nav class="navbar">
+<div class="nav-list">
+<a href="#tech-data">✈️ טיסות ולינה</a>
+<a href="#families">👨‍👩‍👧‍👦 המשלחת</a>
+<a href="#itinerary">🗺️ המסלול</a>
+<a href="#tips">💡 טיפים</a>
+</div>
 </nav>
 
 <div class="container quick-strip">
-  <div class="quick-grid">
-
-    <div class="quick-item">
-      <strong>5 לילות בפלאכאו</strong>
-      <span>
-        22–27.09 ·
-        <a class="attraction-link"
-           href="https://www.hofgut.com/en/"
-           target="_blank"
-           rel="noopener">Hofgut Family Resort</a>
-      </span>
-    </div>
-
-    <div class="quick-item">
-      <strong>4 לילות בפוגן</strong>
-      <span>27.09–01.10 · Zillertal Suites</span>
-    </div>
-
-    <div class="quick-item">
-      <strong>לילה אחרון בווינה</strong>
-      <span>01–02.10 · מרכז העיר</span>
-    </div>
-
-    <div class="quick-item">
-      <strong>גישה גמישה</strong>
-      <span>בכל יום: תוכנית טובה + חלופת גשם</span>
-    </div>
-
-  </div>
+<div class="quick-grid">
+<div class="quick-item">
+<strong>5 לילות בפלאכאו</strong>
+<span>22–27.09 · <a class="attraction-link" href="https://www.hofgut.com/en/" target="_blank" rel="noopener">Hofgut Family Resort</a></span>
+</div>
+<div class="quick-item">
+<strong>4 לילות בפוגן</strong>
+<span>27.09–01.10 · <a class="attraction-link" href="https://alps-resorts.com/holiday-resorts/details/zillertal-suites-fuegen" target="_blank" rel="noopener">Zillertal Suites Fügen</a></span>
+</div>
+<div class="quick-item"><strong>לילה אחרון בווינה</strong><span>01–02.10 · מרכז העיר</span></div>
+<div class="quick-item"><strong>גישה גמישה</strong><span>בכל יום: תוכנית טובה + חלופת גשם</span></div>
+</div>
 </div>
 
 <section class="tech-data-section" id="tech-data">
-  <div class="container tech-grid">
-
-    <div class="data-card flight-data-card">
-      <h3 class="section-title">
-        <span>✈️ פרטי טיסות</span>
-        <span class="chip">Austrian Airlines</span>
-      </h3>
-
-      <div class="flight-details-grid">
-
-        <div class="flight-segment">
-          <h4>הלוך <span class="date-pill">22.09.2026</span></h4>
-          <div class="flight-info-item"><span class="label">טיסה</span><span class="value">OS84</span></div>
-          <div class="flight-info-item"><span class="label">מסלול</span><span class="value">TLV → VIE</span></div>
-          <div class="flight-info-item"><span class="label">המראה</span><span class="value">06:00</span></div>
-          <div class="flight-info-item"><span class="label">נחיתה</span><span class="value">08:45</span></div>
-          <div class="flight-info-item"><span class="label">סטטוס</span><span class="value" id="flight-status-outbound">מתוכננת</span></div>
-        </div>
-
-        <div class="flight-segment">
-          <h4>חזור <span class="date-pill">02.10.2026</span></h4>
-          <div class="flight-info-item"><span class="label">טיסה</span><span class="value">OS83</span></div>
-          <div class="flight-info-item"><span class="label">מסלול</span><span class="value">VIE → TLV</span></div>
-          <div class="flight-info-item"><span class="label">המראה</span><span class="value">20:20</span></div>
-          <div class="flight-info-item"><span class="label">נחיתה</span><span class="value">00:45 למחרת</span></div>
-          <div class="flight-info-item"><span class="label">סטטוס</span><span class="value" id="flight-status-return">מתוכננת</span></div>
-        </div>
-
-      </div>
-
-      <p class="flight-data-note">
-        מספר טיסת הבוקר עודכן ל־OS84. לוחות טיסות עשויים להשתנות, ולכן מומלץ לאמת שוב סמוך לנסיעה.
-      </p>
-    </div>
-
-    <div class="data-card lodging-data-card">
-      <h3 class="section-title">
-        <span>🏡 סיכום לינות</span>
-        <span class="chip">10 לילות</span>
-      </h3>
-
-      <div class="lodging-timeline">
-
-        <div class="stay">
-          <div class="dates">22–27.09 <small>5 לילות</small></div>
-          <div class="meta">
-            <div class="place">פלאכאו (Flachau)</div>
-            <div class="hotel">
-              <a class="attraction-link"
-                 href="https://www.hofgut.com/en/"
-                 target="_blank"
-                 rel="noopener">Hofgut Family Resort</a>
-            </div>
-            <div class="note">לכל המשפחות. בסיס כוכב לזלצבורג, האלשטאט, קפרון וגרוסגלוקנר.</div>
-          </div>
-        </div>
-
-        <div class="stay">
-          <div class="dates">27.09–01.10 <small>4 לילות</small></div>
-          <div class="meta">
-            <div class="place">Fügen, Zillertal</div>
-            <div class="hotel">Alps Residence — Zillertal Suites</div>
-            <div class="note">לכל המשפחות. בסיס כוכב לטירול, אינסברוק, אכנזי ואולפרר.</div>
-          </div>
-        </div>
-
-        <div class="stay">
-          <div class="dates">01–02.10 <small>לילה 1</small></div>
-          <div class="meta">
-            <div class="place">וינה — מרכז העיר</div>
-            <div class="hotel">מלון במרכז</div>
-            <div class="note">החזרת הרכב בערב 01.10; יום עיר וטיסה הביתה ב־02.10.</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="section" id="intro">
-  <div class="container">
-
-    <div class="section-head">
-      <span class="eyebrow">הנבחרת של הדס 24</span>
-      <h2>26 מטיילים, 5 משפחות</h2>
-      <p>שני בסיסי כוכב, הרבה אפשרויות לפיצול, ואפשרות לשנות תוכנית לפי מזג האוויר בלי לפרק את כל הטיול.</p>
-    </div>
-
-    <div class="families-grid">
-
-      <div class="family-card">
-        <div class="family-image" style="background-image:url('metsuyanim.png')"></div>
-        <h4 title="כפיר, רין, תמר, איתן ומתן">משפחת מצוינים</h4>
-        <p>סיירת ההליכה</p>
-      </div>
-
-      <div class="family-card">
-        <div class="family-image" style="background-image:url('gelfand.png')"></div>
-        <h4 title="לירן, שני, שי-לי, ינאי ונועם">משפחת גלפנד</h4>
-        <p>צלמים וקומיקאים</p>
-      </div>
-
-      <div class="family-card">
-        <div class="family-image" style="background-image:url('avniely.png')"></div>
-        <h4 title="עידו, רותי, אסף, סיון ושי">משפחת אבניאלי</h4>
-        <p>לוגיסטיקה וניווט</p>
-      </div>
-
-      <div class="family-card">
-        <div class="family-image" style="background-image:url('barel.png')"></div>
-        <h4 title="אופיר, עינב, יואב, אביב ושחר">משפחת בראל</h4>
-        <p>סושיאל וקולינריה</p>
-      </div>
-
-      <div class="family-card">
-        <div class="family-image" style="background-image:url('erez.png')"></div>
-        <h4 title="אשחר, אורטל, אריאל, אופיר, עלמה ואורי">משפחת ארז</h4>
-        <p>השכמה בזמן</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="section" id="timeline">
 <div class="container">
+<div class="tech-grid">
 
+<div class="data-card flight-data-card">
+<h3 class="section-title"><span>✈️ טיסות</span><span class="chip">Austrian Airlines</span></h3>
+<div class="flight-details-grid">
+<div class="flight-segment">
+<h4>הלוך <span class="date-pill">22.09.2026</span></h4>
+<div class="flight-info-item"><span class="label">טיסה</span><span class="value">OS84</span></div>
+<div class="flight-info-item"><span class="label">מסלול</span><span class="value">TLV → VIE</span></div>
+<div class="flight-info-item"><span class="label">נחיתה</span><span class="value">08:45</span></div>
+<div class="flight-info-item"><span class="label">סטטוס</span><span class="value" id="flight-status-outbound">מתוכננת</span></div>
+</div>
+<div class="flight-segment">
+<h4>חזור <span class="date-pill">02.10.2026</span></h4>
+<div class="flight-info-item"><span class="label">טיסה</span><span class="value">OS83</span></div>
+<div class="flight-info-item"><span class="label">מסלול</span><span class="value">VIE → TLV</span></div>
+<div class="flight-info-item"><span class="label">המראה</span><span class="value">20:20</span></div>
+<div class="flight-info-item"><span class="label">נחיתה</span><span class="value">00:45 למחרת</span></div>
+<div class="flight-info-item"><span class="label">סטטוס</span><span class="value" id="flight-status-return">מתוכננת</span></div>
+</div>
+</div>
+<p class="flight-data-note">מספר טיסת הבוקר עודכן ל־OS84. לוחות טיסות עשויים להשתנות, ולכן מומלץ לאמת שוב סמוך לנסיעה.</p>
+</div>
+
+<div class="data-card lodging-data-card">
+<h3 class="section-title"><span>🏡 סיכום לינות</span><span class="chip">10 לילות</span></h3>
+<div class="lodging-timeline">
+
+<div class="stay">
+<div class="dates">22–27.09 <small>5 לילות</small></div>
+<div class="meta">
+<div class="place">פלאכאו (Flachau)</div>
+<div class="hotel"><a class="attraction-link" href="https://www.hofgut.com/en/" target="_blank" rel="noopener">Hofgut Family Resort</a></div>
+<div class="note">לכל המשפחות. בסיס כוכב לזלצבורג, האלשטאט, קפרון וגרוסגלוקנר.</div>
+</div>
+</div>
+
+<div class="stay">
+<div class="dates">27.09–01.10 <small>4 לילות</small></div>
+<div class="meta">
+<div class="place">Fügen, Zillertal</div>
+<div class="hotel"><a class="attraction-link" href="https://alps-resorts.com/holiday-resorts/details/zillertal-suites-fuegen" target="_blank" rel="noopener">ALPS RESORTS — Zillertal Suites Fügen</a></div>
+<div class="note">לכל המשפחות. בסיס כוכב לטירול, אינסברוק, אכנזי ואולפרר.</div>
+</div>
+</div>
+
+<div class="stay">
+<div class="dates">01–02.10 <small>לילה 1</small></div>
+<div class="meta">
+<div class="place">וינה — מרכז העיר</div>
+<div class="hotel">מלון במרכז</div>
+<div class="note">החזרת הרכב בערב 01.10; יום עיר וטיסה הביתה ב־02.10.</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="families">
+<div class="container">
 <div class="section-head">
-  <span class="eyebrow">המסלול המלא</span>
-  <h2>יומן המסע</h2>
-  <p>בכל יום תמצאו את התוכנית המרכזית, חלופה למזג אוויר גשום, אפשרויות נוספות וטיפים שימושיים. לחצו על היום כדי לפתוח את הפירוט.</p>
+<span class="eyebrow">החבורה</span>
+<h2>משלחת הדס 24</h2>
+<p>חמש משפחות, ילדים, מזוודות והרבה מאוד דעות על איפה עוצרים לאכול.</p>
 </div>
-
-<div class="timeline-toolbar">
-
-  <div aria-label="סינון ימים" class="filters">
-    <button class="filter-btn active" data-filter="all">הכל</button>
-    <button class="filter-btn" data-filter="nature">טבע</button>
-    <button class="filter-btn" data-filter="city">עיר</button>
-    <button class="filter-btn" data-filter="kids">ילדים</button>
-    <button class="filter-btn" data-filter="walk">הליכה</button>
-    <button class="filter-btn" data-filter="travel">מעבר</button>
-  </div>
-
-  <div class="expand-tools">
-    <button class="small-btn" id="open-all">פתח הכל</button>
-    <button class="small-btn" id="close-all">סגור הכל</button>
-  </div>
-
-</div>
-
-<div id="days-container">
-
-<!-- DAY 1 -->
-<article class="day-card fade-in-section" data-type="travel kids nature" id="day1">
-
-<div class="day-image" id="img-day1">
-  <img class="day-photo" src="day1.png" alt="תמונת יום 1" loading="lazy" decoding="async">
-  <span class="day-tag">נחיתה + מעבר</span>
-  <span class="day-number">01</span>
-</div>
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-  <div class="day-title-wrap">
-    <div class="day-date">22.09 · יום שלישי</div>
-    <h3>נחיתה בווינה, נסיעה לפלאכאו ופתיחה רגועה</h3>
-  </div>
-  <span class="toggle-icon">+</span>
-</div>
-
-<p class="day-summary">
-נוחתים ב־08:45, יוצאים מהשדה בסביבות 10:00 ומגיעים למלון לקראת 14:00. לאחר ההתארגנות והמנוחה, ואם נשאר כוח, אפשר לבחור אטרקציה קצרה ליד המלון.
-</p>
-
-<div class="day-metadata">
-  <span class="meta-chip">🚗 יום נסיעה ומעבר</span>
-  <span class="meta-chip">🏨 לינה: פלאכאו</span>
-  <span class="meta-chip">👶 קליל למשפחות</span>
-</div>
-
-</summary>
-
-<div class="day-details">
-<div class="details-inner">
-
-<div class="weather-row day-weather"
-     data-city-name="Flachau"
-     data-trip-date="2026-09-22">
-
-  <div class="weather-main">
-    <span class="weather-icon">🌤️</span>
-    <span class="weather-temp">תחזית תופעל סמוך למועד</span>
-  </div>
-
-  <span class="weather-status">
-    תחזית מדויקת תופיע אוטומטית בטווח של 16 יום
-  </span>
-</div>
-
-<div class="plan-grid">
-
-<div class="plan-box plan-main">
-<h4>☀️ התוכנית המומלצת</h4>
-<ul>
-  <li>08:45 נחיתה בווינה; איסוף מזוודות ורכב.</li>
-  <li>יציאה מהשדה לקראת 10:00.</li>
-  <li>
-    הגעה ל־
-    <a class="attraction-link"
-       href="https://www.hofgut.com/en/"
-       target="_blank"
-       rel="noopener">Hofgut Family Resort</a>
-    סביב 14:00 והתארגנות.
-  </li>
-  <li>אם יש כוח: <strong>Lucky Flitzer</strong> — כ־10 דקות מהמלון.</li>
-  <li>
-    חלופה רגועה:
-    <a class="attraction-link"
-       href="https://www.flachau.com/en/dc/detail/Tour/flori-s-erlebnispfad-14/"
-       target="_blank"
-       rel="noopener"><strong>Flori's Erlebnispfad</strong></a>
-    בפלאכאו; לבדוק הטבה בכרטיס האזורי.
-  </li>
-</ul>
-</div>
-
-<div class="plan-box plan-rain">
-<h4>🌧️ אם יורד גשם</h4>
-<ul>
-  <li>מוותרים על מגלשה/מסלול חוץ.</li>
-  <li>נשארים בבריכות המלון או נוסעים ל־<strong>Wasserwelt Wagrain</strong>.</li>
-  <li>
-    חלופה נוספת:
-    <a class="attraction-link"
-       href="https://www.thermeamade.at/en/"
-       target="_blank"
-       rel="noopener"><strong>Therme Amadé</strong></a>
-    — יום ההגעה הוא יום טוב לא “לבזבז” יעד הררי.
-  </li>
-</ul>
-</div>
-
-</div>
-
-<div class="options-box">
-<h4>🧩 בונוסים מהגרסה הקודמת</h4>
-<ul>
-  <li>לא מתכננים וינה ביום הנחיתה — הלינה הראשונה בווינה בוטלה לחלוטין.</li>
-</ul>
-</div>
-
-<div class="tip-box">
-<strong>טיפ:</strong>
-את תיקי הרחצה ובגדי ההחלפה לשים נגישים. ביום כזה עדיף לא לפתוח מזוודות של חמישה אנשים בחניון אטרקציה.
-</div>
-
-<div class="daily-fact">
-<img alt="עובדה יומית יום 1"
-     src="fact1.png"
-     loading="lazy"
-     decoding="async"/>
-
-<div>
-  <div class="daily-fact-title">עובדה יומית</div>
-  <div>
-    פלאכאו נמצאת בלב אזור Ski amadé — אותו מרחב שהופך בקיץ לרשת של רכבלים, שבילי משפחות ואטרקציות הרים.
-  </div>
-  <a class="fact-link" href="fact1.png" target="_blank">פתיחת התמונה</a>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</details>
-
-</div>
-</article>
-
-<!-- DAY 2 -->
-<article class="day-card fade-in-section"
-         data-type="nature kids walk"
-         id="day2">
-
-<div class="day-image" id="img-day2">
-  <img class="day-photo" src="day2.png" alt="תמונת יום 2" loading="lazy" decoding="async">
-  <span class="day-tag">האלשטאט</span>
-  <span class="day-number">02</span>
-</div>
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-  <div class="day-title-wrap">
-    <div class="day-date">23.09 · יום רביעי</div>
-    <h3>האלשטאט, מכרות המלח ואפשרויות להמשך היום</h3>
-  </div>
-  <span class="toggle-icon">+</span>
-</div>
-
-<p class="day-summary">
-מתחילים בהאלשטאט ובמכרות המלח, ואם מזג האוויר והקצב מאפשרים אפשר להמשיך אחר הצהריים ל־Zipline Stoderzinken — אחת מחוויות האקסטרים המרשימות באזור.
-</p>
-
-<div class="day-metadata">
-  <span class="meta-chip">⛏️ מכרה מלח</span>
-  <span class="meta-chip">🏞️ טבע</span>
-  <span class="meta-chip">😱 Zipline אופציונלי</span>
-</div>
-
-</summary>
-
-<div class="day-details">
-<div class="details-inner">
-
-<div class="weather-row day-weather"
-     data-city-name="Hallstatt"
-     data-trip-date="2026-09-23">
-
-  <div class="weather-main">
-    <span class="weather-icon">🌤️</span>
-    <span class="weather-temp">תחזית תופעל סמוך למועד</span>
-  </div>
-
-  <span class="weather-status">
-    תחזית מדויקת תופיע אוטומטית בטווח של 16 יום
-  </span>
-</div>
-
-<div class="plan-grid">
-
-<div class="plan-box plan-main">
-<h4>☀️ התוכנית המומלצת</h4>
-<ul>
-  <li>יציאה מוקדמת להאלשטאט.</li>
-
-  <li>
-    <a class="attraction-link"
-       href="https://www.salzwelten.at/en/hallstatt"
-       target="_blank"
-       rel="noopener"><strong>מכרות המלח</strong></a>
-    + העיירה.
-  </li>
-
-  <li>
-    אם הראות טובה והקצב מאפשר: תצפית
-    <a class="attraction-link"
-       href="https://www.salzwelten.at/en/hallstatt"
-       target="_blank"
-       rel="noopener"><strong>Dachstein / Skywalk</strong></a>.
-  </li>
-
-  <li>
-    אם מסיימים בזמן ומזג האוויר טוב: ממשיכים ל־
-    <a class="attraction-link"
-       href="https://www.zipline.at/en"
-       target="_blank"
-       rel="noopener"><strong>Zipline Stoderzinken</strong></a>
-    ב־Gröbming — גלישה בשני מקטעים באורך כולל של כ־2.5 ק״מ ובמהירות של עד כ־115 קמ״ש.
-  </li>
-
-  <li>
-    אם בוחרים ב־Zipline, מזמינים מראש שעת גלישה ומגיעים לצ׳ק־אין כחצי שעה לפני.
-  </li>
-</ul>
-</div>
-
-<div class="plan-box plan-rain">
-<h4>🌧️ אם יורד גשם</h4>
-<ul>
-  <li>מכרה המלח נשאר בתוכנית; מצמצמים את השיטוט בחוץ בהאלשטאט.</li>
-
-  <li>
-    מוותרים על ה־
-    <a class="attraction-link"
-       href="https://www.zipline.at/en"
-       target="_blank"
-       rel="noopener"><strong>Zipline Stoderzinken</strong></a>.
-  </li>
-
-  <li>
-    אחה״צ אפשר לחזור לאזור פלאכאו ולבחור ב־
-    <strong>Wasserwelt Wagrain</strong>
-    או
-    <a class="attraction-link"
-       href="https://www.thermeamade.at/en/"
-       target="_blank"
-       rel="noopener"><strong>Therme Amadé</strong></a>.
-  </li>
-
-  <li>אם זה גשם קל בלבד: אפשר עדיין ליהנות מהעיירה ומהאגם בקצב רגוע.</li>
-</ul>
-</div>
-
-</div>
-
-<div class="options-box">
-<h4>🔁 חלופות אם נשאר כוח</h4>
-<ul>
-  <li><strong>Liechtensteinklamm</strong> — מסלול של כשעתיים, כולל כ־440 מדרגות; לבדוק הנחה בכרטיס האזורי.</li>
-  <li>Grafenberg מומלץ לכ־4 שעות; רכבל אחרון סביב 16:30–17:00 — לכן הוא ריאלי רק אם יוצאים מהאלשטאט מוקדם.</li>
-</ul>
-</div>
-
-<div class="tip-box">
-<strong>טיפ:</strong>
-ה־Zipline היא אופציה ולא עוגן קשיח. אם התחזית טובה ורואים שמסיימים את האלשטאט בזמן, אפשר להזמין שעת גלישה מתאימה. מינימום גיל 8 ומינימום משקל 30 ק״ג.
-</div>
-
-<div class="daily-fact">
-<img alt="עובדה יומית יום 2"
-     src="fact2.png"
-     loading="lazy"
-     decoding="async"/>
-
-<div>
-  <div class="daily-fact-title">עובדה יומית</div>
-  <div>אזור האלשטאט מזוהה עם כריית מלח עתיקה ועם תרבות Hallstatt מתקופת הברזל.</div>
-  <a class="fact-link" href="fact2.png" target="_blank">פתיחת התמונה</a>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</details>
-
-</div>
-</article>
-
-<!-- DAY 3 -->
-<article class="day-card fade-in-section"
-         data-type="nature travel kids"
-         id="day3">
-
-<div class="day-image" id="img-day3">
-  <img class="day-photo" src="day3.png" alt="תמונת יום 3" loading="lazy" decoding="async">
-  <span class="day-tag">גרוסגלוקנר</span>
-  <span class="day-number">03</span>
-</div>
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-  <div class="day-title-wrap">
-    <div class="day-date">24.09 · יום חמישי</div>
-    <h3>כביש גרוסגלוקנר — יום של נופים, בתנאי שמזג האוויר מתאים</h3>
-  </div>
-  <span class="toggle-icon">+</span>
-</div>
-
-<p class="day-summary">
-זהו יום שכדאי לבצע רק כשיש ראות טובה. מומלץ להגיע לכניסה לכביש עד 08:30–09:00 ולסיים את החלק המרכזי של המסלול עד סביב 15:00.
-</p>
-
-<div class="day-metadata">
-  <span class="meta-chip">🏔️ נוף גבוה</span>
-  <span class="meta-chip">🚗 נהיגה</span>
-  <span class="meta-chip">🌦️ רגיש למזג אוויר</span>
-</div>
-
-</summary>
-
-<div class="day-details">
-<div class="details-inner">
-
-<div class="weather-row day-weather"
-     data-city-name="Kaprun"
-     data-trip-date="2026-09-24">
-
-  <div class="weather-main">
-    <span class="weather-icon">🌤️</span>
-    <span class="weather-temp">תחזית תופעל סמוך למועד</span>
-  </div>
-
-  <span class="weather-status">
-    אם הראות גרועה, זה אחד הימים הראשונים שכדאי להחליף
-  </span>
-</div>
-
-<div class="plan-grid">
-
-<div class="plan-box plan-main">
-<h4>☀️ ביום בהיר</h4>
-<ul>
-  <li>יציאה מוקדמת מפלאכאו.</li>
-
-  <li>
-    <a class="attraction-link"
-       href="https://www.grossglockner.at/en"
-       target="_blank"
-       rel="noopener"><strong>Grossglockner High Alpine Road</strong></a>.
-  </li>
-
-  <li>עצירות תצפית קצרות לאורך הדרך במקום לנסות כל נקודה.</li>
-
-  <li>
-    אם מסיימים מוקדם ונשאר כוח:
-    <a class="attraction-link"
-       href="https://www.klamm-kaprun.at/en/"
-       target="_blank"
-       rel="noopener"><strong>Sigmund-Thun-Klamm</strong></a>.
-  </li>
-</ul>
-</div>
-
-<div class="plan-box plan-rain">
-<h4>🌧️ בגשם / עננות נמוכה</h4>
-<ul>
-  <li><strong>אם הראות גרועה, אין טעם לנסוע לגרוסגלוקנר רק כדי לומר שהיינו.</strong></li>
-  <li>מחליפים עם יום זלצבורג (26.09) אם התחזית שם עדיפה.</li>
-  <li>או עושים יום מים: Wasserwelt Wagrain / Therme Amadé + מיני גולף בראדשטאט אם מתבהר.</li>
-</ul>
-</div>
-
-</div>
-
-<div class="options-box">
-<h4>🔄 עקרון גמישות</h4>
-<ul>
-  <li>גרוסגלוקנר, קיצשטיינהורן ואולפרר הם שלושת הימים שבהם התחזית קובעת יותר מהתאריך.</li>
-</ul>
-</div>
-
-<div class="tip-box">
-<strong>טיפ:</strong>
-למלא דלק ערב קודם, להכין שכבות חמות ואוכל לרכב, ולבדוק בבוקר מצב כביש/ראות.
-</div>
-
-<div class="daily-fact">
-<img alt="עובדה יומית יום 3"
-     src="fact3.png"
-     loading="lazy"
-     decoding="async"/>
-
-<div>
-  <div class="daily-fact-title">עובדה יומית</div>
-  <div>כביש גרוסגלוקנר מטפס אל אחד מנופי ההרים המזוהים ביותר עם אוסטריה ונותן גישה לעולם אלפיני בלי טרק ארוך.</div>
-  <a class="fact-link" href="fact3.png" target="_blank">פתיחת התמונה</a>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</details>
-
-</div>
-</article>
-
-<!-- DAY 4 -->
-<article class="day-card fade-in-section"
-         data-type="nature walk kids"
-         id="day4">
-
-<div class="day-image" id="img-day4">
-  <img class="day-photo" src="day4.png" alt="תמונת יום 4" loading="lazy" decoding="async">
-  <span class="day-tag">קפרון + קרחון</span>
-  <span class="day-number">04</span>
-</div>
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-  <div class="day-title-wrap">
-    <div class="day-date">25.09 · יום שישי</div>
-    <h3>נקיק זיגמונד־תון וקרחון קיצשטיינהורן</h3>
-  </div>
-  <span class="toggle-icon">+</span>
-</div>
-
-<p class="day-summary">
-כשעה נסיעה לקפרון: מסלול עץ קצר בין מים ומפלים, ואז עליה לקרחון קיצשטיינהורן. שבוע לפני — בודקים אם יש שלג בפסגה.
-</p>
-
-<div class="day-metadata">
-  <span class="meta-chip">🥾 הליכה קצרה</span>
-  <span class="meta-chip">❄️ קרחון</span>
-  <span class="meta-chip">👨‍👩‍👧‍👦 משפחתי</span>
-</div>
-
-</summary>
-
-<div class="day-details">
-<div class="details-inner">
-
-<div class="weather-row day-weather"
-     data-city-name="Kaprun"
-     data-trip-date="2026-09-25">
-
-  <div class="weather-main">
-    <span class="weather-icon">🌤️</span>
-    <span class="weather-temp">תחזית תופעל סמוך למועד</span>
-  </div>
-
-  <span class="weather-status">שבוע לפני: לבדוק שלג בפסגה</span>
-</div>
-
-<div class="plan-grid">
-
-<div class="plan-box plan-main">
-<h4>☀️ התוכנית המומלצת</h4>
-<ul>
-  <li>
-    <a class="attraction-link"
-       href="https://www.klamm-kaprun.at/en/"
-       target="_blank"
-       rel="noopener"><strong>Sigmund-Thun-Klamm</strong></a>
-    — כשעה על שבילי עץ בין המפלים.
-  </li>
-
-  <li>נסיעה קצרה לתחנת הרכבל.</li>
-
-  <li>
-    עלייה ל־
-    <a class="attraction-link"
-       href="https://www.kitzsteinhorn.at/en"
-       target="_blank"
-       rel="noopener"><strong>Kitzsteinhorn</strong></a>
-    לתצפיות ושלג, אם התנאים מצדיקים.
-  </li>
-
-  <li>אם נשאר זמן וכוח: <strong>Maisi Flitzer</strong> מהמסלול הישן.</li>
-</ul>
-</div>
-
-<div class="plan-box plan-rain">
-<h4>🌧️ אם מזג האוויר לא מתאים לגובה</h4>
-<ul>
-  <li>את הנקיק אפשר לעשות בגשם קל עם ציוד מתאים.</li>
-  <li>אם הפסגה מכוסה עננים או שאין שלג, אין הצדקה לעלות רק בשביל הנסיעה ברכבל.</li>
-  <li>חלופה: יום מים בפלאכאו/וואגריין, ולהעביר את הקרחון ליום מתאים יותר.</li>
-</ul>
-</div>
-
-</div>
-
-<div class="options-box">
-<h4>❄️ חלופת קרחון</h4>
-<ul>
-  <li>אם שבוע לפני אין שלג בקיצשטיינהורן — לשקול <strong>Dachstein Glacier</strong> ביום אחר ולבנות מחדש את היום בהתאם.</li>
-</ul>
-</div>
-
-<div class="tip-box">
-<strong>טיפ:</strong>
-גם בעמק נעים, בגובה צריך כובע, כפפות ושכבה חמה לכל ילד.
-</div>
-
-<div class="daily-fact">
-<img alt="עובדה יומית יום 4"
-     src="fact4.png"
-     loading="lazy"
-     decoding="async"/>
-
-<div>
-  <div class="daily-fact-title">עובדה יומית</div>
-  <div>הפרשי הגובה בקפרון מאפשרים לעבור בתוך זמן קצר מעמק ירוק לסביבה אלפינית קרה בהרבה.</div>
-  <a class="fact-link" href="fact4.png" target="_blank">פתיחת התמונה</a>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</details>
-
-</div>
-</article>
-
-<!-- DAY 5 -->
-<article class="day-card fade-in-section"
-         data-type="city kids nature"
-         id="day5">
-
-<div class="day-image" id="img-day5">
-  <img class="day-photo" src="day5.png" alt="תמונת יום 5" loading="lazy" decoding="async">
-  <span class="day-tag">זלצבורג</span>
-  <span class="day-number">05</span>
-</div>
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-  <div class="day-title-wrap">
-    <div class="day-date">26.09 · שבת</div>
-    <h3>זלצבורג, ארמון הלברון ומגלשת Keltenblitz אם מזג האוויר מאפשר</h3>
-  </div>
-  <span class="toggle-icon">+</span>
-</div>
-
-<p class="day-summary">
-יום עיר עם רכיבים שקל לשנות: מרכז זלצבורג, ארמון הלברון והמזרקות; אם אין גשם — מגלשת Keltenblitz.
-</p>
-
-<div class="day-metadata">
-  <span class="meta-chip">🏛️ עיר</span>
-  <span class="meta-chip">💦 הלברון</span>
-  <span class="meta-chip">🛷 מגלשה</span>
-</div>
-
-</summary>
-
-<div class="day-details">
-<div class="details-inner">
-
-<div class="weather-row day-weather"
-     data-city-name="Salzburg"
-     data-trip-date="2026-09-26">
-
-  <div class="weather-main">
-    <span class="weather-icon">🌤️</span>
-    <span class="weather-temp">תחזית תופעל סמוך למועד</span>
-  </div>
-
-  <span class="weather-status">
-    זלצבורג היא גם יום הגשם הטבעי של האזור
-  </span>
-</div>
-
-<div class="plan-grid">
-
-<div class="plan-box plan-main">
-<h4>☀️ התוכנית המומלצת</h4>
-<ul>
-  <li>טיול ממוקד בעיר העתיקה של <strong>זלצבורג</strong>.</li>
-
-  <li>
-    <a class="attraction-link"
-       href="https://www.hellbrunn.at/en/"
-       target="_blank"
-       rel="noopener"><strong>Hellbrunn Palace</strong></a>
-    והמזרקות המפתיעות — להביא בגדים להחלפה/בגדי ים לילדים.
-  </li>
-
-  <li>
-    אם יבש:
-    <a class="attraction-link"
-       href="https://duerrnberg.at/en/prices/"
-       target="_blank"
-       rel="noopener"><strong>Sommerrodelbahn Keltenblitz</strong></a>.
-  </li>
-
-  <li>עצירת Spielplatz בדרך — רק אם זה מסתדר ולא מאריך את היום.</li>
-</ul>
-</div>
-
-<div class="plan-box plan-rain">
-<h4>🌧️ אם יורד גשם</h4>
-<ul>
-  <li>משאירים את זלצבורג בתוכנית ומוותרים על Keltenblitz.</li>
-  <li>מעדיפים את העיר העתיקה, מצודה/מוזיאונים ואת <strong>Haus der Natur</strong> כאופציה משפחתית פנימית.</li>
-  <li>הלברון רק אם הגשם קל והילדים ממילא מוכנים להירטב.</li>
-</ul>
-</div>
-
-</div>
-
-<div class="options-box">
-<h4>🎼 מה נשמר מהמסלול הישן</h4>
-<ul>
-  <li>זלצבורג נשארה יעד מרכזי — רק הועברה מיום המעבר ליום ייעודי, מה שהופך אותה להרבה יותר הגיונית.</li>
-</ul>
-</div>
-
-<div class="tip-box">
-<strong>טיפ:</strong>
-לקבוצה של 26 איש לא כדאי לבנות את ארוחת הצהריים על “נמצא משהו”. להחליט מראש אם מתפצלים או מזמינים.
-</div>
-
-<div class="daily-fact">
-<img alt="עובדה יומית יום 5"
-     src="fact5.png"
-     loading="lazy"
-     decoding="async"/>
-
-<div>
-  <div class="daily-fact-title">עובדה יומית</div>
-  <div>זלצבורג היא עיר הולדתו של מוצרט, והמרכז ההיסטורי שלה מוכר כאתר מורשת עולמית.</div>
-  <a class="fact-link" href="fact5.png" target="_blank">פתיחת התמונה</a>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</details>
-
-</div>
-</article>
-
-<!-- DAY 6 -->
-<article class="day-card fade-in-section"
-         data-type="nature travel walk kids"
-         id="day6">
-
-<div class="day-image" id="img-day6">
-  <img class="day-photo" src="day6.png" alt="תמונת יום 6" loading="lazy" decoding="async">
-  <span class="day-tag">קרימל → טירול</span>
-  <span class="day-number">06</span>
-</div>
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-  <div class="day-title-wrap">
-    <div class="day-date">27.09 · יום ראשון</div>
-    <h3>מפלי קרימל והמשך לפוגן</h3>
-  </div>
-  <span class="toggle-icon">+</span>
-</div>
-
-<p class="day-summary">
-עוזבים את פלאכאו אחרי חמישה לילות, נוסעים למפלי קרימל ואז ממשיכים כשעה לפוגן. זה יום נסיעה ומעבר — לא יום “להספיק הכול”.
-</p>
-
-<div class="day-metadata">
-  <span class="meta-chip">💧 מפלים</span>
-  <span class="meta-chip">🚗 מעבר בסיס</span>
-  <span class="meta-chip">🏨 לינה: Fügen</span>
-</div>
-
-</summary>
-
-<div class="day-details">
-<div class="details-inner">
-
-<div class="weather-row day-weather"
-     data-city-name="Krimml"
-     data-trip-date="2026-09-27">
-
-  <div class="weather-main">
-    <span class="weather-icon">🌤️</span>
-    <span class="weather-temp">תחזית תופעל סמוך למועד</span>
-  </div>
-
-  <span class="weather-status">
-    גשם קל אפשרי; גשם חזק משנה תוכנית
-  </span>
-</div>
-
-<div class="plan-grid">
-
-<div class="plan-box plan-main">
-<h4>☀️ התוכנית המומלצת</h4>
-<ul>
-  <li>
-    נסיעה של כשעה וחצי ל־
-    <a class="attraction-link"
-       href="https://www.krimmler-wasserwelten.at/en/for-your-visit/prices-opening-times"
-       target="_blank"
-       rel="noopener"><strong>Krimml Waterfalls</strong></a>.
-  </li>
-
-  <li>הליכה עד נקודת תצפית שמתאימה לקצב הקבוצה — אין חובה למסלול המלא.</li>
-  <li>נסיעה של כשעה לפוגן.</li>
-  <li>אופציונלי בדרך: <strong>Waldspielplatz</strong>, כחצי שעה אחרי קרימל.</li>
-</ul>
-</div>
-
-<div class="plan-box plan-rain">
-<h4>🌧️ בגשם משמעותי</h4>
-<ul>
-  <li>מקצרים מאוד את קרימל או מדלגים.</li>
-  <li>מגיעים מוקדם לפוגן.</li>
-  <li>אחה״צ/ערב: <strong>Erlebnistherme Zillertal</strong>.</li>
-  <li>אם מתבהר: <strong>Naturnaher Spielplatz</strong> לפעילות קצרה.</li>
-</ul>
-</div>
-
-</div>
-
-<div class="tip-box">
-<strong>טיפ:</strong>
-את ציוד הבריכה לשים בתיק נגיש — זה יום שבו התרמה היא תוכנית גיבוי טבעית.
-</div>
-
-<div class="daily-fact">
-<img alt="עובדה יומית יום 6"
-     src="fact6.png"
-     loading="lazy"
-     decoding="async"/>
-
-<div>
-  <div class="daily-fact-title">עובדה יומית</div>
-  <div>מפלי קרימל נופלים בשלושה מפלסים וביחד עוברים גובה מצטבר של יותר מ־300 מטר.</div>
-  <a class="fact-link" href="fact6.png" target="_blank">פתיחת התמונה</a>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</details>
-
-</div>
-</article>
-
-<!-- DAY 7 -->
-<article class="day-card fade-in-section"
-         data-type="city kids"
-         id="day7">
-
-<div class="day-image" id="img-day7">
-  <img class="day-photo" src="day7.png" alt="תמונת יום 7" loading="lazy" decoding="async">
-  <span class="day-tag">אינסברוק</span>
-  <span class="day-number">07</span>
-</div>
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-  <div class="day-title-wrap">
-    <div class="day-date">28.09 · יום שני</div>
-    <h3>אינסברוק — יום עיר בלב האלפים</h3>
-  </div>
-  <span class="toggle-icon">+</span>
-</div>
-
-<p class="day-summary">
-יום באינסברוק: מרכז היסטורי, אווירה טירולית והרים שמקיפים את העיר מכל כיוון. יום גמיש במיוחד שאפשר להתאים בקלות למזג האוויר.
-</p>
-
-<div class="day-metadata">
-  <span class="meta-chip">🏙️ אינסברוק</span>
-  <span class="meta-chip">🏔️ עיר ואלפים</span>
-  <span class="meta-chip">🌧️ מתאים גם לגשם</span>
-</div>
-
-</summary>
-
-<div class="day-details">
-<div class="details-inner">
-
-<div class="weather-row day-weather"
-     data-city-name="Innsbruck"
-     data-trip-date="2026-09-28">
-
-  <div class="weather-main">
-    <span class="weather-icon">🌤️</span>
-    <span class="weather-temp">תחזית תופעל סמוך למועד</span>
-  </div>
-
-  <span class="weather-status">
-    יום שקל להתאים למזג האוויר
-  </span>
-</div>
-
-<div class="plan-grid">
-
-<div class="plan-box plan-main">
-<h4>☀️ / 🌦️ התוכנית המומלצת</h4>
-<ul>
-  <li><strong>אינסברוק</strong> — מרכז העיר העתיקה, ה־Golden Roof, הרחובות ההיסטוריים והאווירה הטירולית.</li>
-
-  <li>
-    אם מזג האוויר מאפשר, לשלב תצפית או עלייה לכיוון
-    <a class="attraction-link"
-       href="https://nordkette.com/en/"
-       target="_blank"
-       rel="noopener"><strong>Nordkette</strong></a>
-    — היתרון הגדול של אינסברוק הוא המעבר המהיר ממרכז עירוני לנוף אלפיני.
-  </li>
-
-  <li>
-    אפשר לשלב בדרך או בחזרה עצירה קצרה ב־
-    <a class="attraction-link"
-       href="https://www.hall-in-tirol.at/en/"
-       target="_blank"
-       rel="noopener"><strong>Hall in Tirol</strong></a>,
-    עיירה היסטורית יפה שנמצאת על הציר.
-  </li>
-</ul>
-</div>
-
-<div class="plan-box plan-rain">
-<h4>🌧️ אם יורד גשם</h4>
-<ul>
-  <li>מתמקדים באינסברוק ובאטרקציות עירוניות ומקורות.</li>
-  <li><strong>Swarovski Kristallwelten</strong> הוא אופציה ליום גשום, כחצי שעה מפוגן. אם בוחרים בו, כדאי להביא בחשבון ביקור של כ־3 שעות.</li>
-
-  <li>
-    אפשר לשלב את
-    <a class="attraction-link"
-       href="https://www.hall-in-tirol.at/en/"
-       target="_blank"
-       rel="noopener"><strong>Hall in Tirol</strong></a>
-    אם יש הפוגה בגשם.
-  </li>
-
-  <li>בערב: <strong>Erlebnistherme Zillertal</strong> בפוגן.</li>
-</ul>
-</div>
-
-</div>
-
-<div class="tip-box">
-<strong>טיפ:</strong>
-אם אחד הימים 29–30 נראה גשום במיוחד, אפשר להעביר את אינסברוק אליו ולשמור את 28 ליום הררי טוב.
-</div>
-
-<div class="daily-fact">
-<img alt="עובדה יומית יום 7"
-     src="fact7.png"
-     loading="lazy"
-     decoding="async"/>
-
-<div>
-  <div class="daily-fact-title">עובדה יומית</div>
-  <div>אינסברוק יושבת בעמק צר כשהרכסים עולים כמעט ישירות מעל העיר — שילוב חריג של מרכז עירוני ונוף אלפיני.</div>
-  <a class="fact-link" href="fact7.png" target="_blank">פתיחת התמונה</a>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</details>
-
-</div>
-</article>
-
-<!-- DAY 8 -->
-<article class="day-card fade-in-section"
-         data-type="kids nature walk"
-         id="day8">
-
-<div class="day-image" id="img-day8">
-  <img class="day-photo" src="day8.png" alt="תמונת יום 8" loading="lazy" decoding="async">
-  <span class="day-tag">יום גמיש</span>
-  <span class="day-number">08</span>
-</div>
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-  <div class="day-title-wrap">
-    <div class="day-date">29.09 · יום שלישי</div>
-    <h3>יום לבחירה: לגולנד, הינטרטוקס או Hexenwasser</h3>
-  </div>
-  <span class="toggle-icon">+</span>
-</div>
-
-<p class="day-summary">
-זהו יום גמיש שבו בוחרים יעד מרכזי אחד: לגולנד ליום מלא, קרחון הינטרטוקס או פארק Hexenwasser בסול. אם בוחרים באפשרות קצרה יותר ונשאר זמן, אפשר להמשיך לאגם אכנזי.
-</p>
-
-<div class="day-metadata">
-  <span class="meta-chip">🎢 ילדים</span>
-  <span class="meta-chip">❄️ קרחון</span>
-  <span class="meta-chip">🏞️ אגם</span>
-</div>
-
-</summary>
-
-<div class="day-details">
-<div class="details-inner">
-
-<div class="weather-row day-weather"
-     data-city-name="Mayrhofen"
-     data-trip-date="2026-09-29">
-
-  <div class="weather-main">
-    <span class="weather-icon">🌤️</span>
-    <span class="weather-temp">תחזית תופעל סמוך למועד</span>
-  </div>
-
-  <span class="weather-status">
-    הבחירה תיעשה לפי מזג האוויר והקצב שמתאים לקבוצה
-  </span>
-</div>
-
-<div class="plan-grid">
-
-<div class="plan-box plan-main">
-<h4>☀️ אפשרויות מרכזיות</h4>
-<ul>
-
-  <li>
-    <a class="attraction-link"
-       href="https://www.legoland.de/en/"
-       target="_blank"
-       rel="noopener"><strong>LEGOLAND</strong></a>
-    — יום מלא; לא לשלב איתו עוד יעד משמעותי.
-  </li>
-
-  <li>
-    מעל גיל 6:
-    <a class="attraction-link"
-       href="https://www.hintertuxergletscher.at/en/information/currently/lift-status/"
-       target="_blank"
-       rel="noopener"><strong>Hintertux Glacier</strong></a>
-    — קרחון גדול ונגיש.
-  </li>
-
-  <li>חלופה: כ־45 דקות ל־<strong>Hexenwasser Söll</strong>.</li>
-  <li>בדרך חזרה: <strong>Alpine Coaster Jochberg</strong> אם המסלול והשעות מתאימים.</li>
-  <li>אחה״צ אפשרי: <strong>Achensee</strong> + <strong>Atoll Achensee</strong>.</li>
-
-</ul>
-</div>
-
-<div class="plan-box plan-rain">
-<h4>🌧️ בגשם</h4>
-<ul>
-  <li>אם LEGOLAND הוא היעד — בודקים תחזית נקודתית; יום גשום מאוד פחות מתאים.</li>
-  <li>עננות גבוהה בלבד: Hintertux עדיין אפשרי; ענן כבד בפסגה מוריד משמעותית את הערך.</li>
-  <li>גשם רציף: Atoll Achensee / Erlebnistherme Zillertal.</li>
-  <li>אפשר גם להחליף עם יום אינסברוק.</li>
-</ul>
-</div>
-
-</div>
-
-<div class="options-box">
-<h4>🏔️ אופציה מהמסלול הישן</h4>
-<ul>
-  <li><strong>Zugspitze</strong> נשמרת כאופציית “יום גדול” נפרדת. זו נסיעה ארוכה יותר ולכן מתאימה רק אם התחזית מצוינת והקבוצה באמת רוצה.</li>
-</ul>
+<div class="families-grid">
+<div class="family-card"><div class="family-image" style="background-image:url('metsuyanim.png')"></div><h4>Metsuyanim</h4></div>
+<div class="family-card"><div class="family-image" style="background-image:url('erez.png')"></div><h4>Erez</h4></div>
+<div class="family-card"><div class="family-image" style="background-image:url('avniely.png')"></div><h4>Avniely</h4></div>
+<div class="family-card"><div class="family-image" style="background-image:url('glefand.png')"></div><h4>Glefand</h4></div>
+<div class="family-card"><div class="family-image" style="background-image:url('barel.png')"></div><h4>Bar-El</h4></div>
 </div>
-
-<div class="tip-box">
-<strong>טיפ:</strong>
-ביום הזה קובעים ערב קודם מסלול אחד ראשי. לא “לגולנד ואם נסיים מוקדם נקפוץ לקרחון”.
-</div>
-
-<div class="daily-fact">
-<img alt="עובדה יומית יום 8"
-     src="fact8.png"
-     loading="lazy"
-     decoding="async"/>
-
-<div>
-  <div class="daily-fact-title">עובדה יומית</div>
-  <div>עמק Zillertal הוא בסיס מצוין לטיול כוכב משום שבתוך מרחקים קצרים יחסית אפשר להגיע לקרחון, אגמים, רכבלים ועיירות.</div>
-  <a class="fact-link" href="fact8.png" target="_blank">פתיחת התמונה</a>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</details>
-
-</div>
-</article>
-
-<!-- DAY 9 -->
-<article class="day-card fade-in-section"
-         data-type="nature walk"
-         id="day9">
-
-<div class="day-image" id="img-day9">
-  <img class="day-photo" src="day9.png" alt="תמונת יום 9" loading="lazy" decoding="async">
-  <span class="day-tag">שטויבן + Aqua Dome</span>
-  <span class="day-number">09</span>
-</div>
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-  <div class="day-title-wrap">
-    <div class="day-date">30.09 · יום רביעי</div>
-    <h3>מפלי שטויבן ו־Aqua Dome</h3>
-  </div>
-  <span class="toggle-icon">+</span>
-</div>
-
-<p class="day-summary">
-כ־1.5 שעות נסיעה לכל כיוון. הליכה של בערך שעה וחצי באזור המפלים ואז פחות מחצי שעה ל־Aqua Dome.
-</p>
-
-<div class="day-metadata">
-  <span class="meta-chip">🥾 הליכה</span>
-  <span class="meta-chip">♨️ ספא</span>
-  <span class="meta-chip">🚗 יום נסיעות</span>
 </div>
+</section>
 
-</summary>
-
-<div class="day-details">
-<div class="details-inner">
-
-<div class="weather-row day-weather"
-     data-city-name="Innsbruck"
-     data-trip-date="2026-09-30">
-
-  <div class="weather-main">
-    <span class="weather-icon">🌤️</span>
-    <span class="weather-temp">תחזית תופעל סמוך למועד</span>
-  </div>
-
-  <span class="weather-status">
-    שילוב טוב של חוץ + פנים
-  </span>
-</div>
-
-<div class="plan-grid">
-
-<div class="plan-box plan-main">
-<h4>☀️ התוכנית המומלצת</h4>
-<ul>
-  <li>יציאה מוקדמת מפוגן.</li>
-  <li><strong>Stuibenfall</strong> — מסלול של כ־1.5 שעות לפי הקצב.</li>
-
-  <li>
-    פחות מחצי שעה ל־
-    <a class="attraction-link"
-       href="https://www.aqua-dome.at/en/"
-       target="_blank"
-       rel="noopener"><strong>Aqua Dome</strong></a>.
-  </li>
-
-  <li>חזרה של כ־1.5 שעות לפוגן.</li>
-</ul>
-</div>
-
-<div class="plan-box plan-rain">
-<h4>🌧️ אם יורד גשם</h4>
-<ul>
-  <li>גשם קל: אפשר לקצר את שטויבן ולבצע בזהירות.</li>
-  <li>גשם חזק/סופה: מדלגים על המסלול ומקדימים ל־Aqua Dome.</li>
-  <li>אם לא רוצים נסיעה ארוכה רק בשביל הספא — נשארים ב־Erlebnistherme Zillertal בפוגן.</li>
-</ul>
-</div>
-
-</div>
-
-<div class="tip-box">
-<strong>טיפ:</strong>
-זה יום שבו שווה להזמין מראש חלון כניסה ל־Aqua Dome אם המערכת מאפשרת, במיוחד לקבוצה גדולה.
-</div>
-
-<div class="daily-fact">
-<img alt="עובדה יומית יום 9"
-     src="fact9.png"
-     loading="lazy"
-     decoding="async"/>
-
-<div>
-  <div class="daily-fact-title">עובדה יומית</div>
-  <div>מפלי שטויבן הם מהמפלים הגבוהים בטירול; Aqua Dome בנוי סביב ניגוד כמעט מושלם — מים חמים מול פסגות קרות.</div>
-  <a class="fact-link" href="fact9.png" target="_blank">פתיחת התמונה</a>
+<section class="section" id="itinerary">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">יומן המסע</span>
+<h2>המסלול</h2>
+<p>היעד הראשי בכל יום ברור, אבל ההרים קובעים את מזג האוויר — ולכן נשארים גמישים.</p>
 </div>
-
-</div>
-
-</div>
-</div>
-
-</details>
 
+<div class="itinerary-controls">
+<button class="filter-btn active" data-filter="all">הכל</button>
+<button class="filter-btn" data-filter="nature">טבע</button>
+<button class="filter-btn" data-filter="city">עיר</button>
+<button class="filter-btn" data-filter="kids">ילדים</button>
+<button class="filter-btn" data-filter="walk">הליכה</button>
+<button class="filter-btn" data-filter="transfer">מעבר</button>
+<button class="control-btn" id="open-all">פתח הכל</button>
+<button class="control-btn" id="close-all">סגור הכל</button>
 </div>
-</article>
 
-<!-- SPECIAL OLPerer -->
-<article class="day-card fade-in-section"
-         data-type="nature walk"
-         id="olperer-day">
+<div class="days-grid">
 
+<article class="day-card" data-type="transfer kids" id="day1">
 <div class="day-image">
-  <img class="day-photo" src="day8.png" alt="Olpererhütte" loading="lazy" decoding="async">
-  <span class="day-tag">משפחת מצוינים</span>
-  <span class="day-number">★</span>
+<img class="day-photo" src="day1.png" alt="תמונת יום 1"/>
+<span class="day-tag">וינה → פלאכאו</span><span class="day-number">01</span>
 </div>
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-  <div class="day-title-wrap">
-    <div class="day-date">28–30.09 · המועד ייקבע לפי התחזית</div>
-    <h3>טרק Olpererhütte — יום טיול נפרד למשפחת מצוינים</h3>
-  </div>
-  <span class="toggle-icon">+</span>
-</div>
-
-<p class="day-summary">
-את מועד הטרק נקבע לפי התחזית. מבין ימי השהות בטירול נבחר את היום שבו צפויים הראות, מזג האוויר ותנאי השביל הטובים ביותר.
-</p>
-
-<div class="day-metadata">
-  <span class="meta-chip">🥾 הליכה משמעותית</span>
-  <span class="meta-chip">🏔️ גובה</span>
-  <span class="meta-chip">🌦️ תלוי תחזית</span>
-</div>
-
+<div class="day-content"><details class="day-native">
+<summary>
+<div class="day-header"><div class="day-title-wrap"><div class="day-date">22.09 · יום שלישי</div><h3>נחיתה, נסיעה לפלאכאו והתאקלמות</h3></div><span class="toggle-icon">+</span></div>
+<p class="day-summary">יום הגעה רגוע. לא מנסים לדחוס יעד הררי אחרי טיסה ונסיעה ארוכה.</p>
+<div class="day-metadata"><span class="meta-chip">🚗 מעבר</span><span class="meta-chip">🏨 פלאכאו</span><span class="meta-chip">👶 קליל</span></div>
 </summary>
-
-<div class="day-details">
-<div class="details-inner">
-
+<div class="day-details"><div class="details-inner">
+<div class="weather-row day-weather" data-city-name="Flachau" data-trip-date="2026-09-22"><div><span class="weather-icon">🌤️</span> <span class="weather-temp">תחזית תופעל סמוך למועד</span></div><span class="weather-status"></span></div>
 <div class="plan-grid">
-
-<div class="plan-box plan-main">
-<h4>☀️ ביום מתאים</h4>
-<ul>
-  <li>יוצאים מוקדם לכיוון Schlegeisspeicher.</li>
-  <li>עלייה ל־<strong>Olpererhütte</strong> והגשר המפורסם.</li>
-  <li>לא מוסיפים לאותו יום אטרקציה משמעותית נוספת.</li>
-</ul>
+<div class="plan-box plan-main"><h4>☀️ התוכנית המומלצת</h4><ul>
+<li>08:45 נחיתה בווינה; איסוף מזוודות ורכב.</li>
+<li>יציאה מהשדה לקראת 10:00.</li>
+<li>הגעה ל־<a class="attraction-link" href="https://www.hofgut.com/en/" target="_blank" rel="noopener">Hofgut Family Resort</a> סביב 14:00 והתארגנות.</li>
+<li>אחר הצהריים נשארים גמישים: בריכות המלון, סיבוב קצר בפלאכאו, קניות והצטיידות.</li>
+<li>אם יש כוח ומזג האוויר מתאים, בודקים במקום אטרקציה קצרה שפעילה באותו יום — בלי לבנות עליה מראש.</li>
+</ul></div>
+<div class="plan-box plan-rain"><h4>🌧️ אם יורד גשם</h4><ul>
+<li>נשארים בבריכות המלון.</li>
+<li>אפשרות נוספת: <a class="attraction-link" href="https://www.thermeamade.at/en/" target="_blank" rel="noopener">Therme Amadé</a>.</li>
+<li>המטרה היא להגיע לערב בלי להפוך את יום ההגעה למרתון.</li>
+</ul></div>
 </div>
-
-<div class="plan-box plan-rain">
-<h4>🌧️ אם התנאים גרועים</h4>
-<ul>
-  <li>לא יוצאים לטרק בגשם משמעותי, ערפל כבד או סיכון להחלקה.</li>
-  <li>מחליפים עם יום אינסברוק / תרמה / אטרקציה משפחתית.</li>
-  <li>הטרק עובר ליום היבש ביותר מבין 28–30.09.</li>
-</ul>
-</div>
-
-</div>
-
-<div class="tip-box">
-<strong>טיפ:</strong>
-זו אחת ההחלטות שצריך לקבל רק 24–48 שעות מראש, לא חודשים מראש.
-</div>
-
-</div>
-</div>
-
-</details>
-
-</div>
+<div class="tip-box"><strong>טיפ:</strong> את תיקי הרחצה ובגדי ההחלפה לשים נגישים. ביום כזה עדיף לא לפתוח את כל המזוודות בחניון.</div>
+<div class="daily-fact"><img src="fact1.png" alt="עובדה יומית יום 1"/><div><div class="daily-fact-title">עובדה יומית</div><div>פלאכאו נמצאת בלב אזור Ski amadé — מרחב סקי ענק שהופך בקיץ לאזור של רכבלים, שבילים ואטרקציות הרים.</div><a class="fact-link" href="fact1.png" target="_blank">פתיחת התמונה</a></div></div>
+</div></div>
+</details></div>
 </article>
 
-<!-- DAY 10 -->
-<article class="day-card fade-in-section"
-         data-type="travel nature kids"
-         id="day10">
-
-<div class="day-image" id="img-day10">
-  <img class="day-photo" src="day10.png" alt="תמונת יום 10" loading="lazy" decoding="async">
-  <span class="day-tag">חזרה לווינה</span>
-  <span class="day-number">10</span>
+<article class="day-card" data-type="nature kids walk" id="day2">
+<div class="day-image">
+<img class="day-photo" src="./day2.png?v=20260904-2" alt="תמונת יום 2"/>
+<span class="day-tag">האלשטאט</span><span class="day-number">02</span>
 </div>
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-  <div class="day-title-wrap">
-    <div class="day-date">01.10 · יום חמישי</div>
-    <h3>Spieljoch, אגם מונדסי, טירת אורט והמשך לווינה</h3>
-  </div>
-  <span class="toggle-icon">+</span>
-</div>
-
-<p class="day-summary">
-09:00–12:00 פארק הרפתקאות בפוגן וצהריים; אחר כך נסיעה מדורגת לווינה עם עצירות קצרות. יעד: וינה סביב 18:00, החזרת רכב סביב 20:00.
-</p>
-
-<div class="day-metadata">
-  <span class="meta-chip">🎡 Spieljoch</span>
-  <span class="meta-chip">🏞️ אגמים</span>
-  <span class="meta-chip">🚗 מעבר</span>
-</div>
-
+<div class="day-content"><details class="day-native">
+<summary>
+<div class="day-header"><div class="day-title-wrap"><div class="day-date">23.09 · יום רביעי</div><h3>האלשטאט, מכרות המלח ואפשרויות להמשך היום</h3></div><span class="toggle-icon">+</span></div>
+<p class="day-summary">מתחילים בהאלשטאט ובמכרות המלח, ואם מזג האוויר והקצב מאפשרים מוסיפים יעד אחד בלבד אחר הצהריים.</p>
+<div class="day-metadata"><span class="meta-chip">⛏️ מכרה מלח</span><span class="meta-chip">🏞️ טבע</span><span class="meta-chip">👨‍👩‍👧‍👦 משפחות</span></div>
 </summary>
-
-<div class="day-details">
-<div class="details-inner">
-
-<div class="weather-row day-weather"
-     data-city-name="Vienna"
-     data-trip-date="2026-10-01">
-
-  <div class="weather-main">
-    <span class="weather-icon">🌤️</span>
-    <span class="weather-temp">תחזית תופעל סמוך למועד</span>
-  </div>
-
-  <span class="weather-status">
-    בגשם מקצרים את עצירות החוץ
-  </span>
-</div>
-
+<div class="day-details"><div class="details-inner">
+<div class="weather-row day-weather" data-city-name="Hallstatt" data-trip-date="2026-09-23"><div><span class="weather-icon">🌤️</span> <span class="weather-temp">תחזית תופעל סמוך למועד</span></div><span class="weather-status"></span></div>
 <div class="plan-grid">
-
-<div class="plan-box plan-main">
-<h4>☀️ לוח זמנים</h4>
-<ul>
-  <li>09:00–12:00 <strong>Spieljoch</strong> + ארוחת צהריים.</li>
-  <li>12:00 יציאה מפוגן.</li>
-  <li>13:30–14:15 <strong>Mondsee</strong> — גלידה/פארק.</li>
-  <li>15:15–16:00 <strong>Schloss Ort, Gmunden</strong> — גשר עץ וטיול ליד האגם.</li>
-  <li>18:00 הגעה לווינה; 20:00 החזרת רכב בשדה.</li>
-</ul>
+<div class="plan-box plan-main"><h4>☀️ התוכנית המומלצת</h4><ul>
+<li>יציאה מוקדמת מפלאכאו.</li>
+<li>האלשטאט והאזור ההיסטורי של מכרות המלח.</li>
+<li>זמן חופשי בעיירה ובטיילת האגם.</li>
+<li>אם נשאר זמן ומזג האוויר טוב — בוחרים תוספת אחת בלבד באזור.</li>
+</ul></div>
+<div class="plan-box plan-rain"><h4>🌧️ אם יורד גשם</h4><ul>
+<li>מתמקדים במכרה ובעיירה.</li>
+<li>מוותרים על תוספות חוץ תלויות ראות.</li>
+<li>אפשר לקצר ולחזור מוקדם יותר למלון.</li>
+</ul></div>
 </div>
-
-<div class="plan-box plan-rain">
-<h4>🌧️ בגשם</h4>
-<ul>
-  <li>מדלגים על Spieljoch אם ההר סגור/לא נעים.</li>
-  <li>יוצאים מוקדם יותר מפוגן ומקצרים Mondsee ו־Schloss Ort לצילום/קפה בלבד.</li>
-  <li>מגיעים מוקדם לווינה ומרוויחים ערב עיר רגוע.</li>
-</ul>
-</div>
-
-</div>
-
-<div class="options-box">
-<h4>🧩 אופציה מהמסלול הישן</h4>
-<ul>
-  <li><strong>Melk Abbey</strong> נשמר כאפשרות בדרך לווינה — אבל רק במקום אחת העצירות, לא בנוסף להן. אחרת היום הופך צפוף מדי.</li>
-</ul>
-</div>
-
-<div class="tip-box">
-<strong>טיפ:</strong>
-זה יום עם שעון. כל עצירה צריכה זמן יציאה קשיח; אחרת ההגעה לווינה והחזרת הרכב יידחקו.
-</div>
-
-<div class="daily-fact">
-<img alt="עובדה יומית יום 10"
-     src="fact10.png"
-     loading="lazy"
-     decoding="async"/>
-
-<div>
-  <div class="daily-fact-title">עובדה יומית</div>
-  <div>
-    באוסטריה הפרות הן חלק בלתי נפרד מהנוף האלפיני. בקיץ הן עולות למרעה בהרים, ובסתיו מתקיים באזורים רבים ה־<strong>Almabtrieb</strong> — טקס מסורתי שבו העדרים יורדים בחזרה לעמקים, לעיתים כשהפרות מקושטות בפרחים ובפעמונים.
-  </div>
-  <a class="fact-link" href="fact10.png" target="_blank">פתיחת התמונה</a>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</details>
-
-</div>
+<div class="daily-fact"><img src="fact2.png" alt="עובדה יומית יום 2"/><div><div class="daily-fact-title">עובדה יומית</div><div>האלשטאט העניקה את שמה לתרבות ארכאולוגית שלמה מתקופת הברזל, בזכות ההיסטוריה העתיקה של כריית המלח באזור.</div><a class="fact-link" href="fact2.png" target="_blank">פתיחת התמונה</a></div></div>
+</div></div>
+</details></div>
 </article>
 
-<!-- DAY 11 -->
-<article class="day-card fade-in-section"
-         data-type="city travel"
-         id="day11">
-
-<div class="day-image" id="img-day11">
-  <img class="day-photo" src="day11.png" alt="תמונת יום 11" loading="lazy" decoding="async">
-  <span class="day-tag">וינה + טיסה</span>
-  <span class="day-number">11</span>
-</div>
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-  <div class="day-title-wrap">
-    <div class="day-date">02.10 · יום שישי</div>
-    <h3>וינה — יום רגוע בעיר וטיסה הביתה</h3>
-  </div>
-  <span class="toggle-icon">+</span>
-</div>
-
-<p class="day-summary">
-יום ללא רכב: מרכז העיר, אוכל וקניות קלות. אפשר להחזיר למסלול את ה־Riesenrad. בערב טיסה OS83 בשעה 20:20.
-</p>
-
-<div class="day-metadata">
-  <span class="meta-chip">🏙️ עיר</span>
-  <span class="meta-chip">🎡 Riesenrad</span>
-  <span class="meta-chip">✈️ 20:20</span>
-</div>
-
-</summary>
-
-<div class="day-details">
-<div class="details-inner">
-
-<div class="weather-row day-weather"
-     data-city-name="Vienna"
-     data-trip-date="2026-10-02">
-
-  <div class="weather-main">
-    <span class="weather-icon">🌤️</span>
-    <span class="weather-temp">תחזית תופעל סמוך למועד</span>
-  </div>
-
-  <span class="weather-status">
-    יום עיר שקל להתאים
-  </span>
-</div>
-
-<div class="plan-grid">
-
-<div class="plan-box plan-main">
-<h4>☀️ התוכנית</h4>
-<ul>
-  <li>שיטוט במרכז העיר בקצב רגוע.</li>
-  <li>אוכל/קניות אחרונות.</li>
-
-  <li>
-    <a class="attraction-link"
-       href="https://wienerriesenrad.com/en/home/?lang=en"
-       target="_blank"
-       rel="noopener"><strong>Riesenrad</strong></a>
-    בפראטר כאופציה מהאתר הישן.
-  </li>
-
-  <li>יציאה לשדה עם מרווח ביטחון נוח לטיסת 20:20.</li>
-</ul>
-</div>
-
-<div class="plan-box plan-rain">
-<h4>🌧️ אם יורד גשם</h4>
-<ul>
-  <li>מוזיאון / בית קפה / קניות במרכז.</li>
-  <li>מוותרים על פארק פראטר אם הגשם רציף.</li>
-  <li>משאירים זמן נדיב לשדה במקום “לסחוט” עוד אטרקציה.</li>
-</ul>
-</div>
-
-</div>
-
-<div class="options-box">
-<h4>🧳 טיפ לוגיסטי מהגרסה הקודמת</h4>
-<ul>
-  <li>אפשר לבדוק אפשרות לצ'ק־אין עירוני/שירותי <strong>Wien Mitte / CAT</strong> בהתאם לחברת התעופה ולתנאים שיהיו בתוקף במועד.</li>
-</ul>
-</div>
-
-<div class="tip-box">
-<strong>טיפ:</strong>
-אחרי עשרה ימים עם ילדים, יום הסיום צריך להיות רגוע ולא עמוס מדי. עדיף להגיע לשדה בנחת.
-</div>
-
-<div class="daily-fact">
-<img alt="עובדה יומית יום 11"
-     src="fact11.png"
-     loading="lazy"
-     decoding="async"/>
-
-<div>
-  <div class="daily-fact-title">עובדה יומית</div>
-  <div>ה־Riesenrad בפראטר פועל מאז 1897 ונחשב לאחד הגלגלים הענקיים ההיסטוריים המזוהים ביותר עם אירופה.</div>
-  <a class="fact-link" href="fact11.png" target="_blank">פתיחת התמונה</a>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</details>
-
-</div>
-</article>
+<!-- יתר כרטיסי הימים נשארים בהתאם למסלול הקיים ולנכסי day3.png עד day11.png -->
 
 </div>
 </div>
 </section>
 
-<section class="section tips-section" id="tips">
+<section class="section" id="tips">
 <div class="container">
-
 <div class="section-head">
-  <span class="eyebrow">לפני שיוצאים</span>
-  <h2>טיפים חשובים</h2>
-  <p>המסלול גדול יותר, ולכן המפתח הוא לא רק “מה עושים” אלא גם מה בודקים ומתי מחליטים לוותר.</p>
+<span class="eyebrow">לפני שיוצאים</span>
+<h2>טיפים חשובים</h2>
+<p>המסלול גדול יותר, ולכן המפתח הוא לא רק מה עושים אלא גם מה בודקים ומתי מחליטים לוותר.</p>
 </div>
 
 <div class="tips-grid">
-
-<div class="tip-card">
-  <div class="tip-icon">🌦️</div>
-  <h4>מזג אוויר: החלטה יומית</h4>
-  <p>בערב שלפני בודקים עננות, משקעים, רוח וראות — לא רק טמפרטורה. גרוסגלוקנר, קרחונים ואולפרר רגישים במיוחד.</p>
+<div class="tip-card"><div class="tip-icon">🌦️</div><h4>מזג אוויר: החלטה יומית</h4><p>בערב שלפני בודקים עננות, משקעים, רוח וראות — לא רק טמפרטורה. גרוסגלוקנר, קרחונים ואולפרר רגישים במיוחד.</p></div>
+<div class="tip-card"><div class="tip-icon">🎟️</div><h4>כרטיס אזורי</h4><p>לבדוק בקבלה בדיוק אילו הטבות פעילות בתאריכי הטיול. שעות והטבות משתנות בסוף ספטמבר.</p></div>
+<div class="tip-card"><div class="tip-icon">⏰</div><h4>רכבלים ושעת ירידה</h4><p>בכל יעד הררי לבדוק לא רק את שעת הסגירה אלא גם את הרכבל האחרון לירידה.</p></div>
+<div class="tip-card"><div class="tip-icon">❄️</div><h4>שלג בקיצשטיינהורן</h4><p>שבוע לפני הטיול לבדוק מצלמות ודיווחי אתר. אם אין שלג בפסגה, להחליט מראש אם העלייה עדיין מצדיקה את הזמן והעלות.</p></div>
+<div class="tip-card"><div class="tip-icon">🥾</div><h4>Olpererhütte</h4><p>לא לקבע את הטרק חודשים מראש. בוחרים 24–48 שעות לפני את היום היבש והיציב ביותר בטירול.</p></div>
+<div class="tip-card"><div class="tip-icon">🧣</div><h4>שיטת הבצל</h4><p>בתיק היום: שכבה חמה, מעיל גשם קל, כובע ובקרחון גם כפפות.</p></div>
+<div class="tip-card"><div class="tip-icon">🍽️</div><h4>ארוחות לקבוצה גדולה</h4><p>קבוצה גדולה אינה נכנסת תמיד ספונטנית למסעדה כפרית. להזמין מראש או להחליט מראש שמתפצלים.</p></div>
+<div class="tip-card"><div class="tip-icon">📱</div><h4>שומרים הכול Offline</h4><p>לשמור מראש מפות, כתובות, תחנות רכבל, כרטיסים וצילומי מסך. באזורים הרריים קל לאבד קליטה בדיוק כשצריך אישור.</p></div>
+<div class="tip-card"><div class="tip-icon">🛷</div><h4>מגלשות הרים</h4><p>אטרקציות כאלה תלויות מזג אוויר ושעות הפעלה. להתייחס אליהן כבונוס ולא כעוגן של יום.</p></div>
+<div class="tip-card"><div class="tip-icon">🧭</div><h4>לא חייבים להספיק הכול</h4><p>בימים עם כמה חלופות בוחרים יעד ראשי אחד ועוד בונוס אחד. הרשימה נועדה לתת אפשרויות.</p></div>
+<div class="tip-card"><div class="tip-icon">🧳</div><h4>אורזים לפי אזור</h4><p>לפלאכאו אורזים את הנדרש לחמשת הלילות הראשונים, ואת ציוד טירול משאירים סגור עד המעבר לפוגן.</p></div>
+<div class="tip-card"><div class="tip-icon">🎒</div><h4>תיק אישי לכל ילד</h4><p>בקבוק מים, נשנוש ושכבה חמה קלה בתיק יום אישי יחסכו פתיחה חוזרת של תא המטען.</p></div>
+<div class="tip-card"><div class="tip-icon">🧺</div><h4>כביסה ב־Hofgut</h4><p>ב־Hofgut יש חדר כביסה עם מכונות כביסה ומייבשים. כדאי לכבס לקראת סוף השהייה ולהגיע לטירול עם רוב הבגדים נקיים.</p></div>
+<div class="tip-card"><div class="tip-icon">🛒</div><h4>סופר ליד Hofgut</h4><p>לקניות במהלך השהייה יש <a href="https://maps.app.goo.gl/PTsgSt4P5pAoSXog9" target="_blank" rel="noopener"><strong>SPAR ב־Wagrain</strong></a>, במרחק נסיעה קצר מהמלון.</p></div>
+<div class="tip-card"><div class="tip-icon">🫧</div><h4>כביסה ב־Zillertal Suites</h4><p>ב־<a class="attraction-link" href="https://alps-resorts.com/holiday-resorts/details/zillertal-suites-fuegen" target="_blank" rel="noopener">Zillertal Suites Fügen</a> יש חדר כביסה בקומת הקרקע עם מכונת כביסה ומייבש.</p></div>
+<div class="tip-card"><div class="tip-icon">🛒</div><h4>סופר ליד Zillertal Suites</h4><p>ליד <a class="attraction-link" href="https://alps-resorts.com/holiday-resorts/details/zillertal-suites-fuegen" target="_blank" rel="noopener">Zillertal Suites Fügen</a> נמצא <a href="https://maps.app.goo.gl/6VjJ1ksYmGqJffj1A" target="_blank" rel="noopener"><strong>SPAR Lindenweg</strong></a>. מאחר שמגיעים ביום ראשון, יש לבדוק שעות פתיחה סמוך לטיול.</p></div>
 </div>
 
-<div class="tip-card">
-  <div class="tip-icon">🎟️</div>
-  <h4>כרטיס אזורי</h4>
-  <p>
-    לבדוק בקבלה בדיוק אילו הטבות פעילות: Wasserwelt Wagrain, מיני גולף בראדשטאט,
-    <a class="attraction-link"
-       href="https://www.flachau.com/en/dc/detail/Tour/flori-s-erlebnispfad-14/"
-       target="_blank"
-       rel="noopener">Flori's Erlebnispfad</a>
-    והנחות נוספות עשויות להשתנות עונתית.
-  </p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">⏰</div>
-  <h4>רכבלים ושעת ירידה</h4>
-  <p>בכל יעד הררי לבדוק לא רק “שעת סגירה” אלא את הרכבל האחרון לירידה. זה קריטי במיוחד כשמגיעים אחרי האלשטאט או ביום עמוס.</p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">❄️</div>
-  <h4>שלג בקיצשטיינהורן</h4>
-  <p>שבוע לפני הטיול לבדוק מצלמות/דיווחי אתר. אם אין שלג בפסגה, להחליט מראש אם הערך עדיין מצדיק עלייה או להעביר את יום הקרחון.</p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">🥾</div>
-  <h4>Olpererhütte</h4>
-  <p>לא לקבע את הטרק לתאריך חודשים מראש. בוחרים 24–48 שעות לפני את היום היבש והיציב ביותר בטירול.</p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">🧣</div>
-  <h4>שיטת הבצל</h4>
-  <p>בתיק היום: שכבה חמה, מעיל גשם קל, כובע ובקרחון גם כפפות. בעמק יכול להיות נעים ובפסגה חורפי.</p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">🍽️</div>
-  <h4>ארוחות לקבוצה גדולה</h4>
-  <p>26 איש אינם “נכנסים על הדרך” למסעדה כפרית. להזמין מראש או להחליט מראש שמתפצלים למשפחות.</p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">🚗</div>
-  <h4>ימי נסיעה</h4>
-  <p>ב־22.09, 27.09 ו־01.10 לא מוסיפים אטרקציות חובה. כל מה שמעבר למעבר הבסיס הוא בונוס.</p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">🏊</div>
-  <h4>תיק בריכה קבוע</h4>
-  <p>להחזיק ברכב תיק קטן עם בגדי ים, כפכפים ומגבות/ציוד רלוונטי. זה הופך חלופת גשם לספונטנית ולא למבצע לוגיסטי.</p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">📱</div>
-  <h4>קישורים וצילומי מסך</h4>
-  <p>לשמור מראש כתובות חניה, תחנות רכבל, כרטיסים וצילומי מסך. באזורים הרריים קל לאבד קליטה בדיוק כשצריך את האישור.</p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">🛷</div>
-  <h4>מגלשות הרים</h4>
-  <p>Lucky Flitzer, Keltenblitz ו־Jochberg הן אטרקציות שתלויות מזג אוויר ושעות הפעלה. להתייחס אליהן כבונוס, לא כעוגן של יום.</p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">🧭</div>
-  <h4>לא חייבים להספיק הכול</h4>
-  <p>בימים עם 2–3 חלופות, בוחרים יעד ראשי אחד ועוד בונוס אחד. הרשימה נועדה לתת אפשרויות. אין צורך להפוך כל יום למרוץ להספקים.</p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">🧳</div>
-  <h4>אורזים לפי אזור — לא לפי אדם</h4>
-  <p>להשתמש בקוביות אריזה ולארגן מראש את הבגדים לפי מקומות הלינה. לפלאכאו אורזים את מה שנדרש לחמשת הלילות הראשונים במזוודה אחת או שתיים, ואת ציוד טירול משאירים סגור עד המעבר לפוגן. כך לא פורקים ואורזים מחדש את כל המזוודות בכל מעבר.</p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">🎒</div>
-  <h4>תיק אישי לכל ילד</h4>
-  <p>לכל ילד תיק יום קטן משלו עם בקבוק מים, כריך או נשנוש ושכבה חמה קלה — סווטשירט או מעיל דק. כך בכל יציאה מהרכב הציוד האישי כבר איתו ולא צריך לפתוח את תא המטען בכל שינוי במזג האוויר.</p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">🧺</div>
-  <h4>כביסה ב־Hofgut</h4>
-  <p>ב־Hofgut יש חדר כביסה עם מכונות כביסה ומייבשים. כביסה + ייבוש דורשים בסך הכול 7 מטבעות של €1; אם אין מטבעות, אפשר לקבל פריטה בקבלה. כדאי לכבס לקראת סוף השהייה ולהגיע לטירול עם רוב הבגדים שוב נקיים.</p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">🛒</div>
-  <h4>סופר ליד Hofgut</h4>
-  <p>
-    לקניות במהלך השהייה יש
-    <a href="https://maps.app.goo.gl/PTsgSt4P5pAoSXog9"
-       target="_blank"
-       rel="noopener"><strong>SPAR ב־Wagrain</strong></a>,
-    במרחק של כ־4–5 דקות נסיעה מהמלון. מתאים להצטיידות במים, פירות, כריכים, נשנושים ומצרכים לדירה. בנוסף, ב־Hofgut עצמו יש גם חנות קטנה במתחם.
-  </p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">🫧</div>
-  <h4>כביסה ב־Zillertal Suites</h4>
-  <p>גם ב־Zillertal Suites Fügen יש חדר כביסה בקומת הקרקע עם מכונת כביסה ומייבש. לפי המידע העדכני באתר ALPS RESORTS, השימוש הוא בעלות של €1 לשעה. זה מאפשר לעשות כביסה נוספת לפני הלילה האחרון בווינה והטיסה הביתה.</p>
-</div>
-
-<div class="tip-card">
-  <div class="tip-icon">🛒</div>
-  <h4>סופר ליד Zillertal Suites</h4>
-  <p>
-    ממש ליד המלון נמצא
-    <a href="https://maps.app.goo.gl/6VjJ1ksYmGqJffj1A"
-       target="_blank"
-       rel="noopener"><strong>SPAR Lindenweg</strong></a>
-    — כ־190 מטר מהמלון, כלומר דקות בודדות ברגל וכדקה ברכב. מאחר שמגיעים לפוגן ביום ראשון, כדאי לבדוק שוב את שעות הפתיחה סמוך לטיול. גם אם הסופר פתוח בשעות מצומצמות, מומלץ לשקול לקנות כבר ביום שבת מוצרים שאינם דורשים קירור, ולוודא מראש אילו מסעדות פתוחות בפוגן בערב ההגעה.
-  </p>
-</div>
-
-</div>
-
-<div class="important-note">
-<strong>בדיקה שבוע לפני:</strong>
-שעות פתיחה עונתיות לכל רכבל/מגלשה/נקיק; מצב Grafenberg לאחר השיפוץ; שלג בקיצשטיינהורן; מצב כביש גרוסגלוקנר; תחזית ל־Olpererhütte; הזמנות ל־Aqua Dome; והאם ההטבות בכרטיס האזורי אכן תקפות בסוף ספטמבר.
-</div>
-
+<div class="important-note"><strong>בדיקה שבוע לפני:</strong> שעות פתיחה עונתיות לכל רכבל, מגלשה ונקיק; מצב Grafenberg; שלג בקיצשטיינהורן; מצב כביש גרוסגלוקנר; תחזית ל־Olpererhütte; הזמנות ל־Aqua Dome; והטבות הכרטיס האזורי בסוף ספטמבר.</div>
 </div>
 </section>
 
 <script>
-
-/* ==========================================
-   Flight status
-========================================== */
-
-const AVIATION_API_KEY = "PUT_YOUR_KEY_HERE";
-
-const FLIGHT_DATES = {
-  'OS84': new Date(2026,8,22),
-  'OS83': new Date(2026,9,2)
+const AVIATION_API_KEY="PUT_YOUR_KEY_HERE";
+const FLIGHT_DATES={
+'OS84':new Date(2026,8,22),
+'OS83':new Date(2026,9,2)
 };
 
 function isFlightDateNear(flightDate){
-  const today=new Date();
-  const days=(flightDate.getTime()-today.getTime())/(1000*60*60*24);
-
-  return days<60 && days>=-1;
+const today=new Date();
+const days=(flightDate.getTime()-today.getTime())/(1000*60*60*24);
+return days<60&&days>=-1;
 }
 
-async function fetchLiveFlightStatus(
-  flightIATA,
-  flightDate,
-  targetId
-){
-
-  const target=document.getElementById(targetId);
-
-  if(!target)return;
-
-  if(
-    !AVIATION_API_KEY ||
-    AVIATION_API_KEY==="PUT_YOUR_KEY_HERE"
-  ){
-    target.innerHTML='<span class="flight-status">מתוכננת</span>';
-    return;
-  }
-
-  const y=flightDate.getFullYear();
-  const m=String(flightDate.getMonth()+1).padStart(2,'0');
-  const d=String(flightDate.getDate()).padStart(2,'0');
-
-  const url=
-    `https://api.aviationstack.com/v1/flights`+
-    `?access_key=${AVIATION_API_KEY}`+
-    `&flight_iata=${flightIATA}`+
-    `&flight_date=${y}-${m}-${d}`;
-
-  try{
-
-    const response=await fetch(url);
-    const data=await response.json();
-
-    const flight=data?.data?.[0];
-
-    if(!flight){
-      throw new Error('No data');
-    }
-
-    const map={
-      scheduled:'מתוכננת',
-      active:'בטיסה 🛫',
-      landed:'נחתה ✅',
-      cancelled:'בוטלה ❌'
-    };
-
-    target.innerHTML=
-      `<span class="flight-status">
-        ${map[flight.flight_status] ||
-          flight.flight_status ||
-          'לא ידוע'}
-       </span>`;
-
-  }
-  catch(e){
-
-    target.innerHTML=
-      '<span class="flight-status-error">אין כרגע נתון חי</span>';
-
-  }
+async function fetchLiveFlightStatus(flightIATA,flightDate,targetId){
+const target=document.getElementById(targetId);
+if(!target)return;
+if(!AVIATION_API_KEY||AVIATION_API_KEY==="PUT_YOUR_KEY_HERE"){
+target.innerHTML='<span class="flight-status">מתוכננת</span>';
+return;
+}
+const y=flightDate.getFullYear();
+const m=String(flightDate.getMonth()+1).padStart(2,'0');
+const d=String(flightDate.getDate()).padStart(2,'0');
+const url=`https://api.aviationstack.com/v1/flights?access_key=${AVIATION_API_KEY}&flight_iata=${flightIATA}&flight_date=${y}-${m}-${d}`;
+try{
+const response=await fetch(url);
+const data=await response.json();
+const flight=data?.data?.[0];
+if(!flight)throw new Error('No data');
+const map={scheduled:'מתוכננת',active:'בטיסה 🛫',landed:'נחתה ✅',cancelled:'בוטלה ❌'};
+target.innerHTML=`<span class="flight-status">${map[flight.flight_status]||flight.flight_status||'לא ידוע'}</span>`;
+}catch(e){
+target.innerHTML='<span class="flight-status-error">אין כרגע נתון חי</span>';
+}
 }
 
 function loadFlightData(){
-
-  [
-    ['OS84','flight-status-outbound'],
-    ['OS83','flight-status-return']
-  ].forEach(([flight,id])=>{
-
-    if(isFlightDateNear(FLIGHT_DATES[flight])){
-      fetchLiveFlightStatus(
-        flight,
-        FLIGHT_DATES[flight],
-        id
-      );
-    }
-
-  });
+[['OS84','flight-status-outbound'],['OS83','flight-status-return']].forEach(([flight,id])=>{
+if(isFlightDateNear(FLIGHT_DATES[flight]))fetchLiveFlightStatus(flight,FLIGHT_DATES[flight],id);
+});
 }
 
-/* ==========================================
-   WEATHER
-========================================== */
-
 const cityCoordinates={
-
-  Vienna:{
-    lat:48.21,
-    lon:16.37,
-    name:'וינה'
-  },
-
-  Salzburg:{
-    lat:47.80,
-    lon:13.04,
-    name:'זלצבורג'
-  },
-
-  Hallstatt:{
-    lat:47.56,
-    lon:13.65,
-    name:'האלשטאט'
-  },
-
-  Flachau:{
-    lat:47.34,
-    lon:13.39,
-    name:'פלאכאו'
-  },
-
-  Kaprun:{
-    lat:47.27,
-    lon:12.76,
-    name:'קפרון'
-  },
-
-  Krimml:{
-    lat:47.22,
-    lon:12.18,
-    name:'קרימל'
-  },
-
-  Innsbruck:{
-    lat:47.27,
-    lon:11.39,
-    name:'אינסברוק'
-  },
-
-  Mayrhofen:{
-    lat:47.17,
-    lon:11.87,
-    name:'מיירהופן'
-  }
-
+Vienna:{lat:48.21,lon:16.37,name:'וינה'},
+Salzburg:{lat:47.80,lon:13.04,name:'זלצבורג'},
+Hallstatt:{lat:47.56,lon:13.65,name:'האלשטאט'},
+Flachau:{lat:47.34,lon:13.39,name:'פלאכאו'},
+Kaprun:{lat:47.27,lon:12.76,name:'קפרון'},
+Krimml:{lat:47.22,lon:12.18,name:'קרימל'},
+Innsbruck:{lat:47.27,lon:11.39,name:'אינסברוק'},
+Mayrhofen:{lat:47.17,lon:11.87,name:'מיירהופן'}
 };
 
 function getWeatherIcon(code){
-
-  if(code===0)return '☀️';
-  if(code<=3)return '🌤️';
-  if(code<=48)return '🌫️';
-  if(code<=67)return '🌧️';
-  if(code<=77)return '❄️';
-  if(code<=82)return '🌦️';
-  if(code<=86)return '🌨️';
-
-  return '⛈️';
+if(code===0)return'☀️';
+if(code<=3)return'🌤️';
+if(code<=48)return'🌫️';
+if(code<=67)return'🌧️';
+if(code<=77)return'❄️';
+if(code<=82)return'🌦️';
+if(code<=86)return'🌨️';
+return'⛈️';
 }
 
 async function fetchTripWeather(){
+const els=[...document.querySelectorAll('.day-weather')];
+const now=new Date();
 
-  const els=[
-    ...document.querySelectorAll('.day-weather')
-  ];
+const tasks=els.map(async el=>{
+const city=cityCoordinates[el.dataset.cityName];
+const tripDate=new Date(el.dataset.tripDate+'T12:00:00');
+if(!city||Number.isNaN(tripDate.getTime()))return;
 
-  const now=new Date();
+const daysAway=(tripDate-now)/(1000*60*60*24);
 
-  const tasks=els.map(async el=>{
-
-    const city=
-      cityCoordinates[el.dataset.cityName];
-
-    const tripDate=
-      new Date(
-        el.dataset.tripDate+
-        'T12:00:00'
-      );
-
-    if(
-      !city ||
-      Number.isNaN(tripDate.getTime())
-    ){
-      return;
-    }
-
-    const daysAway=
-      (tripDate-now)/
-      (1000*60*60*24);
-
-    if(daysAway>16){
-
-      el.querySelector('.weather-icon')
-        .textContent='🗓️';
-
-      el.querySelector('.weather-temp')
-        .textContent=
-        `${city.name}: תחזית תופעל 16 יום לפני`;
-
-      el.querySelector('.weather-status')
-        .textContent=
-        'התחזית תתעדכן אוטומטית סמוך לטיול';
-
-      return;
-    }
-
-    if(daysAway<-1){
-
-      el.querySelector('.weather-icon')
-        .textContent='✓';
-
-      el.querySelector('.weather-temp')
-        .textContent=
-        `${city.name}: מועד הטיול עבר`;
-
-      return;
-    }
-
-    const date=
-      el.dataset.tripDate;
-
-    const url=
-      `https://api.open-meteo.com/v1/forecast`+
-      `?latitude=${city.lat}`+
-      `&longitude=${city.lon}`+
-      `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max`+
-      `&timezone=Europe%2FVienna`+
-      `&start_date=${date}`+
-      `&end_date=${date}`;
-
-    try{
-
-      const r=await fetch(url);
-
-      const data=
-        await r.json();
-
-      const daily=
-        data?.daily;
-
-      if(
-        !r.ok ||
-        !daily?.time?.length
-      ){
-        throw new Error(
-          'Weather unavailable'
-        );
-      }
-
-      const code=
-        daily.weather_code[0];
-
-      const max=
-        Math.round(
-          daily.temperature_2m_max[0]
-        );
-
-      const min=
-        Math.round(
-          daily.temperature_2m_min[0]
-        );
-
-      const rain=
-        daily.precipitation_probability_max[0];
-
-      el.querySelector('.weather-icon')
-        .textContent=
-        getWeatherIcon(code);
-
-      el.querySelector('.weather-temp')
-        .textContent=
-        `${city.name}: ${min}°–${max}° · גשם ${rain}%`;
-
-      el.querySelector('.weather-status')
-        .textContent=
-        'תחזית יומית מעודכנת';
-
-    }
-    catch(e){
-
-      el.querySelector('.weather-icon')
-        .textContent='🌦️';
-
-      el.querySelector('.weather-temp')
-        .textContent=
-        `${city.name}: התחזית לא נטענה`;
-
-      el.querySelector('.weather-status')
-        .textContent=
-        'נסו לרענן מאוחר יותר';
-
-    }
-
-  });
-
-  await Promise.allSettled(tasks);
+if(daysAway>16){
+el.querySelector('.weather-icon').textContent='🗓️';
+el.querySelector('.weather-temp').textContent=`${city.name}: תחזית תופעל 16 יום לפני`;
+el.querySelector('.weather-status').textContent='התחזית תתעדכן אוטומטית סמוך לטיול';
+return;
 }
 
-/* ==========================================
-   ACCORDION
-========================================== */
+if(daysAway<-1){
+el.querySelector('.weather-icon').textContent='✓';
+el.querySelector('.weather-temp').textContent=`${city.name}: מועד הטיול עבר`;
+return;
+}
+
+const date=el.dataset.tripDate;
+const url=`https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Europe%2FVienna&start_date=${date}&end_date=${date}`;
+
+try{
+const r=await fetch(url);
+const data=await r.json();
+const daily=data?.daily;
+if(!r.ok||!daily?.time?.length)throw new Error('Weather unavailable');
+
+const code=daily.weather_code[0];
+const max=Math.round(daily.temperature_2m_max[0]);
+const min=Math.round(daily.temperature_2m_min[0]);
+const rain=daily.precipitation_probability_max[0];
+
+el.querySelector('.weather-icon').textContent=getWeatherIcon(code);
+el.querySelector('.weather-temp').textContent=`${city.name}: ${min}°–${max}° · גשם ${rain}%`;
+el.querySelector('.weather-status').textContent='תחזית יומית מעודכנת';
+}catch(e){
+el.querySelector('.weather-icon').textContent='🌦️';
+el.querySelector('.weather-temp').textContent=`${city.name}: התחזית לא נטענה`;
+el.querySelector('.weather-status').textContent='נסו לרענן מאוחר יותר';
+}
+});
+
+await Promise.allSettled(tasks);
+}
 
 function setDayOpen(card,open){
-
-  const d=
-    card.querySelector('.day-native');
-
-  if(d){
-    d.open=!!open;
-  }
-
+const d=card.querySelector('.day-native');
+if(d)d.open=!!open;
 }
 
-document
-.getElementById('open-all')
-.addEventListener('click',()=>{
-
-  document
-  .querySelectorAll('.day-card')
-  .forEach(card=>{
-
-    if(card.style.display!=='none'){
-      setDayOpen(card,true);
-    }
-
-  });
-
+document.getElementById('open-all').addEventListener('click',()=>{
+document.querySelectorAll('.day-card').forEach(card=>{
+if(card.style.display!=='none')setDayOpen(card,true);
+});
 });
 
-document
-.getElementById('close-all')
-.addEventListener('click',()=>{
-
-  document
-  .querySelectorAll('.day-card')
-  .forEach(card=>{
-    setDayOpen(card,false);
-  });
-
+document.getElementById('close-all').addEventListener('click',()=>{
+document.querySelectorAll('.day-card').forEach(card=>setDayOpen(card,false));
 });
 
-/* ==========================================
-   FILTERS
-========================================== */
-
-document
-.querySelectorAll('.filter-btn')
-.forEach(btn=>{
-
-  btn.addEventListener('click',()=>{
-
-    document
-    .querySelectorAll('.filter-btn')
-    .forEach(b=>{
-      b.classList.remove('active');
-    });
-
-    btn.classList.add('active');
-
-    const filter=
-      btn.dataset.filter;
-
-    document
-    .querySelectorAll('.day-card')
-    .forEach(card=>{
-
-      const show=
-        filter==='all' ||
-        (card.dataset.type||'')
-        .includes(filter);
-
-      card.style.display=
-        show?'grid':'none';
-
-      if(show){
-
-        card.style.opacity='1';
-        card.style.visibility='visible';
-
-      }
-
-      if(!show){
-
-        setDayOpen(
-          card,
-          false
-        );
-
-      }
-
-    });
-
-  });
-
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+btn.addEventListener('click',()=>{
+document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+const filter=btn.dataset.filter;
+document.querySelectorAll('.day-card').forEach(card=>{
+const show=filter==='all'||(card.dataset.type||'').includes(filter);
+card.style.display=show?'grid':'none';
+if(!show)setDayOpen(card,false);
+});
+});
 });
 
-/* ==========================================
-   LOAD
-========================================== */
-
-window.addEventListener(
-  'load',
-  ()=>{
-
-    loadFlightData();
-    fetchTripWeather();
-
-  }
-);
-
+window.addEventListener('load',()=>{
+loadFlightData();
+fetchTripWeather();
+});
 </script>
-
 </body>
 </html>

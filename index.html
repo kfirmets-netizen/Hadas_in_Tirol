@@ -97,21 +97,33 @@ html
       padding:14px 24px;border-radius:999px;font-weight:900;box-shadow:0 10px 24px rgba(0,0,0,.13)
     }
     .hero-btn:hover{transform:translateY(-2px);background:#fff8ef}
-    .trip-logo-strip{
+ .trip-logo-strip{
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:24px 20px 18px;
-  background:transparent;
+  padding:28px 20px 30px;
+  background:
+    linear-gradient(
+      180deg,
+      #102b25 0%,
+      #173b32 18%,
+      #dfeae2 18%,
+      #f5f8f3 100%
+    );
 }
 
 .trip-logo-main{
-  width:190px;
-  max-width:48vw;
+  width:245px;
+  max-width:58vw;
   height:auto;
   display:block;
   border-radius:50%;
-  box-shadow:0 12px 32px rgba(23,59,50,.12);
+  background:#fffdf9;
+  padding:5px;
+  border:1px solid rgba(23,59,50,.18);
+  box-shadow:
+    0 18px 45px rgba(23,59,50,.20),
+    0 3px 10px rgba(0,0,0,.08);
 }
 
     /* NAV */
@@ -128,7 +140,7 @@ html
     .nav-list a:hover{background:var(--sage);color:var(--forest)}
 
     /* QUICK STRIP */
-    .quick-strip{margin-top:-34px;position:relative;z-index:5}
+   .quick-strip{margin-top:22px;position:relative;z-index:5}
     .quick-grid{
       display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
       background:var(--card);border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:var(--shadow)
@@ -325,6 +337,14 @@ html
       .dates{display:flex;justify-content:space-between;align-items:center}
       .section-title{align-items:flex-start;flex-direction:column}
       .nav-list{justify-content:flex-start}
+        .trip-logo-strip{
+  padding:22px 16px 24px;
+}
+
+.trip-logo-main{
+  width:195px;
+  max-width:62vw;
+}
     }
     @media(prefers-reduced-motion:reduce){
       *{scroll-behavior:auto!important;transition:none!important;animation:none!important}

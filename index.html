@@ -131,6 +131,32 @@
       margin:14px 0 12px;
       text-shadow:0 4px 18px rgba(0,0,0,.55);
     }
+    .hero-split-title{
+  display:grid;
+  grid-template-columns:1fr 280px 1fr;
+  align-items:center;
+  gap:36px;
+  margin:8px 0 22px;
+}
+
+.hero-title-right,
+.hero-title-left{
+  color:#fff;
+  font-weight:900;
+  font-size:clamp(2.3rem,4vw,3.4rem);
+  line-height:1.05;
+  text-shadow:0 3px 14px rgba(0,0,0,.32);
+}
+
+.hero-title-right{
+  text-align:left;
+  grid-column:1;
+}
+
+.hero-title-left{
+  text-align:right;
+  grid-column:3;
+}
     .hero .subtitle{
       font-size:clamp(1.12rem,2.4vw,1.45rem);
       color:#fff;
@@ -437,7 +463,10 @@
 <section class="hero">
 <div class="hero-card">
 <img src="hadas24_logo.png" alt="Hadas 24 Austria 2026" class="hero-trip-logo">
-<h1>מחולון לפסגות אוסטריה</h1>
+<div class="hero-split-title">
+  <div class="hero-title-right">מחולון</div>
+  <div class="hero-title-left">לפסגות אוסטריה</div>
+</div>
 <p class="subtitle">11 ימים, 5 משפחות, שני בסיסי כוכב, הרבה הרים — ותוכנית גשם לכל יום.</p>
 <a class="hero-btn" href="#timeline">למסלול המלא ↓</a>
 </div>

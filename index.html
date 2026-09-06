@@ -1153,7 +1153,9 @@ button{font:inherit}
   }
 
 
-  /* HERO MOBILE — חשוב: מבטל את הרוחב הקשיח של 280px באמצע */
+  /* HERO MOBILE */
+
+@media(max-width:680px){
 
   .hero{
     min-height:auto;
@@ -1171,41 +1173,48 @@ button{font:inherit}
   }
 
   .hero-trip-logo{
-    width:220px;
-    height:220px;
-    top:-110px;
+    width:200px;
+    height:200px;
+    top:-100px;
     left:50%;
     right:auto;
     transform:translateX(-50%);
   }
 
   .hero-split-title{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-    gap:18px;
+    display:flex;
+    flex-direction:column;
     align-items:center;
+    justify-content:center;
+    gap:4px;
     width:100%;
-    margin:0 0 20px;
+    margin:0 0 18px;
   }
 
   .hero-title-right,
   .hero-title-left{
     min-width:0;
-    width:100%;
-    font-size:clamp(1.65rem,8vw,2.35rem);
-    line-height:1.02;
+    width:auto;
+    grid-column:auto!important;
+    font-size:clamp(1.9rem,8.5vw,2.6rem);
+    line-height:1.05;
     text-align:center!important;
-    justify-self:center;
+    justify-self:auto!important;
     overflow-wrap:normal;
     word-break:normal;
   }
 
+  .hero-title-right br,
+  .hero-title-left br{
+    display:none;
+  }
+
   .hero-title-right{
-    grid-column:2;
+    margin-top:2px;
   }
 
   .hero-title-left{
-    grid-column:1;
+    margin-top:0;
   }
 
   .hero .subtitle{
@@ -1220,16 +1229,19 @@ button{font:inherit}
     justify-content:center;
   }
 
-  .experience-grid{grid-template-columns:1fr}
+  .experience-grid{
+    grid-template-columns:1fr;
+  }
 
   .weather-row{
     align-items:flex-start;
     flex-direction:column;
-    gap:4px
+    gap:4px;
   }
 }
 
 @media(max-width:390px){
+
   .hero-title-right,
   .hero-title-left{
     font-size:clamp(1.5rem,7.7vw,2rem);
@@ -1246,102 +1258,18 @@ button{font:inherit}
 }
 
 @media(prefers-reduced-motion:reduce){
+
   *{
     scroll-behavior:auto!important;
     transition:none!important;
-    animation:none!important
+    animation:none!important;
   }
 
   .fade-in-section{
     opacity:1;
-    transform:none
-  }
-  @media(max-width:680px){
-
-  .hero-split-title{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:4px;
-    margin:0 0 18px;
-  }
-
-  .hero-title-right,
-  .hero-title-left{
-    width:auto;
-    grid-column:auto !important;
-    text-align:center !important;
-    justify-self:auto !important;
-    font-size:clamp(1.9rem,8.5vw,2.6rem);
-    line-height:1.05;
-  }
-
-  .hero-title-right br,
-  .hero-title-left br{
-    display:none;
-  }
-
-  .hero-title-right{
-    margin-top:2px;
-  }
-
-  .hero-title-left{
-    margin-top:0;
+    transform:none;
   }
 }
-}
-
-
-/* ==================================================
-   NATIVE ACCORDION
-   works without JavaScript, including iOS preview
-   ================================================== */
-
-.day-native{
-  width:100%;
-}
-
-.day-summary-native{
-  display:block;
-  list-style:none;
-  cursor:pointer;
-  outline:none;
-}
-
-.day-summary-native::-webkit-details-marker{display:none}
-.day-summary-native::marker{display:none}
-
-.day-native .day-details{
-  display:block;
-  max-height:none!important;
-  overflow:visible;
-  opacity:1!important;
-  transition:none;
-}
-
-.day-native:not([open]) .day-details{
-  display:none;
-}
-
-.day-native .toggle-icon{
-  pointer-events:none;
-}
-
-.day-native[open] .toggle-icon{
-  transform:rotate(45deg);
-  background:#173b32;
-  color:white;
-}
-
-.day-native[open] .day-header{
-  margin-bottom:2px;
-}
-</style>
-</head>
-
-
-<body>
 
 <!-- ==================================================
      HERO

@@ -432,6 +432,18 @@ button{font:inherit}
   color:var(--muted)
 }
 
+.transport-note{
+  margin-top:13px;
+  padding:13px 14px;
+  border-radius:14px;
+  background:rgba(234,243,236,.92);
+  border:1px solid rgba(47,106,80,.18);
+  color:var(--ink);
+  font-size:.93rem;
+}
+
+.transport-note strong{color:var(--forest)}
+
 .lodging-timeline{
   display:grid;
   gap:11px
@@ -674,8 +686,6 @@ button{font:inherit}
   transition:.2s
 }
 
-.day-header.active .toggle-icon{transform:rotate(45deg)}
-
 .day-summary{
   margin:13px 0 12px;
   color:#475467
@@ -698,13 +708,8 @@ button{font:inherit}
 }
 
 .day-details{
-  max-height:0;
-  overflow:hidden;
-  opacity:0;
-  transition:max-height .45s ease,opacity .35s ease
+  overflow:visible;
 }
-
-.day-header.active~.day-details{opacity:1}
 
 .details-inner{
   padding-top:13px;
@@ -1081,8 +1086,7 @@ button{font:inherit}
 .day-card{
   opacity:1!important;
   visibility:visible!important;
-  content-visibility:auto;
-  contain-intrinsic-size:760px
+  content-visibility:visible;
 }
 
 
@@ -1153,7 +1157,7 @@ button{font:inherit}
   }
 
 
-  /* HERO MOBILE — חשוב: מבטל את הרוחב הקשיח של 280px באמצע */
+  /* HERO MOBILE */
 
   .hero{
     min-height:auto;
@@ -1171,41 +1175,40 @@ button{font:inherit}
   }
 
   .hero-trip-logo{
-    width:220px;
-    height:220px;
-    top:-110px;
+    width:200px;
+    height:200px;
+    top:-100px;
     left:50%;
     right:auto;
     transform:translateX(-50%);
   }
 
   .hero-split-title{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-    gap:18px;
+    display:flex;
+    flex-direction:column;
     align-items:center;
+    justify-content:center;
+    gap:4px;
     width:100%;
-    margin:0 0 20px;
+    margin:0 0 18px;
   }
 
   .hero-title-right,
   .hero-title-left{
     min-width:0;
-    width:100%;
-    font-size:clamp(1.65rem,8vw,2.35rem);
-    line-height:1.02;
+    width:auto;
+    grid-column:auto!important;
+    font-size:clamp(1.9rem,8.5vw,2.6rem);
+    line-height:1.05;
     text-align:center!important;
-    justify-self:center;
+    justify-self:auto!important;
     overflow-wrap:normal;
     word-break:normal;
   }
 
-  .hero-title-right{
-    grid-column:2;
-  }
-
-  .hero-title-left{
-    grid-column:1;
+  .hero-title-right br,
+  .hero-title-left br{
+    display:none;
   }
 
   .hero .subtitle{
@@ -1302,71 +1305,6 @@ button{font:inherit}
 
 .day-native[open] .day-header{
   margin-bottom:2px;
-}
-</style>
-<style>
-@media(max-width:680px){
-
-  .hero{
-    min-height:auto !important;
-    display:block !important;
-    padding:128px 14px 42px !important;
-    overflow:hidden !important;
-  }
-
-  .hero-card{
-    width:100% !important;
-    max-width:100% !important;
-    margin:0 auto !important;
-    padding:118px 18px 30px !important;
-    border-radius:26px !important;
-  }
-
-  .hero-trip-logo{
-    width:200px !important;
-    height:200px !important;
-    top:-100px !important;
-    left:50% !important;
-    right:auto !important;
-    transform:translateX(-50%) !important;
-  }
-
-  .hero-split-title{
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:center !important;
-    justify-content:center !important;
-    gap:4px !important;
-    width:100% !important;
-    margin:0 0 18px !important;
-  }
-
-  .hero-title-right,
-  .hero-title-left{
-    width:auto !important;
-    grid-column:auto !important;
-    text-align:center !important;
-    justify-self:auto !important;
-    font-size:clamp(1.9rem,8.5vw,2.6rem) !important;
-    line-height:1.05 !important;
-  }
-
-  .hero-title-right br,
-  .hero-title-left br{
-    display:none !important;
-  }
-
-  .hero .subtitle{
-    font-size:1.02rem !important;
-    line-height:1.5 !important;
-    margin:4px auto 24px !important;
-    max-width:100% !important;
-  }
-
-  .hero-btn{
-    max-width:280px !important;
-    justify-content:center !important;
-  }
 }
 </style>
 </head>
@@ -1542,6 +1480,12 @@ button{font:inherit}
 מספר טיסת הבוקר עודכן ל־OS84. לוחות טיסות עשויים להשתנות, ולכן מומלץ לאמת שוב סמוך לנסיעה.
 </p>
 
+<div class="transport-note">
+<strong>🚌 הסעות לנתב״ג ומנתב״ג</strong><br>
+22.09 · 02:30 — איסוף מהדס 24, חולון, לנתב״ג.<br>
+03.10 · איסוף מנתב״ג כחצי שעה לאחר הנחיתה בפועל של OS83; לפי הנחיתה המתוכננת ב־00:45, האיסוף המשוער הוא סביב 01:15.
+</div>
+
 </div>
 
 
@@ -1687,44 +1631,49 @@ button{font:inherit}
      ================================================== -->
 
 <section class="section experience-section" id="experiences">
-
 <div class="container">
-
 <div class="section-head">
 <span class="eyebrow">האקשן של הטיול</span>
 <h2>🎡 אגף האטרקציות השוות</h2>
-<p>
-כל מה שהוא מתקן, פארק או חוויה בנויה — לא מסלולי טבע.
-ליד כל אטרקציה מופיע היום שבו היא מתוכננת.
-</p>
+<p>כל מה שהוא מתקן, פארק או חוויה בנויה — לא מסלולי טבע. ליד כל אטרקציה מופיע היום שבו היא מתוכננת.</p>
 </div>
-
 
 <div class="experience-grid">
 
-<a class="experience-card" href="#day2">
-<div class="experience-icon">⚡</div>
-<h3>Zipline Stoderzinken</h3>
-<p>2.5 ק״מ של אומגה בשני מקטעים ועד 115 קמ״ש.</p>
-<span class="experience-day">יום 2 · חובה לתאם קבוצה</span>
+<a class="experience-card" href="#day1">
+<div class="experience-icon">⛰️</div>
+<h3>הר ההרפתקאות ליד Wagrain</h3>
+<p>פעילות פתיחה קרובה ל־Hofgut, בהתאם לשעת ההגעה ולכוחות אחרי הטיסה.</p>
+<span class="experience-day">יום 1 · אחרי הנחיתה</span>
 </a>
 
-
 <a class="experience-card" href="#day2">
-<div class="experience-icon">🧂</div>
-<h3>Salzwelten Hallstatt</h3>
-<p>מכרה מלח, מגלשות כורים, אגם תת־קרקעי ורכבת מכרה.</p>
+<div class="experience-icon">❄️</div>
+<h3>Kitzsteinhorn</h3>
+<p>TOP OF SALZBURG בגובה 3,029 מ׳, תצפיות ו־National Park Gallery.</p>
 <span class="experience-day">יום 2</span>
 </a>
 
-
 <a class="experience-card" href="#day4">
-<div class="experience-icon">🎢</div>
-<h3>Lucky Flitzer</h3>
-<p>Alpine Coaster בפלאכאו, 1.1 ק״מ — בונוס אם נשאר זמן וכוח.</p>
-<span class="experience-day">יום 4 · אופציונלי</span>
+<div class="experience-icon">🧂</div>
+<h3>Salzwelten Hallstatt</h3>
+<p>מכרה מלח, מגלשות כורים, אגם תת־קרקעי ורכבת מכרה.</p>
+<span class="experience-day">יום 4</span>
 </a>
 
+<a class="experience-card" href="#day4">
+<div class="experience-icon">⚡</div>
+<h3>Zipline Stoderzinken</h3>
+<p>אחת משתי אפשרויות הפיצול אחרי Hallstatt — למי שרוצה ויכול להשתתף.</p>
+<span class="experience-day">יום 4 · אפשרות א׳</span>
+</a>
+
+<a class="experience-card" href="#day4">
+<div class="experience-icon">💧</div>
+<h3>Liechtensteinklamm</h3>
+<p>נקיק דרמטי עם שבילים, מנהרות ומפלים — חלופה שוות־מעמד ל־Zipline.</p>
+<span class="experience-day">יום 4 · אפשרות ב׳</span>
+</a>
 
 <a class="experience-card" href="#day5">
 <div class="experience-icon">🎢</div>
@@ -1733,7 +1682,6 @@ button{font:inherit}
 <span class="experience-day">יום 5</span>
 </a>
 
-
 <a class="experience-card" href="#day5">
 <div class="experience-icon">💦</div>
 <h3>Hellbrunn Trick Fountains</h3>
@@ -1741,30 +1689,47 @@ button{font:inherit}
 <span class="experience-day">יום 5 · לפי מזג אוויר</span>
 </a>
 
-
 <a class="experience-card" href="#day8">
-<div class="experience-icon">🧙</div>
-<h3>Hexenwasser</h3>
-<p>עשרות תחנות משחק, מים, טבע וחקר למשפחות.</p>
-<span class="experience-day">יום 8 · חלופה</span>
+<div class="experience-icon">🎢</div>
+<h3>Alpine Coaster Imst</h3>
+<p>מסלול הפיצול למי שלא יוצא ל־Olpererhütte, לפני Stuibenfall.</p>
+<span class="experience-day">יום 8 · קבוצה ב׳</span>
 </a>
-
 
 <a class="experience-card" href="#day8">
 <div class="experience-icon">♨️</div>
 <h3>Aqua Dome</h3>
-<p>12 בריכות תרמיות פנימיות וחיצוניות ומתחם משפחות.</p>
+<p>היעד המשותף של שתי הקבוצות בסוף יום הפיצול.</p>
 <span class="experience-day">יום 8 · כולם בערב</span>
 </a>
-
 
 <a class="experience-card" href="#day9">
 <div class="experience-icon">🧱</div>
 <h3>LEGOLAND Deutschland</h3>
-<p>יום פארק מלא עם מתקנים, רכבות הרים ועולמות LEGO.</p>
-<span class="experience-day">יום 9</span>
+<p>המסלול הראשי של יום 9 — יום פארק מלא ב־Günzburg.</p>
+<span class="experience-day">יום 9 · המסלול הראשי</span>
 </a>
 
+<a class="experience-card" href="#day9">
+<div class="experience-icon">🚡</div>
+<h3>Erlebnisberg Spieljoch</h3>
+<p>רכבל מ־Fügen, משחקי מים, Tubing, Flying Fox ופעילויות משפחתיות.</p>
+<span class="experience-day">יום 9 · למי שלא נוסע ללגולנד</span>
+</a>
+
+<a class="experience-card" href="#day9">
+<div class="experience-icon">🏊</div>
+<h3>Atoll Achensee</h3>
+<p>בריכות פנורמיות, מגלשה, אזור משפחות וגישה לאגם.</p>
+<span class="experience-day">יום 9 · חלופה מקומית</span>
+</a>
+
+<a class="experience-card" href="#day8">
+<div class="experience-icon">🌧️</div>
+<h3>Erlebnistherme Zillertal</h3>
+<p>בריכות ומגלשות ממש ב־Fügen — גיבוי מצוין לגשם או ליום רגוע.</p>
+<span class="experience-day">אופציה בטירול</span>
+</a>
 
 <a class="experience-card" href="#day10">
 <div class="experience-icon">🧊</div>
@@ -1825,504 +1790,103 @@ button{font:inherit}
      DAY 1
      ================================================== -->
 
-<article
-  class="day-card fade-in-section"
-  data-type="travel kids nature"
-  id="day1">
-
+<article class="day-card fade-in-section" data-type="travel kids nature" id="day1">
 <div class="day-image" id="img-day1">
-
-<img
-  class="day-photo"
-  src="day1.png"
-  alt="תמונת יום 1"
-  loading="lazy"
-  decoding="async">
-
-<span class="day-tag">נחיתה + Gosausee</span>
+<img class="day-photo" src="day1.png" alt="תמונת יום 1" loading="lazy" decoding="async">
+<span class="day-tag">נחיתה + הר ההרפתקאות</span>
 <span class="day-number">01</span>
-
 </div>
-
 
 <div class="day-content">
-
 <details class="day-native">
-
 <summary class="day-summary-native">
-
 <div class="day-header">
-
 <div class="day-title-wrap">
 <div class="day-date">22.09 · יום שלישי</div>
-<h3>נחיתה בווינה → Gosausee → Wagrain</h3>
+<h3>נחיתה בווינה → הר ההרפתקאות ליד Wagrain → Hofgut</h3>
 </div>
-
 <span class="toggle-icon">+</span>
-
 </div>
-
-
-<p class="day-summary">
-פתיחה נופית ורגועה: אגם Gosausee, ארוחה באזור ונסיעה ל־Hofgut.
-</p>
-
-
+<p class="day-summary">יום פתיחה פשוט: ארוחת צהריים בדרך, פעילות קרובה למלון ומשם ישירות לצ׳ק־אין. Gosausee יורד מהתוכנית.</p>
 <div class="day-metadata">
-
 <span class="meta-chip">✈️ נחיתה</span>
-<span class="meta-chip">🏞️ אגם</span>
+<span class="meta-chip">⛰️ הרפתקאות</span>
 <span class="meta-chip">🚗 יום מעבר</span>
-
 </div>
-
 </summary>
 
-
-<div class="day-details">
-
-<div class="details-inner">
-
-
-<div
-  class="weather-row day-weather"
-  data-city-name="Gosau"
-  data-trip-date="2026-09-22">
-
-<div class="weather-main">
-<span class="weather-icon">🗓️</span>
-<span class="weather-temp">Gosausee: ממתין לתחזית</span>
+<div class="day-details"><div class="details-inner">
+<div class="weather-row day-weather" data-city-name="Flachau" data-trip-date="2026-09-22">
+<div class="weather-main"><span class="weather-icon">🗓️</span><span class="weather-temp">Wagrain / Flachau: ממתין לתחזית</span></div>
+<span class="weather-status">התחזית תתעדכן אוטומטית סמוך לטיול</span>
 </div>
-
-<span class="weather-status">
-התחזית תתעדכן אוטומטית סמוך לטיול
-</span>
-
-</div>
-
 
 <div class="plan-box plan-main">
-
 <h4>🧭 המסלול המוצע</h4>
-
 <ul>
-
-<li>
-08:45 נחיתה בווינה ואיסוף רכבים.
-</li>
-
-<li>
-נסיעה ל־
-<a
-  class="maps-link"
-  href="https://www.google.com/maps/place/Gosausee+Parking+lot/@47.5337615,13.4933357,17z/data=!3m1!4b1!4m6!3m5!1s0x4776cb185765239f:0xbe7ec9e2c60c4488!8m2!3d47.5337579!4d13.4959106!16s%2Fg%2F11ghrs9ybr?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D"
-  target="_blank"
-  rel="noopener">
-Vorderer Gosausee
-</a>.
-</li>
-
-<li>
-הליכה קלה לאורך האגם לפי האנרגיה ומזג האוויר.
-</li>
-
-<li>
-ארוחה באזור והמשך ל־Hofgut Wagrain לצ׳ק־אין.
-</li>
-
+<li>08:45 נחיתה בווינה ואיסוף רכבים.</li>
+<li>נסיעה מערבה לכיוון Wagrain, עם <strong>ארוחת צהריים בדרך</strong>.</li>
+<li>ממשיכים ישירות ל־<a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Erlebnisberg%20Wagrain%20Grafenberg" target="_blank" rel="noopener">הר ההרפתקאות באזור Wagrain / Grafenberg</a> — הפעילות של יום ההגעה, בהתאם לשעת ההגעה ולכוחות.</li>
+<li>משם ממשיכים ישירות ל־Hofgut Wagrain לצ׳ק־אין ומנוחה.</li>
 </ul>
-
 </div>
-
 
 <div class="route-box">
-
 <h4>🚗 נסיעות היום</h4>
-
-<div class="route-line">
-<span>→</span>
-<span>VIE → Gosausee: כ־290 ק״מ · 3:15 ש׳</span>
+<div class="route-line"><span>→</span><span>VIE → אזור Wagrain: כ־300 ק״מ · כ־3:15–3:30 ש׳, לפני עצירת צהריים.</span></div>
+<div class="route-line"><span>→</span><span>הפעילות → Hofgut: נסיעה מקומית קצרה.</span></div>
+<div class="route-total">זהו יום מעבר; לא מוסיפים יעד רחוק נוסף.</div>
 </div>
 
-<div class="route-line">
-<span>→</span>
-<span>Gosausee → Hofgut Wagrain: כ־70 ק״מ · 1:10 ש׳</span>
-</div>
-
-<div class="route-total">
-סה״כ נהיגה משוער: כ־360 ק״מ · 4:25 ש׳
-</div>
-
-</div>
-
-
-<div class="restaurant-box">
-
-🍽️ <strong>המסעדה המומלצת:</strong>
-
-<a
-  class="maps-link"
-  href="https://maps.app.goo.gl/BGVhNcLZkYJrsy13A"
-  target="_blank"
-  rel="noopener">
-Gasthaus Echo
-</a>
-
-· Google 4.7/5 · כ־3 ק״מ מהאגם;
-נבחר במקום Gasthof Gosausee שאינו עומד ברף 4.2
-
-</div>
-
+<div class="restaurant-box">🍽️ <strong>ארוחת צהריים:</strong> עוצרים בדרך מווינה לאזור Wagrain, לפי קצב הנסיעה ושעת היציאה מהשדה. לקבוצה של 26 איש עדיף לבחור מקום ולהזמין מראש.</div>
 
 <div class="options-box">
-
-<h4>✨ אופציות / בונוסים</h4>
-
-<p>
-
-<a
-  class="maps-link"
-  href="https://www.google.com/maps/place/?q=place_id:ChIJCRcioBEkcUcRGvIfAhTsJuM"
-  target="_blank"
-  rel="noopener">
-<strong>Waldhäuslalm + Untertal</strong>
-</a>
-
-— מסעדת הרים משפחתית בעמק, עם מגרש משחקים ואפשרות להליכה קצרה
-לאורך המים; גיבוי יעיל יותר אם לא רוצים את הסטייה ל־Gosausee.
-
-</p>
-
+<h4>✨ אם נשאר זמן וכוח</h4>
+<p>אפשר לשקול פעילות קצרה נוספת באזור Flachau/Wagrain, אבל לא בונים עליה מראש. המטרה היא להגיע למלון בלי להפוך את יום הנחיתה למרוץ.</p>
 </div>
 
+<div class="plan-box plan-rain"><h4>🌧️ אילוצים וחלופות</h4><p>אם מזג האוויר אינו מתאים לפעילות ההררית, מדלגים עליה ונוסעים ישירות ל־Hofgut. את חלופת הגשם מחליטים סמוך ליום לפי התנאים בפועל.</p></div>
 
-<div class="plan-box plan-rain">
-
-<h4>🌧️ אילוצים וחלופות</h4>
-
-<p>
-במזג אוויר גרוע במיוחד מקצרים את Gosausee ועוברים ישירות ל־Wagrain.
-</p>
-
-</div>
-
-
-<div class="tip-box">
-
-<strong>חשוב:</strong>
-זה יום מעבר. לא מוסיפים אטרקציית חובה נוספת.
-
-</div>
-
+<div class="tip-box"><strong>חשוב:</strong> Gosausee אינו חלק יותר מיום 1.</div>
 
 <div class="daily-fact">
-
-<img
-  alt="עובדה יומית יום 1"
-  src="fact1.png"
-  loading="lazy"
-  decoding="async"/>
-
-<div>
-
-<div class="daily-fact-title">
-עובדה יומית
+<img alt="עובדה יומית יום 1" src="fact1.png" loading="lazy" decoding="async"/>
+<div><div class="daily-fact-title">עובדה יומית</div><div>Wagrain יושבת בלב אזור Salzburger Sportwelt ומאפשרת להגיע בתוך דקות מפעילות הררית למקום הלינה.</div><a class="fact-link" href="fact1.png" target="_blank">פתיחת התמונה</a></div>
 </div>
-
-<div>
-Gosausee יושב למרגלות רכס Dachstein ומספק אחת מתמונות הראי הקלאסיות של האזור.
-</div>
-
-<a
-  class="fact-link"
-  href="fact1.png"
-  target="_blank">
-פתיחת התמונה
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+</div></div>
 </details>
-
 </div>
-
 </article>
-
 
 <!-- ==================================================
      DAY 2
      ================================================== -->
 
-<article
-  class="day-card fade-in-section"
-  data-type="nature kids walk"
-  id="day2">
-
+<article class="day-card fade-in-section" data-type="nature walk kids" id="day2">
 <div class="day-image" id="img-day2">
-
-<img
-  class="day-photo"
-  src="day2.png"
-  alt="תמונת יום 2"
-  loading="lazy"
-  decoding="async">
-
-<span class="day-tag">Hallstatt + Zipline</span>
-<span class="day-number">02</span>
-
+<img class="day-photo" src="day4.png" alt="Kitzsteinhorn ו-Sigmund-Thun-Klamm" loading="lazy" decoding="async">
+<span class="day-tag">Kaprun</span><span class="day-number">02</span>
 </div>
-
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-
-<div class="day-title-wrap">
-
-<div class="day-date">
-23.09 · יום רביעי
-</div>
-
-<h3>
-Hallstatt, מכרה המלח ואומגת Stoderzinken
-</h3>
-
-</div>
-
-<span class="toggle-icon">+</span>
-
-</div>
-
-
-<p class="day-summary">
-בוקר בהאלשטאט וב־Salzwelten, אחר הצהריים אומגה ב־Gröbming.
-</p>
-
-
-<div class="day-metadata">
-
-<span class="meta-chip">🧂 מכרה מלח</span>
-<span class="meta-chip">⚡ אומגה</span>
-<span class="meta-chip">🏘️ Hallstatt</span>
-
-</div>
-
+<div class="day-content"><details class="day-native"><summary class="day-summary-native">
+<div class="day-header"><div class="day-title-wrap"><div class="day-date">23.09 · יום רביעי</div><h3>Kitzsteinhorn → Sigmund-Thun-Klamm</h3></div><span class="toggle-icon">+</span></div>
+<p class="day-summary">עולים קודם ל־3,029 מ׳, אוכלים על ההר ואז יורדים לנקיק ול־Klammsee.</p>
+<div class="day-metadata"><span class="meta-chip">❄️ 3,029 מ׳</span><span class="meta-chip">💧 נקיק</span><span class="meta-chip">🥾 הליכה קלה</span></div>
 </summary>
-
-
-<div class="day-details">
-
-<div class="details-inner">
-
-
-<div
-  class="weather-row day-weather"
-  data-city-name="Hallstatt"
-  data-trip-date="2026-09-23">
-
-<div class="weather-main">
-<span class="weather-icon">🗓️</span>
-<span class="weather-temp">Hallstatt: ממתין לתחזית</span>
-</div>
-
-<span class="weather-status">
-התחזית תתעדכן אוטומטית סמוך לטיול
-</span>
-
-</div>
-
-
-<div class="plan-box plan-main">
-
-<h4>🧭 המסלול המוצע</h4>
-
-<ul>
-
-<li>
-יציאה מוקדמת מ־Hofgut.
-</li>
-
-<li>
-
-<a
-  class="maps-link"
-  href="https://www.google.com/maps/search/?api=1&query=Salzwelten%20Hallstatt&query_place_id=ChIJP9hpD5I3cUcRac5Ow7lolII"
-  target="_blank"
-  rel="noopener">
-Salzwelten Hallstatt
-</a>
-
-— פוניקולר, Skywalk וסיור במכרה. להקדיש לפחות 3 שעות.
-
-</li>
-
-<li>
-הליכה וארוחה קצרה בהאלשטאט.
-</li>
-
-<li>
-
-נסיעה ל־Gröbming ו־
-
-<a
-  class="maps-link"
-  href="https://www.google.com/maps/place/?q=place_id:ChIJZ1bd2689cUcRSLqwE53wfb8"
-  target="_blank"
-  rel="noopener">
-Zipline Stoderzinken
-</a>
-
-לשעה 16:15 או 17:00.
-
-<strong>מגבלות:</strong>
-גיל 8+, גובה 120 ס״מ+, משקל 30–125 ק״ג;
-מתחת לגיל 14 בליווי מבוגר.
-
-</li>
-
-</ul>
-
-</div>
-
-
-<div class="tip-box">
-
-<strong>💶 מחירים שכבר נבדקו:</strong>
-
-Salzwelten Hallstatt — מבוגר €49, ילד 4–15 €23;
-לקבוצה של 20+ מבוגרים: €47 למבוגר וכל אדם 21 חינם.
-
-Zipline Stoderzinken — €47 מגיל 16, €31 לגיל 8–15.
-
-</div>
-
-
-<div class="route-box">
-
-<h4>🚗 נסיעות היום</h4>
-
-<div class="route-line">
-<span>→</span>
-<span>Hofgut → Hallstatt: כ־65 ק״מ · 1:05 ש׳</span>
-</div>
-
-<div class="route-line">
-<span>→</span>
-<span>Hallstatt → Gröbming: כ־65 ק״מ · 1:10 ש׳</span>
-</div>
-
-<div class="route-line">
-<span>→</span>
-<span>Gröbming → Hofgut: כ־45 ק״מ · 45 דק׳</span>
-</div>
-
-<div class="route-total">
-סה״כ נהיגה משוער: כ־175 ק״מ · 3:00 ש׳
-</div>
-
-</div>
-
-
-<div class="restaurant-box">
-
-🍽️ <strong>המסעדה המומלצת:</strong>
-
-<a
-  class="maps-link"
-  href="https://www.google.com/maps/place/s'Wirtshaus+by+Alpine+Genusswelten,+Gröbming,+Austria"
-  target="_blank"
-  rel="noopener">
-s'Wirtshaus by Alpine Genusswelten
-</a>
-
-· Google 4.7/5 · ב־Gröbming;
-מתאים לפני/אחרי ה־Zipline לפי השעה
-
-</div>
-
-
-<div class="plan-box plan-rain">
-
-<h4>🌧️ אילוצים וחלופות</h4>
-
-<p>
-
-אם האומגה נעצרת בגלל רוח חזקה/סופת רעמים,
-מאריכים את
-
-<a
-  class="maps-link"
-  href="https://maps.app.goo.gl/2ScqPZtE5cMex1gBA"
-  target="_blank"
-  rel="noopener">
-Hallstatt
-</a>
-
-— שיטוט רגוע בעיירה, בכיכר ובטיילת האגם — וחוזרים מוקדם.
-
-</p>
-
-</div>
-
-
-<div class="tip-box">
-
-<strong>חשוב:</strong>
-חובה ליצור קשר מראש עם Zipline ולתאם משבצת לקבוצה.
-במכרה להגיע לתחנת הפוניקולר כ־45 דקות לפני הסיור.
-
-</div>
-
-
-<div class="daily-fact">
-
-<img
-  alt="עובדה יומית יום 2"
-  src="fact2.png"
-  loading="lazy"
-  decoding="async"/>
-
-<div>
-
-<div class="daily-fact-title">
-עובדה יומית
-</div>
-
-<div>
-אזור Hallstatt מזוהה עם כריית מלח עתיקה ועם תרבות Hallstatt מתקופת הברזל.
-</div>
-
-<a
-  class="fact-link"
-  href="fact2.png"
-  target="_blank">
-פתיחת התמונה
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-</div>
-
+<div class="day-details"><div class="details-inner">
+<div class="weather-row day-weather" data-city-name="Kaprun" data-trip-date="2026-09-23"><div class="weather-main"><span class="weather-icon">🗓️</span><span class="weather-temp">Kaprun: ממתין לתחזית</span></div><span class="weather-status">התחזית תתעדכן אוטומטית סמוך לטיול</span></div>
+<div class="plan-box plan-main"><h4>🧭 המסלול המוצע</h4><ul>
+<li>יציאה סביב 08:00.</li>
+<li><a class="maps-link" href="https://www.google.com/maps/place/Kitzsteinhorn+Talstation,+Kitzsteinhornplatz+1a,+Kaprun,+Austria" target="_blank" rel="noopener">Kitzsteinhorn / TOP OF SALZBURG</a> — תצפיות, Cinema 3000 ו־National Park Gallery.</li>
+<li>ארוחת צהריים על ההר.</li>
+<li>אחר הצהריים <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Sigmund-Thun-Klamm&query_place_id=ChIJt4iS9ikbd0cRtdiothtLY4A" target="_blank" rel="noopener">Sigmund-Thun-Klamm</a> + Klammsee, כ־1.5 שעות.</li>
+</ul></div>
+<div class="route-box"><h4>🚗 נסיעות היום</h4><div class="route-line"><span>→</span><span>Hofgut → Kitzsteinhorn: כ־80 ק״מ · 1:20 ש׳</span></div><div class="route-line"><span>→</span><span>Kitzsteinhorn → Sigmund-Thun-Klamm: כ־8 ק״מ · 10 דק׳</span></div><div class="route-line"><span>→</span><span>Kaprun → Hofgut: כ־80 ק״מ · 1:20 ש׳</span></div><div class="route-total">סה״כ נהיגה משוער: כ־168 ק״מ · 2:50 ש׳</div></div>
+<div class="restaurant-box">🍽️ <strong>המסעדה המומלצת:</strong> <a class="maps-link" href="https://maps.app.goo.gl/L33MoAd4jQk3nwjf8" target="_blank" rel="noopener">Gipfel Restaurant Kitzsteinhorn</a> · Google 4.3/5 · בגובה 3,029 מ׳</div>
+<div class="plan-box plan-rain"><h4>🌧️ אילוצים וחלופות</h4><p>Kitzsteinhorn תלוי בראות וברוח; הנקיק בדרך כלל מתאים גם לגשם קל. Maisi Flitzer סגור לתחזוקה בתאריכים שלנו.</p></div>
+<div class="tip-box"><strong>חשוב:</strong> בגובה 3,029 מ׳ צריך שכבות חמות גם אם בעמק נעים. Lucky Flitzer אינו חלק יותר מהיום הזה.</div>
+<div class="daily-fact"><img alt="עובדה יומית יום 2" src="fact4.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>הפרשי הגובה בקפרון מאפשרים לעבור בתוך זמן קצר מעמק ירוק לסביבה אלפינית קרה בהרבה.</div><a class="fact-link" href="fact4.png" target="_blank">פתיחת התמונה</a></div></div>
+</div></div></details></div>
 </article>
-
 
 <!-- ==================================================
      DAY 3
@@ -2602,268 +2166,28 @@ Grossglockner High Alpine Road — €46.50 לרכב
      DAY 4
      ================================================== -->
 
-<article
-  class="day-card fade-in-section"
-  data-type="nature walk kids"
-  id="day4">
-
-<div class="day-image" id="img-day4">
-
-<img
-  class="day-photo"
-  src="day4.png"
-  alt="תמונת יום 4"
-  loading="lazy"
-  decoding="async">
-
-<span class="day-tag">Kaprun</span>
-<span class="day-number">04</span>
-
-</div>
-
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-
-<div class="day-title-wrap">
-
-<div class="day-date">
-25.09 · יום שישי
-</div>
-
-<h3>
-Kitzsteinhorn → Sigmund-Thun-Klamm
-</h3>
-
-</div>
-
-<span class="toggle-icon">+</span>
-
-</div>
-
-
-<p class="day-summary">
-עולים קודם ל־3,029 מ׳, אוכלים על ההר ואז יורדים לנקיק.
-Lucky Flitzer כבונוס בערב.
-</p>
-
-
-<div class="day-metadata">
-
-<span class="meta-chip">❄️ 3,029 מ׳</span>
-<span class="meta-chip">💧 נקיק</span>
-<span class="meta-chip">🎢 בונוס</span>
-
-</div>
-
+<article class="day-card fade-in-section" data-type="nature kids walk" id="day4">
+<div class="day-image" id="img-day4"><img class="day-photo" src="day2.png" alt="Hallstatt, Salzwelten, Zipline או Liechtensteinklamm" loading="lazy" decoding="async"><span class="day-tag">Hallstatt + פיצול</span><span class="day-number">04</span></div>
+<div class="day-content"><details class="day-native"><summary class="day-summary-native">
+<div class="day-header"><div class="day-title-wrap"><div class="day-date">25.09 · יום שישי</div><h3>Hallstatt + Salzwelten → Zipline או Liechtensteinklamm</h3></div><span class="toggle-icon">+</span></div>
+<p class="day-summary">בוקר משותף בהאלשטאט ובמכרה המלח; אחר הצהריים מתפצלים לפי רצון והתאמה — Zipline או נקיק Liechtensteinklamm.</p>
+<div class="day-metadata"><span class="meta-chip">🧂 מכרה מלח</span><span class="meta-chip">⚡ Zipline</span><span class="meta-chip">💧 נקיק</span></div>
 </summary>
-
-
-<div class="day-details">
-
-<div class="details-inner">
-
-
-<div
-  class="weather-row day-weather"
-  data-city-name="Kaprun"
-  data-trip-date="2026-09-25">
-
-<div class="weather-main">
-<span class="weather-icon">🗓️</span>
-<span class="weather-temp">Kaprun: ממתין לתחזית</span>
+<div class="day-details"><div class="details-inner">
+<div class="weather-row day-weather" data-city-name="Hallstatt" data-trip-date="2026-09-25"><div class="weather-main"><span class="weather-icon">🗓️</span><span class="weather-temp">Hallstatt: ממתין לתחזית</span></div><span class="weather-status">התחזית תתעדכן אוטומטית סמוך לטיול</span></div>
+<div class="plan-box plan-main"><h4>🧭 החלק המשותף</h4><ul><li>יציאה מוקדמת מ־Hofgut.</li><li><a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Salzwelten%20Hallstatt&query_place_id=ChIJP9hpD5I3cUcRac5Ow7lolII" target="_blank" rel="noopener">Salzwelten Hallstatt</a> — פוניקולר, Skywalk וסיור במכרה. להקדיש לפחות 3 שעות.</li><li>הליכה וארוחה קצרה בהאלשטאט.</li><li><strong>אחר הצהריים מתפצלים לשתי אפשרויות שוות — זו בחירה, לא חלופת מזג אוויר.</strong></li></ul></div>
+<div class="plan-grid">
+<div class="plan-box"><h4>⚡ אפשרות א׳ — Zipline</h4><ul><li>נסיעה ל־Gröbming ו־<a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJZ1bd2689cUcRSLqwE53wfb8" target="_blank" rel="noopener">Zipline Stoderzinken</a>.</li><li>מכוונים למשבצת 16:15 או 17:00.</li><li><strong>מגבלות:</strong> גיל 8+, גובה 120 ס״מ+, משקל 30–125 ק״ג; מתחת לגיל 14 בליווי מבוגר.</li></ul></div>
+<div class="plan-box"><h4>💧 אפשרות ב׳ — Liechtensteinklamm</h4><ul><li>נסיעה של בערך 1:20 מאזור Hallstatt אל <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Liechtensteinklamm%20St.%20Johann%20im%20Pongau" target="_blank" rel="noopener">Liechtensteinklamm</a>.</li><li>נקיק דרמטי עם שבילים, מנהרות, מדרגות ומפלים.</li><li>מומלץ להגיע עד סביב 15:00 כדי להשאיר זמן נוח לביקור ולחזרה.</li></ul></div>
 </div>
-
-<span class="weather-status">
-התחזית תתעדכן אוטומטית סמוך לטיול
-</span>
-
-</div>
-
-
-<div class="plan-box plan-main">
-
-<h4>🧭 המסלול המוצע</h4>
-
-<ul>
-
-<li>
-יציאה סביב 08:00.
-</li>
-
-<li>
-
-<a
-  class="maps-link"
-  href="https://www.google.com/maps/place/Kitzsteinhorn+Talstation,+Kitzsteinhornplatz+1a,+Kaprun,+Austria"
-  target="_blank"
-  rel="noopener">
-Kitzsteinhorn / TOP OF SALZBURG
-</a>
-
-— תצפיות, Cinema 3000 ו־National Park Gallery.
-
-</li>
-
-<li>
-ארוחת צהריים על ההר.
-</li>
-
-<li>
-
-אחר הצהריים
-
-<a
-  class="maps-link"
-  href="https://maps.app.goo.gl/r3YzXcvrBeCQRapSA"
-  target="_blank"
-  rel="noopener">
-Sigmund-Thun-Klamm
-</a>
-
-+ Klammsee, כ־1.5 שעות.
-
-</li>
-
-</ul>
-
-</div>
-
-
-<div class="route-box">
-
-<h4>🚗 נסיעות היום</h4>
-
-<div class="route-line">
-<span>→</span>
-<span>Hofgut → Kitzsteinhorn: כ־80 ק״מ · 1:20 ש׳</span>
-</div>
-
-<div class="route-line">
-<span>→</span>
-<span>Kitzsteinhorn → Sigmund-Thun-Klamm: כ־8 ק״מ · 10 דק׳</span>
-</div>
-
-<div class="route-line">
-<span>→</span>
-<span>Kaprun → Hofgut: כ־80 ק״מ · 1:20 ש׳</span>
-</div>
-
-<div class="route-total">
-סה״כ נהיגה משוער: כ־168 ק״מ · 2:50 ש׳
-(ללא Lucky Flitzer)
-</div>
-
-</div>
-
-
-<div class="restaurant-box">
-
-🍽️ <strong>המסעדה המומלצת:</strong>
-
-<a
-  class="maps-link"
-  href="https://maps.app.goo.gl/L33MoAd4jQk3nwjf8"
-  target="_blank"
-  rel="noopener">
-Gipfel Restaurant Kitzsteinhorn
-</a>
-
-· Google 4.3/5 · בגובה 3,029 מ׳
-
-</div>
-
-
-<div class="options-box">
-
-<h4>✨ אופציות / בונוסים</h4>
-
-<p>
-
-🎢
-
-<a
-  class="maps-link"
-  href="https://www.google.com/maps/place/?q=place_id:ChIJTQLmV43UdkcRgZEuYVYDa6M"
-  target="_blank"
-  rel="noopener">
-Lucky Flitzer
-</a>
-
-בפלאכאו — רק אם חוזרים בזמן ויש כוח.
-מוסיף בערך 15–25 דק׳ נהיגה נטו למסלול החזרה.
-
-</p>
-
-</div>
-
-
-<div class="plan-box plan-rain">
-
-<h4>🌧️ אילוצים וחלופות</h4>
-
-<p>
-Kitzsteinhorn תלוי בראות וברוח;
-הנקיק בדרך כלל מתאים גם לגשם קל.
-Maisi Flitzer סגור לתחזוקה בתאריכים שלנו.
-</p>
-
-</div>
-
-
-<div class="tip-box">
-
-<strong>חשוב:</strong>
-בגובה 3,029 מ׳ צריך שכבות חמות גם אם בעמק נעים.
-
-</div>
-
-
-<div class="daily-fact">
-
-<img
-  alt="עובדה יומית יום 4"
-  src="fact4.png"
-  loading="lazy"
-  decoding="async"/>
-
-<div>
-
-<div class="daily-fact-title">
-עובדה יומית
-</div>
-
-<div>
-הפרשי הגובה בקפרון מאפשרים לעבור בתוך זמן קצר מעמק ירוק
-לסביבה אלפינית קרה בהרבה.
-</div>
-
-<a
-  class="fact-link"
-  href="fact4.png"
-  target="_blank">
-פתיחת התמונה
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-</div>
-
+<div class="tip-box"><strong>💶 מחירים שכבר נבדקו:</strong> Salzwelten Hallstatt — מבוגר €49, ילד 4–15 €23; לקבוצה של 20+ מבוגרים: €47 למבוגר וכל אדם 21 חינם. Zipline Stoderzinken — €47 מגיל 16, €31 לגיל 8–15.</div>
+<div class="route-box"><h4>🚗 נסיעות היום</h4><div class="route-line"><span>→</span><span>Hofgut → Hallstatt: כ־65 ק״מ · 1:05 ש׳</span></div><div class="route-line"><span>→</span><span>מסלול Zipline: Hallstatt → Gröbming כ־65 ק״מ · 1:10 ש׳; Gröbming → Hofgut כ־45 ק״מ · 45 דק׳.</span></div><div class="route-line"><span>→</span><span>מסלול Liechtensteinklamm: Hallstatt → הנקיק כ־1:20 ש׳; משם חזרה לאזור Wagrain.</span></div></div>
+<div class="restaurant-box">🍽️ <strong>לקבוצת ה־Zipline:</strong> <a class="maps-link" href="https://www.google.com/maps/place/s'Wirtshaus+by+Alpine+Genusswelten,+Gröbming,+Austria" target="_blank" rel="noopener">s'Wirtshaus by Alpine Genusswelten</a> · Google 4.7/5 · ב־Gröbming; מתאים לפני/אחרי ה־Zipline לפי השעה.</div>
+<div class="plan-box plan-rain"><h4>🌧️ מזג אוויר</h4><p>הבחירה בין Zipline ל־Liechtensteinklamm אינה קשורה לגשם. אם מזג האוויר גרוע ברמה שלא מתאימה לשתי הפעילויות, בוחרים תוכנית גשם אחרת סמוך ליום.</p></div>
+<div class="tip-box"><strong>חשוב:</strong> חובה לתאם מראש את ה־Zipline לקבוצה. במכרה להגיע לתחנת הפוניקולר כ־45 דקות לפני הסיור. “הר הרוחות” אינו נכנס ליום הזה בגלל מגבלת הזמן והרכבל האחרון.</div>
+<div class="daily-fact"><img alt="עובדה יומית יום 4" src="fact2.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>אזור Hallstatt מזוהה עם כריית מלח עתיקה ועם תרבות Hallstatt מתקופת הברזל.</div><a class="fact-link" href="fact2.png" target="_blank">פתיחת התמונה</a></div></div>
+</div></div></details></div>
 </article>
-
 
 <!-- ==================================================
      DAY 5
@@ -3769,586 +3093,70 @@ Nordkette היא אופציה לפי ראות,
      DAY 8
      ================================================== -->
 
-<article
-  class="day-card fade-in-section"
-  data-type="kids nature walk travel"
-  id="day8">
-
-<div class="day-image" id="img-day8">
-
-<img
-  class="day-photo"
-  src="day8.png"
-  alt="תמונת יום 8"
-  loading="lazy"
-  decoding="async">
-
-<span class="day-tag">יום פיצול + Aqua Dome</span>
-<span class="day-number">08</span>
-
-</div>
-
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-
-<div class="day-title-wrap">
-
-<div class="day-date">
-29.09 · יום שלישי
-</div>
-
-<h3>
-מתפצלים בטירול → נפגשים ב־Aqua Dome
-</h3>
-
-</div>
-
-<span class="toggle-icon">+</span>
-
-</div>
-
-
-<p class="day-summary">
-Olpererhütte מוביל למצוינים ולמצטרפים;
-האחרים בוחרים חלופה.
-בערב כולם נפגשים ב־Aqua Dome.
-</p>
-
-
-<div class="day-metadata">
-
-<span class="meta-chip">🥾 פיצול</span>
-<span class="meta-chip">♨️ Aqua Dome</span>
-<span class="meta-chip">🌧️ גיבוי תרמה</span>
-
-</div>
-
+<article class="day-card fade-in-section" data-type="kids nature walk travel" id="day8">
+<div class="day-image" id="img-day8"><img class="day-photo" src="day8.png" alt="יום פיצול בטירול ו-Aqua Dome" loading="lazy" decoding="async"><span class="day-tag">יום פיצול + Aqua Dome</span><span class="day-number">08</span></div>
+<div class="day-content"><details class="day-native"><summary class="day-summary-native">
+<div class="day-header"><div class="day-title-wrap"><div class="day-date">29.09 · יום שלישי</div><h3>מתפצלים בטירול → נפגשים ב־Aqua Dome</h3></div><span class="toggle-icon">+</span></div>
+<p class="day-summary">מצוינים והמצטרפים יוצאים ל־Olpererhütte; השאר עושים Imst Alpine Coaster + Stuibenfall. אם הזמנים מסתדרים נפגשים כבר במפל, ובכל מקרה כולם ב־Aqua Dome בערב.</p>
+<div class="day-metadata"><span class="meta-chip">🥾 Olpererhütte</span><span class="meta-chip">🎢 Imst</span><span class="meta-chip">♨️ Aqua Dome</span></div>
 </summary>
-
-
-<div class="day-details">
-
-<div class="details-inner">
-
-
-<div
-  class="weather-row day-weather"
-  data-city-name="Mayrhofen"
-  data-trip-date="2026-09-29">
-
-<div class="weather-main">
-<span class="weather-icon">🗓️</span>
-<span class="weather-temp">Zillertal: ממתין לתחזית</span>
+<div class="day-details"><div class="details-inner">
+<div class="weather-row day-weather" data-city-name="Mayrhofen" data-trip-date="2026-09-29"><div class="weather-main"><span class="weather-icon">🗓️</span><span class="weather-temp">Zillertal: ממתין לתחזית</span></div><span class="weather-status">התחזית תתעדכן אוטומטית סמוך לטיול</span></div>
+<div class="plan-grid">
+<div class="plan-box plan-main"><h4>🥾 קבוצה א׳ — Olpererhütte</h4><ul><li>משפחת מצוינים + מצטרפים יוצאים מוקדם מ־Fügen.</li><li><a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Schlegeisspeicher&query_place_id=ChIJLXcnhMfjd0cRHmFDUs2rIVM" target="_blank" rel="noopener">Schlegeisspeicher</a> → עלייה של כ־600 מ׳ → <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Olpererh%C3%BCtte&query_place_id=ChIJ4ZgrRnzdd0cRSHQr2sFbU90" target="_blank" rel="noopener">Olpererhütte</a> והגשר → ירידה.</li><li>אם מסיימים מוקדם מספיק, ממשיכים ל־Stuibenfall ומצטרפים לקבוצה השנייה כבר שם.</li><li>אם לא — נוסעים ישירות ל־Aqua Dome.</li></ul></div>
+<div class="plan-box plan-main"><h4>🎢 קבוצה ב׳ — Imst + Stuibenfall</h4><ul><li>יציאה מ־Fügen סביב 08:00.</li><li>כ־1:20 ש׳ ל־<a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Alpine%20Coaster%20Imst" target="_blank" rel="noopener">Alpine Coaster Imst</a>; עולים ברכבל וגולשים במזחלת.</li><li>כ־30 דקות ל־<a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Stuibenfall%20Niederthai" target="_blank" rel="noopener">Stuibenfall</a>.</li><li>עולים ברכב לאזור Niederthai / Gasthof Stuibenfall, הולכים לגשר התלוי ולמרפסות העליונות, יורדים לפי הכוח וחוזרים לרכב. כשתי מרפסות + חזרה: בערך 1.5 שעות.</li><li>משם ממשיכים ל־Aqua Dome.</li></ul></div>
 </div>
-
-<span class="weather-status">
-התחזית תתעדכן אוטומטית סמוך לטיול
-</span>
-
-</div>
-
-
-<div class="plan-box plan-main">
-
-<h4>🧭 המסלול המוצע</h4>
-
-<ul>
-
-<li>
-
-<strong>המסלול המוביל:</strong>
-משפחת מצוינים + מצטרפים →
-
-<a
-  class="maps-link"
-  href="https://maps.app.goo.gl/1EkfcYz2LFtqAyF28"
-  target="_blank"
-  rel="noopener">
-Schlegeisspeicher / תחילת Olpererhütte
-</a>
-
-→ עלייה של כ־600 מ׳
-→ Olpererhütte והגשר
-→ ירידה.
-
-</li>
-
-
-<li>
-
-<strong>לקראת ערב:</strong>
-
-כל הקבוצות נפגשות ב־
-
-<a
-  class="maps-link"
-  href="https://maps.app.goo.gl/S3B82EXvkQVoJNHH6"
-  target="_blank"
-  rel="noopener">
-Aqua Dome
-</a>
-
-בלנגנפלד לכ־4 שעות.
-
-</li>
-
-</ul>
-
-</div>
-
-
-<div class="route-box">
-
-<h4>🚗 נסיעות היום</h4>
-
-<div class="route-line">
-<span>→</span>
-<span>Fügen → Schlegeisspeicher: כ־60 ק״מ · 1:15 ש׳</span>
-</div>
-
-<div class="route-line">
-<span>→</span>
-<span>Schlegeisspeicher → Aqua Dome: כ־145 ק״מ · 2:20 ש׳</span>
-</div>
-
-<div class="route-line">
-<span>→</span>
-<span>Aqua Dome → Fügen: כ־105 ק״מ · 1:30 ש׳</span>
-</div>
-
-<div class="route-total">
-סה״כ נהיגה משוער:
-מסלול Olpererhütte:
-כ־310 ק״מ · 5:05 ש׳
-(יום נהיגה ארוך)
-</div>
-
-</div>
-
-
-<div class="restaurant-box">
-
-🍽️ <strong>המסעדה המומלצת:</strong>
-
-<a
-  class="maps-link"
-  href="https://maps.app.goo.gl/kcvgsEvwrfvvLzir5"
-  target="_blank"
-  rel="noopener">
-Restaurant Pizzeria Infang
-</a>
-
-· Google 4.7/5 · בלנגנפלד,
-סמוך יחסית ל־Aqua Dome
-
-</div>
-
-
-<div class="options-box">
-
-<h4>✨ אופציות / בונוסים</h4>
-
-<ul>
-
-<li>
-
-🧙
-
-<a
-  class="maps-link"
-  href="https://www.google.com/maps/place/?q=place_id:ChIJ0cpHjuk1dkcRyrPoDge1cXU"
-  target="_blank"
-  rel="noopener">
-Hexenwasser
-</a>
-
-— פארק הררי משפחתי עם עשרות תחנות מים,
-משחק, טבע וחקר;
-החלופה המומלצת למשפחות.
-
-</li>
-
-
-<li>
-
-🌊
-
-<a
-  class="maps-link"
-  href="https://www.google.com/maps/place/?q=place_id:ChIJiTQmw0d-nUcRLl--Vzyd_2Y"
-  target="_blank"
-  rel="noopener">
-Achensee + Atoll
-</a>
-
-— אגם אלפיני וקומפלקס בריכות/ספא;
-אופציה רגועה יותר.
-
-אם כולם מגיעים ל־Aqua Dome בערב,
-אפשר להסתפק באגם בלבד.
-
-</li>
-
-</ul>
-
-</div>
-
-
-<div class="plan-box plan-rain">
-
-<h4>🌧️ אילוצים וחלופות</h4>
-
-<p>
-
-🌧️ בגשם משמעותי:
-
-<a
-  class="maps-link"
-  href="https://www.google.com/maps/place/?q=place_id:ChIJSRYkZdDQd0cRiLYUF8BRVO8"
-  target="_blank"
-  rel="noopener">
-Erlebnistherme Zillertal
-</a>
-
-— מתחם בריכות פנימי/חיצוני עם מגלשות לילדים,
-ממש בפוגן.
-
-<strong>
-Olpererhütte לא יוצא בגשם משמעותי,
-ערפל כבד או תנאי החלקה.
-</strong>
-
-</p>
-
-</div>
-
-
-<div class="tip-box">
-
-<strong>חשוב:</strong>
-
-להזמין Aqua Dome מראש לקבוצה.
-
-יום Olpererhütte + Aqua Dome ארוך מאוד גם מבחינת נהיגה —
-הנתון מוצג במפורש כדי שכל משפחה תחליט.
-
-</div>
-
-
-<div class="daily-fact">
-
-<img
-  alt="עובדה יומית יום 8"
-  src="fact8.png"
-  loading="lazy"
-  decoding="async"/>
-
-<div>
-
-<div class="daily-fact-title">
-עובדה יומית
-</div>
-
-<div>
-עמק Zillertal מאפשר באותו יום להתפצל בין מסלול הרים,
-פארק משפחתי ואגם — ואז להתאחד שוב בערב.
-</div>
-
-<a
-  class="fact-link"
-  href="fact8.png"
-  target="_blank">
-פתיחת התמונה
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-</div>
-
+<div class="plan-box plan-main"><h4>♨️ המפגש המשותף</h4><p>שתי הקבוצות נפגשות ב־<a class="maps-link" href="https://maps.app.goo.gl/S3B82EXvkQVoJNHH6" target="_blank" rel="noopener">Aqua Dome</a>. בהתאם לשעת ההגעה אפשר לבחור כרטיס של כמה שעות או כרטיס ערב. לאחר מכן חוזרים יחד ל־Fügen.</p></div>
+<div class="route-box"><h4>🚗 נסיעות היום</h4><div class="route-line"><span>→</span><span>קבוצה א׳: Fügen → Schlegeisspeicher כ־1:15; משם ל־Stuibenfall/Aqua Dome — יום נהיגה ארוך.</span></div><div class="route-line"><span>→</span><span>קבוצה ב׳: Fügen → Imst כ־1:20; Imst → Stuibenfall כ־30 דק׳; Stuibenfall → Aqua Dome כ־10–20 דק׳.</span></div><div class="route-line"><span>→</span><span>Aqua Dome → Fügen: כ־1:15–1:30.</span></div></div>
+<div class="restaurant-box">🍽️ <strong>ליד Aqua Dome:</strong> <a class="maps-link" href="https://maps.app.goo.gl/kcvgsEvwrfvvLzir5" target="_blank" rel="noopener">Restaurant Pizzeria Infang</a> · Google 4.7/5 · בלנגנפלד.</div>
+<div class="options-box"><h4>✨ אפשרויות נוספות בטירול</h4><ul><li><a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ0cpHjuk1dkcRyrPoDge1cXU" target="_blank" rel="noopener">Hexenwasser</a> — אופציה משפחתית נוספת, אך אינה החלופה המרכזית ביום הזה.</li><li><a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJSRYkZdDQd0cRiLYUF8BRVO8" target="_blank" rel="noopener">Erlebnistherme Zillertal</a> — בריכות ומגלשות ממש ב־Fügen; שימושי לגשם או ליום רגוע, גם מחוץ ליום 8.</li></ul></div>
+<div class="plan-box plan-rain"><h4>🌧️ אילוצים וחלופות</h4><p><strong>Olpererhütte לא יוצא</strong> בגשם משמעותי, ערפל כבד או תנאי החלקה. גם Imst Alpine Coaster מושפע ממזג האוויר. במקרה כזה Erlebnistherme Zillertal היא גיבוי קרוב ונוח.</p></div>
+<div class="tip-box"><strong>חשוב:</strong> להזמין Aqua Dome מראש לקבוצה. Alpine Coaster Imst פועל בתאריך שלנו לפי לוח קיץ 2026, 09:30–17:00, בכפוף לשינויים ומזג אוויר. אם קבוצת Olperer מגיעה מוקדם, Stuibenfall הוא בונוס משותף; לא מעכבים את Aqua Dome רק כדי להספיק אותו.</div>
+<div class="daily-fact"><img alt="עובדה יומית יום 8" src="fact8.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>יום הפיצול מחבר בין שני מסלולים שונים לחלוטין — טרק אלפיני מצד אחד ואטרקציות משפחתיות מצד שני — עם נקודת מפגש משותפת בעמק Ötztal.</div><a class="fact-link" href="fact8.png" target="_blank">פתיחת התמונה</a></div></div>
+</div></div></details></div>
 </article>
-
 
 <!-- ==================================================
      DAY 9
      ================================================== -->
 
-<article
-  class="day-card fade-in-section"
-  data-type="kids travel"
-  id="day9">
-
-<div class="day-image" id="img-day9">
-
-<img
-  class="day-photo"
-  src="day9.png"
-  alt="תמונת יום 9"
-  loading="lazy"
-  decoding="async">
-
-<span class="day-tag">LEGOLAND</span>
-<span class="day-number">09</span>
-
-</div>
-
-
-<div class="day-content">
-
-<details class="day-native">
-
-<summary class="day-summary-native">
-
-<div class="day-header">
-
-<div class="day-title-wrap">
-
-<div class="day-date">
-30.09 · יום רביעי
-</div>
-
-<h3>
-LEGOLAND Deutschland — יום פארק מלא
-</h3>
-
-</div>
-
-<span class="toggle-icon">+</span>
-
-</div>
-
-
-<p class="day-summary">
-מי שרוצה לגולנד נוסע ליום מלא ב־Günzburg;
-למי שלא מצטרף נשמרות חלופות רגועות בטירול.
-</p>
-
-
-<div class="day-metadata">
-
-<span class="meta-chip">🧱 LEGOLAND</span>
-<span class="meta-chip">🎢 מתקנים</span>
-<span class="meta-chip">🚗 נסיעה ארוכה</span>
-
-</div>
-
+<article class="day-card fade-in-section" data-type="kids travel nature" id="day9">
+<div class="day-image" id="img-day9"><img class="day-photo" src="day9.png" alt="LEGOLAND Deutschland" loading="lazy" decoding="async"><span class="day-tag">LEGOLAND + חלופה מקומית</span><span class="day-number">09</span></div>
+<div class="day-content"><details class="day-native"><summary class="day-summary-native">
+<div class="day-header"><div class="day-title-wrap"><div class="day-date">30.09 · יום רביעי</div><h3>LEGOLAND Deutschland — יום פארק מלא</h3></div><span class="toggle-icon">+</span></div>
+<p class="day-summary">LEGOLAND הוא המסלול הראשי. למשפחות שלא רוצות להצטרף יש יום מקומי מלא: Spieljoch → Achensee → Atoll.</p>
+<div class="day-metadata"><span class="meta-chip">🧱 LEGOLAND</span><span class="meta-chip">🚡 Spieljoch</span><span class="meta-chip">🏊 Atoll</span></div>
 </summary>
+<div class="day-details"><div class="details-inner">
+<div class="weather-row day-weather" data-city-name="Guenzburg" data-trip-date="2026-09-30"><div class="weather-main"><span class="weather-icon">🗓️</span><span class="weather-temp">LEGOLAND / Günzburg: ממתין לתחזית</span></div><span class="weather-status">התחזית תתעדכן אוטומטית סמוך לטיול</span></div>
+<div class="plan-box plan-main"><h4>🧱 המסלול הראשי — LEGOLAND</h4><ul><li>יציאה מוקדמת מ־Fügen.</li><li><a class="maps-link" href="https://maps.app.goo.gl/v3R3GsEoV3sNmYau8" target="_blank" rel="noopener">LEGOLAND Deutschland Resort</a> — יום פארק מלא, 10:00–18:00.</li><li>חזרה ל־Fügen בערב. לא מוסיפים יעד נוסף בדרך.</li></ul></div>
+<div class="route-box"><h4>🚗 נסיעות למסלול LEGOLAND</h4><div class="route-line"><span>→</span><span>Fügen → LEGOLAND Günzburg: כ־225 ק״מ · 2:35–2:45 ש׳</span></div><div class="route-line"><span>→</span><span>LEGOLAND → Fügen: כ־225 ק״מ · 2:35–2:45 ש׳</span></div><div class="route-total">סה״כ: כ־450 ק״מ · 5:10–5:30 ש׳</div></div>
+<div class="restaurant-box">🍽️ <strong>המסעדה המומלצת לאחר החזרה:</strong> <a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJexfqbdXQd0cRl4WfknwKkDE" target="_blank" rel="noopener">Gasthof Hoppeter</a> · Google 4.2/5 · ב־Fügen.</div>
 
-
-<div class="day-details">
-
-<div class="details-inner">
-
-
-<div
-  class="weather-row day-weather"
-  data-city-name="Guenzburg"
-  data-trip-date="2026-09-30">
-
-<div class="weather-main">
-<span class="weather-icon">🗓️</span>
-<span class="weather-temp">LEGOLAND / Günzburg: ממתין לתחזית</span>
-</div>
-
-<span class="weather-status">
-התחזית תתעדכן אוטומטית סמוך לטיול
-</span>
-
-</div>
-
-
-<div class="plan-box plan-main">
-
-<h4>🧭 המסלול המוצע</h4>
-
+<div class="options-box"><h4>🚡 החלופה למשפחות שלא נוסעות ל־LEGOLAND</h4>
+<p><strong>Fügen → Erlebnisberg Spieljoch → צהריים על ההר → Achensee → Atoll Achensee → Fügen.</strong></p>
 <ul>
-
-<li>
-יציאה מוקדמת מ־Fügen.
-</li>
-
-<li>
-
-<a
-  class="maps-link"
-  href="https://maps.app.goo.gl/v3R3GsEoV3sNmYau8"
-  target="_blank"
-  rel="noopener">
-LEGOLAND Deutschland Resort
-</a>
-
-— יום פארק מלא, 10:00–18:00.
-
-</li>
-
-<li>
-חזרה ל־Fügen בערב.
-</li>
-
+<li><a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Spieljochbahn%20F%C3%BCgen" target="_blank" rel="noopener"><strong>Erlebnisberg Spieljoch</strong></a> — הרכבל יוצא מתוך Fügen. סביב התחנה העליונה יש פארק מים ומשחק אלפיני, רפסודות, סכרים, משחקי בוץ ומים, מתקני עץ, טרמפולינות, מבוך ומגלשות.</li>
+<li><strong>Barfußweg</strong> — שביל יחפים קצר על אבנים, עץ, מים ודשא.</li>
+<li><strong>Tubing</strong> — גלישה באבובים במסלול ייעודי.</li>
+<li><strong>Mountain Carts / Monster Rollers</strong> — ירידה ברכבי תלת־אופן הרריים; בתשלום נוסף.</li>
+<li><strong>Mega Flying Fox + גשר חבלים נפאלי</strong> — פעילות אדרנלין נוספת; בתשלום נוסף.</li>
+<li><strong>חיפוש קריסטלים + Schaubergwerk Öxltal</strong> — פעילות ניפוי וחיפוש קריסטלים ומכרה ראווה.</li>
+<li>הליכות קלות לתצפית הפסגה או סביב מאגר המים.</li>
+<li>ארוחת צהריים במסעדה על ההר.</li>
+<li>אחר כך ממשיכים ל־<a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Achensee%20Tirol" target="_blank" rel="noopener">Achensee</a>.</li>
 </ul>
-
 </div>
 
-
-<div class="route-box">
-
-<h4>🚗 נסיעות היום</h4>
-
-<div class="route-line">
-<span>→</span>
-<span>Fügen → LEGOLAND Günzburg: כ־225 ק״מ · 2:35–2:45 ש׳</span>
+<div class="plan-grid">
+<div class="plan-box"><h4>🚶 אפשרות באגם — Wusel-Seeweg</h4><p>מסלול מישורי יחסית של כ־3.5 ק״מ וכ־1.5 שעות, עם תחנות שכשוך ומשחק. אפשר להתחיל ולראות איך זורם בלי להתחייב לכל המסלול.</p></div>
+<div class="plan-box"><h4>🏊 האפשרות המועדפת — Atoll Achensee</h4><p><a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJiTQmw0d-nUcRLl--Vzyd_2Y" target="_blank" rel="noopener">Atoll Achensee</a> — Panorama-BAD עם בריכת 25 מ׳, Adventure Pool, מגלשת מים ארוכה, אזור פעוטות ובריכה חיצונית מחוממת; SEE-Bad עם גישה ישירה לאגם; וגם בולדרינג, חדר כושר, מסעדה וביסטרו. Penthouse-SPA הוא אזור נפרד לבוגרים יותר.</p></div>
 </div>
-
-<div class="route-line">
-<span>→</span>
-<span>LEGOLAND → Fügen: כ־225 ק״מ · 2:35–2:45 ש׳</span>
-</div>
-
-<div class="route-total">
-סה״כ נהיגה משוער:
-כ־450 ק״מ · 5:10–5:30 ש׳
-</div>
-
-</div>
-
-
-<div class="restaurant-box">
-
-🍽️ <strong>המסעדה המומלצת:</strong>
-
-<a
-  class="maps-link"
-  href="https://www.google.com/maps/place/?q=place_id:ChIJexfqbdXQd0cRl4WfknwKkDE"
-  target="_blank"
-  rel="noopener">
-Gasthof Hoppeter
-</a>
-
-· Google 4.2/5 · ב־Fügen;
-מתאים לארוחת ערב לאחר החזרה
-
-</div>
-
-
-<div class="options-box">
-
-<h4>✨ אופציות / בונוסים</h4>
-
-<ul>
-
-<li>
-
-למי שלא נוסע:
-
-<a
-  class="maps-link"
-  href="https://www.google.com/maps/place/?q=place_id:ChIJiTQmw0d-nUcRLl--Vzyd_2Y"
-  target="_blank"
-  rel="noopener">
-Achensee + Atoll
-</a>
-
-— יום רגוע של אגם אלפיני ובריכות/ספא.
-
-</li>
-
-
-<li>
-
-אפשרות נוספת:
-
-<a
-  class="maps-link"
-  href="https://www.google.com/maps/place/?q=place_id:ChIJSRYkZdDQd0cRiLYUF8BRVO8"
-  target="_blank"
-  rel="noopener">
-Erlebnistherme Zillertal
-</a>
-
-— בריכות ומגלשות בפוגן,
-כמעט בלי נסיעה.
-
-</li>
-
-</ul>
-
-</div>
-
-
-<div class="plan-box plan-rain">
-
-<h4>🌧️ אילוצים וחלופות</h4>
-
-<p>
-LEGOLAND פועל גם במזג אוויר משתנה,
-אך מתקנים מסוימים עשויים להיות מושפעים מתנאים חריגים.
-</p>
-
-</div>
-
-
-<div class="tip-box">
-
-<strong>חשוב:</strong>
-זה יום עם הרבה נהיגה.
-לא מוסיפים יעד נוסף בדרך.
-
-</div>
-
-
-<div class="daily-fact">
-
-<img
-  alt="עובדה יומית יום 9"
-  src="fact9.png"
-  loading="lazy"
-  decoding="async"/>
-
-<div>
-
-<div class="daily-fact-title">
-עובדה יומית
-</div>
-
-<div>
-LEGOLAND Deutschland כולל עשרות מתקנים ועולמות נושא,
-ומיועד ליום פארק מלא ולא לעצירת ביניים.
-</div>
-
-<a
-  class="fact-link"
-  href="fact9.png"
-  target="_blank">
-פתיחת התמונה
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-</div>
-
+<div class="tip-box"><strong>חשוב:</strong> Spieljoch + Achensee/Atoll הוא מסלול חלופי רק למי שלא מצטרף ל־LEGOLAND. LEGOLAND נשאר התכנון הראשי של יום 9.</div>
+<div class="plan-box plan-rain"><h4>🌧️ גיבוי מקומי</h4><p><a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJSRYkZdDQd0cRiLYUF8BRVO8" target="_blank" rel="noopener">Erlebnistherme Zillertal</a> — ממש ב־Fügen, עם בריכות ומגלשות. שימושי גם בכל יום אחר בטירול אם רוצים בריכה או חלופת גשם קרובה.</p></div>
+<div class="daily-fact"><img alt="עובדה יומית יום 9" src="fact9.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>LEGOLAND Deutschland מיועד ליום פארק מלא; החלופה המקומית מאפשרת למשפחות שלא מצטרפות להישאר קרוב ל־Fügen ועדיין לקבל יום גדוש בפעילות.</div><a class="fact-link" href="fact9.png" target="_blank">פתיחת התמונה</a></div></div>
+</div></div></details></div>
 </article>
-
 
 <!-- ==================================================
      DAY 10
@@ -5183,6 +3991,12 @@ Lucky Flitzer הוא בונוס ביום 4.
 
 </div>
 
+
+<div class="tip-card">
+<div class="tip-icon">🌧️</div>
+<h4>Erlebnistherme Zillertal — גיבוי ליד המלון</h4>
+<p><a href="https://www.google.com/maps/place/?q=place_id:ChIJSRYkZdDQd0cRiLYUF8BRVO8" target="_blank" rel="noopener"><strong>Erlebnistherme Zillertal</strong></a> נמצאת ב־Fügen ומתאימה כחלופת גשם, יום בריכה או פתרון ספונטני כשלא רוצים לנסוע רחוק.</p>
+</div>
 
 <div class="important-note">
 

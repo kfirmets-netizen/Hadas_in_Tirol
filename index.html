@@ -1153,9 +1153,9 @@ button{font:inherit}
   }
 
 
-  /* HERO MOBILE */
+  
 
-@media(max-width:680px){
+  /* HERO MOBILE — חשוב: מבטל את הרוחב הקשיח של 280px באמצע */
 
   .hero{
     min-height:auto;
@@ -1173,48 +1173,41 @@ button{font:inherit}
   }
 
   .hero-trip-logo{
-    width:200px;
-    height:200px;
-    top:-100px;
+    width:220px;
+    height:220px;
+    top:-110px;
     left:50%;
     right:auto;
     transform:translateX(-50%);
   }
 
   .hero-split-title{
-    display:flex;
-    flex-direction:column;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:18px;
     align-items:center;
-    justify-content:center;
-    gap:4px;
     width:100%;
-    margin:0 0 18px;
+    margin:0 0 20px;
   }
 
   .hero-title-right,
   .hero-title-left{
     min-width:0;
-    width:auto;
-    grid-column:auto!important;
-    font-size:clamp(1.9rem,8.5vw,2.6rem);
-    line-height:1.05;
+    width:100%;
+    font-size:clamp(1.65rem,8vw,2.35rem);
+    line-height:1.02;
     text-align:center!important;
-    justify-self:auto!important;
+    justify-self:center;
     overflow-wrap:normal;
     word-break:normal;
   }
 
-  .hero-title-right br,
-  .hero-title-left br{
-    display:none;
-  }
-
   .hero-title-right{
-    margin-top:2px;
+    grid-column:2;
   }
 
   .hero-title-left{
-    margin-top:0;
+    grid-column:1;
   }
 
   .hero .subtitle{
@@ -1229,19 +1222,16 @@ button{font:inherit}
     justify-content:center;
   }
 
-  .experience-grid{
-    grid-template-columns:1fr;
-  }
+  .experience-grid{grid-template-columns:1fr}
 
   .weather-row{
     align-items:flex-start;
     flex-direction:column;
-    gap:4px;
+    gap:4px
   }
 }
 
 @media(max-width:390px){
-
   .hero-title-right,
   .hero-title-left{
     font-size:clamp(1.5rem,7.7vw,2rem);
@@ -1258,18 +1248,55 @@ button{font:inherit}
 }
 
 @media(prefers-reduced-motion:reduce){
-
   *{
     scroll-behavior:auto!important;
     transition:none!important;
-    animation:none!important;
+    animation:none!important
   }
 
   .fade-in-section{
     opacity:1;
-    transform:none;
+    transform:none
+  }
+  @media(max-width:680px){
+
+  .hero-split-title{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    margin:0 0 18px;
+  }
+
+  .hero-title-right,
+  .hero-title-left{
+    width:auto;
+    grid-column:auto !important;
+    text-align:center !important;
+    justify-self:auto !important;
+    font-size:clamp(1.9rem,8.5vw,2.6rem);
+    line-height:1.05;
+  }
+
+  .hero-title-right br,
+  .hero-title-left br{
+    display:none;
+  }
+
+  .hero-title-right{
+    margin-top:2px;
+  }
+
+  .hero-title-left{
+    margin-top:0;
   }
 }
+}
+
+/*
+
+ככה כל החלק?
 
 <!-- ==================================================
      HERO

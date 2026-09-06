@@ -1256,6 +1256,40 @@ button{font:inherit}
     opacity:1;
     transform:none
   }
+  @media(max-width:680px){
+
+  .hero-split-title{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    margin:0 0 18px;
+  }
+
+  .hero-title-right,
+  .hero-title-left{
+    width:auto;
+    grid-column:auto !important;
+    text-align:center !important;
+    justify-self:auto !important;
+    font-size:clamp(1.9rem,8.5vw,2.6rem);
+    line-height:1.05;
+  }
+
+  .hero-title-right br,
+  .hero-title-left br{
+    display:none;
+  }
+
+  .hero-title-right{
+    margin-top:2px;
+  }
+
+  .hero-title-left{
+    margin-top:0;
+  }
+}
 }
 
 

@@ -9,129 +9,153 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&amp;family=Frank+Ruhl+Libre:wght@500;700;900&amp;display=swap" rel="stylesheet"/>
+
 <style>
-    :root{
-      --forest:#173b32;
-      --forest-2:#2f6a50;
-      --sage:#eaf3ec;
-      --sand:#d6a26d;
-      --sand-dark:#aa7446;
-      --ink:#17324d;
-      --muted:#667085;
-      --paper:#fffdf9;
-      --card:rgba(255,255,255,.94);
-      --rain:#edf4ff;
-      --rain-border:#8fb5e8;
-      --option:#fff7eb;
-      --option-border:#e8bc86;
-      --success:#eaf7ed;
-      --line:rgba(23,59,50,.12);
-      --shadow:0 18px 50px rgba(23,59,50,.10);
-      --radius:24px;
-    }
+:root{
+  --forest:#173b32;
+  --forest-2:#2f6a50;
+  --sage:#eaf3ec;
+  --sand:#d6a26d;
+  --sand-dark:#aa7446;
+  --ink:#17324d;
+  --muted:#667085;
+  --paper:#fffdf9;
+  --card:rgba(255,255,255,.94);
+  --rain:#edf4ff;
+  --rain-border:#8fb5e8;
+  --option:#fff7eb;
+  --option-border:#e8bc86;
+  --success:#eaf7ed;
+  --line:rgba(23,59,50,.12);
+  --shadow:0 18px 50px rgba(23,59,50,.10);
+  --radius:24px;
+}
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;scroll-padding-top:82px}
-    body{
-      font-family:'Assistant',sans-serif;
-      color:var(--ink);
-      line-height:1.65;
-      background:
-        radial-gradient(circle at 8% 12%, rgba(214,162,109,.18), transparent 24%),
-        radial-gradient(circle at 88% 18%, rgba(47,106,80,.13), transparent 28%),
-        linear-gradient(160deg,rgba(255,253,248,.96),rgba(232,243,236,.96)),
-        repeating-linear-gradient(135deg,rgba(23,59,50,.025) 0 1px,transparent 1px 18px);
-      background-attachment:scroll;
-      overflow-x:hidden;
-    }
-    h1,h2,h3,h4{
-      font-family:'Frank Ruhl Libre',serif;
-      color:var(--forest);
-      line-height:1.15;
-    }
-    a{text-decoration:none;color:inherit}
-    button{font:inherit}
-    .container{max-width:1180px;margin:0 auto;padding:0 20px}
-    .section{padding:5.2rem 0}
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:7px 12px;border-radius:999px;
-      background:rgba(23,59,50,.08);color:var(--forest);
-      border:1px solid rgba(23,59,50,.12);
-      font-weight:800;font-size:.92rem;
-    }
-    .section-head{text-align:center;max-width:760px;margin:0 auto 38px}
-    .section-head h2{font-size:clamp(2rem,4vw,3.1rem);margin:10px 0}
-    .section-head p{color:var(--muted);font-size:1.08rem}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
 
-    /* HERO */
-    .hero{
-      min-height:88vh;
-      display:grid;
-      place-items:center;
-      position:relative;
-      color:#fff;
-      text-align:center;
-      overflow:hidden;
-      padding:40px 18px;
-      isolation:isolate;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:url('austria_hero.png') center/cover no-repeat;
-      filter:brightness(.72) saturate(1.02);
-      z-index:-2;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg,rgba(10,29,24,.12),rgba(10,29,24,.58));
-      z-index:-1;
-    }
-    .hero-card{
-      width:min(920px,100%);
-      position:relative;
-      overflow:visible;
-      margin-top:85px;
-      padding:88px clamp(28px,6vw,58px) clamp(30px,5vw,50px);
-      background:rgba(18,54,45,.52);
-      border:1px solid rgba(255,255,255,.28);
-      border-radius:30px;
-      box-shadow:0 24px 60px rgba(0,0,0,.22);
-    }
-    @supports ((backdrop-filter:blur(4px)) or (-webkit-backdrop-filter:blur(4px))){
-      .hero-card{
-        backdrop-filter:blur(4px);
-        -webkit-backdrop-filter:blur(4px);
-      }
-    }
-    .hero-trip-logo{
-      position:absolute;
-      top:-105px;
+body{
+  font-family:'Assistant',sans-serif;
+  color:var(--ink);
+  line-height:1.65;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(214,162,109,.18), transparent 24%),
+    radial-gradient(circle at 88% 18%, rgba(47,106,80,.13), transparent 28%),
+    linear-gradient(160deg,rgba(255,253,248,.96),rgba(232,243,236,.96)),
+    repeating-linear-gradient(135deg,rgba(23,59,50,.025) 0 1px,transparent 1px 18px);
+  background-attachment:scroll;
+  overflow-x:hidden;
+}
+
+h1,h2,h3,h4{
+  font-family:'Frank Ruhl Libre',serif;
+  color:var(--forest);
+  line-height:1.15;
+}
+
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+.section{padding:5.2rem 0}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(23,59,50,.08);
+  color:var(--forest);
+  border:1px solid rgba(23,59,50,.12);
+  font-weight:800;
+  font-size:.92rem;
+}
+
+.section-head{text-align:center;max-width:760px;margin:0 auto 38px}
+.section-head h2{font-size:clamp(2rem,4vw,3.1rem);margin:10px 0}
+.section-head p{color:var(--muted);font-size:1.08rem}
+
+
+/* ==================================================
+   HERO
+   ================================================== */
+
+.hero{
+  min-height:88vh;
+  display:grid;
+  place-items:center;
+  position:relative;
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+  padding:40px 18px;
+  isolation:isolate;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url('austria_hero.png') center/cover no-repeat;
+  filter:brightness(.72) saturate(1.02);
+  z-index:-2;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(10,29,24,.12),rgba(10,29,24,.58));
+  z-index:-1;
+}
+
+.hero-card{
+  width:min(920px,100%);
+  position:relative;
+  overflow:visible;
+  margin-top:85px;
+  padding:88px clamp(28px,6vw,58px) clamp(30px,5vw,50px);
+  background:rgba(18,54,45,.52);
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:30px;
+  box-shadow:0 24px 60px rgba(0,0,0,.22);
+}
+
+@supports ((backdrop-filter:blur(4px)) or (-webkit-backdrop-filter:blur(4px))){
+  .hero-card{
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+  }
+}
+
+.hero-trip-logo{
+  position:absolute;
+  top:-105px;
   left:50%;
   transform:translateX(-50%);
   width:280px;
-      height:280px
-      object-fit:contain;
-      border-radius:50%;
-      background:#fffdf9;
-      padding:4px;
-      border:2px solid rgba(255,255,255,.75);
-      box-shadow:0 16px 38px rgba(0,0,0,.25),0 4px 12px rgba(23,59,50,.18);
-      z-index:3;
-    }
-    .hero h1{
-      color:#fff !important;
-      -webkit-text-fill-color:#fff !important;
-  opacity:1 !important;
+  height:280px;
+  object-fit:contain;
+  border-radius:50%;
+  background:#fffdf9;
+  padding:4px;
+  border:2px solid rgba(255,255,255,.75);
+  box-shadow:
+    0 16px 38px rgba(0,0,0,.25),
+    0 4px 12px rgba(23,59,50,.18);
+  z-index:3;
+}
+
+.hero h1{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  opacity:1!important;
   font-size:clamp(2.4rem,5.5vw,4.4rem);
-      margin:14px 0 12px;
-      text-shadow:0 4px 18px rgba(0,0,0,.55);
-    }
-    .hero-split-title{
+  margin:14px 0 12px;
+  text-shadow:0 4px 18px rgba(0,0,0,.55);
+}
+
+.hero-split-title{
   display:grid;
   grid-template-columns:1fr 280px 1fr;
   align-items:center;
@@ -157,321 +181,1167 @@
   text-align:right;
   grid-column:3;
 }
-    .hero .subtitle{
-      font-size:clamp(1.12rem,2.4vw,1.45rem);
-      color:#fff;
-      opacity:1;
-      margin-bottom:26px;
-      text-shadow:0 2px 10px rgba(0,0,0,.35);
-    }
-    .hero-badges{
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-bottom:16px;
-    }
-    .hero-badge{
-      padding:7px 13px;
-      border-radius:999px;
-      background:rgba(255,255,255,.16);
-      border:1px solid rgba(255,255,255,.30);
-      color:#fff;
-      font-weight:800;
-      text-shadow:0 1px 6px rgba(0,0,0,.20);
-    }
-    .hero-btn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      background:#fff;
-      color:var(--forest);
-      padding:14px 24px;
-      border-radius:999px;
-      font-weight:900;
-      box-shadow:0 10px 24px rgba(0,0,0,.13);
-      transition:transform .2s ease,background .2s ease;
-    }
-    .hero-btn:hover{transform:translateY(-2px);background:#fff8ef}
 
-    /* NAV */
-    .navbar{
-      position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);
-      backdrop-filter:blur(12px);border-bottom:1px solid var(--line);box-shadow:0 8px 28px rgba(0,0,0,.04)
-    }
-    .nav-list{
-      max-width:1180px;margin:0 auto;padding:11px 18px;display:flex;
-      gap:18px;justify-content:center;align-items:center;overflow-x:auto;scrollbar-width:none
-    }
-    .nav-list::-webkit-scrollbar{display:none}
-    .nav-list a{white-space:nowrap;font-weight:800;padding:7px 11px;border-radius:999px}
-    .nav-list a:hover{background:var(--sage);color:var(--forest)}
+.hero .subtitle{
+  font-size:clamp(1.12rem,2.4vw,1.45rem);
+  color:#fff;
+  opacity:1;
+  margin-bottom:26px;
+  text-shadow:0 2px 10px rgba(0,0,0,.35);
+}
 
-    /* QUICK STRIP */
-   .quick-strip{margin-top:22px;position:relative;z-index:5}
-    .quick-grid{
-      display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
-      background:var(--card);border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:var(--shadow)
-    }
-    .quick-item{padding:13px 15px;border-radius:16px;background:#fbfcfb}
-    .quick-item strong{display:block;color:var(--forest);font-size:1.08rem}
-    .quick-item span{color:var(--muted);font-size:.92rem}
+.hero-badges{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+}
 
-    /* TECH */
-    .tech-data-section{padding:5rem 0 4rem}
-    .tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-    .data-card{
-      position:relative;overflow:hidden;background:var(--card);
-      border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)
-    }
-    .data-card::after{
-      content:"";position:absolute;inset:0;opacity:.22;background-size:cover;background-position:center;pointer-events:none
-    }
-    .flight-data-card::after{background-image:url('bg_flights.png')}
-    .lodging-data-card::after{background-image:url('bg_lodging.png')}
-    .data-card>*{position:relative;z-index:1}
-    .section-title{
-      display:flex;justify-content:space-between;align-items:center;gap:12px;
-      font-size:1.65rem;margin-bottom:18px
-    }
-    .chip{font-family:'Assistant',sans-serif;font-size:.84rem;padding:6px 10px;border-radius:999px;background:rgba(23,59,50,.09);border:1px solid var(--line);white-space:nowrap}
-    .flight-details-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .flight-segment{
-      padding:18px;border-radius:18px;background:rgba(255,255,255,.90);
-      border:1px solid var(--line);box-shadow:0 10px 28px rgba(0,0,0,.05)
-    }
-    .flight-segment h4{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
-    .date-pill{font-family:'Assistant',sans-serif;font-size:.82rem;padding:5px 8px;border-radius:999px;background:var(--sage)}
-    .flight-info-item{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:.93rem}
-    .flight-info-item:last-child{border-bottom:0}
-    .label{color:var(--muted);font-weight:700}
-    .value{font-weight:900;text-align:left}
-    .flight-status{display:inline-flex;flex-direction:column;padding:7px 9px;border-radius:12px;background:#e8f5e9;color:#2d6a4f}
-    .flight-status-error{display:inline-block;padding:7px 9px;border-radius:12px;background:#ffeded;color:#b42318;font-weight:800}
-    .flight-data-note{margin-top:13px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.76);font-size:.88rem;color:var(--muted)}
-    .lodging-timeline{display:grid;gap:11px}
-    .stay{display:grid;grid-template-columns:105px 1fr;gap:14px;padding:14px;border-radius:16px;background:rgba(255,255,255,.88);border:1px solid var(--line)}
-    .dates{display:grid;place-content:center;text-align:center;padding:10px;border-radius:13px;background:var(--sage);font-weight:900;color:var(--forest)}
-    .dates small{display:block;color:var(--muted);font-weight:700}
-    .meta .place{font-family:'Frank Ruhl Libre',serif;font-size:1.12rem;font-weight:900;color:var(--forest)}
-    .meta .hotel{font-weight:800}
-    .meta .note{font-size:.92rem;color:var(--muted)}
+.hero-badge{
+  padding:7px 13px;
+  border-radius:999px;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.30);
+  color:#fff;
+  font-weight:800;
+  text-shadow:0 1px 6px rgba(0,0,0,.20);
+}
 
-    /* FAMILIES */
-    .families-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:65px}
-    .family-card{
-      background:var(--card);border:1px solid var(--line);border-radius:20px;padding:0 16px 24px;text-align:center;
-      box-shadow:0 12px 32px rgba(0,0,0,.06);transition:.25s
-    }
-    .family-card:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(0,0,0,.10)}
-    .family-image{
-      width:120px;height:120px;border-radius:50%;background:center/cover no-repeat;
-      border:5px solid var(--sand);margin:-52px auto 12px;box-shadow:0 8px 20px rgba(0,0,0,.15)
-    }
-    .family-card h4{font-size:1.25rem;margin-bottom:3px}
-    .family-card p{color:var(--muted)}
+.hero-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#fff;
+  color:var(--forest);
+  padding:14px 24px;
+  border-radius:999px;
+  font-weight:900;
+  box-shadow:0 10px 24px rgba(0,0,0,.13);
+  transition:transform .2s ease,background .2s ease;
+}
 
-    /* TIMELINE */
-    .timeline-toolbar{
-      position:sticky;top:67px;z-index:90;background:rgba(247,250,248,.93);
-      backdrop-filter:blur(10px);padding:11px;border:1px solid var(--line);border-radius:18px;
-      display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:24px
-    }
-    .filters{display:flex;gap:8px;flex-wrap:wrap}
-    .filter-btn{
-      border:1px solid var(--line);background:white;color:var(--ink);font-weight:800;
-      padding:8px 13px;border-radius:999px;cursor:pointer
-    }
-    .filter-btn.active,.filter-btn:hover{background:var(--forest);color:white}
-    .expand-tools{display:flex;gap:8px}
-    .small-btn{border:0;background:var(--sage);color:var(--forest);font-weight:800;padding:8px 11px;border-radius:12px;cursor:pointer}
-
-    .day-card{
-      display:grid;grid-template-columns:32% 68%;
-      background:var(--card);border:1px solid var(--line);border-radius:26px;
-      overflow:hidden;margin-bottom:22px;box-shadow:var(--shadow)
-    }
-    .day-image{
-      min-height:360px;position:relative;overflow:hidden;background:#e9eceb
-    }
-    .day-photo{
-      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block
-    }
-    .day-image::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.27));z-index:1;pointer-events:none}
-    .day-tag{
-      position:absolute;z-index:2;top:16px;right:16px;background:rgba(255,255,255,.94);
-      padding:6px 11px;border-radius:999px;font-weight:900;color:var(--forest);box-shadow:0 6px 18px rgba(0,0,0,.10)
-    }
-    .day-number{
-      position:absolute;z-index:2;bottom:17px;right:17px;color:white;font-family:'Frank Ruhl Libre',serif;
-      font-size:2.5rem;font-weight:900;text-shadow:0 4px 14px rgba(0,0,0,.35)
-    }
-    .day-content{padding:23px 25px}
-    .day-header{
-      display:flex;justify-content:space-between;align-items:flex-start;gap:15px;cursor:pointer
-    }
-    .day-title-wrap{flex:1}
-    .day-date{font-weight:900;color:var(--sand-dark);font-size:.92rem;margin-bottom:3px}
-    .day-header h3{font-size:clamp(1.4rem,2.4vw,1.9rem);margin:0}
-    .toggle-icon{
-      min-width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
-      background:var(--sage);color:var(--forest);font-weight:900;font-size:1.4rem;transition:.2s
-    }
-    .day-header.active .toggle-icon{transform:rotate(45deg)}
-    .day-summary{margin:13px 0 12px;color:#475467}
-    .day-metadata{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-    .meta-chip{font-size:.86rem;font-weight:800;padding:6px 10px;border-radius:999px;background:#f6f7f7;border:1px solid var(--line)}
-    .day-details{max-height:0;overflow:hidden;opacity:0;transition:max-height .45s ease,opacity .35s ease}
-    .day-header.active~.day-details{opacity:1}
-    .details-inner{padding-top:13px;border-top:1px dashed var(--line)}
-    .weather-row{
-      display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
-      padding:10px 12px;border-radius:14px;background:var(--success);margin-bottom:13px
-    }
-    .weather-main{display:flex;align-items:center;gap:9px;font-weight:900;color:var(--forest)}
-    .weather-status{font-size:.82rem;color:var(--muted)}
-
-    .plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:13px 0}
-    .plan-box{border-radius:16px;padding:15px;border:1px solid var(--line)}
-    .plan-box h4{font-family:'Assistant',sans-serif;font-size:1rem;margin-bottom:7px;display:flex;align-items:center;gap:7px}
-    .plan-box ul{padding-right:19px}
-    .plan-box li{margin:5px 0}
-    .plan-main{background:#f7fbf8;border-color:#b9d9c5}
-    .plan-rain{background:var(--rain);border-color:var(--rain-border)}
-    .options-box{background:var(--option);border:1px solid var(--option-border);border-radius:16px;padding:15px;margin:12px 0}
-    .options-box h4{font-family:'Assistant',sans-serif;font-size:1rem;margin-bottom:7px}
-    .options-box ul{padding-right:19px}
-    .options-box li{margin:5px 0}
-    .tip-box{
-      padding:13px 14px;border-radius:15px;background:#fffdf7;border:1px solid #ead9c7;margin:12px 0
-    }
-    .tip-box strong{color:var(--sand-dark)}
-    .daily-fact{
-      display:grid;grid-template-columns:100px 1fr;gap:13px;align-items:center;
-      padding:13px;border-radius:16px;background:linear-gradient(135deg,rgba(214,162,109,.18),rgba(47,106,80,.08));
-      border:1px solid rgba(214,162,109,.32);margin-top:12px
-    }
-    .daily-fact img{width:100px;height:75px;object-fit:cover;border-radius:12px;border:2px solid rgba(214,162,109,.45)}
-    .daily-fact-title{font-weight:900;color:var(--forest);margin-bottom:3px}
-    .fact-link{font-size:.83rem;font-weight:800;color:var(--forest-2)}
+.hero-btn:hover{
+  transform:translateY(-2px);
+  background:#fff8ef;
+}
 
 
-    /* EXPERIENCE HUB + ROUTE INFO */
-    .experience-section{position:relative;overflow:hidden;background:linear-gradient(145deg,#173b32 0%,#2f6a50 58%,#d6a26d 150%);color:#fff}
-    .experience-section:before,.experience-section:after{content:"";position:absolute;left:-5%;right:-5%;height:150px;opacity:.12;pointer-events:none;background:linear-gradient(135deg,transparent 35%,#fff 36% 37%,transparent 38% 52%,#fff 53% 54%,transparent 55%)}
-    .experience-section:before{top:8px}.experience-section:after{bottom:-45px;transform:scaleX(-1)}
-    .experience-section .section-head{position:relative;z-index:1}.experience-section .section-head h2,.experience-section .section-head p{color:#fff}.experience-section .eyebrow{color:#ffe0b8}
-    .experience-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .experience-card{display:block;background:rgba(255,255,255,.96);color:var(--ink);border-radius:20px;padding:17px;border:1px solid rgba(255,255,255,.5);box-shadow:0 12px 28px rgba(0,0,0,.12);transition:transform .2s ease,box-shadow .2s ease}.experience-card:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(0,0,0,.18)}
-    .experience-icon{font-size:2rem;line-height:1;margin-bottom:9px}.experience-card h3{font-family:'Assistant',sans-serif;font-size:1.04rem;margin-bottom:5px}.experience-card p{font-size:.9rem;color:#56606c}.experience-day{display:inline-block;margin-top:9px;padding:4px 8px;border-radius:999px;background:var(--sage);font-size:.78rem;font-weight:900;color:var(--forest)}
-    .route-box{margin:12px 0;padding:14px;border-radius:16px;background:#f4f8f5;border:1px solid #cfe0d4}.route-box h4{font-family:'Assistant',sans-serif;font-size:1rem;margin-bottom:7px}.route-line{display:flex;gap:7px;align-items:flex-start;margin:5px 0}.route-total{margin-top:8px;padding-top:8px;border-top:1px dashed #b9c9be;font-weight:900;color:var(--forest)}
-    .restaurant-box{margin:12px 0;padding:13px 14px;border-radius:15px;background:#fff8ef;border:1px solid #ead4b8}.restaurant-box strong{color:#8a542d}.maps-link{color:var(--forest-2);font-weight:900;text-decoration:underline;text-underline-offset:3px}.maps-link:after{content:" ↗";font-size:.78em}.constraint{font-weight:800;color:#8a542d}
-    @media(max-width:900px){.experience-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:560px){.experience-grid{grid-template-columns:1fr}}
+/* ==================================================
+   NAV
+   ================================================== */
 
-    /* TIPS */
-    .tips-section{background:#f4f7f5}
-    .tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-    .tip-card{background:white;border:1px solid var(--line);border-radius:18px;padding:19px;box-shadow:0 10px 26px rgba(0,0,0,.04)}
-    .tip-icon{font-size:1.7rem;margin-bottom:7px}
-    .tip-card h4{font-family:'Assistant',sans-serif;font-size:1.08rem;margin-bottom:5px}
-    .tip-card p{color:var(--muted);font-size:.94rem}
-    .tip-card a{color:var(--forest-2);font-weight:800;border-bottom:1px dashed rgba(47,106,80,.45)}
-    .tip-card a:hover{color:var(--sand-dark);border-bottom-color:var(--sand-dark)}
-    .important-note{
-      margin-top:20px;padding:16px;border-radius:16px;background:#fff6e8;border:1px solid #ecc89b
-    }
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 8px 28px rgba(0,0,0,.04)
+}
 
-    .fade-in-section{opacity:1;transform:none;transition:.35s ease}
-    .fade-in-section.is-visible{opacity:1;transform:none}
-    .day-card{opacity:1!important;visibility:visible!important;content-visibility:auto;contain-intrinsic-size:760px}
+.nav-list{
+  max-width:1180px;
+  margin:0 auto;
+  padding:11px 18px;
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  align-items:center;
+  overflow-x:auto;
+  scrollbar-width:none
+}
 
-    @media(max-width:980px){
-      .quick-grid{grid-template-columns:1fr 1fr}
-      .tech-grid{grid-template-columns:1fr}
-      .families-grid{grid-template-columns:repeat(2,1fr);gap:64px 16px}
-      .day-card{grid-template-columns:1fr}
-      .day-image{min-height:240px}
-      .tips-grid{grid-template-columns:1fr 1fr}
-    }
-    @media(max-width:680px){
-      .section{padding:4rem 0}
-      .quick-strip{margin-top:22px}
-      .quick-grid{grid-template-columns:1fr}
-      .flight-details-grid{grid-template-columns:1fr}
-      .families-grid{grid-template-columns:1fr;gap:70px}
-      .timeline-toolbar{top:58px;align-items:flex-start;flex-direction:column}
-      .expand-tools{width:100%}
-      .small-btn{flex:1}
-      .plan-grid{grid-template-columns:1fr}
-      .tips-grid{grid-template-columns:1fr}
-      .daily-fact{grid-template-columns:78px 1fr}
-      .daily-fact img{width:78px;height:64px}
-      .stay{grid-template-columns:1fr}
-      .dates{display:flex;justify-content:space-between;align-items:center}
-      .section-title{align-items:flex-start;flex-direction:column}
-      .nav-list{justify-content:flex-start}
-      .navbar{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,.98)}
-      .timeline-toolbar{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(247,250,248,.98)}
-      .hero{min-height:82vh;padding:28px 16px}
-     .hero-card{margin-top:105px;padding:112px 22px 30px}
-.hero-trip-logo{width:220px;height:220px;top:-110px}
-.hero h1{font-size:clamp(2.1rem,9vw,3rem)}
-      .hero-badges{gap:8px}
-    }
-    @media(prefers-reduced-motion:reduce){
-      *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
-      .fade-in-section{opacity:1;transform:none}
-    }
-  
-    /* Native accordion: works without JavaScript, including iOS local HTML preview */
-    .day-native{
-      width:100%;
-    }
-    .day-summary-native{
-      display:block;
-      list-style:none;
-      cursor:pointer;
-      outline:none;
-    }
-    .day-summary-native::-webkit-details-marker{display:none}
-    .day-summary-native::marker{display:none}
-    .day-native .day-details{
-      display:block;
-      max-height:none!important;
-      overflow:visible;
-      opacity:1!important;
-      transition:none;
-    }
-    .day-native:not([open]) .day-details{
-      display:none;
-    }
-    .day-native .toggle-icon{
-      pointer-events:none;
-    }
-    .day-native[open] .toggle-icon{
-      transform:rotate(45deg);
-      background:#173b32;
-      color:white;
-    }
-    .day-native[open] .day-header{
-      margin-bottom:2px;
-    }
+.nav-list::-webkit-scrollbar{display:none}
+
+.nav-list a{
+  white-space:nowrap;
+  font-weight:800;
+  padding:7px 11px;
+  border-radius:999px
+}
+
+.nav-list a:hover{
+  background:var(--sage);
+  color:var(--forest)
+}
+
+
+/* ==================================================
+   QUICK STRIP
+   ================================================== */
+
+.quick-strip{
+  margin-top:22px;
+  position:relative;
+  z-index:5
+}
+
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:14px;
+  box-shadow:var(--shadow)
+}
+
+.quick-item{
+  padding:13px 15px;
+  border-radius:16px;
+  background:#fbfcfb
+}
+
+.quick-item strong{
+  display:block;
+  color:var(--forest);
+  font-size:1.08rem
+}
+
+.quick-item span{
+  color:var(--muted);
+  font-size:.92rem
+}
+
+
+/* ==================================================
+   TECH
+   ================================================== */
+
+.tech-data-section{padding:5rem 0 4rem}
+
+.tech-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px
+}
+
+.data-card{
+  position:relative;
+  overflow:hidden;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow)
+}
+
+.data-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.22;
+  background-size:cover;
+  background-position:center;
+  pointer-events:none
+}
+
+.flight-data-card::after{background-image:url('bg_flights.png')}
+.lodging-data-card::after{background-image:url('bg_lodging.png')}
+.data-card>*{position:relative;z-index:1}
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  font-size:1.65rem;
+  margin-bottom:18px
+}
+
+.chip{
+  font-family:'Assistant',sans-serif;
+  font-size:.84rem;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(23,59,50,.09);
+  border:1px solid var(--line);
+  white-space:nowrap
+}
+
+.flight-details-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px
+}
+
+.flight-segment{
+  padding:18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.90);
+  border:1px solid var(--line);
+  box-shadow:0 10px 28px rgba(0,0,0,.05)
+}
+
+.flight-segment h4{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-bottom:10px
+}
+
+.date-pill{
+  font-family:'Assistant',sans-serif;
+  font-size:.82rem;
+  padding:5px 8px;
+  border-radius:999px;
+  background:var(--sage)
+}
+
+.flight-info-item{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  padding:8px 0;
+  border-bottom:1px dashed var(--line);
+  font-size:.93rem
+}
+
+.flight-info-item:last-child{border-bottom:0}
+.label{color:var(--muted);font-weight:700}
+.value{font-weight:900;text-align:left}
+
+.flight-status{
+  display:inline-flex;
+  flex-direction:column;
+  padding:7px 9px;
+  border-radius:12px;
+  background:#e8f5e9;
+  color:#2d6a4f
+}
+
+.flight-status-error{
+  display:inline-block;
+  padding:7px 9px;
+  border-radius:12px;
+  background:#ffeded;
+  color:#b42318;
+  font-weight:800
+}
+
+.flight-data-note{
+  margin-top:13px;
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.76);
+  font-size:.88rem;
+  color:var(--muted)
+}
+
+.lodging-timeline{
+  display:grid;
+  gap:11px
+}
+
+.stay{
+  display:grid;
+  grid-template-columns:105px 1fr;
+  gap:14px;
+  padding:14px;
+  border-radius:16px;
+  background:rgba(255,255,255,.88);
+  border:1px solid var(--line)
+}
+
+.dates{
+  display:grid;
+  place-content:center;
+  text-align:center;
+  padding:10px;
+  border-radius:13px;
+  background:var(--sage);
+  font-weight:900;
+  color:var(--forest)
+}
+
+.dates small{
+  display:block;
+  color:var(--muted);
+  font-weight:700
+}
+
+.meta .place{
+  font-family:'Frank Ruhl Libre',serif;
+  font-size:1.12rem;
+  font-weight:900;
+  color:var(--forest)
+}
+
+.meta .hotel{font-weight:800}
+.meta .note{font-size:.92rem;color:var(--muted)}
+
+
+/* ==================================================
+   FAMILIES
+   ================================================== */
+
+.families-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:18px;
+  margin-top:65px
+}
+
+.family-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:0 16px 24px;
+  text-align:center;
+  box-shadow:0 12px 32px rgba(0,0,0,.06);
+  transition:.25s
+}
+
+.family-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 36px rgba(0,0,0,.10)
+}
+
+.family-image{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:center/cover no-repeat;
+  border:5px solid var(--sand);
+  margin:-52px auto 12px;
+  box-shadow:0 8px 20px rgba(0,0,0,.15)
+}
+
+.family-card h4{
+  font-size:1.25rem;
+  margin-bottom:3px
+}
+
+.family-card p{color:var(--muted)}
+
+
+/* ==================================================
+   TIMELINE
+   ================================================== */
+
+.timeline-toolbar{
+  position:sticky;
+  top:67px;
+  z-index:90;
+  background:rgba(247,250,248,.93);
+  backdrop-filter:blur(10px);
+  padding:11px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:24px
+}
+
+.filters{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap
+}
+
+.filter-btn{
+  border:1px solid var(--line);
+  background:white;
+  color:var(--ink);
+  font-weight:800;
+  padding:8px 13px;
+  border-radius:999px;
+  cursor:pointer
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+  background:var(--forest);
+  color:white
+}
+
+.expand-tools{
+  display:flex;
+  gap:8px
+}
+
+.small-btn{
+  border:0;
+  background:var(--sage);
+  color:var(--forest);
+  font-weight:800;
+  padding:8px 11px;
+  border-radius:12px;
+  cursor:pointer
+}
+
+.day-card{
+  display:grid;
+  grid-template-columns:32% 68%;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:26px;
+  overflow:hidden;
+  margin-bottom:22px;
+  box-shadow:var(--shadow)
+}
+
+.day-image{
+  min-height:360px;
+  position:relative;
+  overflow:hidden;
+  background:#e9eceb
+}
+
+.day-photo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block
+}
+
+.day-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.27));
+  z-index:1;
+  pointer-events:none
+}
+
+.day-tag{
+  position:absolute;
+  z-index:2;
+  top:16px;
+  right:16px;
+  background:rgba(255,255,255,.94);
+  padding:6px 11px;
+  border-radius:999px;
+  font-weight:900;
+  color:var(--forest);
+  box-shadow:0 6px 18px rgba(0,0,0,.10)
+}
+
+.day-number{
+  position:absolute;
+  z-index:2;
+  bottom:17px;
+  right:17px;
+  color:white;
+  font-family:'Frank Ruhl Libre',serif;
+  font-size:2.5rem;
+  font-weight:900;
+  text-shadow:0 4px 14px rgba(0,0,0,.35)
+}
+
+.day-content{padding:23px 25px}
+
+.day-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:15px;
+  cursor:pointer
+}
+
+.day-title-wrap{flex:1}
+
+.day-date{
+  font-weight:900;
+  color:var(--sand-dark);
+  font-size:.92rem;
+  margin-bottom:3px
+}
+
+.day-header h3{
+  font-size:clamp(1.4rem,2.4vw,1.9rem);
+  margin:0
+}
+
+.toggle-icon{
+  min-width:36px;
+  height:36px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--sage);
+  color:var(--forest);
+  font-weight:900;
+  font-size:1.4rem;
+  transition:.2s
+}
+
+.day-header.active .toggle-icon{transform:rotate(45deg)}
+
+.day-summary{
+  margin:13px 0 12px;
+  color:#475467
+}
+
+.day-metadata{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:12px
+}
+
+.meta-chip{
+  font-size:.86rem;
+  font-weight:800;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#f6f7f7;
+  border:1px solid var(--line)
+}
+
+.day-details{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:max-height .45s ease,opacity .35s ease
+}
+
+.day-header.active~.day-details{opacity:1}
+
+.details-inner{
+  padding-top:13px;
+  border-top:1px dashed var(--line)
+}
+
+
+/* WEATHER */
+
+.weather-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:11px 13px;
+  border-radius:14px;
+  background:var(--success);
+  border:1px solid rgba(47,106,80,.12);
+  margin-bottom:13px
+}
+
+.weather-main{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-weight:900;
+  color:var(--forest)
+}
+
+.weather-icon{
+  font-size:1.35rem
+}
+
+.weather-status{
+  font-size:.82rem;
+  color:var(--muted)
+}
+
+
+.plan-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:13px 0
+}
+
+.plan-box{
+  border-radius:16px;
+  padding:15px;
+  border:1px solid var(--line)
+}
+
+.plan-box h4{
+  font-family:'Assistant',sans-serif;
+  font-size:1rem;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px
+}
+
+.plan-box ul{padding-right:19px}
+.plan-box li{margin:5px 0}
+
+.plan-main{
+  background:#f7fbf8;
+  border-color:#b9d9c5
+}
+
+.plan-rain{
+  background:var(--rain);
+  border-color:var(--rain-border)
+}
+
+.options-box{
+  background:var(--option);
+  border:1px solid var(--option-border);
+  border-radius:16px;
+  padding:15px;
+  margin:12px 0
+}
+
+.options-box h4{
+  font-family:'Assistant',sans-serif;
+  font-size:1rem;
+  margin-bottom:7px
+}
+
+.options-box ul{padding-right:19px}
+.options-box li{margin:5px 0}
+
+.tip-box{
+  padding:13px 14px;
+  border-radius:15px;
+  background:#fffdf7;
+  border:1px solid #ead9c7;
+  margin:12px 0
+}
+
+.tip-box strong{color:var(--sand-dark)}
+
+.daily-fact{
+  display:grid;
+  grid-template-columns:100px 1fr;
+  gap:13px;
+  align-items:center;
+  padding:13px;
+  border-radius:16px;
+  background:linear-gradient(
+    135deg,
+    rgba(214,162,109,.18),
+    rgba(47,106,80,.08)
+  );
+  border:1px solid rgba(214,162,109,.32);
+  margin-top:12px
+}
+
+.daily-fact img{
+  width:100px;
+  height:75px;
+  object-fit:cover;
+  border-radius:12px;
+  border:2px solid rgba(214,162,109,.45)
+}
+
+.daily-fact-title{
+  font-weight:900;
+  color:var(--forest);
+  margin-bottom:3px
+}
+
+.fact-link{
+  font-size:.83rem;
+  font-weight:800;
+  color:var(--forest-2)
+}
+
+
+/* ==================================================
+   EXPERIENCE HUB + ROUTE INFO
+   ================================================== */
+
+.experience-section{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(
+    145deg,
+    #173b32 0%,
+    #2f6a50 58%,
+    #d6a26d 150%
+  );
+  color:#fff
+}
+
+.experience-section:before,
+.experience-section:after{
+  content:"";
+  position:absolute;
+  left:-5%;
+  right:-5%;
+  height:150px;
+  opacity:.12;
+  pointer-events:none;
+  background:linear-gradient(
+    135deg,
+    transparent 35%,
+    #fff 36% 37%,
+    transparent 38% 52%,
+    #fff 53% 54%,
+    transparent 55%
+  )
+}
+
+.experience-section:before{top:8px}
+
+.experience-section:after{
+  bottom:-45px;
+  transform:scaleX(-1)
+}
+
+.experience-section .section-head{
+  position:relative;
+  z-index:1
+}
+
+.experience-section .section-head h2,
+.experience-section .section-head p{
+  color:#fff
+}
+
+.experience-section .eyebrow{color:#ffe0b8}
+
+.experience-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px
+}
+
+.experience-card{
+  display:block;
+  background:rgba(255,255,255,.96);
+  color:var(--ink);
+  border-radius:20px;
+  padding:17px;
+  border:1px solid rgba(255,255,255,.5);
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
+  transition:transform .2s ease,box-shadow .2s ease
+}
+
+.experience-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 34px rgba(0,0,0,.18)
+}
+
+.experience-icon{
+  font-size:2rem;
+  line-height:1;
+  margin-bottom:9px
+}
+
+.experience-card h3{
+  font-family:'Assistant',sans-serif;
+  font-size:1.04rem;
+  margin-bottom:5px
+}
+
+.experience-card p{
+  font-size:.9rem;
+  color:#56606c
+}
+
+.experience-day{
+  display:inline-block;
+  margin-top:9px;
+  padding:4px 8px;
+  border-radius:999px;
+  background:var(--sage);
+  font-size:.78rem;
+  font-weight:900;
+  color:var(--forest)
+}
+
+.route-box{
+  margin:12px 0;
+  padding:14px;
+  border-radius:16px;
+  background:#f4f8f5;
+  border:1px solid #cfe0d4
+}
+
+.route-box h4{
+  font-family:'Assistant',sans-serif;
+  font-size:1rem;
+  margin-bottom:7px
+}
+
+.route-line{
+  display:flex;
+  gap:7px;
+  align-items:flex-start;
+  margin:5px 0
+}
+
+.route-total{
+  margin-top:8px;
+  padding-top:8px;
+  border-top:1px dashed #b9c9be;
+  font-weight:900;
+  color:var(--forest)
+}
+
+.restaurant-box{
+  margin:12px 0;
+  padding:13px 14px;
+  border-radius:15px;
+  background:#fff8ef;
+  border:1px solid #ead4b8
+}
+
+.restaurant-box strong{color:#8a542d}
+
+.maps-link{
+  color:var(--forest-2);
+  font-weight:900;
+  text-decoration:underline;
+  text-underline-offset:3px
+}
+
+.maps-link:after{
+  content:" ↗";
+  font-size:.78em
+}
+
+.constraint{
+  font-weight:800;
+  color:#8a542d
+}
+
+
+/* ==================================================
+   TIPS
+   ================================================== */
+
+.tips-section{background:#f4f7f5}
+
+.tips-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px
+}
+
+.tip-card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:19px;
+  box-shadow:0 10px 26px rgba(0,0,0,.04)
+}
+
+.tip-icon{
+  font-size:1.7rem;
+  margin-bottom:7px
+}
+
+.tip-card h4{
+  font-family:'Assistant',sans-serif;
+  font-size:1.08rem;
+  margin-bottom:5px
+}
+
+.tip-card p{
+  color:var(--muted);
+  font-size:.94rem
+}
+
+.tip-card a{
+  color:var(--forest-2);
+  font-weight:800;
+  border-bottom:1px dashed rgba(47,106,80,.45)
+}
+
+.tip-card a:hover{
+  color:var(--sand-dark);
+  border-bottom-color:var(--sand-dark)
+}
+
+.important-note{
+  margin-top:20px;
+  padding:16px;
+  border-radius:16px;
+  background:#fff6e8;
+  border:1px solid #ecc89b
+}
+
+
+/* ==================================================
+   VISIBILITY / PERFORMANCE
+   ================================================== */
+
+.fade-in-section{
+  opacity:1;
+  transform:none;
+  transition:.35s ease
+}
+
+.fade-in-section.is-visible{
+  opacity:1;
+  transform:none
+}
+
+.day-card{
+  opacity:1!important;
+  visibility:visible!important;
+  content-visibility:auto;
+  contain-intrinsic-size:760px
+}
+
+
+/* ==================================================
+   RESPONSIVE
+   ================================================== */
+
+@media(max-width:980px){
+  .quick-grid{grid-template-columns:1fr 1fr}
+  .tech-grid{grid-template-columns:1fr}
+  .families-grid{grid-template-columns:repeat(2,1fr);gap:64px 16px}
+  .day-card{grid-template-columns:1fr}
+  .day-image{min-height:240px}
+  .tips-grid{grid-template-columns:1fr 1fr}
+  .experience-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:680px){
+
+  .section{padding:4rem 0}
+
+  .quick-strip{margin-top:22px}
+  .quick-grid{grid-template-columns:1fr}
+
+  .flight-details-grid{grid-template-columns:1fr}
+  .families-grid{grid-template-columns:1fr;gap:70px}
+
+  .timeline-toolbar{
+    top:58px;
+    align-items:flex-start;
+    flex-direction:column
+  }
+
+  .expand-tools{width:100%}
+  .small-btn{flex:1}
+
+  .plan-grid{grid-template-columns:1fr}
+  .tips-grid{grid-template-columns:1fr}
+
+  .daily-fact{grid-template-columns:78px 1fr}
+  .daily-fact img{width:78px;height:64px}
+
+  .stay{grid-template-columns:1fr}
+
+  .dates{
+    display:flex;
+    justify-content:space-between;
+    align-items:center
+  }
+
+  .section-title{
+    align-items:flex-start;
+    flex-direction:column
+  }
+
+  .nav-list{justify-content:flex-start}
+
+  .navbar{
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+    background:rgba(255,255,255,.98)
+  }
+
+  .timeline-toolbar{
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+    background:rgba(247,250,248,.98)
+  }
+
+
+  /* HERO MOBILE — חשוב: מבטל את הרוחב הקשיח של 280px באמצע */
+
+  .hero{
+    min-height:auto;
+    display:block;
+    padding:128px 14px 42px;
+    overflow:hidden;
+  }
+
+  .hero-card{
+    width:100%;
+    max-width:100%;
+    margin:0 auto;
+    padding:118px 18px 30px;
+    border-radius:26px;
+  }
+
+  .hero-trip-logo{
+    width:220px;
+    height:220px;
+    top:-110px;
+    left:50%;
+    right:auto;
+    transform:translateX(-50%);
+  }
+
+  .hero-split-title{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:18px;
+    align-items:center;
+    width:100%;
+    margin:0 0 20px;
+  }
+
+  .hero-title-right,
+  .hero-title-left{
+    min-width:0;
+    width:100%;
+    font-size:clamp(1.65rem,8vw,2.35rem);
+    line-height:1.02;
+    text-align:center!important;
+    justify-self:center;
+    overflow-wrap:normal;
+    word-break:normal;
+  }
+
+  .hero-title-right{
+    grid-column:2;
+  }
+
+  .hero-title-left{
+    grid-column:1;
+  }
+
+  .hero .subtitle{
+    font-size:1.02rem;
+    line-height:1.5;
+    margin:4px auto 24px;
+    max-width:100%;
+  }
+
+  .hero-btn{
+    max-width:280px;
+    justify-content:center;
+  }
+
+  .experience-grid{grid-template-columns:1fr}
+
+  .weather-row{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:4px
+  }
+}
+
+@media(max-width:390px){
+  .hero-title-right,
+  .hero-title-left{
+    font-size:clamp(1.5rem,7.7vw,2rem);
+  }
+
+  .hero-split-title{
+    gap:10px;
+  }
+
+  .hero-card{
+    padding-left:14px;
+    padding-right:14px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{
+    scroll-behavior:auto!important;
+    transition:none!important;
+    animation:none!important
+  }
+
+  .fade-in-section{
+    opacity:1;
+    transform:none
+  }
+}
+
+
+/* ==================================================
+   NATIVE ACCORDION
+   works without JavaScript, including iOS preview
+   ================================================== */
+
+.day-native{
+  width:100%;
+}
+
+.day-summary-native{
+  display:block;
+  list-style:none;
+  cursor:pointer;
+  outline:none;
+}
+
+.day-summary-native::-webkit-details-marker{display:none}
+.day-summary-native::marker{display:none}
+
+.day-native .day-details{
+  display:block;
+  max-height:none!important;
+  overflow:visible;
+  opacity:1!important;
+  transition:none;
+}
+
+.day-native:not([open]) .day-details{
+  display:none;
+}
+
+.day-native .toggle-icon{
+  pointer-events:none;
+}
+
+.day-native[open] .toggle-icon{
+  transform:rotate(45deg);
+  background:#173b32;
+  color:white;
+}
+
+.day-native[open] .day-header{
+  margin-bottom:2px;
+}
 </style>
 </head>
+
+
 <body>
+
+<!-- ==================================================
+     HERO
+     ================================================== -->
+
 <section class="hero">
-<div class="hero-card">
-<img src="hadas24_logo.png" alt="Hadas 24 Austria 2026" class="hero-trip-logo">
-<div class="hero-split-title">
-  <div class="hero-title-right">מהדס 24<br>חולון</div>
-  <div class="hero-title-left">לפסגות<br>אוסטריה</div>
-</div>
-</div>
-<p class="subtitle">11 ימים, 5 משפחות, שני בסיסי כוכב, הרבה הרים — ותוכנית גשם לכל יום.</p>
-<a class="hero-btn" href="#timeline">למסלול המלא ↓</a>
-</div>
+  <div class="hero-card">
+
+    <img
+      src="hadas24_logo.png"
+      alt="Hadas 24 Austria 2026"
+      class="hero-trip-logo"
+    >
+
+    <div class="hero-split-title">
+      <div class="hero-title-right">מהדס 24<br>חולון</div>
+      <div class="hero-title-left">לפסגות<br>אוסטריה</div>
+    </div>
+
+    <p class="subtitle">
+      11 ימים, 5 משפחות, שני בסיסי כוכב, הרבה הרים — ותוכנית גשם לכל יום.
+    </p>
+
+    <a class="hero-btn" href="#timeline">
+      למסלול המלא ↓
+    </a>
+
+  </div>
 </section>
+
+
+<!-- ==================================================
+     NAV
+     ================================================== -->
 
 <nav aria-label="ניווט ראשי" class="navbar">
 <div class="nav-list">
@@ -482,458 +1352,4464 @@
 <a href="#tips">⭐ טיפים</a>
 </div>
 </nav>
+
+
+<!-- ==================================================
+     QUICK STRIP
+     ================================================== -->
+
 <div class="container quick-strip">
 <div class="quick-grid">
-<div class="quick-item"><strong>5 לילות בפלאכאו</strong><span>22–27.09 · Hofgut Family Resort</span></div>
-<div class="quick-item"><strong>4 לילות בפוגן</strong><span>27.09–01.10 · Zillertal Suites</span></div>
-<div class="quick-item"><strong>לילה אחרון בווינה</strong><span>01–02.10 · מרכז העיר</span></div>
-<div class="quick-item"><strong>גישה גמישה</strong><span>בכל יום: תוכנית טובה + חלופת גשם</span></div>
+
+<div class="quick-item">
+<strong>5 לילות בפלאכאו</strong>
+<span>22–27.09 · Hofgut Family Resort</span>
+</div>
+
+<div class="quick-item">
+<strong>4 לילות בפוגן</strong>
+<span>27.09–01.10 · Zillertal Suites</span>
+</div>
+
+<div class="quick-item">
+<strong>לילה אחרון בווינה</strong>
+<span>01–02.10 · מרכז העיר</span>
+</div>
+
+<div class="quick-item">
+<strong>גישה גמישה</strong>
+<span>בכל יום: תוכנית טובה + חלופת גשם</span>
+</div>
+
 </div>
 </div>
+
+
+<!-- ==================================================
+     FLIGHTS + LODGING
+     ================================================== -->
+
 <section class="tech-data-section" id="tech-data">
+
 <div class="container tech-grid">
+
 <div class="data-card flight-data-card">
+
 <h3 class="section-title">
 <span>✈️ פרטי טיסות</span>
 <span class="chip">Austrian Airlines</span>
 </h3>
+
 <div class="flight-details-grid">
+
 <div class="flight-segment">
-<h4>הלוך <span class="date-pill">22.09.2026</span></h4>
-<div class="flight-info-item"><span class="label">טיסה</span><span class="value">OS84</span></div>
-<div class="flight-info-item"><span class="label">מסלול</span><span class="value">TLV → VIE</span></div>
-<div class="flight-info-item"><span class="label">המראה</span><span class="value">06:00</span></div>
-<div class="flight-info-item"><span class="label">נחיתה</span><span class="value">08:45</span></div>
-<div class="flight-info-item"><span class="label">סטטוס</span><span class="value" id="flight-status-outbound">מתוכננת</span></div>
+
+<h4>
+הלוך
+<span class="date-pill">22.09.2026</span>
+</h4>
+
+<div class="flight-info-item">
+<span class="label">טיסה</span>
+<span class="value">OS84</span>
 </div>
+
+<div class="flight-info-item">
+<span class="label">מסלול</span>
+<span class="value">TLV → VIE</span>
+</div>
+
+<div class="flight-info-item">
+<span class="label">המראה</span>
+<span class="value">06:00</span>
+</div>
+
+<div class="flight-info-item">
+<span class="label">נחיתה</span>
+<span class="value">08:45</span>
+</div>
+
+<div class="flight-info-item">
+<span class="label">סטטוס</span>
+<span class="value" id="flight-status-outbound">מתוכננת</span>
+</div>
+
+</div>
+
+
 <div class="flight-segment">
-<h4>חזור <span class="date-pill">02.10.2026</span></h4>
-<div class="flight-info-item"><span class="label">טיסה</span><span class="value">OS83</span></div>
-<div class="flight-info-item"><span class="label">מסלול</span><span class="value">VIE → TLV</span></div>
-<div class="flight-info-item"><span class="label">המראה</span><span class="value">20:20</span></div>
-<div class="flight-info-item"><span class="label">נחיתה</span><span class="value">00:45 למחרת</span></div>
-<div class="flight-info-item"><span class="label">סטטוס</span><span class="value" id="flight-status-return">מתוכננת</span></div>
+
+<h4>
+חזור
+<span class="date-pill">02.10.2026</span>
+</h4>
+
+<div class="flight-info-item">
+<span class="label">טיסה</span>
+<span class="value">OS83</span>
 </div>
+
+<div class="flight-info-item">
+<span class="label">מסלול</span>
+<span class="value">VIE → TLV</span>
 </div>
+
+<div class="flight-info-item">
+<span class="label">המראה</span>
+<span class="value">20:20</span>
+</div>
+
+<div class="flight-info-item">
+<span class="label">נחיתה</span>
+<span class="value">00:45 למחרת</span>
+</div>
+
+<div class="flight-info-item">
+<span class="label">סטטוס</span>
+<span class="value" id="flight-status-return">מתוכננת</span>
+</div>
+
+</div>
+
+</div>
+
 <p class="flight-data-note">
-          מספר טיסת הבוקר עודכן ל־OS84. לוחות טיסות עשויים להשתנות, ולכן מומלץ לאמת שוב סמוך לנסיעה.
-        </p>
+מספר טיסת הבוקר עודכן ל־OS84. לוחות טיסות עשויים להשתנות, ולכן מומלץ לאמת שוב סמוך לנסיעה.
+</p>
+
 </div>
+
+
 <div class="data-card lodging-data-card">
+
 <h3 class="section-title">
 <span>🏡 סיכום לינות</span>
 <span class="chip">10 לילות</span>
 </h3>
+
 <div class="lodging-timeline">
+
 <div class="stay">
 <div class="dates">22–27.09 <small>5 לילות</small></div>
+
 <div class="meta">
 <div class="place">פלאכאו (Flachau)</div>
 <div class="hotel">Hofgut Family Resort</div>
-<div class="note">לכל המשפחות. בסיס כוכב לזלצבורג, האלשטאט, קפרון וגרוסגלוקנר.</div>
+<div class="note">
+לכל המשפחות. בסיס כוכב לזלצבורג, האלשטאט, קפרון וגרוסגלוקנר.
 </div>
 </div>
+</div>
+
+
 <div class="stay">
-<div class="dates">27.09–01.10 <small>4 לילות</small></div>
+
+<div class="dates">
+27.09–01.10
+<small>4 לילות</small>
+</div>
+
 <div class="meta">
 <div class="place">Fügen, Zillertal</div>
 <div class="hotel">Alps Residence — Zillertal Suites</div>
-<div class="note">לכל המשפחות. בסיס כוכב לטירול, אינסברוק, אכנזי ואולפרר.</div>
+<div class="note">
+לכל המשפחות. בסיס כוכב לטירול, אינסברוק, אכנזי ואולפרר.
 </div>
 </div>
+
+</div>
+
+
 <div class="stay">
-<div class="dates">01–02.10 <small>לילה 1</small></div>
+
+<div class="dates">
+01–02.10
+<small>לילה 1</small>
+</div>
+
 <div class="meta">
 <div class="place">וינה — מרכז העיר</div>
 <div class="hotel">מלון במרכז</div>
-<div class="note">החזרת הרכב בערב 01.10; יום עיר וטיסה הביתה ב־02.10.</div>
+<div class="note">
+החזרת הרכב בערב 01.10; יום עיר וטיסה הביתה ב־02.10.
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
+
 </div>
 </section>
+
+
+<!-- ==================================================
+     FAMILIES
+     ================================================== -->
+
 <section class="section" id="intro">
+
 <div class="container">
+
 <div class="section-head">
 <span class="eyebrow">הנבחרת של הדס 24</span>
 <h2>26 מטיילים, 5 משפחות</h2>
-<p>שני בסיסי כוכב, הרבה אפשרויות לפיצול, ואפשרות לשנות תוכנית לפי מזג האוויר בלי לפרק את כל הטיול.</p>
+<p>
+שני בסיסי כוכב, הרבה אפשרויות לפיצול, ואפשרות לשנות תוכנית לפי מזג האוויר בלי לפרק את כל הטיול.
+</p>
 </div>
+
+
 <div class="families-grid">
-<div class="family-card"><div class="family-image" style="background-image:url('metsuyanim.png')"></div><h4 title="כפיר, רין, תמר, איתן ומתן">משפחת מצוינים</h4><p>סיירת ההליכה</p></div>
-<div class="family-card"><div class="family-image" style="background-image:url('gelfand.png')"></div><h4 title="לירן, שני, שי-לי, ינאי ונועם">משפחת גלפנד</h4><p>צלמים וקומיקאים</p></div>
-<div class="family-card"><div class="family-image" style="background-image:url('avniely.png')"></div><h4 title="עידו, רותי, אסף, סיון ושי">משפחת אבניאלי</h4><p>לוגיסטיקה וניווט</p></div>
-<div class="family-card"><div class="family-image" style="background-image:url('barel.png')"></div><h4 title="אופיר, עינב, יואב, אביב ושחר">משפחת בראל</h4><p>סושיאל וקולינריה</p></div>
-<div class="family-card"><div class="family-image" style="background-image:url('erez.png')"></div><h4 title="אשחר, אורטל, אריאל, אופיר, עלמה ואורי">משפחת ארז</h4><p>השכמה בזמן</p></div>
+
+<div class="family-card">
+<div
+  class="family-image"
+  style="background-image:url('metsuyanim.png')">
+</div>
+<h4 title="כפיר, רין, תמר, איתן ומתן">משפחת מצוינים</h4>
+<p>סיירת ההליכה</p>
+</div>
+
+
+<div class="family-card">
+<div
+  class="family-image"
+  style="background-image:url('gelfand.png')">
+</div>
+<h4 title="לירן, שני, שי-לי, ינאי ונועם">משפחת גלפנד</h4>
+<p>צלמים וקומיקאים</p>
+</div>
+
+
+<div class="family-card">
+<div
+  class="family-image"
+  style="background-image:url('avniely.png')">
+</div>
+<h4 title="עידו, רותי, אסף, סיון ושי">משפחת אבניאלי</h4>
+<p>לוגיסטיקה וניווט</p>
+</div>
+
+
+<div class="family-card">
+<div
+  class="family-image"
+  style="background-image:url('barel.png')">
+</div>
+<h4 title="אופיר, עינב, יואב, אביב ושחר">משפחת בראל</h4>
+<p>סושיאל וקולינריה</p>
+</div>
+
+
+<div class="family-card">
+<div
+  class="family-image"
+  style="background-image:url('erez.png')">
+</div>
+<h4 title="אשחר, אורטל, אריאל, אופיר, עלמה ואורי">משפחת ארז</h4>
+<p>השכמה בזמן</p>
+</div>
+
 </div>
 </div>
 </section>
 
+
+<!-- ==================================================
+     EXPERIENCE HUB
+     ================================================== -->
+
 <section class="section experience-section" id="experiences">
+
 <div class="container">
-<div class="section-head"><span class="eyebrow">האקשן של הטיול</span><h2>🎡 אגף האטרקציות השוות</h2><p>כל מה שהוא מתקן, פארק או חוויה בנויה — לא מסלולי טבע. ליד כל אטרקציה מופיע היום שבו היא מתוכננת.</p></div>
+
+<div class="section-head">
+<span class="eyebrow">האקשן של הטיול</span>
+<h2>🎡 אגף האטרקציות השוות</h2>
+<p>
+כל מה שהוא מתקן, פארק או חוויה בנויה — לא מסלולי טבע.
+ליד כל אטרקציה מופיע היום שבו היא מתוכננת.
+</p>
+</div>
+
+
 <div class="experience-grid">
-<a class="experience-card" href="#day2"><div class="experience-icon">⚡</div><h3>Zipline Stoderzinken</h3><p>2.5 ק״מ של אומגה בשני מקטעים ועד 115 קמ״ש.</p><span class="experience-day">יום 2 · חובה לתאם קבוצה</span></a>
-<a class="experience-card" href="#day2"><div class="experience-icon">🧂</div><h3>Salzwelten Hallstatt</h3><p>מכרה מלח, מגלשות כורים, אגם תת־קרקעי ורכבת מכרה.</p><span class="experience-day">יום 2</span></a>
-<a class="experience-card" href="#day4"><div class="experience-icon">🎢</div><h3>Lucky Flitzer</h3><p>Alpine Coaster בפלאכאו, 1.1 ק״מ — בונוס אם נשאר זמן וכוח.</p><span class="experience-day">יום 4 · אופציונלי</span></a>
-<a class="experience-card" href="#day5"><div class="experience-icon">🎢</div><h3>Keltenblitz</h3><p>מגלשת הרים באורך 2.2 ק״מ, עם עלייה בכיסאות רכבל.</p><span class="experience-day">יום 5</span></a>
-<a class="experience-card" href="#day5"><div class="experience-icon">💦</div><h3>Hellbrunn Trick Fountains</h3><p>משחקי מים היסטוריים, הפתעות ומזרקות — בהתאם לטמפרטורה.</p><span class="experience-day">יום 5 · לפי מזג אוויר</span></a>
-<a class="experience-card" href="#day8"><div class="experience-icon">🧙</div><h3>Hexenwasser</h3><p>עשרות תחנות משחק, מים, טבע וחקר למשפחות.</p><span class="experience-day">יום 8 · חלופה</span></a>
-<a class="experience-card" href="#day8"><div class="experience-icon">♨️</div><h3>Aqua Dome</h3><p>12 בריכות תרמיות פנימיות וחיצוניות ומתחם משפחות.</p><span class="experience-day">יום 8 · כולם בערב</span></a>
-<a class="experience-card" href="#day9"><div class="experience-icon">🧱</div><h3>LEGOLAND Deutschland</h3><p>יום פארק מלא עם מתקנים, רכבות הרים ועולמות LEGO.</p><span class="experience-day">יום 9</span></a>
-<a class="experience-card" href="#day10"><div class="experience-icon">🧊</div><h3>Nature's Ice Palace</h3><p>מערת קרח בתוך קרחון Hintertux, כולל מסלול ושיט תת־קרחוני.</p><span class="experience-day">יום 10 · חובה לתאם קבוצה</span></a>
-</div></div></section>
+
+<a class="experience-card" href="#day2">
+<div class="experience-icon">⚡</div>
+<h3>Zipline Stoderzinken</h3>
+<p>2.5 ק״מ של אומגה בשני מקטעים ועד 115 קמ״ש.</p>
+<span class="experience-day">יום 2 · חובה לתאם קבוצה</span>
+</a>
+
+
+<a class="experience-card" href="#day2">
+<div class="experience-icon">🧂</div>
+<h3>Salzwelten Hallstatt</h3>
+<p>מכרה מלח, מגלשות כורים, אגם תת־קרקעי ורכבת מכרה.</p>
+<span class="experience-day">יום 2</span>
+</a>
+
+
+<a class="experience-card" href="#day4">
+<div class="experience-icon">🎢</div>
+<h3>Lucky Flitzer</h3>
+<p>Alpine Coaster בפלאכאו, 1.1 ק״מ — בונוס אם נשאר זמן וכוח.</p>
+<span class="experience-day">יום 4 · אופציונלי</span>
+</a>
+
+
+<a class="experience-card" href="#day5">
+<div class="experience-icon">🎢</div>
+<h3>Keltenblitz</h3>
+<p>מגלשת הרים באורך 2.2 ק״מ, עם עלייה בכיסאות רכבל.</p>
+<span class="experience-day">יום 5</span>
+</a>
+
+
+<a class="experience-card" href="#day5">
+<div class="experience-icon">💦</div>
+<h3>Hellbrunn Trick Fountains</h3>
+<p>משחקי מים היסטוריים, הפתעות ומזרקות — בהתאם לטמפרטורה.</p>
+<span class="experience-day">יום 5 · לפי מזג אוויר</span>
+</a>
+
+
+<a class="experience-card" href="#day8">
+<div class="experience-icon">🧙</div>
+<h3>Hexenwasser</h3>
+<p>עשרות תחנות משחק, מים, טבע וחקר למשפחות.</p>
+<span class="experience-day">יום 8 · חלופה</span>
+</a>
+
+
+<a class="experience-card" href="#day8">
+<div class="experience-icon">♨️</div>
+<h3>Aqua Dome</h3>
+<p>12 בריכות תרמיות פנימיות וחיצוניות ומתחם משפחות.</p>
+<span class="experience-day">יום 8 · כולם בערב</span>
+</a>
+
+
+<a class="experience-card" href="#day9">
+<div class="experience-icon">🧱</div>
+<h3>LEGOLAND Deutschland</h3>
+<p>יום פארק מלא עם מתקנים, רכבות הרים ועולמות LEGO.</p>
+<span class="experience-day">יום 9</span>
+</a>
+
+
+<a class="experience-card" href="#day10">
+<div class="experience-icon">🧊</div>
+<h3>Nature's Ice Palace</h3>
+<p>מערת קרח בתוך קרחון Hintertux, כולל מסלול ושיט תת־קרחוני.</p>
+<span class="experience-day">יום 10 · חובה לתאם קבוצה</span>
+</a>
+
+</div>
+</div>
+</section>
+
+
+<!-- ==================================================
+     TIMELINE
+     ================================================== -->
 
 <section class="section" id="timeline">
+
 <div class="container">
+
 <div class="section-head">
 <span class="eyebrow">המסלול המלא</span>
 <h2>יומן המסע</h2>
-<p>בכל יום תמצאו את התוכנית המרכזית, חלופה למזג אוויר גשום, אפשרויות נוספות וטיפים שימושיים. לחצו על היום כדי לפתוח את הפירוט.</p>
+<p>
+בכל יום תמצאו את התוכנית המרכזית, חלופה למזג אוויר גשום,
+אפשרויות נוספות וטיפים שימושיים. לחצו על היום כדי לפתוח את הפירוט.
+</p>
 </div>
+
+
 <div class="timeline-toolbar">
+
 <div aria-label="סינון ימים" class="filters">
+
 <button class="filter-btn active" data-filter="all">הכל</button>
 <button class="filter-btn" data-filter="nature">טבע</button>
 <button class="filter-btn" data-filter="city">עיר</button>
 <button class="filter-btn" data-filter="kids">ילדים</button>
 <button class="filter-btn" data-filter="walk">הליכה</button>
 <button class="filter-btn" data-filter="travel">מעבר</button>
+
 </div>
+
+
 <div class="expand-tools">
 <button class="small-btn" id="open-all">פתח הכל</button>
 <button class="small-btn" id="close-all">סגור הכל</button>
 </div>
+
 </div>
+
+
 <div id="days-container">
- DAY 1 
-<article class="day-card fade-in-section" data-type="travel kids nature" id="day1">
-<div class="day-image" id="img-day1"><img class="day-photo" src="day1.png" alt="תמונת יום 1" loading="lazy" decoding="async"><span class="day-tag">נחיתה + Gosausee</span><span class="day-number">01</span></div>
-<div class="day-content"><details class="day-native"><summary class="day-summary-native"><div class="day-header"><div class="day-title-wrap"><div class="day-date">22.09 · יום שלישי</div><h3>נחיתה בווינה → Gosausee → Wagrain</h3></div><span class="toggle-icon">+</span></div><p class="day-summary">פתיחה נופית ורגועה: אגם Gosausee, ארוחה באזור ונסיעה ל־Hofgut.</p><div class="day-metadata"><span class="meta-chip">✈️ נחיתה</span><span class="meta-chip">🏞️ אגם</span><span class="meta-chip">🚗 יום מעבר</span></div></summary><div class="day-details"><div class="details-inner">
-<div class="plan-box plan-main"><h4>🧭 המסלול המוצע</h4><ul><li>08:45 נחיתה בווינה ואיסוף רכבים.</li><li>נסיעה ל־<a class="maps-link" href="https://www.google.com/maps/place/Gosausee+Parking+lot/@47.5337615,13.4933357,17z/data=!3m1!4b1!4m6!3m5!1s0x4776cb185765239f:0xbe7ec9e2c60c4488!8m2!3d47.5337579!4d13.4959106!16s%2Fg%2F11ghrs9ybr?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Vorderer Gosausee</a>.</li><li>הליכה קלה לאורך האגם לפי האנרגיה ומזג האוויר.</li><li>ארוחה באזור והמשך ל־Hofgut Wagrain לצ׳ק־אין.</li></ul></div>
-<div class="route-box"><h4>🚗 נסיעות היום</h4><div class="route-line"><span>→</span><span>VIE → Gosausee: כ־290 ק״מ · 3:15 ש׳</span></div><div class="route-line"><span>→</span><span>Gosausee → Hofgut Wagrain: כ־70 ק״מ · 1:10 ש׳</span></div><div class="route-total">סה״כ נהיגה משוער: כ־360 ק״מ · 4:25 ש׳</div></div><div class="restaurant-box">🍽️ <strong>המסעדה המומלצת:</strong> <a class="maps-link" href="https://maps.app.goo.gl/BGVhNcLZkYJrsy13A" target="_blank" rel="noopener">Gasthaus Echo
-</a> · Google 4.7/5 · כ־3 ק״מ מהאגם; נבחר במקום Gasthof Gosausee שאינו עומד ברף 4.2</div>
-<div class="options-box"><h4>✨ אופציות / בונוסים</h4><p><a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJCRcioBEkcUcRGvIfAhTsJuM" target="_blank" rel="noopener"><strong>Waldhäuslalm + Untertal</strong></a> — מסעדת הרים משפחתית בעמק, עם מגרש משחקים ואפשרות להליכה קצרה לאורך המים; גיבוי יעיל יותר אם לא רוצים את הסטייה ל־Gosausee.</p></div>
-<div class="plan-box plan-rain"><h4>🌧️ אילוצים וחלופות</h4><p>במזג אוויר גרוע במיוחד מקצרים את Gosausee ועוברים ישירות ל־Wagrain.</p></div>
-<div class="tip-box"><strong>חשוב:</strong> זה יום מעבר. לא מוסיפים אטרקציית חובה נוספת.</div>
-<div class="daily-fact"><img alt="עובדה יומית יום 1" src="fact1.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>Gosausee יושב למרגלות רכס Dachstein ומספק אחת מתמונות הראי הקלאסיות של האזור.</div><a class="fact-link" href="fact1.png" target="_blank">פתיחת התמונה</a></div></div>
-</div></div></details></div></article>
- DAY 2 
-<article class="day-card fade-in-section" data-type="nature kids walk" id="day2">
-<div class="day-image" id="img-day2"><img class="day-photo" src="day2.png" alt="תמונת יום 2" loading="lazy" decoding="async"><span class="day-tag">Hallstatt + Zipline</span><span class="day-number">02</span></div>
-<div class="day-content"><details class="day-native"><summary class="day-summary-native"><div class="day-header"><div class="day-title-wrap"><div class="day-date">23.09 · יום רביעי</div><h3>Hallstatt, מכרה המלח ואומגת Stoderzinken</h3></div><span class="toggle-icon">+</span></div><p class="day-summary">בוקר בהאלשטאט וב־Salzwelten, אחר הצהריים אומגה ב־Gröbming.</p><div class="day-metadata"><span class="meta-chip">🧂 מכרה מלח</span><span class="meta-chip">⚡ אומגה</span><span class="meta-chip">🏘️ Hallstatt</span></div></summary><div class="day-details"><div class="details-inner">
-<div class="plan-box plan-main"><h4>🧭 המסלול המוצע</h4><ul><li>יציאה מוקדמת מ־Hofgut.</li><li><a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Salzwelten%20Hallstatt&query_place_id=ChIJP9hpD5I3cUcRac5Ow7lolII" target="_blank" rel="noopener">Salzwelten Hallstatt</a> — פוניקולר, Skywalk וסיור במכרה. להקדיש לפחות 3 שעות.</li><li>הליכה וארוחה קצרה בהאלשטאט.</li><li>נסיעה ל־Gröbming ו־<a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJZ1bd2689cUcRSLqwE53wfb8" target="_blank" rel="noopener">Zipline Stoderzinken</a> לשעה 16:15 או 17:00. <strong>מגבלות:</strong> גיל 8+, גובה 120 ס״מ+, משקל 30–125 ק״ג; מתחת לגיל 14 בליווי מבוגר.</li></ul></div>
-<div class="tip-box"><strong>💶 מחירים שכבר נבדקו:</strong> Salzwelten Hallstatt — מבוגר €49, ילד 4–15 €23; לקבוצה של 20+ מבוגרים: €47 למבוגר וכל אדם 21 חינם. Zipline Stoderzinken — €47 מגיל 16, €31 לגיל 8–15.</div>
-<div class="route-box"><h4>🚗 נסיעות היום</h4><div class="route-line"><span>→</span><span>Hofgut → Hallstatt: כ־65 ק״מ · 1:05 ש׳</span></div><div class="route-line"><span>→</span><span>Hallstatt → Gröbming: כ־65 ק״מ · 1:10 ש׳</span></div><div class="route-line"><span>→</span><span>Gröbming → Hofgut: כ־45 ק״מ · 45 דק׳</span></div><div class="route-total">סה״כ נהיגה משוער: כ־175 ק״מ · 3:00 ש׳</div></div><div class="restaurant-box">🍽️ <strong>המסעדה המומלצת:</strong> <a class="maps-link" href="https://www.google.com/maps/place/s'Wirtshaus+by+Alpine+Genusswelten,+Gröbming,+Austria" target="_blank" rel="noopener">s'Wirtshaus by Alpine Genusswelten</a> · Google 4.7/5 · ב־Gröbming; מתאים לפני/אחרי ה־Zipline לפי השעה</div>
 
-<div class="plan-box plan-rain"><h4>🌧️ אילוצים וחלופות</h4><p>אם האומגה נעצרת בגלל רוח חזקה/סופת רעמים, מאריכים את <a class="maps-link" href="https://maps.app.goo.gl/2ScqPZtE5cMex1gBA" target="_blank" rel="noopener">Hallstatt</a> — שיטוט רגוע בעיירה, בכיכר ובטיילת האגם — וחוזרים מוקדם.</p></div>
-<div class="tip-box"><strong>חשוב:</strong> חובה ליצור קשר מראש עם Zipline ולתאם משבצת לקבוצה. במכרה להגיע לתחנת הפוניקולר כ־45 דקות לפני הסיור.</div>
-<div class="daily-fact"><img alt="עובדה יומית יום 2" src="fact2.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>אזור Hallstatt מזוהה עם כריית מלח עתיקה ועם תרבות Hallstatt מתקופת הברזל.</div><a class="fact-link" href="fact2.png" target="_blank">פתיחת התמונה</a></div></div>
-</div></div></details></div></article>
- DAY 3 
-<article class="day-card fade-in-section" data-type="nature travel kids" id="day3">
-<div class="day-image" id="img-day3"><img class="day-photo" src="day3.png" alt="תמונת יום 3" loading="lazy" decoding="async"><span class="day-tag">Grossglockner</span><span class="day-number">03</span></div>
-<div class="day-content"><details class="day-native"><summary class="day-summary-native"><div class="day-header"><div class="day-title-wrap"><div class="day-date">24.09 · יום חמישי</div><h3>Grossglockner High Alpine Road</h3></div><span class="toggle-icon">+</span></div><p class="day-summary">יום נהיגה נופי: Edelweissspitze, Alpine Naturschau, Hochtor ו־Kaiser-Franz-Josefs-Höhe.</p><div class="day-metadata"><span class="meta-chip">🏔️ כביש אלפיני</span><span class="meta-chip">📸 תצפיות</span><span class="meta-chip">☀️ ראות חשובה</span></div></summary><div class="day-details"><div class="details-inner">
-<div class="plan-box plan-main"><h4>🧭 המסלול המוצע</h4><ul><li>07:30 יציאה מ־Hofgut.</li><li><a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Edelweissspitze&query_place_id=ChIJw0IEIoMWd0cRDgI0K5Ngjko" target="_blank" rel="noopener">Edelweissspitze</a> — 20–30 דק׳.</li><li><a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Haus%20Alpine%20Naturschau&query_place_id=ChIJLRBHIp4Wd0cRWOxIu2BAGeg" target="_blank" rel="noopener">Haus Alpine Naturschau</a> — תערוכת טבע קצרה.</li><li><a class="maps-link" href="https://www.google.com/maps/place/Hochtor,+Großglockner+Hochalpenstraße,+Austria" target="_blank" rel="noopener">Hochtor</a> — עצירת מעבר קצרה.</li><li><a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Kaiser-Franz-Josefs-Hoehe&query_place_id=ChIJoyJxJ2kTd0cRaQQYsBQ2zxg" target="_blank" rel="noopener">Kaiser-Franz-Josefs-Höhe</a> — היעד המרכזי, תצפיות והליכה קצרה.</li><li>לא מתכננים עצירה ב־Fuscher Törl.</li></ul></div>
-<div class="route-box"><h4>🚗 נסיעות היום</h4><div class="route-line"><span>→</span><span>Hofgut → אזור הכניסה לכביש: כ־75 ק״מ · 1:20 ש׳</span></div><div class="route-line"><span>→</span><span>נהיגה לאורך כביש Grossglockner והשלוחות: כ־95 ק״מ</span></div><div class="route-line"><span>→</span><span>חזרה ל־Hofgut: כ־75 ק״מ · 1:20 ש׳</span></div><div class="route-total">סה״כ נהיגה משוער: כ־245 ק״מ · 4:15–4:45 ש׳</div></div><div class="restaurant-box">🍽️ <strong>המסעדה המומלצת:</strong> <a class="maps-link" href="https://www.google.com/maps/place/Panoramarestaurant+Kaiser+Franz-Josefs-Höhe,+Austria" target="_blank" rel="noopener">Panoramarestaurant Kaiser Franz-Josefs-Höhe</a> · Google 4.2/5 · מומלץ להזמין לקבוצה</div>
 
-<div class="tip-box"><strong>💶 מחיר שכבר נבדק:</strong> Grossglockner High Alpine Road — €46.50 לרכב (מחיר 2026 שנבדק).</div>
-<div class="plan-box plan-rain"><h4>🌧️ אילוצים וחלופות</h4><p><span class="constraint">עושים את היום רק בראות טובה.</span> אם התחזית עננית/גשומה — מחליפים יום עם פעילות שפחות תלויה בראות.</p></div>
-<div class="tip-box"><strong>חשוב:</strong> בספטמבר הכביש נסגר בערב; לא מושכים את החזרה.</div>
-<div class="daily-fact"><img alt="עובדה יומית יום 3" src="fact3.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>כביש Grossglockner מאפשר להגיע לעולם אלפיני גבוה ולתצפיות קרחון בלי טרק ארוך.</div><a class="fact-link" href="fact3.png" target="_blank">פתיחת התמונה</a></div></div>
-</div></div></details></div></article>
- DAY 4 
-<article class="day-card fade-in-section" data-type="nature walk kids" id="day4">
-<div class="day-image" id="img-day4"><img class="day-photo" src="day4.png" alt="תמונת יום 4" loading="lazy" decoding="async"><span class="day-tag">Kaprun</span><span class="day-number">04</span></div>
-<div class="day-content"><details class="day-native"><summary class="day-summary-native"><div class="day-header"><div class="day-title-wrap"><div class="day-date">25.09 · יום שישי</div><h3>Kitzsteinhorn → Sigmund-Thun-Klamm</h3></div><span class="toggle-icon">+</span></div><p class="day-summary">עולים קודם ל־3,029 מ׳, אוכלים על ההר ואז יורדים לנקיק. Lucky Flitzer כבונוס בערב.</p><div class="day-metadata"><span class="meta-chip">❄️ 3,029 מ׳</span><span class="meta-chip">💧 נקיק</span><span class="meta-chip">🎢 בונוס</span></div></summary><div class="day-details"><div class="details-inner">
-<div class="plan-box plan-main"><h4>🧭 המסלול המוצע</h4><ul><li>יציאה סביב 08:00.</li><li><a class="maps-link" href="https://www.google.com/maps/place/Kitzsteinhorn+Talstation,+Kitzsteinhornplatz+1a,+Kaprun,+Austria" target="_blank" rel="noopener">Kitzsteinhorn / TOP OF SALZBURG</a> — תצפיות, Cinema 3000 ו־National Park Gallery.</li><li>ארוחת צהריים על ההר.</li><li>אחר הצהריים <a class="maps-link" href="https://maps.app.goo.gl/r3YzXcvrBeCQRapSA" target="_blank" rel="noopener">Sigmund-Thun-Klamm</a> + Klammsee, כ־1.5 שעות.</li></ul></div>
-<div class="route-box"><h4>🚗 נסיעות היום</h4><div class="route-line"><span>→</span><span>Hofgut → Kitzsteinhorn: כ־80 ק״מ · 1:20 ש׳</span></div><div class="route-line"><span>→</span><span>Kitzsteinhorn → Sigmund-Thun-Klamm: כ־8 ק״מ · 10 דק׳</span></div><div class="route-line"><span>→</span><span>Kaprun → Hofgut: כ־80 ק״מ · 1:20 ש׳</span></div><div class="route-total">סה״כ נהיגה משוער: כ־168 ק״מ · 2:50 ש׳ (ללא Lucky Flitzer)</div></div><div class="restaurant-box">🍽️ <strong>המסעדה המומלצת:</strong> <a class="maps-link" href="https://maps.app.goo.gl/L33MoAd4jQk3nwjf8" target="_blank" rel="noopener">Gipfel Restaurant Kitzsteinhorn</a> · Google 4.3/5 · בגובה 3,029 מ׳</div>
-<div class="options-box"><h4>✨ אופציות / בונוסים</h4><p>🎢 <a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJTQLmV43UdkcRgZEuYVYDa6M" target="_blank" rel="noopener">Lucky Flitzer</a> בפלאכאו — רק אם חוזרים בזמן ויש כוח. מוסיף בערך 15–25 דק׳ נהיגה נטו למסלול החזרה.</p></div>
-<div class="plan-box plan-rain"><h4>🌧️ אילוצים וחלופות</h4><p>Kitzsteinhorn תלוי בראות וברוח; הנקיק בדרך כלל מתאים גם לגשם קל. Maisi Flitzer סגור לתחזוקה בתאריכים שלנו.</p></div>
-<div class="tip-box"><strong>חשוב:</strong> בגובה 3,029 מ׳ צריך שכבות חמות גם אם בעמק נעים.</div>
-<div class="daily-fact"><img alt="עובדה יומית יום 4" src="fact4.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>הפרשי הגובה בקפרון מאפשרים לעבור בתוך זמן קצר מעמק ירוק לסביבה אלפינית קרה בהרבה.</div><a class="fact-link" href="fact4.png" target="_blank">פתיחת התמונה</a></div></div>
-</div></div></details></div></article>
- DAY 5 
-<article class="day-card fade-in-section" data-type="city kids nature" id="day5">
-<div class="day-image" id="img-day5"><img class="day-photo" src="day5.png" alt="תמונת יום 5" loading="lazy" decoding="async"><span class="day-tag">Salzburg + Keltenblitz</span><span class="day-number">05</span></div>
-<div class="day-content"><details class="day-native"><summary class="day-summary-native"><div class="day-header"><div class="day-title-wrap"><div class="day-date">26.09 · יום שבת</div><h3>Keltenblitz → זלצבורג → Hellbrunn</h3></div><span class="toggle-icon">+</span></div><p class="day-summary">אדרנלין בבוקר, מרכז זלצבורג בצהריים ו־Hellbrunn לקראת סוף היום.</p><div class="day-metadata"><span class="meta-chip">🎢 מגלשה</span><span class="meta-chip">🏛️ זלצבורג</span><span class="meta-chip">💦 Hellbrunn</span></div></summary><div class="day-details"><div class="details-inner">
-<div class="plan-box plan-main"><h4>🧭 המסלול המוצע</h4><ul><li>בוקר: <a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ7beP19iUdkcRRDN8_byB_Sc" target="_blank" rel="noopener">Keltenblitz</a> — 2.2 ק״מ של מגלשת הרים.</li><li>זלצבורג: <a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJK-tdP3uQdkcRVd3VZhHZ1Sw" target="_blank" rel="noopener">Mirabell</a> → העיר העתיקה → Getreidegasse → הכיכרות והקתדרלה.</li><li>לקראת סוף היום: <a class="maps-link" href="https://maps.app.goo.gl/BtLdE4RCxiz77VBr5" target="_blank" rel="noopener">Hellbrunn Palace & Trick Fountains</a>.</li></ul></div>
-<div class="route-box"><h4>🚗 נסיעות היום</h4><div class="route-line"><span>→</span><span>Hofgut → Keltenblitz: כ־70 ק״מ · 1:05 ש׳</span></div><div class="route-line"><span>→</span><span>Keltenblitz → מרכז זלצבורג: כ־25 ק״מ · 30 דק׳</span></div><div class="route-line"><span>→</span><span>מרכז → Hellbrunn: כ־8 ק״מ · 15 דק׳</span></div><div class="route-line"><span>→</span><span>Hellbrunn → Hofgut: כ־75 ק״מ · 1:10 ש׳</span></div><div class="route-total">סה״כ נהיגה משוער: כ־178 ק״מ · 3:00 ש׳</div></div><div class="restaurant-box">🍽️ <strong>המסעדה המומלצת:</strong> <a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJhQfCFWSQdkcRzrA_0neDDnQ" target="_blank" rel="noopener">Sternbräu</a> · Google 4.2/5 · במרכז העיר; מומלץ להזמין לקבוצה</div>
-<div class="options-box"><h4>✨ אופציות / בונוסים</h4><ul><li><a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvQMhJ2CQdkcRa1Xs6dO-dys" target="_blank" rel="noopener">Festung Hohensalzburg</a> — מצודה ענקית מעל העיר עם פוניקולר ותצפית; רק אם נשאר מספיק זמן.</li><li>Hellbrunn נשאר בתוכנית, אבל משחקי המים רק אם הטמפרטורה סבירה.</li></ul></div>
-<div class="plan-box plan-rain"><h4>🌧️ אילוצים וחלופות</h4><p>Keltenblitz תלוי במזג האוויר. אם קר מאוד — מוותרים על Trick Fountains. בגשם משמעותי נשארים יותר בעיר ואפשר לעבור ל־<a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJdcwcsWWQdkcRRacRj7tCVGI" target="_blank" rel="noopener">Haus der Natur</a> — מוזיאון מדע וטבע אינטראקטיבי עם אקווריום וזוחלים.</p></div>
-<div class="tip-box"><strong>חשוב:</strong> לא מנסים להספיק את המצודה בכל מחיר; היא אופציה לפי זמן.</div>
-<div class="daily-fact"><img alt="עובדה יומית יום 5" src="fact5.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>זלצבורג היא עיר הולדתו של מוצרט, והמרכז ההיסטורי שלה מוכר כאתר מורשת עולמית.</div><a class="fact-link" href="fact5.png" target="_blank">פתיחת התמונה</a></div></div>
-</div></div></details></div></article>
- DAY 6 
-<article class="day-card fade-in-section" data-type="nature travel walk kids" id="day6">
-<div class="day-image" id="img-day6"><img class="day-photo" src="day6.png" alt="תמונת יום 6" loading="lazy" decoding="async"><span class="day-tag">Krimml → Tirol</span><span class="day-number">06</span></div>
-<div class="day-content"><details class="day-native"><summary class="day-summary-native"><div class="day-header"><div class="day-title-wrap"><div class="day-date">27.09 · יום ראשון</div><h3>Krimml → Gerlos Alpenstraße → Fügen</h3></div><span class="toggle-icon">+</span></div><p class="day-summary">צ׳ק־אאוט, מפלי Krimml, נסיעה נופית דרך Gerlos והגעה לבסיס החדש בפוגן.</p><div class="day-metadata"><span class="meta-chip">💦 מפלים</span><span class="meta-chip">🚗 מעבר</span><span class="meta-chip">🏔️ Gerlos</span></div></summary><div class="day-details"><div class="details-inner">
-<div class="plan-box plan-main"><h4>🧭 המסלול המוצע</h4><ul><li>צ׳ק־אאוט ויציאה סביב 09:00.</li><li><a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Krimml%20Waterfalls&query_place_id=ChIJJ-4zEz25d0cRnQp8bbWQIJ8" target="_blank" rel="noopener">Krimml Waterfalls</a> — כ־2–2.5 שעות; עולים עד כמה שמתאים לקבוצה וחוזרים.</li><li>ארוחת צהריים באזור.</li><li><a class="maps-link" href="https://maps.app.goo.gl/cr4oeuk2H6HsPsVaA" target="_blank" rel="noopener">Gerlos Alpenstraße / Wasserfallblick</a> — עצירת תצפית על המפלים מלמעלה.</li><li>המשך ל־Zillertal Suites Fügen, צ׳ק־אין וקניות.</li></ul></div>
-<div class="route-box"><h4>🚗 נסיעות היום</h4><div class="route-line"><span>→</span><span>Hofgut → Krimml: כ־100 ק״מ · 1:45 ש׳</span></div><div class="route-line"><span>→</span><span>Krimml → Fügen דרך Gerlos: כ־85 ק״מ · 1:30 ש׳</span></div><div class="route-total">סה״כ נהיגה משוער: כ־185 ק״מ · 3:15 ש׳</div></div><div class="restaurant-box">🍽️ <strong>המסעדה המומלצת:</strong> <a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJVTx-eZy5d0cR2AZkZzyp5bk" target="_blank" rel="noopener">Panoramarestaurant Burgeck Krimml</a> · Google 5.0/5 · Google; מספר הביקורות קטן יחסית</div>
-<div class="options-box"><h4>✨ אופציות / בונוסים</h4><p><a class="maps-link" href="https://maps.app.goo.gl/oAU8pJu3ymNzrtda9" target="_blank" rel="noopener">Krimmler WasserWelten</a> — מרכז חווייתי אינטראקטיבי בנושא מים ליד בסיס המפלים; מתאים למי שלא רוצה לעלות הרבה בשביל.</p></div>
-<div class="tip-box"><strong>💶 מחירים שכבר נבדקו:</strong> כרטיס משולב WasserWelten + המפלים — מחיר רגיל: €15.90 למבוגר ו־€7.90 לילד; מחיר קבוצתי: €13.90 למבוגר ו־€6.90 לילד 6–15. חניה P4/P5 כלולה בכרטיס המשולב.</div>
-<div class="plan-box plan-rain"><h4>🌧️ אילוצים וחלופות</h4><p>בגשם חזק מקצרים את העלייה בשביל ומנצלים יותר את <a class="maps-link" href="https://maps.app.goo.gl/oAU8pJu3ymNzrtda9" target="_blank" rel="noopener">WasserWelten</a> — מרכז מים אינטראקטיבי — ואת הנסיעה הנופית.</p></div>
-<div class="tip-box"><strong>חשוב:</strong> זה יום מעבר — לא מוסיפים אטרקציה נוספת אחרי ההגעה לפוגן.</div>
-<div class="daily-fact"><img alt="עובדה יומית יום 6" src="fact6.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>מפלי Krimml נופלים בשלושה מפלסים וביחד מגיעים לכ־380 מטר.</div><a class="fact-link" href="fact6.png" target="_blank">פתיחת התמונה</a></div></div>
-</div></div></details></div></article>
- DAY 7 
-<article class="day-card fade-in-section" data-type="city kids" id="day7">
-<div class="day-image" id="img-day7"><img class="day-photo" src="day7.png" alt="תמונת יום 7" loading="lazy" decoding="async"><span class="day-tag">Innsbruck</span><span class="day-number">07</span></div>
-<div class="day-content"><details class="day-native"><summary class="day-summary-native"><div class="day-header"><div class="day-title-wrap"><div class="day-date">28.09 · יום שני</div><h3>אינסברוק — יום עיר בלב האלפים</h3></div><span class="toggle-icon">+</span></div><p class="day-summary">מרכז היסטורי, אווירה טירולית והרים שמקיפים את העיר מכל כיוון. יום גמיש במיוחד שאפשר להתאים בקלות למזג האוויר.</p><div class="day-metadata"><span class="meta-chip">🏙️ אינסברוק</span><span class="meta-chip">🏔️ עיר ואלפים</span><span class="meta-chip">🌧️ מתאים גם לגשם</span></div></summary><div class="day-details"><div class="details-inner">
-<div class="plan-box plan-main"><h4>🧭 המסלול המוצע</h4><ul><li>בוקר: Maria-Theresien-Straße, העיר העתיקה ו־<a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJA4MyyPtrnUcR5dC7leoCk40" target="_blank" rel="noopener">Golden Roof</a>.</li><li>נהר Inn והבתים הצבעוניים.</li><li>ארוחת צהריים בעיר.</li><li>אחר הצהריים <a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ7142Q-1snUcRDB59tZvi2-c" target="_blank" rel="noopener">Nordkette / Top of Innsbruck</a> — רק אם הראות טובה.</li></ul></div>
-<div class="route-box"><h4>🚗 נסיעות היום</h4><div class="route-line"><span>→</span><span>Fügen → Innsbruck: כ־45 ק״מ · 40 דק׳</span></div><div class="route-line"><span>→</span><span>Innsbruck → Fügen: כ־45 ק״מ · 40 דק׳</span></div><div class="route-total">סה״כ נהיגה משוער: כ־90 ק״מ · 1:20 ש׳</div></div><div class="restaurant-box">🍽️ <strong>המסעדה המומלצת:</strong> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Restaurant%20Cafe%20Arkadenhof&query_place_id=ChIJ37ZzVftrnUcRhjAuRMXp8_Y" target="_blank" rel="noopener">Cafe Arkadenhof</a> · Google 4.5/5 · ב־Maria-Theresien-Straße</div>
-<div class="options-box"><h4>✨ אופציות / בונוסים</h4><ul><li><a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJk3HTu_trnUcRKfwIQrtZtxY" target="_blank" rel="noopener">City Tower</a> — מגדל תצפית היסטורי עם 133 מדרגות; לפי זמן.</li><li><a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJlYgH34lknUcR1Q8kM0rr8Fo" target="_blank" rel="noopener">Swarovski Kristallwelten</a> — מוזיאון/פארק אמנות וקריסטלים עם חללי תצוגה ופארק; נמצא באזור, אך אינו חלק מהמסלול הראשי ואינו חלופת הגשם המרכזית.</li></ul></div>
-<div class="tip-box"><strong>💶 City Tower:</strong> מבוגר €4.50, ילד 6–15 €2, צעיר עד 17 €3; לקבוצות של 15+ מומלץ לתאם מראש בגלל מגבלת קיבולת.</div>
-<div class="plan-box plan-rain"><h4>🌧️ אילוצים וחלופות</h4><p>אם Nordkette בתוך ענן — לא עולים. נשארים בעיר, בתי קפה, קניות ואתרים מקורים; אפשר לבחור ב־<a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJk3HTu_trnUcRKfwIQrtZtxY" target="_blank" rel="noopener">City Tower</a> לתצפית עירונית קצרה אם מזג האוויר מאפשר.</p></div>
-<div class="tip-box"><strong>חשוב:</strong> Nordkette היא אופציה לפי ראות, לא משימה שחייבים לסמן עליה וי.</div>
-<div class="daily-fact"><img alt="עובדה יומית יום 7" src="fact7.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>אינסברוק יושבת בעמק צר כשהרכסים עולים כמעט ישירות מעל העיר — שילוב חריג של מרכז עירוני ונוף אלפיני.</div><a class="fact-link" href="fact7.png" target="_blank">פתיחת התמונה</a></div></div>
-</div></div></details></div></article>
- DAY 8 
-<article class="day-card fade-in-section" data-type="kids nature walk travel" id="day8">
-<div class="day-image" id="img-day8"><img class="day-photo" src="day8.png" alt="תמונת יום 8" loading="lazy" decoding="async"><span class="day-tag">יום פיצול + Aqua Dome</span><span class="day-number">08</span></div>
-<div class="day-content"><details class="day-native"><summary class="day-summary-native"><div class="day-header"><div class="day-title-wrap"><div class="day-date">29.09 · יום שלישי</div><h3>מתפצלים בטירול → נפגשים ב־Aqua Dome</h3></div><span class="toggle-icon">+</span></div><p class="day-summary">Olpererhütte מוביל למצוינים ולמצטרפים; האחרים בוחרים חלופה. בערב כולם נפגשים ב־Aqua Dome.</p><div class="day-metadata"><span class="meta-chip">🥾 פיצול</span><span class="meta-chip">♨️ Aqua Dome</span><span class="meta-chip">🌧️ גיבוי תרמה</span></div></summary><div class="day-details"><div class="details-inner">
-<div class="plan-box plan-main"><h4>🧭 המסלול המוצע</h4><ul><li><strong>המסלול המוביל:</strong> משפחת מצוינים + מצטרפים → <a class="maps-link" href="https://maps.app.goo.gl/1EkfcYz2LFtqAyF28" target="_blank" rel="noopener">Schlegeisspeicher / תחילת Olpererhütte</a> → עלייה של כ־600 מ׳ → Olpererhütte והגשר → ירידה.</li><li><strong>לקראת ערב:</strong> כל הקבוצות נפגשות ב־<a class="maps-link" href="https://maps.app.goo.gl/S3B82EXvkQVoJNHH6" target="_blank" rel="noopener">Aqua Dome</a> בלנגנפלד לכ־4 שעות.</li></ul></div>
-<div class="route-box"><h4>🚗 נסיעות היום</h4><div class="route-line"><span>→</span><span>Fügen → Schlegeisspeicher: כ־60 ק״מ · 1:15 ש׳</span></div><div class="route-line"><span>→</span><span>Schlegeisspeicher → Aqua Dome: כ־145 ק״מ · 2:20 ש׳</span></div><div class="route-line"><span>→</span><span>Aqua Dome → Fügen: כ־105 ק״מ · 1:30 ש׳</span></div><div class="route-total">סה״כ נהיגה משוער: מסלול Olpererhütte: כ־310 ק״מ · 5:05 ש׳ (יום נהיגה ארוך)</div></div><div class="restaurant-box">🍽️ <strong>המסעדה המומלצת:</strong> <a class="maps-link" href="https://maps.app.goo.gl/kcvgsEvwrfvvLzir5" target="_blank" rel="noopener">Restaurant Pizzeria Infang</a> · Google 4.7/5 · בלנגנפלד, סמוך יחסית ל־Aqua Dome</div>
-<div class="options-box"><h4>✨ אופציות / בונוסים</h4><ul><li>🧙 <a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ0cpHjuk1dkcRyrPoDge1cXU" target="_blank" rel="noopener">Hexenwasser</a> — פארק הררי משפחתי עם עשרות תחנות מים, משחק, טבע וחקר; החלופה המומלצת למשפחות.</li><li>🌊 <a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJiTQmw0d-nUcRLl--Vzyd_2Y" target="_blank" rel="noopener">Achensee + Atoll</a> — אגם אלפיני וקומפלקס בריכות/ספא; אופציה רגועה יותר. אם כולם מגיעים ל־Aqua Dome בערב, אפשר להסתפק באגם בלבד.</li></ul></div>
-<div class="plan-box plan-rain"><h4>🌧️ אילוצים וחלופות</h4><p>🌧️ בגשם משמעותי: <a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJSRYkZdDQd0cRiLYUF8BRVO8" target="_blank" rel="noopener">Erlebnistherme Zillertal</a> — מתחם בריכות פנימי/חיצוני עם מגלשות לילדים, ממש בפוגן. <strong>Olpererhütte לא יוצא בגשם משמעותי, ערפל כבד או תנאי החלקה.</strong></p></div>
-<div class="tip-box"><strong>חשוב:</strong> להזמין Aqua Dome מראש לקבוצה. יום Olpererhütte + Aqua Dome ארוך מאוד גם מבחינת נהיגה — הנתון מוצג במפורש כדי שכל משפחה תחליט.</div>
-<div class="daily-fact"><img alt="עובדה יומית יום 8" src="fact8.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>עמק Zillertal מאפשר באותו יום להתפצל בין מסלול הרים, פארק משפחתי ואגם — ואז להתאחד שוב בערב.</div><a class="fact-link" href="fact8.png" target="_blank">פתיחת התמונה</a></div></div>
-</div></div></details></div></article>
- DAY 9 
-<article class="day-card fade-in-section" data-type="kids travel" id="day9">
-<div class="day-image" id="img-day9"><img class="day-photo" src="day9.png" alt="תמונת יום 9" loading="lazy" decoding="async"><span class="day-tag">LEGOLAND</span><span class="day-number">09</span></div>
-<div class="day-content"><details class="day-native"><summary class="day-summary-native"><div class="day-header"><div class="day-title-wrap"><div class="day-date">30.09 · יום רביעי</div><h3>LEGOLAND Deutschland — יום פארק מלא</h3></div><span class="toggle-icon">+</span></div><p class="day-summary">מי שרוצה לגולנד נוסע ליום מלא ב־Günzburg; למי שלא מצטרף נשמרות חלופות רגועות בטירול.</p><div class="day-metadata"><span class="meta-chip">🧱 LEGOLAND</span><span class="meta-chip">🎢 מתקנים</span><span class="meta-chip">🚗 נסיעה ארוכה</span></div></summary><div class="day-details"><div class="details-inner">
-<div class="plan-box plan-main"><h4>🧭 המסלול המוצע</h4><ul><li>יציאה מוקדמת מ־Fügen.</li><li><a class="maps-link" href="https://maps.app.goo.gl/v3R3GsEoV3sNmYau8" target="_blank" rel="noopener">LEGOLAND Deutschland Resort</a> — יום פארק מלא, 10:00–18:00.</li><li>חזרה ל־Fügen בערב.</li></ul></div>
-<div class="route-box"><h4>🚗 נסיעות היום</h4><div class="route-line"><span>→</span><span>Fügen → LEGOLAND Günzburg: כ־225 ק״מ · 2:35–2:45 ש׳</span></div><div class="route-line"><span>→</span><span>LEGOLAND → Fügen: כ־225 ק״מ · 2:35–2:45 ש׳</span></div><div class="route-total">סה״כ נהיגה משוער: כ־450 ק״מ · 5:10–5:30 ש׳</div></div><div class="restaurant-box">🍽️ <strong>המסעדה המומלצת:</strong> <a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJexfqbdXQd0cRl4WfknwKkDE" target="_blank" rel="noopener">Gasthof Hoppeter</a> · Google 4.2/5 · ב־Fügen; מתאים לארוחת ערב לאחר החזרה</div>
-<div class="options-box"><h4>✨ אופציות / בונוסים</h4><ul><li>למי שלא נוסע: <a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJiTQmw0d-nUcRLl--Vzyd_2Y" target="_blank" rel="noopener">Achensee + Atoll</a> — יום רגוע של אגם אלפיני ובריכות/ספא.</li><li>אפשרות נוספת: <a class="maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJSRYkZdDQd0cRiLYUF8BRVO8" target="_blank" rel="noopener">Erlebnistherme Zillertal</a> — בריכות ומגלשות בפוגן, כמעט בלי נסיעה.</li></ul></div>
-<div class="plan-box plan-rain"><h4>🌧️ אילוצים וחלופות</h4><p>LEGOLAND פועל גם במזג אוויר משתנה, אך מתקנים מסוימים עשויים להיות מושפעים מתנאים חריגים.</p></div>
-<div class="tip-box"><strong>חשוב:</strong> זה יום עם הרבה נהיגה. לא מוסיפים יעד נוסף בדרך.</div>
-<div class="daily-fact"><img alt="עובדה יומית יום 9" src="fact9.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>LEGOLAND Deutschland כולל עשרות מתקנים ועולמות נושא, ומיועד ליום פארק מלא ולא לעצירת ביניים.</div><a class="fact-link" href="fact9.png" target="_blank">פתיחת התמונה</a></div></div>
-</div></div></details></div></article>
- SPECIAL OLPerer 
+<!-- ==================================================
+     DAY 1
+     ================================================== -->
 
- DAY 10 
-<article class="day-card fade-in-section" data-type="travel nature kids" id="day10">
-<div class="day-image" id="img-day10"><img class="day-photo" src="day10.png" alt="תמונת יום 10" loading="lazy" decoding="async"><span class="day-tag">Hintertux → Vienna</span><span class="day-number">10</span></div>
-<div class="day-content"><details class="day-native"><summary class="day-summary-native"><div class="day-header"><div class="day-title-wrap"><div class="day-date">01.10 · יום חמישי</div><h3>Hintertux + Nature’s Ice Palace → וינה</h3></div><span class="toggle-icon">+</span></div><p class="day-summary">מערת הקרח בבוקר, תצפית ושלג בהתאם לתנאים, ואז נסיעה ארוכה לווינה ללילה האחרון.</p><div class="day-metadata"><span class="meta-chip">🧊 מערת קרח</span><span class="meta-chip">❄️ 3,250 מ׳</span><span class="meta-chip">🚗 וינה</span></div></summary><div class="day-details"><div class="details-inner">
-<div class="plan-box plan-main"><h4>🧭 המסלול המוצע</h4><ul><li>צ׳ק־אאוט מוקדם מ־Fügen.</li><li><a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Hintertuxer%20Gletscher&query_place_id=ChIJ9XbH9ZXhd0cRE9jqUpMsjoo" target="_blank" rel="noopener">Hintertuxer Gletscherbahn</a> ועלייה ברכבלים.</li><li><a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Natureispalast&query_place_id=ChIJYVoqrLvhd0cReVcUIBni3jE" target="_blank" rel="noopener">Nature’s Ice Palace</a> — לכוון לסיור מוקדם; מערת קרח בתוך הקרחון.</li><li>Panorama Terrace וזמן קצר בשלג/תצפית.</li><li>ארוחת צהריים על ההר וירידה.</li><li>יציאה ישירה לווינה וצ׳ק־אין.</li></ul></div>
-<div class="route-box"><h4>🚗 נסיעות היום</h4><div class="route-line"><span>→</span><span>Fügen → Hintertux: כ־42 ק״מ · 40 דק׳</span></div><div class="route-line"><span>→</span><span>Hintertux → Vienna: כ־470 ק״מ · 5:00 ש׳</span></div><div class="route-total">סה״כ נהיגה משוער: כ־512 ק״מ · 5:40 ש׳</div></div><div class="restaurant-box">🍽️ <strong>המסעדה המומלצת:</strong> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Tuxer%20Fernerhaus&query_place_id=ChIJq_allTrid0cRtwJHl2Cy1QI" target="_blank" rel="noopener">Tuxer Ferner Haus</a> · Google 4.3/5 · על הקרחון; מתאים לקבוצה ולמשפחות</div>
-<div class="options-box"><h4>✨ אופציות / בונוסים</h4><p>אם יורדים מוקדם מאוד אפשר לעצור לקפה קצר בדרך, אבל לא מתכננים אטרקציה נוספת — הדרך לווינה ארוכה.</p></div>
-<div class="plan-box plan-rain"><h4>🌧️ אילוצים וחלופות</h4><p>מערת הקרח עצמה אינה תלויה במזג האוויר, אך הרכבלים והתצפיות כפופים לתנאי ההר.</p></div>
-<div class="tip-box"><strong>חשוב:</strong> חובה לתאם מראש את Nature’s Ice Palace עבור קבוצה גדולה. זה יום מעבר ארוך.</div>
-<div class="daily-fact"><img alt="עובדה יומית יום 10" src="fact10.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>Hintertux הוא אחד מאתרי הקרחון הנגישים כל השנה באוסטריה, וה־Ice Palace מאפשר להיכנס ממש לתוך הקרח.</div><a class="fact-link" href="fact10.png" target="_blank">פתיחת התמונה</a></div></div>
-</div></div></details></div></article>
- DAY 11 
-<article class="day-card fade-in-section" data-type="city travel" id="day11">
-<div class="day-image" id="img-day11"><img class="day-photo" src="day11.png" alt="תמונת יום 11" loading="lazy" decoding="async"><span class="day-tag">Vienna + Flight</span><span class="day-number">11</span></div>
-<div class="day-content"><details class="day-native"><summary class="day-summary-native"><div class="day-header"><div class="day-title-wrap"><div class="day-date">02.10 · יום שישי</div><h3>וינה, קניות והביתה</h3></div><span class="toggle-icon">+</span></div><p class="day-summary">יום קליל במרכז וינה: עיר, קניות ואוכל — ואז לשדה לטיסת OS83 ב־20:20.</p><div class="day-metadata"><span class="meta-chip">🏙️ וינה</span><span class="meta-chip">🛍️ קניות</span><span class="meta-chip">✈️ טיסה</span></div></summary><div class="day-details"><div class="details-inner">
-<div class="plan-box plan-main"><h4>🧭 המסלול המוצע</h4><ul><li>בוקר רגוע במרכז: <a class="maps-link" href="https://www.google.com/maps/place/Stephansplatz,+1010+Wien,+Austria" target="_blank" rel="noopener">Stephansplatz</a> והרחובות סביבו.</li><li>קניות וזמן חופשי לפי המשפחות.</li><li>ארוחת צהריים/אחה״צ מוקדמת.</li><li>יציאה ל־<a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Vienna%20International%20Airport&query_place_id=ChIJm74aR6tVbEcRS5vSjRBSeiQ" target="_blank" rel="noopener">Vienna International Airport</a> עם מרווח נדיב להחזרת רכבים ובידוק.</li><li>OS83: 20:20 → תל אביב 00:45.</li></ul></div>
-<div class="route-box"><h4>🚗 נסיעות היום</h4><div class="route-line"><span>→</span><span>נסיעות עירוניות/חניה: משתנה לפי המלון</span></div><div class="route-line"><span>→</span><span>מרכז וינה → VIE: כ־20 ק״מ · 25–35 דק׳</span></div><div class="route-total">סה״כ נהיגה משוער: כ־20–35 ק״מ · 30–50 דק׳</div></div><div class="restaurant-box">🍽️ <strong>המסעדה המומלצת:</strong> <a class="maps-link" href="https://maps.app.goo.gl/hdCVnBhcw83azV3Y7" target="_blank" rel="noopener">Figlmüller Bäckerstraße</a> · Google 4.3/5 · מוסד שניצל וינאי; להזמין מראש לקבוצה</div>
-<div class="options-box"><h4>✨ אופציות / בונוסים</h4><p><a class="maps-link" href="https://maps.app.goo.gl/X9rRsqmV5kfUfq6Y6" target="_blank" rel="noopener">Prater / Wiener Riesenrad</a> — פארק שעשועים עירוני והגלגל הענק ההיסטורי; רק אם הקניות מסתיימות מוקדם ויש מספיק זמן לפני השדה.</p></div>
-<div class="plan-box plan-rain"><h4>🌧️ אילוצים וחלופות</h4><p>יום עירוני וגמיש מאוד; בגשם מתמקדים בקניות, בתי קפה ואתרים מקורים.</p></div>
-<div class="tip-box"><strong>חשוב:</strong> לא להסתכן עם זמן היציאה לשדה בגלל קניות או אטרקציה אחרונה.</div>
-<div class="daily-fact"><img alt="עובדה יומית יום 11" src="fact11.png" loading="lazy" decoding="async"/><div><div class="daily-fact-title">עובדה יומית</div><div>ה־Riesenrad בפראטר פועל מאז 1897 ונחשב לאחד הגלגלים הענקיים ההיסטוריים המזוהים ביותר עם אירופה.</div><a class="fact-link" href="fact11.png" target="_blank">פתיחת התמונה</a></div></div>
-</div></div></details></div></article>
+<article
+  class="day-card fade-in-section"
+  data-type="travel kids nature"
+  id="day1">
+
+<div class="day-image" id="img-day1">
+
+<img
+  class="day-photo"
+  src="day1.png"
+  alt="תמונת יום 1"
+  loading="lazy"
+  decoding="async">
+
+<span class="day-tag">נחיתה + Gosausee</span>
+<span class="day-number">01</span>
+
+</div>
+
+
+<div class="day-content">
+
+<details class="day-native">
+
+<summary class="day-summary-native">
+
+<div class="day-header">
+
+<div class="day-title-wrap">
+<div class="day-date">22.09 · יום שלישי</div>
+<h3>נחיתה בווינה → Gosausee → Wagrain</h3>
+</div>
+
+<span class="toggle-icon">+</span>
+
+</div>
+
+
+<p class="day-summary">
+פתיחה נופית ורגועה: אגם Gosausee, ארוחה באזור ונסיעה ל־Hofgut.
+</p>
+
+
+<div class="day-metadata">
+
+<span class="meta-chip">✈️ נחיתה</span>
+<span class="meta-chip">🏞️ אגם</span>
+<span class="meta-chip">🚗 יום מעבר</span>
+
+</div>
+
+</summary>
+
+
+<div class="day-details">
+
+<div class="details-inner">
+
+
+<div
+  class="weather-row day-weather"
+  data-city-name="Gosau"
+  data-trip-date="2026-09-22">
+
+<div class="weather-main">
+<span class="weather-icon">🗓️</span>
+<span class="weather-temp">Gosausee: ממתין לתחזית</span>
+</div>
+
+<span class="weather-status">
+התחזית תתעדכן אוטומטית סמוך לטיול
+</span>
+
+</div>
+
+
+<div class="plan-box plan-main">
+
+<h4>🧭 המסלול המוצע</h4>
+
+<ul>
+
+<li>
+08:45 נחיתה בווינה ואיסוף רכבים.
+</li>
+
+<li>
+נסיעה ל־
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/Gosausee+Parking+lot/@47.5337615,13.4933357,17z/data=!3m1!4b1!4m6!3m5!1s0x4776cb185765239f:0xbe7ec9e2c60c4488!8m2!3d47.5337579!4d13.4959106!16s%2Fg%2F11ghrs9ybr?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D"
+  target="_blank"
+  rel="noopener">
+Vorderer Gosausee
+</a>.
+</li>
+
+<li>
+הליכה קלה לאורך האגם לפי האנרגיה ומזג האוויר.
+</li>
+
+<li>
+ארוחה באזור והמשך ל־Hofgut Wagrain לצ׳ק־אין.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="route-box">
+
+<h4>🚗 נסיעות היום</h4>
+
+<div class="route-line">
+<span>→</span>
+<span>VIE → Gosausee: כ־290 ק״מ · 3:15 ש׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>Gosausee → Hofgut Wagrain: כ־70 ק״מ · 1:10 ש׳</span>
+</div>
+
+<div class="route-total">
+סה״כ נהיגה משוער: כ־360 ק״מ · 4:25 ש׳
+</div>
+
+</div>
+
+
+<div class="restaurant-box">
+
+🍽️ <strong>המסעדה המומלצת:</strong>
+
+<a
+  class="maps-link"
+  href="https://maps.app.goo.gl/BGVhNcLZkYJrsy13A"
+  target="_blank"
+  rel="noopener">
+Gasthaus Echo
+</a>
+
+· Google 4.7/5 · כ־3 ק״מ מהאגם;
+נבחר במקום Gasthof Gosausee שאינו עומד ברף 4.2
+
+</div>
+
+
+<div class="options-box">
+
+<h4>✨ אופציות / בונוסים</h4>
+
+<p>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJCRcioBEkcUcRGvIfAhTsJuM"
+  target="_blank"
+  rel="noopener">
+<strong>Waldhäuslalm + Untertal</strong>
+</a>
+
+— מסעדת הרים משפחתית בעמק, עם מגרש משחקים ואפשרות להליכה קצרה
+לאורך המים; גיבוי יעיל יותר אם לא רוצים את הסטייה ל־Gosausee.
+
+</p>
+
+</div>
+
+
+<div class="plan-box plan-rain">
+
+<h4>🌧️ אילוצים וחלופות</h4>
+
+<p>
+במזג אוויר גרוע במיוחד מקצרים את Gosausee ועוברים ישירות ל־Wagrain.
+</p>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>חשוב:</strong>
+זה יום מעבר. לא מוסיפים אטרקציית חובה נוספת.
+
+</div>
+
+
+<div class="daily-fact">
+
+<img
+  alt="עובדה יומית יום 1"
+  src="fact1.png"
+  loading="lazy"
+  decoding="async"/>
+
+<div>
+
+<div class="daily-fact-title">
+עובדה יומית
+</div>
+
+<div>
+Gosausee יושב למרגלות רכס Dachstein ומספק אחת מתמונות הראי הקלאסיות של האזור.
+</div>
+
+<a
+  class="fact-link"
+  href="fact1.png"
+  target="_blank">
+פתיחת התמונה
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</details>
+
+</div>
+
+</article>
+
+
+<!-- ==================================================
+     DAY 2
+     ================================================== -->
+
+<article
+  class="day-card fade-in-section"
+  data-type="nature kids walk"
+  id="day2">
+
+<div class="day-image" id="img-day2">
+
+<img
+  class="day-photo"
+  src="day2.png"
+  alt="תמונת יום 2"
+  loading="lazy"
+  decoding="async">
+
+<span class="day-tag">Hallstatt + Zipline</span>
+<span class="day-number">02</span>
+
+</div>
+
+
+<div class="day-content">
+
+<details class="day-native">
+
+<summary class="day-summary-native">
+
+<div class="day-header">
+
+<div class="day-title-wrap">
+
+<div class="day-date">
+23.09 · יום רביעי
+</div>
+
+<h3>
+Hallstatt, מכרה המלח ואומגת Stoderzinken
+</h3>
+
+</div>
+
+<span class="toggle-icon">+</span>
+
+</div>
+
+
+<p class="day-summary">
+בוקר בהאלשטאט וב־Salzwelten, אחר הצהריים אומגה ב־Gröbming.
+</p>
+
+
+<div class="day-metadata">
+
+<span class="meta-chip">🧂 מכרה מלח</span>
+<span class="meta-chip">⚡ אומגה</span>
+<span class="meta-chip">🏘️ Hallstatt</span>
+
+</div>
+
+</summary>
+
+
+<div class="day-details">
+
+<div class="details-inner">
+
+
+<div
+  class="weather-row day-weather"
+  data-city-name="Hallstatt"
+  data-trip-date="2026-09-23">
+
+<div class="weather-main">
+<span class="weather-icon">🗓️</span>
+<span class="weather-temp">Hallstatt: ממתין לתחזית</span>
+</div>
+
+<span class="weather-status">
+התחזית תתעדכן אוטומטית סמוך לטיול
+</span>
+
+</div>
+
+
+<div class="plan-box plan-main">
+
+<h4>🧭 המסלול המוצע</h4>
+
+<ul>
+
+<li>
+יציאה מוקדמת מ־Hofgut.
+</li>
+
+<li>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/search/?api=1&query=Salzwelten%20Hallstatt&query_place_id=ChIJP9hpD5I3cUcRac5Ow7lolII"
+  target="_blank"
+  rel="noopener">
+Salzwelten Hallstatt
+</a>
+
+— פוניקולר, Skywalk וסיור במכרה. להקדיש לפחות 3 שעות.
+
+</li>
+
+<li>
+הליכה וארוחה קצרה בהאלשטאט.
+</li>
+
+<li>
+
+נסיעה ל־Gröbming ו־
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJZ1bd2689cUcRSLqwE53wfb8"
+  target="_blank"
+  rel="noopener">
+Zipline Stoderzinken
+</a>
+
+לשעה 16:15 או 17:00.
+
+<strong>מגבלות:</strong>
+גיל 8+, גובה 120 ס״מ+, משקל 30–125 ק״ג;
+מתחת לגיל 14 בליווי מבוגר.
+
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>💶 מחירים שכבר נבדקו:</strong>
+
+Salzwelten Hallstatt — מבוגר €49, ילד 4–15 €23;
+לקבוצה של 20+ מבוגרים: €47 למבוגר וכל אדם 21 חינם.
+
+Zipline Stoderzinken — €47 מגיל 16, €31 לגיל 8–15.
+
+</div>
+
+
+<div class="route-box">
+
+<h4>🚗 נסיעות היום</h4>
+
+<div class="route-line">
+<span>→</span>
+<span>Hofgut → Hallstatt: כ־65 ק״מ · 1:05 ש׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>Hallstatt → Gröbming: כ־65 ק״מ · 1:10 ש׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>Gröbming → Hofgut: כ־45 ק״מ · 45 דק׳</span>
+</div>
+
+<div class="route-total">
+סה״כ נהיגה משוער: כ־175 ק״מ · 3:00 ש׳
+</div>
+
+</div>
+
+
+<div class="restaurant-box">
+
+🍽️ <strong>המסעדה המומלצת:</strong>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/s'Wirtshaus+by+Alpine+Genusswelten,+Gröbming,+Austria"
+  target="_blank"
+  rel="noopener">
+s'Wirtshaus by Alpine Genusswelten
+</a>
+
+· Google 4.7/5 · ב־Gröbming;
+מתאים לפני/אחרי ה־Zipline לפי השעה
+
+</div>
+
+
+<div class="plan-box plan-rain">
+
+<h4>🌧️ אילוצים וחלופות</h4>
+
+<p>
+
+אם האומגה נעצרת בגלל רוח חזקה/סופת רעמים,
+מאריכים את
+
+<a
+  class="maps-link"
+  href="https://maps.app.goo.gl/2ScqPZtE5cMex1gBA"
+  target="_blank"
+  rel="noopener">
+Hallstatt
+</a>
+
+— שיטוט רגוע בעיירה, בכיכר ובטיילת האגם — וחוזרים מוקדם.
+
+</p>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>חשוב:</strong>
+חובה ליצור קשר מראש עם Zipline ולתאם משבצת לקבוצה.
+במכרה להגיע לתחנת הפוניקולר כ־45 דקות לפני הסיור.
+
+</div>
+
+
+<div class="daily-fact">
+
+<img
+  alt="עובדה יומית יום 2"
+  src="fact2.png"
+  loading="lazy"
+  decoding="async"/>
+
+<div>
+
+<div class="daily-fact-title">
+עובדה יומית
+</div>
+
+<div>
+אזור Hallstatt מזוהה עם כריית מלח עתיקה ועם תרבות Hallstatt מתקופת הברזל.
+</div>
+
+<a
+  class="fact-link"
+  href="fact2.png"
+  target="_blank">
+פתיחת התמונה
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</details>
+
+</div>
+
+</article>
+
+
+<!-- ==================================================
+     DAY 3
+     ================================================== -->
+
+<article
+  class="day-card fade-in-section"
+  data-type="nature travel kids"
+  id="day3">
+
+<div class="day-image" id="img-day3">
+
+<img
+  class="day-photo"
+  src="day3.png"
+  alt="תמונת יום 3"
+  loading="lazy"
+  decoding="async">
+
+<span class="day-tag">Grossglockner</span>
+<span class="day-number">03</span>
+
+</div>
+
+
+<div class="day-content">
+
+<details class="day-native">
+
+<summary class="day-summary-native">
+
+<div class="day-header">
+
+<div class="day-title-wrap">
+
+<div class="day-date">
+24.09 · יום חמישי
+</div>
+
+<h3>
+Grossglockner High Alpine Road
+</h3>
+
+</div>
+
+<span class="toggle-icon">+</span>
+
+</div>
+
+
+<p class="day-summary">
+יום נהיגה נופי: Edelweissspitze, Alpine Naturschau, Hochtor ו־Kaiser-Franz-Josefs-Höhe.
+</p>
+
+
+<div class="day-metadata">
+
+<span class="meta-chip">🏔️ כביש אלפיני</span>
+<span class="meta-chip">📸 תצפיות</span>
+<span class="meta-chip">☀️ ראות חשובה</span>
+
+</div>
+
+</summary>
+
+
+<div class="day-details">
+
+<div class="details-inner">
+
+
+<div
+  class="weather-row day-weather"
+  data-city-name="Grossglockner"
+  data-trip-date="2026-09-24">
+
+<div class="weather-main">
+<span class="weather-icon">🗓️</span>
+<span class="weather-temp">Grossglockner: ממתין לתחזית</span>
+</div>
+
+<span class="weather-status">
+התחזית תתעדכן אוטומטית סמוך לטיול
+</span>
+
+</div>
+
+
+<div class="plan-box plan-main">
+
+<h4>🧭 המסלול המוצע</h4>
+
+<ul>
+
+<li>
+07:30 יציאה מ־Hofgut.
+</li>
+
+<li>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/search/?api=1&query=Edelweissspitze&query_place_id=ChIJw0IEIoMWd0cRDgI0K5Ngjko"
+  target="_blank"
+  rel="noopener">
+Edelweissspitze
+</a>
+
+— 20–30 דק׳.
+
+</li>
+
+<li>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/search/?api=1&query=Haus%20Alpine%20Naturschau&query_place_id=ChIJLRBHIp4Wd0cRWOxIu2BAGeg"
+  target="_blank"
+  rel="noopener">
+Haus Alpine Naturschau
+</a>
+
+— תערוכת טבע קצרה.
+
+</li>
+
+<li>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/Hochtor,+Großglockner+Hochalpenstraße,+Austria"
+  target="_blank"
+  rel="noopener">
+Hochtor
+</a>
+
+— עצירת מעבר קצרה.
+
+</li>
+
+<li>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/search/?api=1&query=Kaiser-Franz-Josefs-Hoehe&query_place_id=ChIJoyJxJ2kTd0cRaQQYsBQ2zxg"
+  target="_blank"
+  rel="noopener">
+Kaiser-Franz-Josefs-Höhe
+</a>
+
+— היעד המרכזי, תצפיות והליכה קצרה.
+
+</li>
+
+<li>
+לא מתכננים עצירה ב־Fuscher Törl.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="route-box">
+
+<h4>🚗 נסיעות היום</h4>
+
+<div class="route-line">
+<span>→</span>
+<span>Hofgut → אזור הכניסה לכביש: כ־75 ק״מ · 1:20 ש׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>נהיגה לאורך כביש Grossglockner והשלוחות: כ־95 ק״מ</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>חזרה ל־Hofgut: כ־75 ק״מ · 1:20 ש׳</span>
+</div>
+
+<div class="route-total">
+סה״כ נהיגה משוער: כ־245 ק״מ · 4:15–4:45 ש׳
+</div>
+
+</div>
+
+
+<div class="restaurant-box">
+
+🍽️ <strong>המסעדה המומלצת:</strong>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/Panoramarestaurant+Kaiser+Franz-Josefs-Höhe,+Austria"
+  target="_blank"
+  rel="noopener">
+Panoramarestaurant Kaiser Franz-Josefs-Höhe
+</a>
+
+· Google 4.2/5 · מומלץ להזמין לקבוצה
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>💶 מחיר שכבר נבדק:</strong>
+Grossglockner High Alpine Road — €46.50 לרכב
+(מחיר 2026 שנבדק).
+
+</div>
+
+
+<div class="plan-box plan-rain">
+
+<h4>🌧️ אילוצים וחלופות</h4>
+
+<p>
+<span class="constraint">עושים את היום רק בראות טובה.</span>
+אם התחזית עננית/גשומה — מחליפים יום עם פעילות שפחות תלויה בראות.
+</p>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>חשוב:</strong>
+בספטמבר הכביש נסגר בערב; לא מושכים את החזרה.
+
+</div>
+
+
+<div class="daily-fact">
+
+<img
+  alt="עובדה יומית יום 3"
+  src="fact3.png"
+  loading="lazy"
+  decoding="async"/>
+
+<div>
+
+<div class="daily-fact-title">
+עובדה יומית
+</div>
+
+<div>
+כביש Grossglockner מאפשר להגיע לעולם אלפיני גבוה ולתצפיות קרחון בלי טרק ארוך.
+</div>
+
+<a
+  class="fact-link"
+  href="fact3.png"
+  target="_blank">
+פתיחת התמונה
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</details>
+
+</div>
+
+</article>
+
+
+<!-- ==================================================
+     DAY 4
+     ================================================== -->
+
+<article
+  class="day-card fade-in-section"
+  data-type="nature walk kids"
+  id="day4">
+
+<div class="day-image" id="img-day4">
+
+<img
+  class="day-photo"
+  src="day4.png"
+  alt="תמונת יום 4"
+  loading="lazy"
+  decoding="async">
+
+<span class="day-tag">Kaprun</span>
+<span class="day-number">04</span>
+
+</div>
+
+
+<div class="day-content">
+
+<details class="day-native">
+
+<summary class="day-summary-native">
+
+<div class="day-header">
+
+<div class="day-title-wrap">
+
+<div class="day-date">
+25.09 · יום שישי
+</div>
+
+<h3>
+Kitzsteinhorn → Sigmund-Thun-Klamm
+</h3>
+
+</div>
+
+<span class="toggle-icon">+</span>
+
+</div>
+
+
+<p class="day-summary">
+עולים קודם ל־3,029 מ׳, אוכלים על ההר ואז יורדים לנקיק.
+Lucky Flitzer כבונוס בערב.
+</p>
+
+
+<div class="day-metadata">
+
+<span class="meta-chip">❄️ 3,029 מ׳</span>
+<span class="meta-chip">💧 נקיק</span>
+<span class="meta-chip">🎢 בונוס</span>
+
+</div>
+
+</summary>
+
+
+<div class="day-details">
+
+<div class="details-inner">
+
+
+<div
+  class="weather-row day-weather"
+  data-city-name="Kaprun"
+  data-trip-date="2026-09-25">
+
+<div class="weather-main">
+<span class="weather-icon">🗓️</span>
+<span class="weather-temp">Kaprun: ממתין לתחזית</span>
+</div>
+
+<span class="weather-status">
+התחזית תתעדכן אוטומטית סמוך לטיול
+</span>
+
+</div>
+
+
+<div class="plan-box plan-main">
+
+<h4>🧭 המסלול המוצע</h4>
+
+<ul>
+
+<li>
+יציאה סביב 08:00.
+</li>
+
+<li>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/Kitzsteinhorn+Talstation,+Kitzsteinhornplatz+1a,+Kaprun,+Austria"
+  target="_blank"
+  rel="noopener">
+Kitzsteinhorn / TOP OF SALZBURG
+</a>
+
+— תצפיות, Cinema 3000 ו־National Park Gallery.
+
+</li>
+
+<li>
+ארוחת צהריים על ההר.
+</li>
+
+<li>
+
+אחר הצהריים
+
+<a
+  class="maps-link"
+  href="https://maps.app.goo.gl/r3YzXcvrBeCQRapSA"
+  target="_blank"
+  rel="noopener">
+Sigmund-Thun-Klamm
+</a>
+
++ Klammsee, כ־1.5 שעות.
+
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="route-box">
+
+<h4>🚗 נסיעות היום</h4>
+
+<div class="route-line">
+<span>→</span>
+<span>Hofgut → Kitzsteinhorn: כ־80 ק״מ · 1:20 ש׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>Kitzsteinhorn → Sigmund-Thun-Klamm: כ־8 ק״מ · 10 דק׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>Kaprun → Hofgut: כ־80 ק״מ · 1:20 ש׳</span>
+</div>
+
+<div class="route-total">
+סה״כ נהיגה משוער: כ־168 ק״מ · 2:50 ש׳
+(ללא Lucky Flitzer)
+</div>
+
+</div>
+
+
+<div class="restaurant-box">
+
+🍽️ <strong>המסעדה המומלצת:</strong>
+
+<a
+  class="maps-link"
+  href="https://maps.app.goo.gl/L33MoAd4jQk3nwjf8"
+  target="_blank"
+  rel="noopener">
+Gipfel Restaurant Kitzsteinhorn
+</a>
+
+· Google 4.3/5 · בגובה 3,029 מ׳
+
+</div>
+
+
+<div class="options-box">
+
+<h4>✨ אופציות / בונוסים</h4>
+
+<p>
+
+🎢
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJTQLmV43UdkcRgZEuYVYDa6M"
+  target="_blank"
+  rel="noopener">
+Lucky Flitzer
+</a>
+
+בפלאכאו — רק אם חוזרים בזמן ויש כוח.
+מוסיף בערך 15–25 דק׳ נהיגה נטו למסלול החזרה.
+
+</p>
+
+</div>
+
+
+<div class="plan-box plan-rain">
+
+<h4>🌧️ אילוצים וחלופות</h4>
+
+<p>
+Kitzsteinhorn תלוי בראות וברוח;
+הנקיק בדרך כלל מתאים גם לגשם קל.
+Maisi Flitzer סגור לתחזוקה בתאריכים שלנו.
+</p>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>חשוב:</strong>
+בגובה 3,029 מ׳ צריך שכבות חמות גם אם בעמק נעים.
+
+</div>
+
+
+<div class="daily-fact">
+
+<img
+  alt="עובדה יומית יום 4"
+  src="fact4.png"
+  loading="lazy"
+  decoding="async"/>
+
+<div>
+
+<div class="daily-fact-title">
+עובדה יומית
+</div>
+
+<div>
+הפרשי הגובה בקפרון מאפשרים לעבור בתוך זמן קצר מעמק ירוק
+לסביבה אלפינית קרה בהרבה.
+</div>
+
+<a
+  class="fact-link"
+  href="fact4.png"
+  target="_blank">
+פתיחת התמונה
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</details>
+
+</div>
+
+</article>
+
+
+<!-- ==================================================
+     DAY 5
+     ================================================== -->
+
+<article
+  class="day-card fade-in-section"
+  data-type="city kids nature"
+  id="day5">
+
+<div class="day-image" id="img-day5">
+
+<img
+  class="day-photo"
+  src="day5.png"
+  alt="תמונת יום 5"
+  loading="lazy"
+  decoding="async">
+
+<span class="day-tag">Salzburg + Keltenblitz</span>
+<span class="day-number">05</span>
+
+</div>
+
+
+<div class="day-content">
+
+<details class="day-native">
+
+<summary class="day-summary-native">
+
+<div class="day-header">
+
+<div class="day-title-wrap">
+
+<div class="day-date">
+26.09 · יום שבת
+</div>
+
+<h3>
+Keltenblitz → זלצבורג → Hellbrunn
+</h3>
+
+</div>
+
+<span class="toggle-icon">+</span>
+
+</div>
+
+
+<p class="day-summary">
+אדרנלין בבוקר, מרכז זלצבורג בצהריים ו־Hellbrunn לקראת סוף היום.
+</p>
+
+
+<div class="day-metadata">
+
+<span class="meta-chip">🎢 מגלשה</span>
+<span class="meta-chip">🏛️ זלצבורג</span>
+<span class="meta-chip">💦 Hellbrunn</span>
+
+</div>
+
+</summary>
+
+
+<div class="day-details">
+
+<div class="details-inner">
+
+
+<div
+  class="weather-row day-weather"
+  data-city-name="Salzburg"
+  data-trip-date="2026-09-26">
+
+<div class="weather-main">
+<span class="weather-icon">🗓️</span>
+<span class="weather-temp">Salzburg: ממתין לתחזית</span>
+</div>
+
+<span class="weather-status">
+התחזית תתעדכן אוטומטית סמוך לטיול
+</span>
+
+</div>
+
+
+<div class="plan-box plan-main">
+
+<h4>🧭 המסלול המוצע</h4>
+
+<ul>
+
+<li>
+
+בוקר:
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJ7beP19iUdkcRRDN8_byB_Sc"
+  target="_blank"
+  rel="noopener">
+Keltenblitz
+</a>
+
+— 2.2 ק״מ של מגלשת הרים.
+
+</li>
+
+
+<li>
+
+זלצבורג:
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJK-tdP3uQdkcRVd3VZhHZ1Sw"
+  target="_blank"
+  rel="noopener">
+Mirabell
+</a>
+
+→ העיר העתיקה → Getreidegasse → הכיכרות והקתדרלה.
+
+</li>
+
+
+<li>
+
+לקראת סוף היום:
+
+<a
+  class="maps-link"
+  href="https://maps.app.goo.gl/BtLdE4RCxiz77VBr5"
+  target="_blank"
+  rel="noopener">
+Hellbrunn Palace & Trick Fountains
+</a>.
+
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="route-box">
+
+<h4>🚗 נסיעות היום</h4>
+
+<div class="route-line">
+<span>→</span>
+<span>Hofgut → Keltenblitz: כ־70 ק״מ · 1:05 ש׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>Keltenblitz → מרכז זלצבורג: כ־25 ק״מ · 30 דק׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>מרכז → Hellbrunn: כ־8 ק״מ · 15 דק׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>Hellbrunn → Hofgut: כ־75 ק״מ · 1:10 ש׳</span>
+</div>
+
+<div class="route-total">
+סה״כ נהיגה משוער: כ־178 ק״מ · 3:00 ש׳
+</div>
+
+</div>
+
+
+<div class="restaurant-box">
+
+🍽️ <strong>המסעדה המומלצת:</strong>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJhQfCFWSQdkcRzrA_0neDDnQ"
+  target="_blank"
+  rel="noopener">
+Sternbräu
+</a>
+
+· Google 4.2/5 · במרכז העיר;
+מומלץ להזמין לקבוצה
+
+</div>
+
+
+<div class="options-box">
+
+<h4>✨ אופציות / בונוסים</h4>
+
+<ul>
+
+<li>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJvQMhJ2CQdkcRa1Xs6dO-dys"
+  target="_blank"
+  rel="noopener">
+Festung Hohensalzburg
+</a>
+
+— מצודה ענקית מעל העיר עם פוניקולר ותצפית;
+רק אם נשאר מספיק זמן.
+
+</li>
+
+
+<li>
+Hellbrunn נשאר בתוכנית,
+אבל משחקי המים רק אם הטמפרטורה סבירה.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="plan-box plan-rain">
+
+<h4>🌧️ אילוצים וחלופות</h4>
+
+<p>
+
+Keltenblitz תלוי במזג האוויר.
+
+אם קר מאוד — מוותרים על Trick Fountains.
+
+בגשם משמעותי נשארים יותר בעיר ואפשר לעבור ל־
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJdcwcsWWQdkcRRacRj7tCVGI"
+  target="_blank"
+  rel="noopener">
+Haus der Natur
+</a>
+
+— מוזיאון מדע וטבע אינטראקטיבי עם אקווריום וזוחלים.
+
+</p>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>חשוב:</strong>
+לא מנסים להספיק את המצודה בכל מחיר;
+היא אופציה לפי זמן.
+
+</div>
+
+
+<div class="daily-fact">
+
+<img
+  alt="עובדה יומית יום 5"
+  src="fact5.png"
+  loading="lazy"
+  decoding="async"/>
+
+<div>
+
+<div class="daily-fact-title">
+עובדה יומית
+</div>
+
+<div>
+זלצבורג היא עיר הולדתו של מוצרט,
+והמרכז ההיסטורי שלה מוכר כאתר מורשת עולמית.
+</div>
+
+<a
+  class="fact-link"
+  href="fact5.png"
+  target="_blank">
+פתיחת התמונה
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</details>
+
+</div>
+
+</article>
+
+
+<!-- ==================================================
+     DAY 6
+     ================================================== -->
+
+<article
+  class="day-card fade-in-section"
+  data-type="nature travel walk kids"
+  id="day6">
+
+<div class="day-image" id="img-day6">
+
+<img
+  class="day-photo"
+  src="day6.png"
+  alt="תמונת יום 6"
+  loading="lazy"
+  decoding="async">
+
+<span class="day-tag">Krimml → Tirol</span>
+<span class="day-number">06</span>
+
+</div>
+
+
+<div class="day-content">
+
+<details class="day-native">
+
+<summary class="day-summary-native">
+
+<div class="day-header">
+
+<div class="day-title-wrap">
+
+<div class="day-date">
+27.09 · יום ראשון
+</div>
+
+<h3>
+Krimml → Gerlos Alpenstraße → Fügen
+</h3>
+
+</div>
+
+<span class="toggle-icon">+</span>
+
+</div>
+
+
+<p class="day-summary">
+צ׳ק־אאוט, מפלי Krimml, נסיעה נופית דרך Gerlos
+והגעה לבסיס החדש בפוגן.
+</p>
+
+
+<div class="day-metadata">
+
+<span class="meta-chip">💦 מפלים</span>
+<span class="meta-chip">🚗 מעבר</span>
+<span class="meta-chip">🏔️ Gerlos</span>
+
+</div>
+
+</summary>
+
+
+<div class="day-details">
+
+<div class="details-inner">
+
+
+<div
+  class="weather-row day-weather"
+  data-city-name="Krimml"
+  data-trip-date="2026-09-27">
+
+<div class="weather-main">
+<span class="weather-icon">🗓️</span>
+<span class="weather-temp">Krimml: ממתין לתחזית</span>
+</div>
+
+<span class="weather-status">
+התחזית תתעדכן אוטומטית סמוך לטיול
+</span>
+
+</div>
+
+
+<div class="plan-box plan-main">
+
+<h4>🧭 המסלול המוצע</h4>
+
+<ul>
+
+<li>
+צ׳ק־אאוט ויציאה סביב 09:00.
+</li>
+
+<li>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/search/?api=1&query=Krimml%20Waterfalls&query_place_id=ChIJJ-4zEz25d0cRnQp8bbWQIJ8"
+  target="_blank"
+  rel="noopener">
+Krimml Waterfalls
+</a>
+
+— כ־2–2.5 שעות;
+עולים עד כמה שמתאים לקבוצה וחוזרים.
+
+</li>
+
+<li>
+ארוחת צהריים באזור.
+</li>
+
+<li>
+
+<a
+  class="maps-link"
+  href="https://maps.app.goo.gl/cr4oeuk2H6HsPsVaA"
+  target="_blank"
+  rel="noopener">
+Gerlos Alpenstraße / Wasserfallblick
+</a>
+
+— עצירת תצפית על המפלים מלמעלה.
+
+</li>
+
+<li>
+המשך ל־Zillertal Suites Fügen, צ׳ק־אין וקניות.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="route-box">
+
+<h4>🚗 נסיעות היום</h4>
+
+<div class="route-line">
+<span>→</span>
+<span>Hofgut → Krimml: כ־100 ק״מ · 1:45 ש׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>Krimml → Fügen דרך Gerlos: כ־85 ק״מ · 1:30 ש׳</span>
+</div>
+
+<div class="route-total">
+סה״כ נהיגה משוער: כ־185 ק״מ · 3:15 ש׳
+</div>
+
+</div>
+
+
+<div class="restaurant-box">
+
+🍽️ <strong>המסעדה המומלצת:</strong>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJVTx-eZy5d0cR2AZkZzyp5bk"
+  target="_blank"
+  rel="noopener">
+Panoramarestaurant Burgeck Krimml
+</a>
+
+· Google 5.0/5 · Google;
+מספר הביקורות קטן יחסית
+
+</div>
+
+
+<div class="options-box">
+
+<h4>✨ אופציות / בונוסים</h4>
+
+<p>
+
+<a
+  class="maps-link"
+  href="https://maps.app.goo.gl/oAU8pJu3ymNzrtda9"
+  target="_blank"
+  rel="noopener">
+Krimmler WasserWelten
+</a>
+
+— מרכז חווייתי אינטראקטיבי בנושא מים ליד בסיס המפלים;
+מתאים למי שלא רוצה לעלות הרבה בשביל.
+
+</p>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>💶 מחירים שכבר נבדקו:</strong>
+
+כרטיס משולב WasserWelten + המפלים —
+
+מחיר רגיל:
+€15.90 למבוגר ו־€7.90 לילד;
+
+מחיר קבוצתי:
+€13.90 למבוגר ו־€6.90 לילד 6–15.
+
+חניה P4/P5 כלולה בכרטיס המשולב.
+
+</div>
+
+
+<div class="plan-box plan-rain">
+
+<h4>🌧️ אילוצים וחלופות</h4>
+
+<p>
+
+בגשם חזק מקצרים את העלייה בשביל ומנצלים יותר את
+
+<a
+  class="maps-link"
+  href="https://maps.app.goo.gl/oAU8pJu3ymNzrtda9"
+  target="_blank"
+  rel="noopener">
+WasserWelten
+</a>
+
+— מרכז מים אינטראקטיבי — ואת הנסיעה הנופית.
+
+</p>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>חשוב:</strong>
+זה יום מעבר — לא מוסיפים אטרקציה נוספת אחרי ההגעה לפוגן.
+
+</div>
+
+
+<div class="daily-fact">
+
+<img
+  alt="עובדה יומית יום 6"
+  src="fact6.png"
+  loading="lazy"
+  decoding="async"/>
+
+<div>
+
+<div class="daily-fact-title">
+עובדה יומית
+</div>
+
+<div>
+מפלי Krimml נופלים בשלושה מפלסים וביחד מגיעים לכ־380 מטר.
+</div>
+
+<a
+  class="fact-link"
+  href="fact6.png"
+  target="_blank">
+פתיחת התמונה
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</details>
+
+</div>
+
+</article>
+
+
+<!-- ==================================================
+     DAY 7
+     ================================================== -->
+
+<article
+  class="day-card fade-in-section"
+  data-type="city kids"
+  id="day7">
+
+<div class="day-image" id="img-day7">
+
+<img
+  class="day-photo"
+  src="day7.png"
+  alt="תמונת יום 7"
+  loading="lazy"
+  decoding="async">
+
+<span class="day-tag">Innsbruck</span>
+<span class="day-number">07</span>
+
+</div>
+
+
+<div class="day-content">
+
+<details class="day-native">
+
+<summary class="day-summary-native">
+
+<div class="day-header">
+
+<div class="day-title-wrap">
+
+<div class="day-date">
+28.09 · יום שני
+</div>
+
+<h3>
+אינסברוק — יום עיר בלב האלפים
+</h3>
+
+</div>
+
+<span class="toggle-icon">+</span>
+
+</div>
+
+
+<p class="day-summary">
+מרכז היסטורי, אווירה טירולית והרים שמקיפים את העיר מכל כיוון.
+יום גמיש במיוחד שאפשר להתאים בקלות למזג האוויר.
+</p>
+
+
+<div class="day-metadata">
+
+<span class="meta-chip">🏙️ אינסברוק</span>
+<span class="meta-chip">🏔️ עיר ואלפים</span>
+<span class="meta-chip">🌧️ מתאים גם לגשם</span>
+
+</div>
+
+</summary>
+
+
+<div class="day-details">
+
+<div class="details-inner">
+
+
+<div
+  class="weather-row day-weather"
+  data-city-name="Innsbruck"
+  data-trip-date="2026-09-28">
+
+<div class="weather-main">
+<span class="weather-icon">🗓️</span>
+<span class="weather-temp">Innsbruck: ממתין לתחזית</span>
+</div>
+
+<span class="weather-status">
+התחזית תתעדכן אוטומטית סמוך לטיול
+</span>
+
+</div>
+
+
+<div class="plan-box plan-main">
+
+<h4>🧭 המסלול המוצע</h4>
+
+<ul>
+
+<li>
+
+בוקר:
+Maria-Theresien-Straße,
+העיר העתיקה ו־
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJA4MyyPtrnUcR5dC7leoCk40"
+  target="_blank"
+  rel="noopener">
+Golden Roof
+</a>.
+
+</li>
+
+<li>
+נהר Inn והבתים הצבעוניים.
+</li>
+
+<li>
+ארוחת צהריים בעיר.
+</li>
+
+<li>
+
+אחר הצהריים
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJ7142Q-1snUcRDB59tZvi2-c"
+  target="_blank"
+  rel="noopener">
+Nordkette / Top of Innsbruck
+</a>
+
+— רק אם הראות טובה.
+
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="route-box">
+
+<h4>🚗 נסיעות היום</h4>
+
+<div class="route-line">
+<span>→</span>
+<span>Fügen → Innsbruck: כ־45 ק״מ · 40 דק׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>Innsbruck → Fügen: כ־45 ק״מ · 40 דק׳</span>
+</div>
+
+<div class="route-total">
+סה״כ נהיגה משוער: כ־90 ק״מ · 1:20 ש׳
+</div>
+
+</div>
+
+
+<div class="restaurant-box">
+
+🍽️ <strong>המסעדה המומלצת:</strong>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/search/?api=1&query=Restaurant%20Cafe%20Arkadenhof&query_place_id=ChIJ37ZzVftrnUcRhjAuRMXp8_Y"
+  target="_blank"
+  rel="noopener">
+Cafe Arkadenhof
+</a>
+
+· Google 4.5/5 · ב־Maria-Theresien-Straße
+
+</div>
+
+
+<div class="options-box">
+
+<h4>✨ אופציות / בונוסים</h4>
+
+<ul>
+
+<li>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJk3HTu_trnUcRKfwIQrtZtxY"
+  target="_blank"
+  rel="noopener">
+City Tower
+</a>
+
+— מגדל תצפית היסטורי עם 133 מדרגות;
+לפי זמן.
+
+</li>
+
+<li>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJlYgH34lknUcR1Q8kM0rr8Fo"
+  target="_blank"
+  rel="noopener">
+Swarovski Kristallwelten
+</a>
+
+— מוזיאון/פארק אמנות וקריסטלים עם חללי תצוגה ופארק;
+נמצא באזור, אך אינו חלק מהמסלול הראשי
+ואינו חלופת הגשם המרכזית.
+
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>💶 City Tower:</strong>
+מבוגר €4.50,
+ילד 6–15 €2,
+צעיר עד 17 €3;
+לקבוצות של 15+ מומלץ לתאם מראש בגלל מגבלת קיבולת.
+
+</div>
+
+
+<div class="plan-box plan-rain">
+
+<h4>🌧️ אילוצים וחלופות</h4>
+
+<p>
+
+אם Nordkette בתוך ענן — לא עולים.
+
+נשארים בעיר, בתי קפה, קניות ואתרים מקורים;
+
+אפשר לבחור ב־
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJk3HTu_trnUcRKfwIQrtZtxY"
+  target="_blank"
+  rel="noopener">
+City Tower
+</a>
+
+לתצפית עירונית קצרה אם מזג האוויר מאפשר.
+
+</p>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>חשוב:</strong>
+Nordkette היא אופציה לפי ראות,
+לא משימה שחייבים לסמן עליה וי.
+
+</div>
+
+
+<div class="daily-fact">
+
+<img
+  alt="עובדה יומית יום 7"
+  src="fact7.png"
+  loading="lazy"
+  decoding="async"/>
+
+<div>
+
+<div class="daily-fact-title">
+עובדה יומית
+</div>
+
+<div>
+אינסברוק יושבת בעמק צר כשהרכסים עולים כמעט ישירות מעל העיר —
+שילוב חריג של מרכז עירוני ונוף אלפיני.
+</div>
+
+<a
+  class="fact-link"
+  href="fact7.png"
+  target="_blank">
+פתיחת התמונה
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</details>
+
+</div>
+
+</article>
+
+
+<!-- ==================================================
+     DAY 8
+     ================================================== -->
+
+<article
+  class="day-card fade-in-section"
+  data-type="kids nature walk travel"
+  id="day8">
+
+<div class="day-image" id="img-day8">
+
+<img
+  class="day-photo"
+  src="day8.png"
+  alt="תמונת יום 8"
+  loading="lazy"
+  decoding="async">
+
+<span class="day-tag">יום פיצול + Aqua Dome</span>
+<span class="day-number">08</span>
+
+</div>
+
+
+<div class="day-content">
+
+<details class="day-native">
+
+<summary class="day-summary-native">
+
+<div class="day-header">
+
+<div class="day-title-wrap">
+
+<div class="day-date">
+29.09 · יום שלישי
+</div>
+
+<h3>
+מתפצלים בטירול → נפגשים ב־Aqua Dome
+</h3>
+
+</div>
+
+<span class="toggle-icon">+</span>
+
+</div>
+
+
+<p class="day-summary">
+Olpererhütte מוביל למצוינים ולמצטרפים;
+האחרים בוחרים חלופה.
+בערב כולם נפגשים ב־Aqua Dome.
+</p>
+
+
+<div class="day-metadata">
+
+<span class="meta-chip">🥾 פיצול</span>
+<span class="meta-chip">♨️ Aqua Dome</span>
+<span class="meta-chip">🌧️ גיבוי תרמה</span>
+
+</div>
+
+</summary>
+
+
+<div class="day-details">
+
+<div class="details-inner">
+
+
+<div
+  class="weather-row day-weather"
+  data-city-name="Mayrhofen"
+  data-trip-date="2026-09-29">
+
+<div class="weather-main">
+<span class="weather-icon">🗓️</span>
+<span class="weather-temp">Zillertal: ממתין לתחזית</span>
+</div>
+
+<span class="weather-status">
+התחזית תתעדכן אוטומטית סמוך לטיול
+</span>
+
+</div>
+
+
+<div class="plan-box plan-main">
+
+<h4>🧭 המסלול המוצע</h4>
+
+<ul>
+
+<li>
+
+<strong>המסלול המוביל:</strong>
+משפחת מצוינים + מצטרפים →
+
+<a
+  class="maps-link"
+  href="https://maps.app.goo.gl/1EkfcYz2LFtqAyF28"
+  target="_blank"
+  rel="noopener">
+Schlegeisspeicher / תחילת Olpererhütte
+</a>
+
+→ עלייה של כ־600 מ׳
+→ Olpererhütte והגשר
+→ ירידה.
+
+</li>
+
+
+<li>
+
+<strong>לקראת ערב:</strong>
+
+כל הקבוצות נפגשות ב־
+
+<a
+  class="maps-link"
+  href="https://maps.app.goo.gl/S3B82EXvkQVoJNHH6"
+  target="_blank"
+  rel="noopener">
+Aqua Dome
+</a>
+
+בלנגנפלד לכ־4 שעות.
+
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="route-box">
+
+<h4>🚗 נסיעות היום</h4>
+
+<div class="route-line">
+<span>→</span>
+<span>Fügen → Schlegeisspeicher: כ־60 ק״מ · 1:15 ש׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>Schlegeisspeicher → Aqua Dome: כ־145 ק״מ · 2:20 ש׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>Aqua Dome → Fügen: כ־105 ק״מ · 1:30 ש׳</span>
+</div>
+
+<div class="route-total">
+סה״כ נהיגה משוער:
+מסלול Olpererhütte:
+כ־310 ק״מ · 5:05 ש׳
+(יום נהיגה ארוך)
+</div>
+
+</div>
+
+
+<div class="restaurant-box">
+
+🍽️ <strong>המסעדה המומלצת:</strong>
+
+<a
+  class="maps-link"
+  href="https://maps.app.goo.gl/kcvgsEvwrfvvLzir5"
+  target="_blank"
+  rel="noopener">
+Restaurant Pizzeria Infang
+</a>
+
+· Google 4.7/5 · בלנגנפלד,
+סמוך יחסית ל־Aqua Dome
+
+</div>
+
+
+<div class="options-box">
+
+<h4>✨ אופציות / בונוסים</h4>
+
+<ul>
+
+<li>
+
+🧙
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJ0cpHjuk1dkcRyrPoDge1cXU"
+  target="_blank"
+  rel="noopener">
+Hexenwasser
+</a>
+
+— פארק הררי משפחתי עם עשרות תחנות מים,
+משחק, טבע וחקר;
+החלופה המומלצת למשפחות.
+
+</li>
+
+
+<li>
+
+🌊
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJiTQmw0d-nUcRLl--Vzyd_2Y"
+  target="_blank"
+  rel="noopener">
+Achensee + Atoll
+</a>
+
+— אגם אלפיני וקומפלקס בריכות/ספא;
+אופציה רגועה יותר.
+
+אם כולם מגיעים ל־Aqua Dome בערב,
+אפשר להסתפק באגם בלבד.
+
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="plan-box plan-rain">
+
+<h4>🌧️ אילוצים וחלופות</h4>
+
+<p>
+
+🌧️ בגשם משמעותי:
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJSRYkZdDQd0cRiLYUF8BRVO8"
+  target="_blank"
+  rel="noopener">
+Erlebnistherme Zillertal
+</a>
+
+— מתחם בריכות פנימי/חיצוני עם מגלשות לילדים,
+ממש בפוגן.
+
+<strong>
+Olpererhütte לא יוצא בגשם משמעותי,
+ערפל כבד או תנאי החלקה.
+</strong>
+
+</p>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>חשוב:</strong>
+
+להזמין Aqua Dome מראש לקבוצה.
+
+יום Olpererhütte + Aqua Dome ארוך מאוד גם מבחינת נהיגה —
+הנתון מוצג במפורש כדי שכל משפחה תחליט.
+
+</div>
+
+
+<div class="daily-fact">
+
+<img
+  alt="עובדה יומית יום 8"
+  src="fact8.png"
+  loading="lazy"
+  decoding="async"/>
+
+<div>
+
+<div class="daily-fact-title">
+עובדה יומית
+</div>
+
+<div>
+עמק Zillertal מאפשר באותו יום להתפצל בין מסלול הרים,
+פארק משפחתי ואגם — ואז להתאחד שוב בערב.
+</div>
+
+<a
+  class="fact-link"
+  href="fact8.png"
+  target="_blank">
+פתיחת התמונה
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</details>
+
+</div>
+
+</article>
+
+
+<!-- ==================================================
+     DAY 9
+     ================================================== -->
+
+<article
+  class="day-card fade-in-section"
+  data-type="kids travel"
+  id="day9">
+
+<div class="day-image" id="img-day9">
+
+<img
+  class="day-photo"
+  src="day9.png"
+  alt="תמונת יום 9"
+  loading="lazy"
+  decoding="async">
+
+<span class="day-tag">LEGOLAND</span>
+<span class="day-number">09</span>
+
+</div>
+
+
+<div class="day-content">
+
+<details class="day-native">
+
+<summary class="day-summary-native">
+
+<div class="day-header">
+
+<div class="day-title-wrap">
+
+<div class="day-date">
+30.09 · יום רביעי
+</div>
+
+<h3>
+LEGOLAND Deutschland — יום פארק מלא
+</h3>
+
+</div>
+
+<span class="toggle-icon">+</span>
+
+</div>
+
+
+<p class="day-summary">
+מי שרוצה לגולנד נוסע ליום מלא ב־Günzburg;
+למי שלא מצטרף נשמרות חלופות רגועות בטירול.
+</p>
+
+
+<div class="day-metadata">
+
+<span class="meta-chip">🧱 LEGOLAND</span>
+<span class="meta-chip">🎢 מתקנים</span>
+<span class="meta-chip">🚗 נסיעה ארוכה</span>
+
+</div>
+
+</summary>
+
+
+<div class="day-details">
+
+<div class="details-inner">
+
+
+<div
+  class="weather-row day-weather"
+  data-city-name="Guenzburg"
+  data-trip-date="2026-09-30">
+
+<div class="weather-main">
+<span class="weather-icon">🗓️</span>
+<span class="weather-temp">LEGOLAND / Günzburg: ממתין לתחזית</span>
+</div>
+
+<span class="weather-status">
+התחזית תתעדכן אוטומטית סמוך לטיול
+</span>
+
+</div>
+
+
+<div class="plan-box plan-main">
+
+<h4>🧭 המסלול המוצע</h4>
+
+<ul>
+
+<li>
+יציאה מוקדמת מ־Fügen.
+</li>
+
+<li>
+
+<a
+  class="maps-link"
+  href="https://maps.app.goo.gl/v3R3GsEoV3sNmYau8"
+  target="_blank"
+  rel="noopener">
+LEGOLAND Deutschland Resort
+</a>
+
+— יום פארק מלא, 10:00–18:00.
+
+</li>
+
+<li>
+חזרה ל־Fügen בערב.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="route-box">
+
+<h4>🚗 נסיעות היום</h4>
+
+<div class="route-line">
+<span>→</span>
+<span>Fügen → LEGOLAND Günzburg: כ־225 ק״מ · 2:35–2:45 ש׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>LEGOLAND → Fügen: כ־225 ק״מ · 2:35–2:45 ש׳</span>
+</div>
+
+<div class="route-total">
+סה״כ נהיגה משוער:
+כ־450 ק״מ · 5:10–5:30 ש׳
+</div>
+
+</div>
+
+
+<div class="restaurant-box">
+
+🍽️ <strong>המסעדה המומלצת:</strong>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJexfqbdXQd0cRl4WfknwKkDE"
+  target="_blank"
+  rel="noopener">
+Gasthof Hoppeter
+</a>
+
+· Google 4.2/5 · ב־Fügen;
+מתאים לארוחת ערב לאחר החזרה
+
+</div>
+
+
+<div class="options-box">
+
+<h4>✨ אופציות / בונוסים</h4>
+
+<ul>
+
+<li>
+
+למי שלא נוסע:
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJiTQmw0d-nUcRLl--Vzyd_2Y"
+  target="_blank"
+  rel="noopener">
+Achensee + Atoll
+</a>
+
+— יום רגוע של אגם אלפיני ובריכות/ספא.
+
+</li>
+
+
+<li>
+
+אפשרות נוספת:
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/?q=place_id:ChIJSRYkZdDQd0cRiLYUF8BRVO8"
+  target="_blank"
+  rel="noopener">
+Erlebnistherme Zillertal
+</a>
+
+— בריכות ומגלשות בפוגן,
+כמעט בלי נסיעה.
+
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="plan-box plan-rain">
+
+<h4>🌧️ אילוצים וחלופות</h4>
+
+<p>
+LEGOLAND פועל גם במזג אוויר משתנה,
+אך מתקנים מסוימים עשויים להיות מושפעים מתנאים חריגים.
+</p>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>חשוב:</strong>
+זה יום עם הרבה נהיגה.
+לא מוסיפים יעד נוסף בדרך.
+
+</div>
+
+
+<div class="daily-fact">
+
+<img
+  alt="עובדה יומית יום 9"
+  src="fact9.png"
+  loading="lazy"
+  decoding="async"/>
+
+<div>
+
+<div class="daily-fact-title">
+עובדה יומית
+</div>
+
+<div>
+LEGOLAND Deutschland כולל עשרות מתקנים ועולמות נושא,
+ומיועד ליום פארק מלא ולא לעצירת ביניים.
+</div>
+
+<a
+  class="fact-link"
+  href="fact9.png"
+  target="_blank">
+פתיחת התמונה
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</details>
+
+</div>
+
+</article>
+
+
+<!-- ==================================================
+     DAY 10
+     ================================================== -->
+
+<article
+  class="day-card fade-in-section"
+  data-type="travel nature kids"
+  id="day10">
+
+<div class="day-image" id="img-day10">
+
+<img
+  class="day-photo"
+  src="day10.png"
+  alt="תמונת יום 10"
+  loading="lazy"
+  decoding="async">
+
+<span class="day-tag">Hintertux → Vienna</span>
+<span class="day-number">10</span>
+
+</div>
+
+
+<div class="day-content">
+
+<details class="day-native">
+
+<summary class="day-summary-native">
+
+<div class="day-header">
+
+<div class="day-title-wrap">
+
+<div class="day-date">
+01.10 · יום חמישי
+</div>
+
+<h3>
+Hintertux + Nature’s Ice Palace → וינה
+</h3>
+
+</div>
+
+<span class="toggle-icon">+</span>
+
+</div>
+
+
+<p class="day-summary">
+מערת הקרח בבוקר, תצפית ושלג בהתאם לתנאים,
+ואז נסיעה ארוכה לווינה ללילה האחרון.
+</p>
+
+
+<div class="day-metadata">
+
+<span class="meta-chip">🧊 מערת קרח</span>
+<span class="meta-chip">❄️ 3,250 מ׳</span>
+<span class="meta-chip">🚗 וינה</span>
+
+</div>
+
+</summary>
+
+
+<div class="day-details">
+
+<div class="details-inner">
+
+
+<div
+  class="weather-row day-weather"
+  data-city-name="Hintertux"
+  data-trip-date="2026-10-01">
+
+<div class="weather-main">
+<span class="weather-icon">🗓️</span>
+<span class="weather-temp">Hintertux: ממתין לתחזית</span>
+</div>
+
+<span class="weather-status">
+התחזית תתעדכן אוטומטית סמוך לטיול
+</span>
+
+</div>
+
+
+<div class="plan-box plan-main">
+
+<h4>🧭 המסלול המוצע</h4>
+
+<ul>
+
+<li>
+צ׳ק־אאוט מוקדם מ־Fügen.
+</li>
+
+<li>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/search/?api=1&query=Hintertuxer%20Gletscher&query_place_id=ChIJ9XbH9ZXhd0cRE9jqUpMsjoo"
+  target="_blank"
+  rel="noopener">
+Hintertuxer Gletscherbahn
+</a>
+
+ועלייה ברכבלים.
+
+</li>
+
+<li>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/search/?api=1&query=Natureispalast&query_place_id=ChIJYVoqrLvhd0cReVcUIBni3jE"
+  target="_blank"
+  rel="noopener">
+Nature’s Ice Palace
+</a>
+
+— לכוון לסיור מוקדם;
+מערת קרח בתוך הקרחון.
+
+</li>
+
+<li>
+Panorama Terrace וזמן קצר בשלג/תצפית.
+</li>
+
+<li>
+ארוחת צהריים על ההר וירידה.
+</li>
+
+<li>
+יציאה ישירה לווינה וצ׳ק־אין.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="route-box">
+
+<h4>🚗 נסיעות היום</h4>
+
+<div class="route-line">
+<span>→</span>
+<span>Fügen → Hintertux: כ־42 ק״מ · 40 דק׳</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>Hintertux → Vienna: כ־470 ק״מ · 5:00 ש׳</span>
+</div>
+
+<div class="route-total">
+סה״כ נהיגה משוער:
+כ־512 ק״מ · 5:40 ש׳
+</div>
+
+</div>
+
+
+<div class="restaurant-box">
+
+🍽️ <strong>המסעדה המומלצת:</strong>
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/search/?api=1&query=Tuxer%20Fernerhaus&query_place_id=ChIJq_allTrid0cRtwJHl2Cy1QI"
+  target="_blank"
+  rel="noopener">
+Tuxer Ferner Haus
+</a>
+
+· Google 4.3/5 · על הקרחון;
+מתאים לקבוצה ולמשפחות
+
+</div>
+
+
+<div class="options-box">
+
+<h4>✨ אופציות / בונוסים</h4>
+
+<p>
+אם יורדים מוקדם מאוד אפשר לעצור לקפה קצר בדרך,
+אבל לא מתכננים אטרקציה נוספת —
+הדרך לווינה ארוכה.
+</p>
+
+</div>
+
+
+<div class="plan-box plan-rain">
+
+<h4>🌧️ אילוצים וחלופות</h4>
+
+<p>
+מערת הקרח עצמה אינה תלויה במזג האוויר,
+אך הרכבלים והתצפיות כפופים לתנאי ההר.
+</p>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>חשוב:</strong>
+חובה לתאם מראש את Nature’s Ice Palace עבור קבוצה גדולה.
+זה יום מעבר ארוך.
+
+</div>
+
+
+<div class="daily-fact">
+
+<img
+  alt="עובדה יומית יום 10"
+  src="fact10.png"
+  loading="lazy"
+  decoding="async"/>
+
+<div>
+
+<div class="daily-fact-title">
+עובדה יומית
+</div>
+
+<div>
+Hintertux הוא אחד מאתרי הקרחון הנגישים כל השנה באוסטריה,
+וה־Ice Palace מאפשר להיכנס ממש לתוך הקרח.
+</div>
+
+<a
+  class="fact-link"
+  href="fact10.png"
+  target="_blank">
+פתיחת התמונה
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</details>
+
+</div>
+
+</article>
+
+
+<!-- ==================================================
+     DAY 11
+     ================================================== -->
+
+<article
+  class="day-card fade-in-section"
+  data-type="city travel"
+  id="day11">
+
+<div class="day-image" id="img-day11">
+
+<img
+  class="day-photo"
+  src="day11.png"
+  alt="תמונת יום 11"
+  loading="lazy"
+  decoding="async">
+
+<span class="day-tag">Vienna + Flight</span>
+<span class="day-number">11</span>
+
+</div>
+
+
+<div class="day-content">
+
+<details class="day-native">
+
+<summary class="day-summary-native">
+
+<div class="day-header">
+
+<div class="day-title-wrap">
+
+<div class="day-date">
+02.10 · יום שישי
+</div>
+
+<h3>
+וינה, קניות והביתה
+</h3>
+
+</div>
+
+<span class="toggle-icon">+</span>
+
+</div>
+
+
+<p class="day-summary">
+יום קליל במרכז וינה:
+עיר, קניות ואוכל —
+ואז לשדה לטיסת OS83 ב־20:20.
+</p>
+
+
+<div class="day-metadata">
+
+<span class="meta-chip">🏙️ וינה</span>
+<span class="meta-chip">🛍️ קניות</span>
+<span class="meta-chip">✈️ טיסה</span>
+
+</div>
+
+</summary>
+
+
+<div class="day-details">
+
+<div class="details-inner">
+
+
+<div
+  class="weather-row day-weather"
+  data-city-name="Vienna"
+  data-trip-date="2026-10-02">
+
+<div class="weather-main">
+<span class="weather-icon">🗓️</span>
+<span class="weather-temp">Vienna: ממתין לתחזית</span>
+</div>
+
+<span class="weather-status">
+התחזית תתעדכן אוטומטית סמוך לטיול
+</span>
+
+</div>
+
+
+<div class="plan-box plan-main">
+
+<h4>🧭 המסלול המוצע</h4>
+
+<ul>
+
+<li>
+
+בוקר רגוע במרכז:
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/place/Stephansplatz,+1010+Wien,+Austria"
+  target="_blank"
+  rel="noopener">
+Stephansplatz
+</a>
+
+והרחובות סביבו.
+
+</li>
+
+<li>
+קניות וזמן חופשי לפי המשפחות.
+</li>
+
+<li>
+ארוחת צהריים/אחה״צ מוקדמת.
+</li>
+
+<li>
+
+יציאה ל־
+
+<a
+  class="maps-link"
+  href="https://www.google.com/maps/search/?api=1&query=Vienna%20International%20Airport&query_place_id=ChIJm74aR6tVbEcRS5vSjRBSeiQ"
+  target="_blank"
+  rel="noopener">
+Vienna International Airport
+</a>
+
+עם מרווח נדיב להחזרת רכבים ובידוק.
+
+</li>
+
+<li>
+OS83:
+20:20 → תל אביב 00:45.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="route-box">
+
+<h4>🚗 נסיעות היום</h4>
+
+<div class="route-line">
+<span>→</span>
+<span>נסיעות עירוניות/חניה: משתנה לפי המלון</span>
+</div>
+
+<div class="route-line">
+<span>→</span>
+<span>מרכז וינה → VIE: כ־20 ק״מ · 25–35 דק׳</span>
+</div>
+
+<div class="route-total">
+סה״כ נהיגה משוער:
+כ־20–35 ק״מ · 30–50 דק׳
+</div>
+
+</div>
+
+
+<div class="restaurant-box">
+
+🍽️ <strong>המסעדה המומלצת:</strong>
+
+<a
+  class="maps-link"
+  href="https://maps.app.goo.gl/hdCVnBhcw83azV3Y7"
+  target="_blank"
+  rel="noopener">
+Figlmüller Bäckerstraße
+</a>
+
+· Google 4.3/5 · מוסד שניצל וינאי;
+להזמין מראש לקבוצה
+
+</div>
+
+
+<div class="options-box">
+
+<h4>✨ אופציות / בונוסים</h4>
+
+<p>
+
+<a
+  class="maps-link"
+  href="https://maps.app.goo.gl/X9rRsqmV5kfUfq6Y6"
+  target="_blank"
+  rel="noopener">
+Prater / Wiener Riesenrad
+</a>
+
+— פארק שעשועים עירוני והגלגל הענק ההיסטורי;
+רק אם הקניות מסתיימות מוקדם ויש מספיק זמן לפני השדה.
+
+</p>
+
+</div>
+
+
+<div class="plan-box plan-rain">
+
+<h4>🌧️ אילוצים וחלופות</h4>
+
+<p>
+יום עירוני וגמיש מאוד;
+בגשם מתמקדים בקניות,
+בתי קפה ואתרים מקורים.
+</p>
+
+</div>
+
+
+<div class="tip-box">
+
+<strong>חשוב:</strong>
+לא להסתכן עם זמן היציאה לשדה בגלל קניות או אטרקציה אחרונה.
+
+</div>
+
+
+<div class="daily-fact">
+
+<img
+  alt="עובדה יומית יום 11"
+  src="fact11.png"
+  loading="lazy"
+  decoding="async"/>
+
+<div>
+
+<div class="daily-fact-title">
+עובדה יומית
+</div>
+
+<div>
+ה־Riesenrad בפראטר פועל מאז 1897
+ונחשב לאחד הגלגלים הענקיים ההיסטוריים המזוהים ביותר עם אירופה.
+</div>
+
+<a
+  class="fact-link"
+  href="fact11.png"
+  target="_blank">
+פתיחת התמונה
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</details>
+
+</div>
+
+</article>
+
+
 </div>
 </div>
 </section>
+
+
+<!-- ==================================================
+     TIPS
+     ================================================== -->
+
 <section class="section tips-section" id="tips">
+
 <div class="container">
+
 <div class="section-head">
-<span class="eyebrow">לפני שיוצאים</span>
-<h2>טיפים חשובים</h2>
-<p>המסלול גדול יותר, ולכן המפתח הוא לא רק “מה עושים” אלא גם מה בודקים ומתי מחליטים לוותר.</p>
+
+<span class="eyebrow">
+לפני שיוצאים
+</span>
+
+<h2>
+טיפים חשובים
+</h2>
+
+<p>
+המסלול גדול יותר,
+ולכן המפתח הוא לא רק “מה עושים”
+אלא גם מה בודקים ומתי מחליטים לוותר.
+</p>
+
 </div>
+
+
 <div class="tips-grid">
-<div class="tip-card"><div class="tip-icon">🌦️</div><h4>מזג אוויר: החלטה יומית</h4><p>בערב שלפני בודקים עננות, משקעים, רוח וראות — לא רק טמפרטורה. גרוסגלוקנר, קרחונים ואולפרר רגישים במיוחד.</p></div>
-<div class="tip-card"><div class="tip-icon">🎟️</div><h4>כרטיס אזורי</h4><p>לבדוק בקבלה בדיוק אילו הטבות פעילות: Wasserwelt Wagrain, מיני גולף בראדשטאט, Flori's Erlebnispfad והנחות נוספות עשויות להשתנות עונתית.</p></div>
-<div class="tip-card"><div class="tip-icon">⏰</div><h4>רכבלים ושעת ירידה</h4><p>בכל יעד הררי לבדוק לא רק “שעת סגירה” אלא את הרכבל האחרון לירידה. זה קריטי במיוחד כשמגיעים אחרי האלשטאט או ביום עמוס.</p></div>
-<div class="tip-card"><div class="tip-icon">❄️</div><h4>שלג בקיצשטיינהורן</h4><p>שבוע לפני הטיול לבדוק מצלמות/דיווחי אתר. אם אין שלג בפסגה, להחליט מראש אם הערך עדיין מצדיק עלייה או להעביר את יום הקרחון.</p></div>
-<div class="tip-card"><div class="tip-icon">🥾</div><h4>Olpererhütte</h4><p>לא לקבע את הטרק לתאריך חודשים מראש. בוחרים 24–48 שעות לפני את היום היבש והיציב ביותר בטירול.</p></div>
-<div class="tip-card"><div class="tip-icon">🧣</div><h4>שיטת הבצל</h4><p>בתיק היום: שכבה חמה, מעיל גשם קל, כובע ובקרחון גם כפפות. בעמק יכול להיות נעים ובפסגה חורפי.</p></div>
-<div class="tip-card"><div class="tip-icon">🍽️</div><h4>ארוחות לקבוצה גדולה</h4><p>26 איש אינם “נכנסים על הדרך” למסעדה כפרית. להזמין מראש או להחליט מראש שמתפצלים למשפחות.</p></div>
-<div class="tip-card"><div class="tip-icon">🚗</div><h4>ימי נסיעה</h4><p>ב־22.09 וב־27.09 שומרים על ימי המעבר קלים. ב־01.10 מערת הקרח היא האטרקציה היחידה לפני הנסיעה הארוכה לווינה.</p></div>
-<div class="tip-card"><div class="tip-icon">🏊</div><h4>תיק בריכה קבוע</h4><p>להחזיק ברכב תיק קטן עם בגדי ים, כפכפים ומגבות/ציוד רלוונטי. זה הופך חלופת גשם לספונטנית ולא למבצע לוגיסטי.</p></div>
-<div class="tip-card"><div class="tip-icon">📱</div><h4>קישורים וצילומי מסך</h4><p>לשמור מראש כתובות חניה, תחנות רכבל, כרטיסים וצילומי מסך. באזורים הרריים קל לאבד קליטה בדיוק כשצריך את האישור.</p></div>
-<div class="tip-card"><div class="tip-icon">🛷</div><h4>מגלשות הרים</h4><p>Keltenblitz הוא חלק מתוכנן ביום 5; Lucky Flitzer הוא בונוס ביום 4. שניהם תלויי מזג אוויר ושעות הפעלה.</p></div>
-<div class="tip-card"><div class="tip-icon">🧭</div><h4>לא חייבים להספיק הכול</h4><p>בימים עם 2–3 חלופות, בוחרים יעד ראשי אחד ועוד בונוס אחד. הרשימה נועדה לתת אפשרויות. אין צורך להפוך כל יום למרוץ להספקים.</p></div>
-<div class="tip-card"><div class="tip-icon">🧳</div><h4>אורזים לפי אזור — לא לפי אדם</h4><p>להשתמש בקוביות אריזה ולארגן מראש את הבגדים לפי מקומות הלינה. לפלאכאו אורזים את מה שנדרש לחמשת הלילות הראשונים במזוודה אחת או שתיים, ואת ציוד טירול משאירים סגור עד המעבר לפוגן. כך לא פורקים ואורזים מחדש את כל המזוודות בכל מעבר.</p></div>
-<div class="tip-card"><div class="tip-icon">🎒</div><h4>תיק אישי לכל ילד</h4><p>לכל ילד תיק יום קטן משלו עם בקבוק מים, כריך או נשנוש ושכבה חמה קלה — סווטשירט או מעיל דק. כך בכל יציאה מהרכב הציוד האישי כבר איתו ולא צריך לפתוח את תא המטען בכל שינוי במזג האוויר.</p></div>
-<div class="tip-card"><div class="tip-icon">🧺</div><h4>כביסה ב־Hofgut</h4><p>ב־Hofgut יש חדר כביסה עם מכונות כביסה ומייבשים. כביסה + ייבוש דורשים בסך הכול 7 מטבעות של €1; אם אין מטבעות, אפשר לקבל פריטה בקבלה. כדאי לכבס לקראת סוף השהייה ולהגיע לטירול עם רוב הבגדים שוב נקיים.</p></div>
-<div class="tip-card"><div class="tip-icon">🛒</div><h4>סופר ליד Hofgut</h4><p>לקניות במהלך השהייה יש <a href="https://maps.app.goo.gl/PTsgSt4P5pAoSXog9" target="_blank" rel="noopener"><strong>SPAR ב־Wagrain</strong></a>, במרחק של כ־4–5 דקות נסיעה מהמלון. מתאים להצטיידות במים, פירות, כריכים, נשנושים ומצרכים לדירה. בנוסף, ב־Hofgut עצמו יש גם חנות קטנה במתחם.</p></div>
-<div class="tip-card"><div class="tip-icon">🫧</div><h4>כביסה ב־Zillertal Suites</h4><p>גם ב־Zillertal Suites Fügen יש חדר כביסה בקומת הקרקע עם מכונת כביסה ומייבש. לפי המידע העדכני באתר ALPS RESORTS, השימוש הוא בעלות של €1 לשעה. זה מאפשר לעשות כביסה נוספת לפני הלילה האחרון בווינה והטיסה הביתה.</p></div>
-<div class="tip-card"><div class="tip-icon">🛒</div><h4>סופר ליד Zillertal Suites</h4><p>ממש ליד המלון נמצא <a href="https://maps.app.goo.gl/6VjJ1ksYmGqJffj1A" target="_blank" rel="noopener"><strong>SPAR Lindenweg</strong></a> — כ־190 מטר מהמלון, כלומר דקות בודדות ברגל וכדקה ברכב. מאחר שמגיעים לפוגן ביום ראשון, כדאי לבדוק שוב את שעות הפתיחה סמוך לטיול. גם אם הסופר פתוח בשעות מצומצמות, מומלץ לשקול לקנות כבר ביום שבת מוצרים שאינם דורשים קירור, ולוודא מראש אילו מסעדות פתוחות בפוגן בערב ההגעה.</p></div>
+
+
+<div class="tip-card">
+<div class="tip-icon">🌦️</div>
+<h4>מזג אוויר: החלטה יומית</h4>
+<p>
+בערב שלפני בודקים עננות, משקעים, רוח וראות — לא רק טמפרטורה.
+גרוסגלוקנר, קרחונים ואולפרר רגישים במיוחד.
+</p>
 </div>
+
+
+<div class="tip-card">
+<div class="tip-icon">🎟️</div>
+<h4>כרטיס אזורי</h4>
+<p>
+לבדוק בקבלה בדיוק אילו הטבות פעילות:
+Wasserwelt Wagrain,
+מיני גולף בראדשטאט,
+Flori's Erlebnispfad והנחות נוספות עשויות להשתנות עונתית.
+</p>
+</div>
+
+
+<div class="tip-card">
+<div class="tip-icon">⏰</div>
+<h4>רכבלים ושעת ירידה</h4>
+<p>
+בכל יעד הררי לבדוק לא רק “שעת סגירה”
+אלא את הרכבל האחרון לירידה.
+זה קריטי במיוחד כשמגיעים אחרי האלשטאט או ביום עמוס.
+</p>
+</div>
+
+
+<div class="tip-card">
+<div class="tip-icon">❄️</div>
+<h4>שלג בקיצשטיינהורן</h4>
+<p>
+שבוע לפני הטיול לבדוק מצלמות/דיווחי אתר.
+אם אין שלג בפסגה,
+להחליט מראש אם הערך עדיין מצדיק עלייה
+או להעביר את יום הקרחון.
+</p>
+</div>
+
+
+<div class="tip-card">
+<div class="tip-icon">🥾</div>
+<h4>Olpererhütte</h4>
+<p>
+לא לקבע את הטרק לתאריך חודשים מראש.
+בוחרים 24–48 שעות לפני את היום היבש והיציב ביותר בטירול.
+</p>
+</div>
+
+
+<div class="tip-card">
+<div class="tip-icon">🧣</div>
+<h4>שיטת הבצל</h4>
+<p>
+בתיק היום:
+שכבה חמה,
+מעיל גשם קל,
+כובע ובקרחון גם כפפות.
+בעמק יכול להיות נעים ובפסגה חורפי.
+</p>
+</div>
+
+
+<div class="tip-card">
+<div class="tip-icon">🍽️</div>
+<h4>ארוחות לקבוצה גדולה</h4>
+<p>
+26 איש אינם “נכנסים על הדרך” למסעדה כפרית.
+להזמין מראש או להחליט מראש שמתפצלים למשפחות.
+</p>
+</div>
+
+
+<div class="tip-card">
+<div class="tip-icon">🚗</div>
+<h4>ימי נסיעה</h4>
+<p>
+ב־22.09 וב־27.09 שומרים על ימי המעבר קלים.
+ב־01.10 מערת הקרח היא האטרקציה היחידה
+לפני הנסיעה הארוכה לווינה.
+</p>
+</div>
+
+
+<div class="tip-card">
+<div class="tip-icon">🏊</div>
+<h4>תיק בריכה קבוע</h4>
+<p>
+להחזיק ברכב תיק קטן עם בגדי ים,
+כפכפים ומגבות/ציוד רלוונטי.
+זה הופך חלופת גשם לספונטנית
+ולא למבצע לוגיסטי.
+</p>
+</div>
+
+
+<div class="tip-card">
+<div class="tip-icon">📱</div>
+<h4>קישורים וצילומי מסך</h4>
+<p>
+לשמור מראש כתובות חניה,
+תחנות רכבל,
+כרטיסים וצילומי מסך.
+באזורים הרריים קל לאבד קליטה בדיוק כשצריך את האישור.
+</p>
+</div>
+
+
+<div class="tip-card">
+<div class="tip-icon">🛷</div>
+<h4>מגלשות הרים</h4>
+<p>
+Keltenblitz הוא חלק מתוכנן ביום 5;
+Lucky Flitzer הוא בונוס ביום 4.
+שניהם תלויי מזג אוויר ושעות הפעלה.
+</p>
+</div>
+
+
+<div class="tip-card">
+<div class="tip-icon">🧭</div>
+<h4>לא חייבים להספיק הכול</h4>
+<p>
+בימים עם 2–3 חלופות,
+בוחרים יעד ראשי אחד ועוד בונוס אחד.
+הרשימה נועדה לתת אפשרויות.
+אין צורך להפוך כל יום למרוץ להספקים.
+</p>
+</div>
+
+
+<div class="tip-card">
+<div class="tip-icon">🧳</div>
+<h4>אורזים לפי אזור — לא לפי אדם</h4>
+<p>
+להשתמש בקוביות אריזה ולארגן מראש את הבגדים לפי מקומות הלינה.
+לפלאכאו אורזים את מה שנדרש לחמשת הלילות הראשונים
+במזוודה אחת או שתיים,
+ואת ציוד טירול משאירים סגור עד המעבר לפוגן.
+כך לא פורקים ואורזים מחדש את כל המזוודות בכל מעבר.
+</p>
+</div>
+
+
+<div class="tip-card">
+<div class="tip-icon">🎒</div>
+<h4>תיק אישי לכל ילד</h4>
+<p>
+לכל ילד תיק יום קטן משלו עם בקבוק מים,
+כריך או נשנוש ושכבה חמה קלה —
+סווטשירט או מעיל דק.
+כך בכל יציאה מהרכב הציוד האישי כבר איתו
+ולא צריך לפתוח את תא המטען בכל שינוי במזג האוויר.
+</p>
+</div>
+
+
+<div class="tip-card">
+<div class="tip-icon">🧺</div>
+<h4>כביסה ב־Hofgut</h4>
+<p>
+ב־Hofgut יש חדר כביסה עם מכונות כביסה ומייבשים.
+כביסה + ייבוש דורשים בסך הכול 7 מטבעות של €1;
+אם אין מטבעות, אפשר לקבל פריטה בקבלה.
+כדאי לכבס לקראת סוף השהייה
+ולהגיע לטירול עם רוב הבגדים שוב נקיים.
+</p>
+</div>
+
+
+<div class="tip-card">
+
+<div class="tip-icon">🛒</div>
+
+<h4>
+סופר ליד Hofgut
+</h4>
+
+<p>
+
+לקניות במהלך השהייה יש
+
+<a
+  href="https://maps.app.goo.gl/PTsgSt4P5pAoSXog9"
+  target="_blank"
+  rel="noopener">
+<strong>SPAR ב־Wagrain</strong>
+</a>,
+
+במרחק של כ־4–5 דקות נסיעה מהמלון.
+
+מתאים להצטיידות במים,
+פירות,
+כריכים,
+נשנושים ומצרכים לדירה.
+
+בנוסף,
+ב־Hofgut עצמו יש גם חנות קטנה במתחם.
+
+</p>
+
+</div>
+
+
+<div class="tip-card">
+
+<div class="tip-icon">🫧</div>
+
+<h4>
+כביסה ב־Zillertal Suites
+</h4>
+
+<p>
+
+גם ב־Zillertal Suites Fügen
+יש חדר כביסה בקומת הקרקע
+עם מכונת כביסה ומייבש.
+
+לפי המידע העדכני באתר ALPS RESORTS,
+השימוש הוא בעלות של €1 לשעה.
+
+זה מאפשר לעשות כביסה נוספת
+לפני הלילה האחרון בווינה והטיסה הביתה.
+
+</p>
+
+</div>
+
+
+<div class="tip-card">
+
+<div class="tip-icon">🛒</div>
+
+<h4>
+סופר ליד Zillertal Suites
+</h4>
+
+<p>
+
+ממש ליד המלון נמצא
+
+<a
+  href="https://maps.app.goo.gl/6VjJ1ksYmGqJffj1A"
+  target="_blank"
+  rel="noopener">
+<strong>SPAR Lindenweg</strong>
+</a>
+
+— כ־190 מטר מהמלון,
+כלומר דקות בודדות ברגל וכדקה ברכב.
+
+מאחר שמגיעים לפוגן ביום ראשון,
+כדאי לבדוק שוב את שעות הפתיחה סמוך לטיול.
+
+גם אם הסופר פתוח בשעות מצומצמות,
+מומלץ לשקול לקנות כבר ביום שבת
+מוצרים שאינם דורשים קירור,
+ולוודא מראש אילו מסעדות פתוחות בפוגן בערב ההגעה.
+
+</p>
+
+</div>
+
+</div>
+
+
 <div class="important-note">
-<strong>בדיקה שבוע לפני:</strong> שעות פתיחה עונתיות לכל רכבל/מגלשה/נקיק; מצב Grafenberg לאחר השיפוץ; שלג בקיצשטיינהורן; מצב כביש גרוסגלוקנר; תחזית ל־Olpererhütte; הזמנות ל־Aqua Dome; והאם ההטבות בכרטיס האזורי אכן תקפות בסוף ספטמבר.
-      </div>
+
+<strong>
+בדיקה שבוע לפני:
+</strong>
+
+שעות פתיחה עונתיות לכל רכבל/מגלשה/נקיק;
+מצב Grafenberg לאחר השיפוץ;
+שלג בקיצשטיינהורן;
+מצב כביש גרוסגלוקנר;
+תחזית ל־Olpererhütte;
+הזמנות ל־Aqua Dome;
+והאם ההטבות בכרטיס האזורי אכן תקפות בסוף ספטמבר.
+
+</div>
+
 </div>
 </section>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+     ================================================== -->
+
 <script>
-    // ==================================================
-    // Flight status
-    // ==================================================
-    const AVIATION_API_KEY = "PUT_YOUR_KEY_HERE";
-    const FLIGHT_DATES = {
-      'OS84': new Date(2026, 8, 22),
-      'OS83': new Date(2026, 9, 2)
+
+/* ==================================================
+   FLIGHT STATUS
+   ================================================== */
+
+const AVIATION_API_KEY = "PUT_YOUR_KEY_HERE";
+
+const FLIGHT_DATES = {
+  OS84:new Date(2026,8,22),
+  OS83:new Date(2026,9,2)
+};
+
+
+function isFlightDateNear(flightDate){
+
+  const today=new Date();
+
+  const days=
+    (flightDate.getTime()-today.getTime())/
+    (1000*60*60*24);
+
+  return days<60 && days>=-1;
+}
+
+
+async function fetchLiveFlightStatus(
+  flightIATA,
+  flightDate,
+  targetId
+){
+
+  const target=
+    document.getElementById(targetId);
+
+  if(!target){
+    return;
+  }
+
+
+  if(
+    !AVIATION_API_KEY ||
+    AVIATION_API_KEY==="PUT_YOUR_KEY_HERE"
+  ){
+
+    target.innerHTML=
+      '<span class="flight-status">מתוכננת</span>';
+
+    return;
+  }
+
+
+  const y=
+    flightDate.getFullYear();
+
+  const m=
+    String(
+      flightDate.getMonth()+1
+    ).padStart(2,'0');
+
+  const d=
+    String(
+      flightDate.getDate()
+    ).padStart(2,'0');
+
+
+  const url=
+    `https://api.aviationstack.com/v1/flights?access_key=${AVIATION_API_KEY}&flight_iata=${flightIATA}&flight_date=${y}-${m}-${d}`;
+
+
+  try{
+
+    const response=
+      await fetch(url);
+
+    const data=
+      await response.json();
+
+    const flight=
+      data?.data?.[0];
+
+    if(!flight){
+      throw new Error('No data');
+    }
+
+
+    const map={
+      scheduled:'מתוכננת',
+      active:'בטיסה 🛫',
+      landed:'נחתה ✅',
+      cancelled:'בוטלה ❌'
     };
 
-    function isFlightDateNear(flightDate){
-      const today=new Date();
-      const days=(flightDate.getTime()-today.getTime())/(1000*60*60*24);
-      return days<60 && days>=-1;
-    }
 
-    async function fetchLiveFlightStatus(flightIATA, flightDate, targetId){
-      const target=document.getElementById(targetId);
-      if(!target) return;
-      if(!AVIATION_API_KEY || AVIATION_API_KEY==="PUT_YOUR_KEY_HERE"){
-        target.innerHTML='<span class="flight-status">מתוכננת</span>';
-        return;
+    target.innerHTML=
+      `<span class="flight-status">${
+        map[flight.flight_status] ||
+        flight.flight_status ||
+        'לא ידוע'
+      }</span>`;
+
+  }
+
+  catch(e){
+
+    target.innerHTML=
+      '<span class="flight-status-error">אין כרגע נתון חי</span>';
+
+  }
+}
+
+
+function loadFlightData(){
+
+  [
+    ['OS84','flight-status-outbound'],
+    ['OS83','flight-status-return']
+  ]
+
+  .forEach(
+    ([flight,id])=>{
+
+      if(
+        isFlightDateNear(
+          FLIGHT_DATES[flight]
+        )
+      ){
+
+        fetchLiveFlightStatus(
+          flight,
+          FLIGHT_DATES[flight],
+          id
+        );
+
       }
-      const y=flightDate.getFullYear();
-      const m=String(flightDate.getMonth()+1).padStart(2,'0');
-      const d=String(flightDate.getDate()).padStart(2,'0');
-      const url=`https://api.aviationstack.com/v1/flights?access_key=${AVIATION_API_KEY}&flight_iata=${flightIATA}&flight_date=${y}-${m}-${d}`;
-      try{
-        const response=await fetch(url);
-        const data=await response.json();
-        const flight=data?.data?.[0];
-        if(!flight) throw new Error('No data');
-        const map={scheduled:'מתוכננת',active:'בטיסה 🛫',landed:'נחתה ✅',cancelled:'בוטלה ❌'};
-        target.innerHTML=`<span class="flight-status">${map[flight.flight_status] || flight.flight_status || 'לא ידוע'}</span>`;
-      }catch(e){
-        target.innerHTML='<span class="flight-status-error">אין כרגע נתון חי</span>';
-      }
+
     }
+  );
 
-    function loadFlightData(){
-      [['OS84','flight-status-outbound'],['OS83','flight-status-return']].forEach(([flight,id])=>{
-        if(isFlightDateNear(FLIGHT_DATES[flight])) fetchLiveFlightStatus(flight,FLIGHT_DATES[flight],id);
-      });
-    }
+}
 
-    // ==================================================
-    // Date-aware weather: do NOT show today's weather
-    // for a trip that is weeks/months away.
-    // Open-Meteo forecast is requested only when the
-    // trip date is within the next 16 days.
-    // ==================================================
-    const cityCoordinates={
-      Vienna:{lat:48.21,lon:16.37,name:'וינה'},
-      Salzburg:{lat:47.80,lon:13.04,name:'זלצבורג'},
-      Hallstatt:{lat:47.56,lon:13.65,name:'האלשטאט'},
-      Flachau:{lat:47.34,lon:13.39,name:'פלאכאו'},
-      Kaprun:{lat:47.27,lon:12.76,name:'קפרון'},
-      Krimml:{lat:47.22,lon:12.18,name:'קרימל'},
-      Innsbruck:{lat:47.27,lon:11.39,name:'אינסברוק'},
-      Mayrhofen:{lat:47.17,lon:11.87,name:'מיירהופן'}
-    };
 
-    function getWeatherIcon(code){
-      if(code===0) return '☀️';
-      if(code<=3) return '🌤️';
-      if(code<=48) return '🌫️';
-      if(code<=67) return '🌧️';
-      if(code<=77) return '❄️';
-      if(code<=82) return '🌦️';
-      if(code<=86) return '🌨️';
-      return '⛈️';
-    }
+/* ==================================================
+   WEATHER
+   Open-Meteo forecasts are displayed only when the
+   requested date is inside the available forecast
+   window.
+   ================================================== */
 
-    async function fetchTripWeather(){
-      const els=[...document.querySelectorAll('.day-weather')];
-      const now=new Date();
+const cityCoordinates={
 
-      const tasks=els.map(async el=>{
-        const city=cityCoordinates[el.dataset.cityName];
-        const tripDate=new Date(el.dataset.tripDate+'T12:00:00');
-        if(!city || Number.isNaN(tripDate.getTime())) return;
+  Vienna:{
+    lat:48.21,
+    lon:16.37,
+    name:'וינה'
+  },
 
-        const daysAway=(tripDate-now)/(1000*60*60*24);
+  Salzburg:{
+    lat:47.80,
+    lon:13.04,
+    name:'זלצבורג'
+  },
+
+  Hallstatt:{
+    lat:47.56,
+    lon:13.65,
+    name:'האלשטאט'
+  },
+
+  Flachau:{
+    lat:47.34,
+    lon:13.39,
+    name:'פלאכאו'
+  },
+
+  Gosau:{
+    lat:47.53,
+    lon:13.50,
+    name:'Gosausee'
+  },
+
+  Kaprun:{
+    lat:47.27,
+    lon:12.76,
+    name:'קפרון'
+  },
+
+  Grossglockner:{
+    lat:47.07,
+    lon:12.69,
+    name:'גרוסגלוקנר'
+  },
+
+  Krimml:{
+    lat:47.22,
+    lon:12.18,
+    name:'קרימל'
+  },
+
+  Innsbruck:{
+    lat:47.27,
+    lon:11.39,
+    name:'אינסברוק'
+  },
+
+  Mayrhofen:{
+    lat:47.17,
+    lon:11.87,
+    name:'צילרטל'
+  },
+
+  Guenzburg:{
+    lat:48.46,
+    lon:10.28,
+    name:'גינצבורג'
+  },
+
+  Hintertux:{
+    lat:47.12,
+    lon:11.68,
+    name:'הינטרטוקס'
+  }
+
+};
+
+
+function getWeatherIcon(code){
+
+  if(code===0) return '☀️';
+
+  if(code<=3) return '🌤️';
+
+  if(code<=48) return '🌫️';
+
+  if(code<=67) return '🌧️';
+
+  if(code<=77) return '❄️';
+
+  if(code<=82) return '🌦️';
+
+  if(code<=86) return '🌨️';
+
+  return '⛈️';
+
+}
+
+
+function updateWeatherElement(
+  el,
+  {
+    icon,
+    temp,
+    status
+  }
+){
+
+  const iconElement=
+    el.querySelector('.weather-icon');
+
+  const tempElement=
+    el.querySelector('.weather-temp');
+
+  const statusElement=
+    el.querySelector('.weather-status');
+
+
+  if(
+    iconElement &&
+    icon!==undefined
+  ){
+    iconElement.textContent=icon;
+  }
+
+
+  if(
+    tempElement &&
+    temp!==undefined
+  ){
+    tempElement.textContent=temp;
+  }
+
+
+  if(
+    statusElement &&
+    status!==undefined
+  ){
+    statusElement.textContent=status;
+  }
+
+}
+
+
+async function fetchTripWeather(){
+
+  const els=[
+    ...document.querySelectorAll(
+      '.day-weather'
+    )
+  ];
+
+
+  if(!els.length){
+    return;
+  }
+
+
+  const now=
+    new Date();
+
+
+  const tasks=
+    els.map(
+      async el=>{
+
+        const city=
+          cityCoordinates[
+            el.dataset.cityName
+          ];
+
+
+        const tripDate=
+          new Date(
+            el.dataset.tripDate +
+            'T12:00:00'
+          );
+
+
+        if(
+          !city ||
+          Number.isNaN(
+            tripDate.getTime()
+          )
+        ){
+
+          return;
+        }
+
+
+        const daysAway=
+          (tripDate-now)/
+          (1000*60*60*24);
+
+
+        /*
+         * Open-Meteo's standard forecast window is
+         * up to roughly 16 days.
+         */
 
         if(daysAway>16){
-          el.querySelector('.weather-icon').textContent='🗓️';
-          el.querySelector('.weather-temp').textContent=`${city.name}: תחזית תופעל 16 יום לפני`;
-          el.querySelector('.weather-status').textContent='התחזית תתעדכן אוטומטית סמוך לטיול';
+
+          updateWeatherElement(
+            el,
+            {
+              icon:'🗓️',
+              temp:
+                `${city.name}: תחזית תופעל 16 יום לפני`,
+              status:
+                'התחזית תתעדכן אוטומטית סמוך לטיול'
+            }
+          );
+
           return;
         }
+
+
         if(daysAway<-1){
-          el.querySelector('.weather-icon').textContent='✓';
-          el.querySelector('.weather-temp').textContent=`${city.name}: מועד הטיול עבר`;
+
+          updateWeatherElement(
+            el,
+            {
+              icon:'✓',
+              temp:
+                `${city.name}: מועד הטיול עבר`,
+              status:''
+            }
+          );
+
           return;
         }
 
-        const date=el.dataset.tripDate;
-        const url=`https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Europe%2FVienna&start_date=${date}&end_date=${date}`;
+
+        const date=
+          el.dataset.tripDate;
+
+
+        const url=
+          `https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Europe%2FVienna&start_date=${date}&end_date=${date}`;
+
+
         try{
-          const r=await fetch(url);
-          const data=await r.json();
-          const daily=data?.daily;
-          if(!r.ok || !daily?.time?.length) throw new Error('Weather unavailable');
 
-          const code=daily.weather_code[0];
-          const max=Math.round(daily.temperature_2m_max[0]);
-          const min=Math.round(daily.temperature_2m_min[0]);
-          const rain=daily.precipitation_probability_max[0];
+          const r=
+            await fetch(url);
 
-          el.querySelector('.weather-icon').textContent=getWeatherIcon(code);
-          el.querySelector('.weather-temp').textContent=`${city.name}: ${min}°–${max}° · גשם ${rain}%`;
-          el.querySelector('.weather-status').textContent='תחזית יומית מעודכנת';
-        }catch(e){
-          el.querySelector('.weather-icon').textContent='🌦️';
-          el.querySelector('.weather-temp').textContent=`${city.name}: התחזית לא נטענה`;
-          el.querySelector('.weather-status').textContent='נסו לרענן מאוחר יותר';
+
+          const data=
+            await r.json();
+
+
+          const daily=
+            data?.daily;
+
+
+          if(
+            !r.ok ||
+            !daily?.time?.length
+          ){
+
+            throw new Error(
+              'Weather unavailable'
+            );
+
+          }
+
+
+          const code=
+            daily.weather_code[0];
+
+          const max=
+            Math.round(
+              daily.temperature_2m_max[0]
+            );
+
+          const min=
+            Math.round(
+              daily.temperature_2m_min[0]
+            );
+
+          const rain=
+            daily.precipitation_probability_max[0];
+
+
+          updateWeatherElement(
+            el,
+            {
+              icon:
+                getWeatherIcon(code),
+
+              temp:
+                `${city.name}: ${min}°–${max}° · גשם ${rain}%`,
+
+              status:
+                'תחזית יומית מעודכנת'
+            }
+          );
+
         }
-      });
 
-      await Promise.allSettled(tasks);
+        catch(e){
+
+          updateWeatherElement(
+            el,
+            {
+              icon:'🌦️',
+              temp:
+                `${city.name}: התחזית לא נטענה`,
+              status:
+                'נסו לרענן מאוחר יותר'
+            }
+          );
+
+        }
+
+      }
+    );
+
+
+  await Promise.allSettled(tasks);
+
+}
+
+
+/* ==================================================
+   ACCORDION
+   ================================================== */
+
+function setDayOpen(card,open){
+
+  const d=
+    card.querySelector('.day-native');
+
+  if(d){
+    d.open=!!open;
+  }
+
+}
+
+
+const openAllButton=
+  document.getElementById(
+    'open-all'
+  );
+
+
+if(openAllButton){
+
+  openAllButton.addEventListener(
+    'click',
+    ()=>{
+
+      document
+        .querySelectorAll('.day-card')
+        .forEach(
+          card=>{
+
+            if(
+              card.style.display!==
+              'none'
+            ){
+
+              setDayOpen(
+                card,
+                true
+              );
+
+            }
+
+          }
+        );
+
     }
+  );
 
-    // ==================================================
-    // Accordion
-    // ==================================================
-    // ==================================================
-    // Native accordion helpers
-    // ==================================================
-    function setDayOpen(card, open){
-      const d=card.querySelector('.day-native');
-      if(d) d.open=!!open;
+}
+
+
+const closeAllButton=
+  document.getElementById(
+    'close-all'
+  );
+
+
+if(closeAllButton){
+
+  closeAllButton.addEventListener(
+    'click',
+    ()=>{
+
+      document
+        .querySelectorAll('.day-card')
+        .forEach(
+          card=>
+            setDayOpen(
+              card,
+              false
+            )
+        );
+
     }
+  );
 
-    document.getElementById('open-all').addEventListener('click',()=>{
-      document.querySelectorAll('.day-card').forEach(card=>{
-        if(card.style.display!=='none') setDayOpen(card,true);
-      });
-    });
-    document.getElementById('close-all').addEventListener('click',()=>{
-      document.querySelectorAll('.day-card').forEach(card=>setDayOpen(card,false));
-    });
-
-    // ==================================================
-    // Filters
-    // ==================================================
-    document.querySelectorAll('.filter-btn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter=btn.dataset.filter;
-        document.querySelectorAll('.day-card').forEach(card=>{
-          const show=filter==='all' || (card.dataset.type||'').includes(filter);
-          card.style.display=show?'grid':'none';
-          if(show){ card.style.opacity='1'; card.style.visibility='visible'; }
-          if(!show) setDayOpen(card,false);
-        });
-      });
-    });
+}
 
 
-    window.addEventListener('load',()=>{
-      loadFlightData();
-      fetchTripWeather();
-    });
-  </script>
+/* ==================================================
+   FILTERS
+   ================================================== */
+
+document
+  .querySelectorAll('.filter-btn')
+  .forEach(
+    btn=>{
+
+      btn.addEventListener(
+        'click',
+        ()=>{
+
+          document
+            .querySelectorAll(
+              '.filter-btn'
+            )
+            .forEach(
+              b=>
+                b.classList.remove(
+                  'active'
+                )
+            );
+
+
+          btn
+            .classList
+            .add('active');
+
+
+          const filter=
+            btn.dataset.filter;
+
+
+          document
+            .querySelectorAll(
+              '.day-card'
+            )
+            .forEach(
+              card=>{
+
+                const show=
+                  filter==='all' ||
+                  (
+                    card.dataset.type ||
+                    ''
+                  ).includes(filter);
+
+
+                card.style.display=
+                  show ?
+                  'grid' :
+                  'none';
+
+
+                if(show){
+
+                  card.style.opacity='1';
+                  card.style.visibility='visible';
+
+                }
+
+                else{
+
+                  setDayOpen(
+                    card,
+                    false
+                  );
+
+                }
+
+              }
+            );
+
+        }
+      );
+
+    }
+  );
+
+
+/* ==================================================
+   START
+   ================================================== */
+
+function initializeTripPage(){
+
+  loadFlightData();
+
+  fetchTripWeather();
+
+}
+
+
+if(
+  document.readyState===
+  'loading'
+){
+
+  document.addEventListener(
+    'DOMContentLoaded',
+    initializeTripPage
+  );
+
+}
+
+else{
+
+  initializeTripPage();
+
+}
+
+</script>
+
 </body>
 </html>
